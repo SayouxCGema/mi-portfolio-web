@@ -4,16 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Título actualizado -->
     <title>Gema Calderón Sayoux - Especialista en Marketing Digital</title>
     
-    <!-- Conexión con el archivo CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    
-    <!-- Iconos de Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- CSS de Swiper.js para el carrusel -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body>
@@ -23,6 +17,7 @@
                 <a href="#">Gema Calderón Sayoux</a>
             </div>
             <nav>
+                <a href="#sobre-mi">Sobre mí</a>
                 <a href="#servicios">Servicios</a>
                 <a href="#portafolio">Clientes</a>
                 <a href="#certificados">Certificados</a>
@@ -32,35 +27,37 @@
     </header>
 
     <main>
-        <!-- SECCIÓN DE BIENVENIDA Y RESEÑAS -->
+        <!-- SECCIÓN DE BIENVENIDA (HERO) -->
         <section id="inicio" class="fade-in">
             <div class="container">
-                <div class="intro-content">
-                    <div class="intro-text">
-                        <h2>Impulsa tu negocio con SEO, Google Ads y Análisis de Datos
-.</h2>
-                        <p>Soy Gema Calderón, consultora digital especializada en ayudar a pequeñas empresas y agencias a crecer con soluciones a medida, bien pensadas y que generan resultados reales.</p>
-                        <a href="#contacto" class="cta-button">Hablemos de tu proyecto</a>
-                    </div>
-                    <div class="reviews">
-                        <h3>Lo que dicen mis clientes</h3>
-                        <div class="review-card">
-                            <p>"Un placer volver a contar con Gema. Gran profesional y siempre con predisposición a ayudar."</p>
-                            <footer>Borja - Cliente en Freelancer ⭐⭐⭐⭐⭐</footer>
-                        </div>
-                        <div class="review-card">
-                            <p>"great communication, no problems at all, kind person finished job so fast without any problems Highly recommended"</p>
-                            <footer> Trapole - Cliente en Freelancer ⭐⭐⭐⭐⭐</footer>
-                        </div>
-                         <div class="review-card">
-                            <p>"Excelente. Muy profesional, cumplió con lo acordado y realizó un buen trabajo. Estuvo muy pendiente de todo. Seguiré trabajando con ella"</p>
-                            <footer>- Borja - Cliente en Freelancer ⭐⭐⭐⭐⭐</footer>
-                        </div>
-                    </div>
+                <div class="hero-content">
+                    <h2>Impulsa tu negocio con SEO, Google Ads y Análisis de Datos.</h2>
+                    <p>Soy Gema Calderón, consultora digital especializada en ayudar a pequeñas empresas y agencias a crecer con soluciones a medida, bien pensadas y que generan resultados reales.</p>
+                    <a href="#contacto" class="cta-button">Hablemos de tu proyecto</a>
                 </div>
             </div>
         </section>
 
+        <!-- NUEVA SECCIÓN "SOBRE MÍ" -->
+        <section id="sobre-mi" class="fade-in">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image">
+                        <!-- Sube tu foto a 'static/img/' y llámala 'mi-foto.jpg' o cambia el nombre aquí -->
+                        <img src="{{ url_for('static', filename='img/fotogema.jpg') }}" alt="Gema Calderón Sayoux marketing digital">
+                    </div>
+                    <div class="about-text">
+                        <div class="section-title-left">
+                            <span>Conóceme</span>
+                            <h2>Hola, soy Gema</h2>
+                        </div>
+                        <p>Con una pasión por la creatividad y un enfoque analítico, mi misión es ayudar a marcas como la tuya a conectar con su audiencia de manera auténtica y efectiva. Creo en un marketing que no solo vende, sino que también aporta valor y construye relaciones duraderas.</p>
+                        <p>Mi experiencia abarca desde la planificación estratégica y SEO hasta la gestión de campañas publicitarias, siempre con el objetivo de transformar ideas en resultados medibles.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <!-- SECCIÓN DE SERVICIOS -->
         <section id="servicios" class="fade-in">
             <div class="container">
@@ -71,11 +68,8 @@
                 </div>
                 <div class="packs-container">
                     <!-- Pack por Proyectos -->
-                    <div class="pack pack-proyectos">
-                        <div class="pack-header">
-                            <i class="fas fa-rocket pack-icon"></i>
-                            <h3>Packs por Proyecto</h3>
-                        </div>
+                    <div class="pack">
+                        <div class="pack-header"><i class="fas fa-rocket pack-icon"></i><h3>Packs por Proyecto</h3></div>
                         <p class="pack-description">Soluciones integrales con un precio cerrado para objetivos concretos.</p>
                         <ul>
                             <li>🌟 Web completa (WordPress o HTML + SEO básico)</li>
@@ -85,11 +79,8 @@
                         <a href="#contacto" class="cta-button-outline">Solicitar presupuesto</a>
                     </div>
                     <!-- Pack por Horas -->
-                    <div class="pack pack-horas">
-                         <div class="pack-header">
-                            <i class="fas fa-clock pack-icon"></i>
-                            <h3>Packs por Horas</h3>
-                        </div>
+                    <div class="pack">
+                         <div class="pack-header"><i class="fas fa-clock pack-icon"></i><h3>Packs por Horas</h3></div>
                         <p class="pack-description">Flexibilidad total para consultoría, mantenimiento o tareas puntuales.</p>
                         <ul>
                             <li><strong>1h:</strong> 45 €</li>
@@ -103,27 +94,19 @@
             </div>
         </section>
 
-        <!-- SECCIÓN PORTAFOLIO / CLIENTES CON CARRUSEL -->
+        <!-- SECCIÓN PORTAFOLIO / CLIENTES -->
         <section id="portafolio" class="fade-in">
             <div class="container">
                 <div class="section-title">
                     <span>Confianza</span>
                     <h2>Marcas que han confiado en mí</h2>
                 </div>
-                <!-- Slider main container -->
-                <div class="swiper client-carousel">
-                    <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
-                        <!-- Slides -->
-                        <!-- REEMPLAZA 'logo1.png' etc, CON LOS NOMBRES DE TUS ARCHIVOS DE IMAGEN -->
-                        <!-- Sube tus logos a la carpeta 'static/img/' -->
-                        <div class="swiper-slide"><img src="{{ url_for('static', filename='img/logo_h.png') }}" alt="Logo Cliente 1"></div>
-                        <div class="swiper-slide"><img src="{{ url_for('static', filename='img/Logo_katarsia-1.png') }}" alt="Logo Cliente 2"></div>
-                        <div class="swiper-slide"><img src="{{ url_for('static', filename='img/milloret-logo.jpg') }}" alt="Logo Cliente 3"></div>
-                    </div>
-                    <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                <!-- Logos centrados estáticos -->
+                <div class="client-logos">
+                    <!-- Sube tus logos a la carpeta 'static/img/' -->
+                    <div class="logo-item"><img src="{{ url_for('static', filename='logo_h.png') }}" alt="Logo Cliente 1"></div>
+                    <div class="logo-item"><img src="{{ url_for('static', filename='img/Logo_katarsia-1.png') }}" alt="Logo Cliente 2"></div>
+                    <div class="logo-item"><img src="{{ url_for('static', filename='img/milloret-logo.jpg') }}" alt="Logo Cliente 3"></div>
                 </div>
             </div>
         </section>
@@ -137,57 +120,72 @@
                     <p>Compromiso constante con el aprendizaje y las mejores prácticas del sector.</p>
                 </div>
                 <div class="certificates-container">
-                    <!-- REEMPLAZA 'cert1.png' etc, CON LOS NOMBRES DE TUS ARCHIVOS DE IMAGEN -->
                     <!-- Sube tus certificados a la carpeta 'static/img/' -->
-                    <div class="certificate-item">
-                        <img src="{{ url_for('static', filename='img/analisis_de_datos.jpg') }}" alt="Certificado Google 1">
-                    </div>
-                    <div class="certificate-item">
-                        <img src="{{ url_for('static', filename='img/Certificado de Marketing Digital e Ecommerce.png') }}" alt="Certificado Google 2">
-                    </div>
-                    <div class="certificate-item">
-                        <img src="{{ url_for('static', filename='img/ibm.jpg') }}" alt="Certificado IBM">
-                    </div>
+                    <div class="certificate-item"><img src="{{ url_for('static', filename='img/analisis_de_datos.jpg') }}" alt="Certificado Google 1"></div>
+                    <div class="certificate-item"><img src="{{ url_for('static', filename='img/Certificado de Marketing Digital e Ecommerce.png') }}" alt="Certificado Google 2"></div>
+                    <div class="certificate-item"><img src="{{ url_for('static', filename='img/ibm.jpg') }}" alt="Certificado Google 3"></div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN CONTACTO -->
+        <!-- SECCIÓN RESEÑAS (REUBICADA) Y CONTACTO -->
         <section id="contacto" class="fade-in">
             <div class="container">
+                <!-- Reseñas -->
                 <div class="section-title">
-                    <span>Contacto</span>
-                    <h2>¿Listo para empezar?</h2>
-                    <p>Rellena el formulario y daré respuesta a tu consulta en menos de 24 horas.</p>
+                    <span>Opiniones</span>
+                    <h2>Lo que dicen mis clientes</h2>
                 </div>
-                <!-- Mensaje de éxito del formulario -->
-                {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-                        {% for category, message in messages %}
-                            <div class="flash-{{ category }}">{{ message }}</div>
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
+                <div class="reviews-container">
+                    <div class="review-card">
+                        <p>"Un placer volver a contar con Gema. Gran profesional y siempre con predisposición a ayudar"</p>
+                        <footer>- Borja - Cliente en Freelancer ⭐⭐⭐⭐⭐</footer>
+                    </div>
+                    <div class="review-card">
+                        <p>"great communication, no problems at all, kind person finished job so fast without any problems Highly recommended"</p>
+                        <footer>- Trapole - Cliente en Freelancer ⭐⭐⭐⭐⭐</footer>
+                    </div>
+                     <div class="review-card">
+                        <p>"Excelente. Muy profesional, cumplió con lo acordado y realizó un buen trabajo. Estuvo muy pendiente de todo. Seguiré trabajando con ella"</p>
+                        <footer>- Borja - Cliente en Freelancer ⭐⭐⭐⭐⭐</footer>
+                    </div>
+                </div>
 
-                <form action="{{ url_for('enviar_formulario') }}" method="POST" class="contact-form">
-                    <div class="form-group"><input type="text" name="nombre" placeholder="Nombre" required></div>
-                    <div class="form-group"><input type="text" name="apellidos" placeholder="Apellidos" required></div>
-                    <div class="form-group"><input type="email" name="email" placeholder="Email" required></div>
-                    <div class="form-group">
-                        <select name="pack_interes" required>
-                            <option value="" disabled selected>Servicio de interés...</option>
-                            {% for pack in packs %}
-                            <option value="{{ pack }}">{{ pack }}</option>
+                <!-- Formulario -->
+                <div class="contact-wrapper">
+                    <div class="section-title">
+                        <span>Contacto</span>
+                        <h2>¿Listo para empezar?</h2>
+                        <p>Rellena el formulario y daré respuesta a tu consulta dentro de las próximas 24 horas.</p>
+                    </div>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="flash-{{ category }}">{{ message }}</div>
                             {% endfor %}
-                        </select>
-                    </div>
-                    <div class="form-group full-width">
-                        <textarea name="notas" rows="5" placeholder="Cuéntame más sobre tu proyecto..."></textarea>
-                    </div>
-                    <div class="form-group full-width">
-                        <button type="submit" class="cta-button">Enviar Mensaje</button>
-                    </div>
-                </form>
+                        {% endif %}
+                    {% endwith %}
+
+                    <form action="{{ url_for('enviar_formulario') }}" method="POST" class="contact-form">
+                        <div class="form-group"><input type="text" name="nombre" placeholder="Nombre" required></div>
+                        <div class="form-group"><input type="text" name="apellidos" placeholder="Apellidos" required></div>
+                        <div class="form-group"><input type="email" name="email" placeholder="Email" required></div>
+                        <div class="form-group">
+                            <select name="pack_interes" required>
+                                <option value="" disabled selected>Servicio de interés...</option>
+                                {% for pack in packs %}
+                                <option value="{{ pack }}">{{ pack }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <textarea name="notas" rows="5" placeholder="Cuéntame más sobre tu proyecto..."></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <button type="submit" class="cta-button">Enviar Mensaje</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
@@ -202,9 +200,7 @@
         </div>
     </footer>
 
-    <!-- JS de Swiper.js para el carrusel -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- Tu propio archivo JavaScript -->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

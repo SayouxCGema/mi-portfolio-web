@@ -1,104 +1,181 @@
 /* Contenido para: static/css/style.css */
 
-/* --- VARIABLES DE COLOR Y FUENTES (Tu paleta personal) --- */
+/* --- VARIABLES Y ESTILOS BASE --- */
 :root {
-    --color-primario: #6A0DAD; /* Púrpura */
-    --color-secundario: #FF69B4; /* Rosa vibrante */
-    --color-fondo: #FAF5FF; /* Lila muy claro */
-    --color-texto: #333333; /* Gris oscuro */
-    --color-blanco: #FFFFFF;
+    --color-primario: #1a1a2e; /* Azul noche oscuro */
+    --color-secundario: #16213e; /* Azul más claro */
+    --color-acento: #0f3460; /* Azul acento */
+    --color-cta: #e94560; /* Rosa/Rojo para llamadas a la acción */
+    --color-texto-claro: #e0e0e0;
+    --color-texto-oscuro: #333333;
+    --color-fondo: #f4f7f9; /* Fondo gris muy claro */
+    --color-blanco: #ffffff;
     
-    /* Colores específicos para los packs de servicios */
-    --color-pack-1-border: #9333EA;
-    --color-pack-2-border: #E11D48;
-    
-    --font-principal: 'Segoe UI', 'Roboto', sans-serif;
-    --border-radius: 12px;
-    --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --font-principal: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+    --border-radius: 8px;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* --- ESTILOS GENERALES Y SCROLL SUAVE --- */
-html {
-    scroll-behavior: smooth;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+html { scroll-behavior: smooth; }
 
 body {
     font-family: var(--font-principal);
     background-color: var(--color-fondo);
-    color: var(--color-texto);
+    color: var(--color-texto-oscuro);
     margin: 0;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .container {
-    max-width: 960px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-h1, h2, h3 {
-    color: var(--color-primario);
-    font-weight: 700;
-}
-
-/* --- HEADER Y NAVEGACIÓN --- */
+/* --- HEADER --- */
 header {
-    background: var(--color-primario);
-    color: var(--color-blanco);
-    padding: 1.5rem 0;
+    background: var(--color-blanco);
+    padding: 1rem 0;
     text-align: center;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-bottom: 1px solid #eef;
 }
-header .subtitle {
-    color: var(--color-blanco);
-    opacity: 0.9;
-    font-style: italic;
-    margin-top: -10px;
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo a {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--color-primario);
+    text-decoration: none;
 }
 nav a {
     margin: 0 15px;
-    color: var(--color-blanco);
+    color: var(--color-texto-oscuro);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 400;
     transition: color 0.3s ease;
 }
-nav a:hover {
-    color: var(--color-secundario);
-}
+nav a:hover { color: var(--color-cta); }
 
-/* --- SECCIONES --- */
+/* --- SECCIONES Y TÍTULOS --- */
 section {
-    padding: 60px 0;
-    border-bottom: 1px solid #e0cffc;
+    padding: 80px 0;
+    border-bottom: 1px solid #e6e9ec;
 }
-section:last-of-type {
-    border-bottom: none;
+section:last-of-type { border-bottom: none; }
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.section-title span {
+    color: var(--color-cta);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--color-primario);
+    margin: 10px 0;
+    font-weight: 800;
+}
+.section-title p {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #666;
 }
 
-/* --- ANIMACIÓN DE FADE-IN (controlada por JavaScript) --- */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+/* --- SECCIÓN DE INICIO Y RESEÑAS --- */
+#inicio { background-color: var(--color-blanco); }
+.intro-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    align-items: center;
 }
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+.intro-text h2 {
+    font-size: 3rem;
+    line-height: 1.2;
+    color: var(--color-primario);
+    font-weight: 800;
+}
+.intro-text p {
+    font-size: 1.1rem;
+    margin: 20px 0 30px;
+}
+.reviews h3 {
+    color: var(--color-primario);
+    margin-bottom: 20px;
+}
+.review-card {
+    background: var(--color-fondo);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+    border-left: 4px solid var(--color-cta);
+}
+.review-card footer {
+    font-size: 0.9em;
+    font-style: italic;
+    margin-top: 10px;
+    color: #555;
 }
 
-/* --- SECCIÓN DE SERVICIOS Y PACKS --- */
+/* --- BOTONES --- */
+.cta-button {
+    background: var(--color-cta);
+    color: var(--color-blanco);
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.cta-button:hover {
+    background: var(--color-primario);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+}
+.cta-button-outline {
+    background: transparent;
+    color: var(--color-cta);
+    border: 2px solid var(--color-cta);
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    margin-top: auto;
+}
+.cta-button-outline:hover {
+    background: var(--color-cta);
+    color: var(--color-blanco);
+}
+
+/* --- SECCIÓN DE SERVICIOS (PACKS) --- */
 .packs-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
-    margin-top: 40px;
 }
 .pack {
     background: var(--color-blanco);
-    padding: 30px;
+    padding: 40px;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     display: flex;
@@ -107,45 +184,88 @@ section:last-of-type {
 }
 .pack:hover {
     transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.pack-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.pack-icon {
+    font-size: 2rem;
+    color: var(--color-cta);
 }
 .pack h3 {
-    margin-top: 0;
-    border-bottom: 2px solid;
-    padding-bottom: 10px;
+    margin: 0;
+    color: var(--color-primario);
+    font-size: 1.5rem;
+}
+.pack-description {
+    color: #666;
+    margin-bottom: 20px;
+    flex-grow: 1;
 }
 .pack ul {
     list-style: none;
     padding: 0;
-    flex-grow: 1; /* Esto empuja el botón de acción hacia abajo */
+    margin-bottom: 30px;
 }
-.pack ul li { padding: 8px 0; }
-
-/* Colores diferenciados para los packs */
-.pack-proyectos { border-left: 7px solid var(--color-pack-1-border); }
-.pack-proyectos h3 { border-color: var(--color-pack-1-border); }
-
-.pack-horas { border-left: 7px solid var(--color-pack-2-border); }
-.pack-horas h3 { border-color: var(--color-pack-2-border); }
-
-/* --- BOTÓN DE LLAMADA A LA ACCIÓN (CTA) --- */
-.cta-button {
-    display: inline-block;
-    background-color: var(--color-secundario);
-    color: var(--color-blanco);
-    padding: 12px 25px;
-    border-radius: 50px;
-    text-decoration: none;
+.pack ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.pack ul li:before {
+    content: '✓';
+    color: var(--color-cta);
+    margin-right: 10px;
     font-weight: bold;
-    text-align: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-top: 20px; /* Espacio sobre el botón */
 }
-.cta-button:hover {
-    background-color: var(--color-primario);
-    transform: scale(1.05);
+
+/* --- PORTAFOLIO / CARRUSEL DE CLIENTES --- */
+#portafolio { background-color: var(--color-blanco); }
+.client-carousel {
+    padding: 20px 0;
+}
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.swiper-slide img {
+    max-height: 60px;
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+.swiper-slide:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+.swiper-button-prev, .swiper-button-next {
+    color: var(--color-cta);
+}
+
+/* --- CERTIFICADOS --- */
+.certificates-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+.certificate-item img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.certificate-item img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 /* --- FORMULARIO DE CONTACTO --- */
@@ -153,74 +273,73 @@ section:last-of-type {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    background: var(--color-blanco);
-    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.form-group { display: flex; }
+.form-group.full-width { grid-column: 1 / -1; }
+.contact-form input, .contact-form select, .contact-form textarea {
+    width: 100%;
+    padding: 15px;
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    margin-top: 30px;
-}
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-.form-group.full-width {
-    grid-column: 1 / -1; /* Ocupa todo el ancho */
-}
-.contact-form label {
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: var(--color-primario);
-}
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-    padding: 12px;
-    border-radius: 8px;
     border: 1px solid #ccc;
     font-family: var(--font-principal);
     font-size: 1rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: #999; }
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
     outline: none;
-    border-color: var(--color-primario);
-    box-shadow: 0 0 0 3px #e9d5ff; /* Sombra de foco con color lila */
+    border-color: var(--color-cta);
+    box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.2);
 }
-
-/* Mensaje de éxito del formulario */
 .flash-success {
     padding: 15px;
     background-color: #d1fae5;
     color: #065f46;
-    border: 1px solid #6ee7b7;
+    border-left: 5px solid #10b981;
     border-radius: var(--border-radius);
     text-align: center;
     margin-bottom: 20px;
-    grid-column: 1 / -1; /* Ocupa todo el ancho si está dentro del form */
+    grid-column: 1 / -1;
 }
 
 /* --- FOOTER --- */
 footer {
     background-color: var(--color-primario);
-    color: var(--color-blanco);
+    color: var(--color-texto-claro);
     text-align: center;
     padding: 30px 0;
 }
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .social-links a {
-    color: var(--color-blanco);
+    color: var(--color-texto-claro);
     font-size: 1.5rem;
     margin: 0 10px;
     transition: color 0.3s ease;
 }
-.social-links a:hover {
-    color: var(--color-secundario);
+.social-links a:hover { color: var(--color-cta); }
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    .intro-content { grid-template-columns: 1fr; }
+    .reviews { margin-top: 40px; }
+    .contact-form { grid-template-columns: 1fr; }
+    header .container, footer .container { flex-direction: column; gap: 15px; }
+    nav { margin-top: 10px; }
 }
 
-/* --- DISEÑO RESPONSIVE para móviles --- */
-@media (max-width: 768px) {
-    .contact-form {
-        grid-template-columns: 1fr; /* El formulario pasa a una sola columna */
-    }
+/* --- ANIMACIÓN DE FADE-IN --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }

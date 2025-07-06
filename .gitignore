@@ -1,0 +1,5 @@
+# Contenido para: .gitignore
+venv
+__pycache__/
+*.pyc
+.DS_Store

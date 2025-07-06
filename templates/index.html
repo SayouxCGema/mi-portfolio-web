@@ -1,0 +1,130 @@
+<!-- Contenido para: templates/index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gema Calderón - Estrategia Digital con Alma</title>
+    
+    <!-- 1. Enlazamos nuestra hoja de estilos CSS. `url_for` es una función de Flask que crea la ruta correcta. -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- 2. (Opcional pero recomendado) Enlazamos Font Awesome para tener iconos bonitos (email, LinkedIn). -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Gema Calderón</h1>
+            <p class="subtitle">Estrategia creativa, alma digital</p>
+            <nav>
+                <a href="#inicio">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#portafolio">Portafolio</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="fade-in">
+            <!-- (Contenido de la sección Inicio) -->
+        </section>
+
+        <section id="servicios" class="fade-in">
+            <div class="container">
+                <h2>Servicios que Impulsan tu Marca</h2>
+                <div class="packs-container">
+                    <div class="pack pack-proyectos">
+                        <h3>Packs por Proyecto</h3>
+                        <ul>
+                            <li>🌟 Web completa (WordPress o HTML + SEO básico) - <strong>desde 450 €</strong></li>
+                            <li>🎯 Campañas Google Ads + Analytics - <strong>desde 250 €</strong></li>
+                            <li>💡 Estrategia de contenidos SEO - <strong>desde 200 €</strong></li>
+                        </ul>
+                        <a href="#contacto" class="cta-button">¡Quiero un proyecto!</a>
+                    </div>
+                    <div class="pack pack-horas">
+                        <h3>Packs por Horas</h3>
+                        <ul>
+                            <li>1h: <strong>45 €</strong></li>
+                            <li>5h: <strong>200 €</strong></li>
+                            <li>10h: <strong>370 €</strong></li>
+                            <li>✨ Bono mensual 20h: <strong>690 €</strong> (ahorro del 20%)</li>
+                        </ul>
+                        <a href="#contacto" class="cta-button">¡Contratar horas!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portafolio" class="fade-in">
+            <!-- (Contenido de la sección Portafolio) -->
+        </section>
+
+        <section id="contacto" class="fade-in">
+            <div class="container">
+                <h2>Hablemos de tu Proyecto</h2>
+                <p>Rellena el formulario o contáctame directamente. ¡Estoy deseando conocer tu idea!</p>
+                
+                <!-- Aquí es donde aparecerá el mensaje de éxito "flash" que creamos en app.py -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="flash-{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <!-- FORMULARIO DE CONTACTO -->
+                <!-- El atributo `action` le dice al formulario a qué URL de nuestro `app.py` debe enviar los datos -->
+                <form action="{{ url_for('enviar_formulario') }}" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidos">Apellidos</label>
+                        <input type="text" id="apellidos" name="apellidos" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pack_interes">¿En qué servicio estás interesado/a?</label>
+                        <select id="pack_interes" name="pack_interes" required>
+                            <option value="" disabled selected>Selecciona un pack...</option>
+                            <!-- Este bucle `for` de Flask crea una opción por cada pack que definimos en `app.py` -->
+                            {% for pack in packs %}
+                            <option value="{{ pack }}">{{ pack }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="notas">Cuéntame más sobre tu proyecto</label>
+                        <textarea id="notas" name="notas" rows="5" placeholder="Describe brevemente tus objetivos, tu público, o cualquier duda que tengas."></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <button type="submit" class="cta-button">Enviar Mensaje</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Gema Calderón Sayoux | Consultora de Marketing Digital</p>
+            <div class="social-links">
+                <!-- Usamos los datos de contacto que pasamos desde Flask -->
+                <a href="mailto:{{ contact.email }}" aria-label="Enviar correo electrónico"><i class="fas fa-envelope"></i></a>
+                <a href="{{ contact.linkedin }}" target="_blank" rel="noopener noreferrer" aria-label="Visitar perfil de LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 3. Enlazamos nuestro archivo JavaScript justo antes de cerrar el </body>. Es una buena práctica para que la página cargue más rápido. -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

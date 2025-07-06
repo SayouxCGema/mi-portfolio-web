@@ -1,0 +1,226 @@
+/* Contenido para: static/css/style.css */
+
+/* --- VARIABLES DE COLOR Y FUENTES (Tu paleta personal) --- */
+:root {
+    --color-primario: #6A0DAD; /* Púrpura */
+    --color-secundario: #FF69B4; /* Rosa vibrante */
+    --color-fondo: #FAF5FF; /* Lila muy claro */
+    --color-texto: #333333; /* Gris oscuro */
+    --color-blanco: #FFFFFF;
+    
+    /* Colores específicos para los packs de servicios */
+    --color-pack-1-border: #9333EA;
+    --color-pack-2-border: #E11D48;
+    
+    --font-principal: 'Segoe UI', 'Roboto', sans-serif;
+    --border-radius: 12px;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* --- ESTILOS GENERALES Y SCROLL SUAVE --- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    color: var(--color-primario);
+    font-weight: 700;
+}
+
+/* --- HEADER Y NAVEGACIÓN --- */
+header {
+    background: var(--color-primario);
+    color: var(--color-blanco);
+    padding: 1.5rem 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+header .subtitle {
+    color: var(--color-blanco);
+    opacity: 0.9;
+    font-style: italic;
+    margin-top: -10px;
+}
+nav a {
+    margin: 0 15px;
+    color: var(--color-blanco);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+nav a:hover {
+    color: var(--color-secundario);
+}
+
+/* --- SECCIONES --- */
+section {
+    padding: 60px 0;
+    border-bottom: 1px solid #e0cffc;
+}
+section:last-of-type {
+    border-bottom: none;
+}
+
+/* --- ANIMACIÓN DE FADE-IN (controlada por JavaScript) --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- SECCIÓN DE SERVICIOS Y PACKS --- */
+.packs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+.pack {
+    background: var(--color-blanco);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pack:hover {
+    transform: translateY(-10px);
+}
+.pack h3 {
+    margin-top: 0;
+    border-bottom: 2px solid;
+    padding-bottom: 10px;
+}
+.pack ul {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1; /* Esto empuja el botón de acción hacia abajo */
+}
+.pack ul li { padding: 8px 0; }
+
+/* Colores diferenciados para los packs */
+.pack-proyectos { border-left: 7px solid var(--color-pack-1-border); }
+.pack-proyectos h3 { border-color: var(--color-pack-1-border); }
+
+.pack-horas { border-left: 7px solid var(--color-pack-2-border); }
+.pack-horas h3 { border-color: var(--color-pack-2-border); }
+
+/* --- BOTÓN DE LLAMADA A LA ACCIÓN (CTA) --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-secundario);
+    color: var(--color-blanco);
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px; /* Espacio sobre el botón */
+}
+.cta-button:hover {
+    background-color: var(--color-primario);
+    transform: scale(1.05);
+}
+
+/* --- FORMULARIO DE CONTACTO --- */
+.contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    background: var(--color-blanco);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-top: 30px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+.form-group.full-width {
+    grid-column: 1 / -1; /* Ocupa todo el ancho */
+}
+.contact-form label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--color-primario);
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: var(--font-principal);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px #e9d5ff; /* Sombra de foco con color lila */
+}
+
+/* Mensaje de éxito del formulario */
+.flash-success {
+    padding: 15px;
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #6ee7b7;
+    border-radius: var(--border-radius);
+    text-align: center;
+    margin-bottom: 20px;
+    grid-column: 1 / -1; /* Ocupa todo el ancho si está dentro del form */
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    text-align: center;
+    padding: 30px 0;
+}
+.social-links a {
+    color: var(--color-blanco);
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+.social-links a:hover {
+    color: var(--color-secundario);
+}
+
+/* --- DISEÑO RESPONSIVE para móviles --- */
+@media (max-width: 768px) {
+    .contact-form {
+        grid-template-columns: 1fr; /* El formulario pasa a una sola columna */
+    }
+}

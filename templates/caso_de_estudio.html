@@ -1,3 +1,5 @@
+<!-- templates/caso_de_estudio.html (Versión Corregida) -->
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,16 +10,20 @@
 </head>
 <body>
     <header>
-        <!-- Puedes incluir aquí un menú de navegación simplificado -->
         <nav>
-            <a href="{{ url_for('index') }}">Volver al Portafolio</a>
+            <a href="{{ url_for('home') }}">Volver al Portafolio</a> <!-- Cambiado 'index' a 'home' que es el nombre de la función en Flask -->
         </nav>
     </header>
     <main class="caso-detalle-container">
         <h1>{{ caso.titulo }}</h1>
         <p><strong>Cliente:</strong> {{ caso.cliente }}</p>
         
-        <!-- <img src="{{ url_for('static', filename='img/' + caso.imagen) }}" alt="{{ caso.titulo }}" class="caso-imagen-principal"> -->
+        <!-- (CORREGIDO) Bucle para mostrar todas las imágenes -->
+        <div class="caso-imagenes-grid">
+            {% for imagen in caso.imagenes %}
+            <img src="{{ url_for('static', filename='img/' + imagen) }}" alt="Gráfico de resultados para {{ caso.cliente }}" class="caso-imagen">
+            {% endfor %}
+        </div>
         
         <h2>El Desafío</h2>
         <p>{{ caso.problema }}</p>
@@ -28,7 +34,7 @@
         <h2>El Resultado</h2>
         <p>{{ caso.resultado }}</p>
         
-        <a href="{{ url_for('index') }}#agendar-cita" class="btn">¿Quieres resultados similares? ¡Hablemos!</a>
+        <a href="{{ url_for('home') }}#agendar-cita" class="btn">¿Quieres resultados similares? ¡Hablemos!</a>
     </main>
 </body>
 </html>

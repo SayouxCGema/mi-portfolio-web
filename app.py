@@ -23,25 +23,31 @@ SERVICE_PACKS = [
     "No estoy seguro/a, necesito asesoramiento"
 ]
 
-# (NUEVO) Base de datos simulada para Casos de Estudio.
-# La "clave" (ej: "aumento-visibilidad-ecommerce") será parte de la URL, por eso no lleva espacios ni tildes.
+# app.py (Versión Corregida)
+
 CASOS_DE_ESTUDIO_DB = {
     "aumento-visibilidad-katarsia": {
-        "titulo": "1º puesto en Google para clínica en Barcelona tratamiento Sueroterapia",
+        "titulo": "1º puesto en Google para clínica en Barcelona: Tratamiento Sueroterapia",
         "cliente": "Centro Médico Katarsia",
-        "problema": "Mejorar la venta de este tratamiento el cual tenía bastante margen de beneficio",
-        "solucion": "Se desarrolló contenido informativo, sobre los diferentes tipos de compuestos de la Sueroterapia, análisis del mercado en Estados Unidos(para adaptarlo al mercado Español",
+        "problema": "Mejorar la venta de este tratamiento el cual tenía bastante margen de beneficio.",
+        "solucion": "Se desarrolló contenido informativo sobre los diferentes tipos de compuestos de la Sueroterapia y se realizó un análisis del mercado en Estados Unidos para adaptarlo al mercado español.",
         "resultado": "Logramos un aumento del 564% en tráfico orgánico en 3 meses y un incremento del 45% en ventas atribuidas directamente a la búsqueda orgánica en un mes.",
-        "imagen_principal": "impresiones_katarsia.jpg", # Nombre del archivo en static/img/
-        "imagen_principal": "incremento_ingresos_katarsia.jpg" # Nombre del archivo en static/img/
+        # (CORREGIDO) Usamos una lista para las imágenes
+        "imagenes": [
+            "impresiones_katarsia.jpg", 
+            "incremento_ingresos_katarsia.jpg"
+        ]
     },
     "seo-local-macan": {
-        "titulo": "Mejorar posicionamiento orgánico'",
-        "cliente": "Macan Abogados'",
-        "problema": "El despacho de abogados, necesitaba mejorar la visibilidad en Google",
-        "solucion": "Después de realizar una auditoría técnica, se mejoraron las etiquetas y se incluyeron palabras claves que usaba la competencia, además de mejorar la estructura de la web",
-        "resultado": "Como resultado del trabajo realizado se aumento la visibilidad orgánica en un 466%, además de mejorar la posición en los resultados de la SERP lo que aumento el número de clics en un 249%.",
-        "imagen_principal": "macan_impresiones.jpg"
+        "titulo": "Mejora de Posicionamiento Orgánico para Despacho de Abogados",
+        "cliente": "Macan Abogados",
+        "problema": "El despacho de abogados necesitaba mejorar su visibilidad en Google para captar nuevos clientes.",
+        "solucion": "Después de realizar una auditoría técnica, se mejoraron las etiquetas, se incluyeron palabras clave de la competencia y se optimizó la estructura de la web.",
+        "resultado": "Como resultado del trabajo realizado, se aumentó la visibilidad orgánica en un 466% y se mejoró la posición en los resultados de búsqueda (SERP), lo que incrementó el número de clics en un 249%.",
+        # (CORREGIDO) Usamos una lista para las imágenes
+        "imagenes": [
+            "macan_impresiones.jpg"
+        ]
     }
 }
 

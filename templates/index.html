@@ -93,27 +93,33 @@
             </div>
         </section>
 
-        <!-- SECCIÓN CASOS DE ESTUDIO -->
-        <section id="casos-de-estudio" class="section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Casos de Estudio</h2>
-                    <p class="section-subtitle">Resultados reales para clientes reales.</p>
-                </div>
-                <div class="casos-grid">
-                    <!-- Esto se genera dinámicamente con los datos de app.py -->
-                    {% for slug, caso in casos_de_estudio.items() %}
-                    <div class="caso-card">
-                        <!-- Puedes descomentar esto cuando tengas las imágenes de cada caso -->
-                        <!-- <img src="{{ url_for('static', filename='img/' + caso.imagen_principal) }}" alt="{{ caso.titulo }}"> -->
-                        <h3>{{ caso.titulo }}</h3>
-                        <p>{{ caso.problema|truncate(120) }}</p> <!-- Truncate limita el texto para que no sea muy largo -->
-                        <a href="{{ url_for('caso_de_estudio', slug=slug) }}" class="btn">Ver Caso Completo</a>
-                    </div>
-                    {% endfor %}
-                </div>
+        <!-- SECCIÓN CASOS DE ESTUDIO (CORREGIDA) -->
+<section id="casos-de-estudio" class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Casos de Estudio</h2>
+            <p class="section-subtitle">Resultados reales para clientes reales.</p>
+        </div>
+        <div class="casos-grid">
+            <!-- Esto se genera dinámicamente con los datos de app.py -->
+            {% for slug, caso in casos_de_estudio.items() %}
+            <div class="caso-card">
+
+                <!-- 
+                LÍNEA CORREGIDA:
+                1. Ahora usamos 'caso.imagenes[0]' para obtener la primera imagen de la lista.
+                2. La línea está descomentada para que la imagen se muestre.
+                -->
+                <img src="{{ url_for('static', filename='img/' + caso.imagenes[0]) }}" alt="Gráfico de resultados para {{ caso.cliente }}">
+                
+                <h3>{{ caso.titulo }}</h3>
+                <p>{{ caso.problema|truncate(120) }}</p> <!-- Truncate limita el texto para que no sea muy largo -->
+                <a href="{{ url_for('caso_de_estudio', slug=slug) }}" class="btn">Ver Caso Completo</a>
             </div>
-        </section>
+            {% endfor %}
+        </div>
+    </div>
+</section>
         
         <!-- SECCIÓN CONOCIMIENTOS / HERRAMIENTAS -->
         <section id="conocimientos" class="section">

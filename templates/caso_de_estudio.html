@@ -7,6 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ caso.titulo }} - Caso de Estudio</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- ========================================= -->
+<!-- CÓDIGO DEL FAVICON ADAPTADO PARA FLASK    -->
+<!-- ========================================= -->
+
+<link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicons/favicon-96x96.png') }}">
+<link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicons/favicon.svg') }}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicons/favicon.ico') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicons/apple-touch-icon.png') }}">
+<link rel="manifest" href="{{ url_for('static', filename='favicons/site.webmanifest') }}">
+
+<!-- Opcional: añade estos para una mejor compatibilidad -->
+<meta name="msapplication-TileColor" content="#ffffff"> <!-- Cambia #ffffff al color de fondo de tu logo -->
+<meta name="theme-color" content="#ffffff"> <!-- Cambia #ffffff al color principal de tu tema -->
 </head>
 <body>
     <header>

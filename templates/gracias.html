@@ -2,10 +2,25 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Gracias por tu mensaje!</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <!-- Añade un meta refresh para redirigir al inicio después de unos segundos -->
     <meta http-equiv="refresh" content="5;url={{ url_for('index') }}">
+    <!-- ========================================= -->
+<!-- CÓDIGO DEL FAVICON ADAPTADO PARA FLASK    -->
+<!-- ========================================= -->
+
+<link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicons/favicon-96x96.png') }}">
+<link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicons/favicon.svg') }}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicons/favicon.ico') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicons/apple-touch-icon.png') }}">
+<link rel="manifest" href="{{ url_for('static', filename='favicons/site.webmanifest') }}">
+
+<!-- Opcional: añade estos para una mejor compatibilidad -->
+<meta name="msapplication-TileColor" content="#ffffff"> <!-- Cambia #ffffff al color de fondo de tu logo -->
+<meta name="theme-color" content="#ffffff"> <!-- Cambia #ffffff al color principal de tu tema -->
+
 </head>
 <body>
     <div class="thank-you-container">

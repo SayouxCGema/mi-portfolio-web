@@ -10,6 +10,19 @@
     <!-- No he tocado tus enlaces a librerías externas -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <!-- ========================================= -->
+<!-- CÓDIGO DEL FAVICON ADAPTADO PARA FLASK    -->
+<!-- ========================================= -->
+
+<link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicons/favicon-96x96.png') }}">
+<link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicons/favicon.svg') }}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicons/favicon.ico') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicons/apple-touch-icon.png') }}">
+<link rel="manifest" href="{{ url_for('static', filename='favicons/site.webmanifest') }}">
+
+<!-- Opcional: añade estos para una mejor compatibilidad -->
+<meta name="msapplication-TileColor" content="#ffffff"> <!-- Cambia #ffffff al color de fondo de tu logo -->
+<meta name="theme-color" content="#ffffff"> <!-- Cambia #ffffff al color principal de tu tema -->
 </head>
 <body>
     <header>
@@ -33,7 +46,7 @@
         <section id="inicio" class="fade-in">
             <div class="container">
                 <div class="hero-content">
-                    <h2>Impulsa tu negocio con SEO, Google Ads y Análisis de Datos.</h2>
+                    <h1>Impulsa tu negocio con SEO, Google Ads y Análisis de Datos.</h1>
                     <p>Soy Gema Calderón, consultora digital especializada en ayudar a pequeñas y medianas empresas a crecer con soluciones digitales a medida, bien pensadas y que generan resultados reales.</p>
                     <a href="#contacto" class="cta-button">Hablemos de tu proyecto</a>
                 </div>
@@ -129,23 +142,23 @@
                 </div>
                 <div class="tools-grid">
                     <div class="tool-item">
-                        <img src="{{ url_for('static', filename='img/ga4_logo.svg') }}" alt="Google Analytics 4">
+                        <img src="{{ url_for('static', filename='img/Logo_Google_Analytics.svg') }}" alt="Google Analytics 4">
                         <span>Google Analytics 4</span>
                     </div>
                     <div class="tool-item">
-                        <img src="{{ url_for('static', filename='img/gtm_logo.svg') }}" alt="Google Tag Manager">
+                        <img src="{{ url_for('static', filename='img/google-tag-manager.svg') }}" alt="Google Tag Manager">
                         <span>Google Tag Manager</span>
                     </div>
                     <div class="tool-item">
-                        <img src="{{ url_for('static', filename='img/gsc_logo.svg') }}" alt="Google Search Console">
+                        <img src="{{ url_for('static', filename='img/google-search-console.svg') }}" alt="Google Search Console">
                         <span>Search Console</span>
                     </div>
                     <div class="tool-item">
-                        <img src="{{ url_for('static', filename='img/python_logo.svg') }}" alt="Python">
+                        <img src="{{ url_for('static', filename='img/python-logo-generic.svg') }}" alt="Python">
                         <span>Python</span>
                     </div>
                     <div class="tool-item">
-                        <img src="{{ url_for('static', filename='img/googleads_logo.svg') }}" alt="Google Ads">
+                        <img src="{{ url_for('static', filename='img/Google_Ads_logo.svg') }}" alt="Google Ads">
                         <span>Google Ads</span>
                     </div>
                 </div>
@@ -210,10 +223,10 @@
             <div class="container">
                 <div class="section-title">
                     <h2>¿Hablamos?</h2>
-                    <p class="section-subtitle">Agenda una reunión de 30 minutos directamente en mi calendario.</p>
+                    <p class="section-subtitle">Agenda una reunión de 15 minutos directamente en mi calendario.</p>
                 </div>
                 <!-- Código de Calendly -->
-                <div class="calendly-inline-widget" data-url="https://calendly.com/gemacalderonsayoux/30min?background_color=d9cfcf&text_color=2d2424&primary_color=ff00a0" style="min-width:320px;height:700px;"></div>
+                <div class="calendly-inline-widget" data-url="https://calendly.com/gemacalderonsayoux/30min?background_color=ebe1e1&primary_color=006cff" style="min-width:320px;height:700px;"></div>
                 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
             </div>
         </section>

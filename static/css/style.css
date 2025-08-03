@@ -337,3 +337,61 @@ footer .container {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* ========================================= */
+/* ESTILOS PARA MÓVILES (DISEÑO RESPONSIVO) */
+/* ========================================= */
+
+/* Se aplicará a pantallas de 768px de ancho o menos (tablets y móviles) */
+@media (max-width: 768px) {
+
+    /* --- NAVEGACIÓN --- */
+    header .container nav {
+        flex-direction: column; /* Apila los enlaces del menú verticalmente */
+        align-items: center;   /* Centra los enlaces apilados */
+        gap: 15px;             /* Añade espacio entre los enlaces */
+        margin-top: 20px;
+    }
+
+    /* --- SECCIONES CON MÚLTIPLES COLUMNAS --- */
+    .about-content, 
+    .packs-container, 
+    .casos-grid, 
+    .tools-grid,
+    .recursos-grid,
+    .reviews-container {
+        flex-direction: column; /* ¡LA REGLA MÁGICA! Apila las columnas verticalmente */
+        align-items: center;    /* Centra los elementos apilados */
+        gap: 30px;              /* Espacio entre los elementos */
+    }
+
+    /* --- Ajustar ancho de las tarjetas para que no se estiren --- */
+    .pack, .caso-card, .recurso-card, .review-card, .tool-item {
+        width: 90%; /* Ocupa el 90% del ancho del contenedor padre */
+        max-width: 400px; /* Pero no más de 400px para que no se vea gigante */
+    }
+
+    /* --- FUENTES Y TÍTULOS --- */
+    .hero-content h2 {
+        font-size: 2em; /* Reduce el tamaño del título principal */
+    }
+
+    .section-title {
+        font-size: 1.5em; /* Reduce el tamaño de los títulos de sección */
+    }
+
+    /* --- IMAGEN SOBRE MÍ --- */
+    .about-image {
+        width: 60%; /* Reduce el tamaño de tu foto */
+        max-width: 200px;
+    }
+
+    /* --- FORMULARIO --- */
+    .contact-form {
+        display: flex;
+        flex-direction: column; /* Apila los campos del formulario */
+    }
+    .form-group {
+        width: 100%; /* Hace que cada campo ocupe todo el ancho */
+    }
+}

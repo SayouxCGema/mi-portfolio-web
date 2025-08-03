@@ -32,7 +32,7 @@ CASOS_DE_ESTUDIO_DB = {
         "problema": "Mejorar la venta de este tratamiento el cual tenía bastante margen de beneficio",
         "solucion": "Se desarrolló contenido informativo, sobre los diferentes tipos de compuestos de la Sueroterapia, análisis del mercado en Estados Unidos(para adaptarlo al mercado Español",
         "resultado": "Logramos un aumento del 564% en tráfico orgánico en 3 meses y un incremento del 45% en ventas atribuidas directamente a la búsqueda orgánica en un mes.",
-        "imagen_principal": "impresiones_katarsia.jpg" # Nombre del archivo en static/img/
+        "imagen_principal": "impresiones_katarsia.jpg", # Nombre del archivo en static/img/
         "imagen_principal": "incremento_ingresos_katarsia.jpg" # Nombre del archivo en static/img/
     },
     "seo-local-macan": {

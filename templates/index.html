@@ -1,4 +1,4 @@
-<!-- Contenido para: templates/index.html -->
+<!-- Contenido para: templates/index.html (CORREGIDO Y MEJORADO) -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,6 +7,7 @@
     <title>Gema Calderón Sayoux - Especialista en Marketing Digital</title>
     
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- No he tocado tus enlaces a librerías externas -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
@@ -16,11 +17,12 @@
             <div class="logo">
                 <a href="#">Gema Calderón Sayoux</a>
             </div>
+            <!-- NAVEGACIÓN ACTUALIZADA para incluir las nuevas secciones -->
             <nav>
                 <a href="#sobre-mi">Sobre mí</a>
                 <a href="#servicios">Servicios</a>
-                <a href="#portafolio">Clientes</a>
-                <a href="#certificados">Certificados</a>
+                <a href="#casos-de-estudio">Casos de Estudio</a>
+                <a href="#conocimientos">Conocimientos</a>
                 <a href="#contacto">Contacto</a>
             </nav>
         </div>
@@ -38,12 +40,11 @@
             </div>
         </section>
 
-        <!-- NUEVA SECCIÓN "SOBRE MÍ" -->
+        <!-- SECCIÓN "SOBRE MÍ" -->
         <section id="sobre-mi" class="fade-in">
             <div class="container">
                 <div class="about-content">
                     <div class="about-image">
-                        <!-- Sube tu foto a 'static/img/' y llámala 'mi-foto.jpg' o cambia el nombre aquí -->
                         <img src="{{ url_for('static', filename='img/fotogema.jpg') }}" alt="Gema Calderón Sayoux marketing digital">
                     </div>
                     <div class="about-text">
@@ -57,7 +58,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- SECCIÓN DE SERVICIOS -->
         <section id="servicios" class="fade-in">
             <div class="container">
@@ -67,7 +68,6 @@
                     <p>Packs diseñados para adaptarse a tus necesidades, ya sea un proyecto completo o un soporte continuo.</p>
                 </div>
                 <div class="packs-container">
-                    <!-- Pack por Proyectos -->
                     <div class="pack">
                         <div class="pack-header"><i class="fas fa-rocket pack-icon"></i><h3>Packs por Proyecto</h3></div>
                         <p class="pack-description">Soluciones integrales con un precio cerrado para objetivos concretos.</p>
@@ -78,17 +78,91 @@
                         </ul>
                         <a href="#contacto" class="cta-button-outline">Solicitar presupuesto</a>
                     </div>
-                    <!-- Pack por Horas -->
                     <div class="pack">
                          <div class="pack-header"><i class="fas fa-clock pack-icon"></i><h3>Packs por Horas</h3></div>
                         <p class="pack-description">Flexibilidad total para consultoría, mantenimiento o tareas puntuales.</p>
                         <ul>
-                            <li><strong>1h:</strong> 45 €</li>
-                            <li><strong>5h:</strong> 200 €</li>
-                            <li><strong>10h:</strong> 370 €</li>
-                            <li>✨ <strong>Bono mensual 20h:</strong> 690 €</li>
+                            <li><strong>1h:</strong> Desde 45 €</li>
+                            <li><strong>5h:</strong> Desde 200 €</li>
+                            <li><strong>10h:</strong> Desde 350 €</li>
+                            <li>✨ <strong>Bono mensual:</strong> 400 €</li>
                         </ul>
                         <a href="#contacto" class="cta-button-outline">Contratar horas</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN CASOS DE ESTUDIO -->
+        <section id="casos-de-estudio" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Casos de Estudio</h2>
+                    <p class="section-subtitle">Resultados reales para clientes reales.</p>
+                </div>
+                <div class="casos-grid">
+                    <!-- Esto se genera dinámicamente con los datos de app.py -->
+                    {% for slug, caso in casos_de_estudio.items() %}
+                    <div class="caso-card">
+                        <!-- Puedes descomentar esto cuando tengas las imágenes de cada caso -->
+                        <!-- <img src="{{ url_for('static', filename='img/' + caso.imagen_principal) }}" alt="{{ caso.titulo }}"> -->
+                        <h3>{{ caso.titulo }}</h3>
+                        <p>{{ caso.problema|truncate(120) }}</p> <!-- Truncate limita el texto para que no sea muy largo -->
+                        <a href="{{ url_for('caso_de_estudio', slug=slug) }}" class="btn">Ver Caso Completo</a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        
+        <!-- SECCIÓN CONOCIMIENTOS / HERRAMIENTAS -->
+        <section id="conocimientos" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Mis Herramientas</h2>
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-item">
+                        <img src="{{ url_for('static', filename='img/ga4_logo.svg') }}" alt="Google Analytics 4">
+                        <span>Google Analytics 4</span>
+                    </div>
+                    <div class="tool-item">
+                        <img src="{{ url_for('static', filename='img/gtm_logo.svg') }}" alt="Google Tag Manager">
+                        <span>Google Tag Manager</span>
+                    </div>
+                    <div class="tool-item">
+                        <img src="{{ url_for('static', filename='img/gsc_logo.svg') }}" alt="Google Search Console">
+                        <span>Search Console</span>
+                    </div>
+                    <div class="tool-item">
+                        <img src="{{ url_for('static', filename='img/python_logo.svg') }}" alt="Python">
+                        <span>Python</span>
+                    </div>
+                    <div class="tool-item">
+                        <img src="{{ url_for('static', filename='img/googleads_logo.svg') }}" alt="Google Ads">
+                        <span>Google Ads</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN RECURSOS GRATUITOS -->
+        <section id="recursos" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Recursos Gratuitos</h2>
+                    <p class="section-subtitle">Herramientas y scripts para ayudarte en tu día a día.</p>
+                </div>
+                <div class="recursos-grid">
+                    <div class="recurso-card">
+                        <h4>Script de Auditoría Rápida</h4>
+                        <p>Un script en Python para revisar los básicos de una web (títulos, metadescripciones, H1).</p>
+                        <a href="{{ url_for('static', filename='recursos/auditoria_rapida.py') }}" download class="btn">Descargar Script</a>
+                    </div>
+                    <div class="recurso-card">
+                        <h4>Script para Redactar Artículos</h4>
+                        <p>Conecta con una API de IA para generar borradores de artículos optimizados para SEO.</p>
+                        <a href="{{ url_for('static', filename='recursos/redactor_articulos.py') }}" download class="btn">Descargar Script</a>
                     </div>
                 </div>
             </div>
@@ -101,9 +175,7 @@
                     <span>Confianza</span>
                     <h2>Empresas que han confiado en mí</h2>
                 </div>
-                <!-- Logos centrados estáticos -->
                 <div class="client-logos">
-                    <!-- Sube tus logos a la carpeta 'static/img/' -->
                     <div class="logo-item"><img src="{{ url_for('static', filename='img/logo_h.png') }}" alt="Logo Cliente 1"></div>
                     <div class="logo-item"><img src="{{ url_for('static', filename='img/Logo_katarsia-1.png') }}" alt="Logo Cliente 2"></div>
                     <div class="logo-item"><img src="{{ url_for('static', filename='img/milloret-logo.jpg') }}" alt="Logo Cliente 3"></div>
@@ -120,15 +192,27 @@
                     <p>Compromiso constante con el aprendizaje y las mejores prácticas del sector.</p>
                 </div>
                 <div class="certificates-container">
-                    <!-- Sube tus certificados a la carpeta 'static/img/' -->
-                    <div class="certificate-item"><img src="{{ url_for('static', filename='img/analisis_de_datos.jpg') }}" alt="Certificado Google 1"></div>
-                    <div class="certificate-item"><img src="{{ url_for('static', filename='img/Certificado de Marketing Digital e Ecommerce.png') }}" alt="Certificado Google 2"></div>
-                    <div class="certificate-item"><img src="{{ url_for('static', filename='img/ibm.jpg') }}" alt="Certificado Google 3"></div>
+                    <div class="certificate-item"><img src="{{ url_for('static', filename='img/analisis_de_datos.jpg') }}" alt="Certificado Analisis de datos"></div>
+                    <div class="certificate-item"><img src="{{ url_for('static', filename='img/Certificado de Marketing Digital e Ecommerce.png') }}" alt="Certificado Marketing Digital"></div>
+                    <div class="certificate-item"><img src="{{ url_for('static', filename='img/ibm.jpg') }}" alt="Certificado IBM"></div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN RESEÑAS (REUBICADA) Y CONTACTO -->
+        <!-- SECCIÓN DE CALENDARIO (CALENDLY) - ESTRUCTURA CORREGIDA -->
+        <section id="agendar-cita" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>¿Hablamos?</h2>
+                    <p class="section-subtitle">Agenda una reunión de 30 minutos directamente en mi calendario.</p>
+                </div>
+                <!-- Código de Calendly -->
+                <div class="calendly-inline-widget" data-url="https://calendly.com/gemacalderonsayoux/30min?background_color=d9cfcf&text_color=2d2424&primary_color=ff00a0" style="min-width:320px;height:700px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            </div>
+        </section>
+
+        <!-- SECCIÓN CONTACTO (INCLUYE RESEÑAS Y FORMULARIO) -->
         <section id="contacto" class="fade-in">
             <div class="container">
                 <!-- Reseñas -->
@@ -142,7 +226,7 @@
                         <footer>- Borja - Cliente en Freelancer ⭐⭐⭐⭐⭐</footer>
                     </div>
                     <div class="review-card">
-                        <p>"great communication, no problems at all, kind person finished job so fast without any problems Highly recommended"</p>
+                        <p>"Great communication, no problems at all, kind person finished job so fast without any problems Highly recommended"</p>
                         <footer>- Trapole - Cliente en Freelancer ⭐⭐⭐⭐⭐</footer>
                     </div>
                      <div class="review-card">
@@ -154,19 +238,15 @@
                 <!-- Formulario -->
                 <div class="contact-wrapper">
                     <div class="section-title">
-                        <span>Contacto</span>
-                        <h2>¿Listo para empezar?</h2>
+                        <span>O si lo prefieres...</span>
+                        <h2>Envíame un mensaje</h2>
                         <p>Rellena el formulario y daré respuesta a tu consulta dentro de las próximas 24 horas.</p>
                     </div>
-                    {% with messages = get_flashed_messages(with_categories=true) %}
-                        {% if messages %}
-                            {% for category, message in messages %}
-                                <div class="flash-{{ category }}">{{ message }}</div>
-                            {% endfor %}
-                        {% endif %}
-                    {% endwith %}
+                    
+                    <!-- CÓDIGO DE MENSAJES FLASH ELIMINADO (ya no es necesario) -->
 
-                    <form action="{{ url_for('enviar_formulario') }}" method="POST" class="contact-form">
+                    <!-- FORMULARIO CORREGIDO -->
+                    <form action="{{ url_for('enviar_mensaje') }}" method="POST" class="contact-form">
                         <div class="form-group"><input type="text" name="nombre" placeholder="Nombre" required></div>
                         <div class="form-group"><input type="text" name="apellidos" placeholder="Apellidos" required></div>
                         <div class="form-group"><input type="email" name="email" placeholder="Email" required></div>

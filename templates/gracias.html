@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>¡Gracias por tu mensaje!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Añade un meta refresh para redirigir al inicio después de unos segundos -->
+    <meta http-equiv="refresh" content="5;url={{ url_for('index') }}">
+</head>
+<body>
+    <div class="thank-you-container">
+        <h1>¡Gracias por contactarme!</h1>
+        <p>He recibido tu mensaje y te responderé a la mayor brevedad posible.</p>
+        <p>En 5 segundos serás redirigido a la página principal.</p>
+        <a href="{{ url_for('index') }}">Volver al inicio</a>
+    </div>
+</body>
+</html>

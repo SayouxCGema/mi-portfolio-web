@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ caso.titulo }} - Caso de Estudio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <!-- Puedes incluir aquí un menú de navegación simplificado -->
+        <nav>
+            <a href="{{ url_for('index') }}">Volver al Portafolio</a>
+        </nav>
+    </header>
+    <main class="caso-detalle-container">
+        <h1>{{ caso.titulo }}</h1>
+        <p><strong>Cliente:</strong> {{ caso.cliente }}</p>
+        
+        <!-- <img src="{{ url_for('static', filename='img/' + caso.imagen) }}" alt="{{ caso.titulo }}" class="caso-imagen-principal"> -->
+        
+        <h2>El Desafío</h2>
+        <p>{{ caso.problema }}</p>
+        
+        <h2>La Solución</h2>
+        <p>{{ caso.solucion }}</p>
+        
+        <h2>El Resultado</h2>
+        <p>{{ caso.resultado }}</p>
+        
+        <a href="{{ url_for('index') }}#agendar-cita" class="btn">¿Quieres resultados similares? ¡Hablemos!</a>
+    </main>
+</body>
+</html>

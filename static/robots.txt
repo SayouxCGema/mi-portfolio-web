@@ -1,0 +1,5 @@
+# static/robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://www.gemacalderonsayoux.com/sitemap.xml

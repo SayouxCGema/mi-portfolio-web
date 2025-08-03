@@ -329,7 +329,30 @@ footer .container {
     transform: translateY(0);
 }
 
+/* ========================================= */
+/* PÁGINA DETALLE CASO DE ESTUDIO          */
+/* ========================================= */
 
+.caso-detalle-container {
+    max-width: 800px;  /* Limita el ancho del contenido principal */
+    margin: 0 auto;    /* Centra el contenedor en la página */
+    padding: 0 20px;   /* Añade espacio en los lados */
+}
+
+.caso-imagenes-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una sola columna para las imágenes */
+    gap: 25px;                /* Espacio entre imágenes si hay más de una */
+    margin: 40px 0;           /* Espacio arriba y abajo del bloque de imágenes */
+}
+
+.caso-imagenes-grid .caso-imagen {
+    width: 100%; /* La imagen ocupa el 100% del ancho de su contenedor */
+    height: auto; /* La altura se ajusta automáticamente para no deformar la imagen */
+    max-width: 100%; /* ¡CLAVE! Evita que la imagen se desborde */
+    border-radius: var(--border-radius); /* Mismos bordes redondeados que el resto de la web */
+    box-shadow: var(--shadow); /* Misma sombra */
+}
 /* ========================================================== */
 /* ESTILOS RESPONSIVOS PARA MÓVILES (BLOQUE ÚNICO Y CORREGIDO) */
 /* ========================================================== */

@@ -1,0 +1,58 @@
+<!-- Contenido para: templates/base.html (NUEVO ARCHIVO) -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- El título será diferente para cada página hija -->
+    <title>{% block title %}Gema Calderón Sayoux - Especialista en Marketing Digital{% endblock %}</title>
+    
+    <!-- CSS y librerías externas -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <!-- Favicon (ahora solo lo pones una vez aquí) -->
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicons/favicon-96x96.png') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicons/favicon.svg') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicons/favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicons/apple-touch-icon.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicons/site.webmanifest') }}">
+    
+    <!-- ========================================= -->
+    <!-- CÓDIGO DE GOOGLE ANALYTICS 4 (GA4)        -->
+    <!-- ========================================= -->
+    <!-- Pega aquí el código que te dio Google Analytics -->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W6KW0W2WXK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W6KW0W2WXK');
+</script>
+    <!-- ========================================= -->
+    <!-- FIN DEL CÓDIGO DE GA4                     -->
+    <!-- ========================================= -->
+
+    <!-- Este bloque permite a las páginas hijas añadir CSS extra si lo necesitan -->
+    {% block head_extra %}{% endblock %}
+
+</head>
+<body>
+
+    <!-- Bloque para el contenido principal, que cada página hija rellenará -->
+    {% block content %}
+    <!-- El contenido de index.html, caso_de_estudio.html, etc., irá aquí -->
+    {% endblock %}
+
+
+    <!-- Scripts de JavaScript (ahora solo se ponen una vez aquí) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

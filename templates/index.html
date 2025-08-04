@@ -1,30 +1,8 @@
-<!-- Contenido para: templates/index.html (CORREGIDO Y MEJORADO) -->
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gema Calderón Sayoux - Especialista en Marketing Digital</title>
-    
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <!-- No he tocado tus enlaces a librerías externas -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <!-- ========================================= -->
-<!-- CÓDIGO DEL FAVICON ADAPTADO PARA FLASK    -->
-<!-- ========================================= -->
+<!-- Contenido para: templates/index.html (Adaptado para heredar de base.html) -->
 
-<link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicons/favicon-96x96.png') }}">
-<link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicons/favicon.svg') }}">
-<link rel="shortcut icon" href="{{ url_for('static', filename='favicons/favicon.ico') }}">
-<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicons/apple-touch-icon.png') }}">
-<link rel="manifest" href="{{ url_for('static', filename='favicons/site.webmanifest') }}">
+{% extends "base.html" %}
 
-<!-- Opcional: añade estos para una mejor compatibilidad -->
-<meta name="msapplication-TileColor" content="#ffffff"> <!-- Cambia #ffffff al color de fondo de tu logo -->
-<meta name="theme-color" content="#ffffff"> <!-- Cambia #ffffff al color principal de tu tema -->
-</head>
-<body>
+{% block content %}
     <header>
         <div class="container">
             <div class="logo">
@@ -47,7 +25,7 @@
             <div class="container">
                 <div class="hero-content">
                     <h1>Impulsa tu negocio con SEO, Google Ads y Análisis de Datos.</h1>
-                    <p>Soy Gema Calderón, consultora digital especializada en ayudar a pequeñas y medianas empresas a crecer con soluciones digitales a medida, bien pensadas y que generan resultados reales.</p>
+                    <p>Soy Gema, consultora digital especializada en ayudar a pequeñas y medianas empresas a crecer con soluciones digitales a medida, bien pensadas y que generan resultados reales.</p>
                     <a href="#contacto" class="cta-button">Hablemos de tu proyecto</a>
                 </div>
             </div>
@@ -106,33 +84,25 @@
             </div>
         </section>
 
-        <!-- SECCIÓN CASOS DE ESTUDIO (CORREGIDA) -->
-<section id="casos-de-estudio" class="section">
-    <div class="container">
-        <div class="section-title">
-            <h2>Casos de Estudio</h2>
-            <p class="section-subtitle">Resultados reales para clientes reales.</p>
-        </div>
-        <div class="casos-grid">
-            <!-- Esto se genera dinámicamente con los datos de app.py -->
-            {% for slug, caso in casos_de_estudio.items() %}
-            <div class="caso-card">
-
-                <!-- 
-                LÍNEA CORREGIDA:
-                1. Ahora usamos 'caso.imagenes[0]' para obtener la primera imagen de la lista.
-                2. La línea está descomentada para que la imagen se muestre.
-                -->
-                <img src="{{ url_for('static', filename='img/' + caso.imagenes[0]) }}" alt="Gráfico de resultados para {{ caso.cliente }}">
-                
-                <h3>{{ caso.titulo }}</h3>
-                <p>{{ caso.problema|truncate(120) }}</p> <!-- Truncate limita el texto para que no sea muy largo -->
-                <a href="{{ url_for('caso_de_estudio', slug=slug) }}" class="btn">Ver Caso Completo</a>
+        <!-- SECCIÓN CASOS DE ESTUDIO -->
+        <section id="casos-de-estudio" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Casos de Estudio</h2>
+                    <p class="section-subtitle">Resultados reales para clientes reales.</p>
+                </div>
+                <div class="casos-grid">
+                    {% for slug, caso in casos_de_estudio.items() %}
+                    <div class="caso-card">
+                        <img src="{{ url_for('static', filename='img/' + caso.imagenes[0]) }}" alt="Gráfico de resultados para {{ caso.cliente }}">
+                        <h3>{{ caso.titulo }}</h3>
+                        <p>{{ caso.problema|truncate(120) }}</p>
+                        <a href="{{ url_for('caso_de_estudio', slug=slug) }}" class="btn">Ver Caso Completo</a>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
+        </section>
         
         <!-- SECCIÓN CONOCIMIENTOS / HERRAMIENTAS -->
         <section id="conocimientos" class="section">
@@ -218,27 +188,21 @@
             </div>
         </section>
 
-        <!-- SECCIÓN DE CALENDARIO (CALENDLY) - ESTRUCTURA CORREGIDA -->
+        <!-- SECCIÓN DE CALENDARIO (CALENDLY) -->
         <section id="agendar-cita" class="section">
             <div class="container">
                 <div class="section-title">
                     <h2>¿Hablamos?</h2>
                     <p class="section-subtitle">Agenda una reunión de 15 minutos directamente en mi calendario.</p>
                 </div>
-                <!-- Código de Calendly -->
                 <div class="calendly-inline-widget" data-url="https://calendly.com/gemacalderonsayoux/30min?background_color=ebe1e1&primary_color=006cff" style="min-width:320px;height:700px;"></div>
                 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
             </div>
         </section>
 
-        <!-- SECCIÓN CONTACTO (INCLUYE RESEÑAS Y FORMULARIO) -->
+        <!-- SECCIÓN CONTACTO -->
         <section id="contacto" class="fade-in">
             <div class="container">
-                <!-- Reseñas -->
-                <div class="section-title">
-                    <span>Opiniones</span>
-                    <h2>Lo que dicen mis clientes</h2>
-                </div>
                 <div class="reviews-container">
                     <div class="review-card">
                         <p>"Un placer volver a contar con Gema. Gran profesional y siempre con predisposición a ayudar"</p>
@@ -253,18 +217,12 @@
                         <footer>- Borja - Cliente en Freelancer ⭐⭐⭐⭐⭐</footer>
                     </div>
                 </div>
-
-                <!-- Formulario -->
                 <div class="contact-wrapper">
                     <div class="section-title">
                         <span>O si lo prefieres...</span>
                         <h2>Envíame un mensaje</h2>
                         <p>Rellena el formulario y daré respuesta a tu consulta dentro de las próximas 24 horas.</p>
                     </div>
-                    
-                    <!-- CÓDIGO DE MENSAJES FLASH ELIMINADO (ya no es necesario) -->
-
-                    <!-- FORMULARIO CORREGIDO -->
                     <form action="{{ url_for('enviar_mensaje') }}" method="POST" class="contact-form">
                         <div class="form-group"><input type="text" name="nombre" placeholder="Nombre" required></div>
                         <div class="form-group"><input type="text" name="apellidos" placeholder="Apellidos" required></div>
@@ -298,8 +256,4 @@
             </div>
         </div>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-</body>
-</html>
+{% endblock %}

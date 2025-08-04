@@ -1,22 +1,12 @@
-<!-- Contenido para: templates/gracias.html (VERSIÓN CORREGIDA) -->
+<!-- Contenido para: templates/gracias.html (Adaptado para heredar de base.html) -->
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Gracias por tu mensaje! - Gema Calderón Sayoux</title>
-    
-    <!-- Enlazamos la misma hoja de estilos para mantener la consistencia -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicons/favicon-96x96.png') }}">
-    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicons/favicon.svg') }}">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicons/favicon.ico') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicons/apple-touch-icon.png') }}">
-    <link rel="manifest" href="{{ url_for('static', filename='favicons/site.webmanifest') }}">
-    
+{% extends "base.html" %}
+
+{# Sobreescribe el título por defecto de la plantilla base #}
+{% block title %}¡Gracias por tu mensaje! - Gema Calderón Sayoux{% endblock %}
+
+{# Añade contenido extra al <head> de la plantilla base #}
+{% block head_extra %}
     <!-- Redirección automática a la página de inicio después de 7 segundos -->
     <meta http-equiv="refresh" content="7;url={{ url_for('home') }}">
 
@@ -44,14 +34,14 @@
             margin-bottom: 30px;
         }
     </style>
-</head>
-<body>
+{% endblock %}
 
+
+{# El contenido principal de esta página se inserta en el bloque 'content' #}
+{% block content %}
     <div class="thank-you-container">
         <h1>¡Mensaje Enviado!</h1>
         <p>Gracias por ponerte en contacto. He recibido tu consulta y te responderé a la mayor brevedad posible.</p>
         <a href="{{ url_for('home') }}" class="cta-button">Volver al Inicio</a>
     </div>
-
-</body>
-</html>
+{% endblock %}

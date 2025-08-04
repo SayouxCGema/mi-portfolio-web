@@ -1,19 +1,24 @@
-# app.py - Versión Actualizada
+# ==========================================================
+# app.py - Versión Final
+# ==========================================================
+
+# --- 1. IMPORTACIONES ---
+# Todas las importaciones van juntas al principio.
+import os
+import resend
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory, make_response
 
+# --- 2. INICIALIZACIÓN DE LA APLICACIÓN ---
 app = Flask(__name__)
-# La 'secret_key' sigue siendo útil si en el futuro quieres usar mensajes flash en otras partes.
-app.secret_key = 'gema-calderon-sayoux-web-secreta'
+app.secret_key = 'gema-calderon-sayoux-web-secreta' # Útil para futuras funcionalidades
 
-# --- DATOS GLOBALES DE LA APLICACIÓN ---
+# --- 3. DATOS GLOBALES DE LA APLICACIÓN ---
 
-# Datos de contacto (sin cambios)
 CONTACT_DATA = {
     "email": "gemacalderonsayoux@gmail.com",
     "linkedin": "https://www.linkedin.com/in/gema-calderon-sayoux/"
 }
 
-# Packs de servicios para el formulario (sin cambios)
 SERVICE_PACKS = [
     "Web completa (WordPress o HTML)",
     "Campañas Google Ads + Analytics",
@@ -23,8 +28,6 @@ SERVICE_PACKS = [
     "No estoy seguro/a, necesito asesoramiento"
 ]
 
-# app.py (Versión Corregida)
-
 CASOS_DE_ESTUDIO_DB = {
     "aumento-visibilidad-katarsia": {
         "titulo": "1º puesto en Google para clínica en Barcelona: Tratamiento Sueroterapia",
@@ -32,7 +35,6 @@ CASOS_DE_ESTUDIO_DB = {
         "problema": "Mejorar la venta de este tratamiento el cual tenía bastante margen de beneficio.",
         "solucion": "Se desarrolló contenido informativo sobre los diferentes tipos de compuestos de la Sueroterapia y se realizó un análisis del mercado en Estados Unidos para adaptarlo al mercado español.",
         "resultado": "Logramos un aumento del 564% en tráfico orgánico en 3 meses y un incremento del 45% en ventas atribuidas directamente a la búsqueda orgánica en un mes.",
-        # (CORREGIDO) Usamos una lista para las imágenes
         "imagenes": [
             "impresiones_katarsia.jpg", 
             "incremento_ingresos_katarsia.jpg"
@@ -44,83 +46,98 @@ CASOS_DE_ESTUDIO_DB = {
         "problema": "El despacho de abogados necesitaba mejorar su visibilidad en Google para captar nuevos clientes.",
         "solucion": "Después de realizar una auditoría técnica, se mejoraron las etiquetas, se incluyeron palabras clave de la competencia y se optimizó la estructura de la web.",
         "resultado": "Como resultado del trabajo realizado, se aumentó la visibilidad orgánica en un 466% y se mejoró la posición en los resultados de búsqueda (SERP), lo que incrementó el número de clics en un 249%.",
-        # (CORREGIDO) Usamos una lista para las imágenes
         "imagenes": [
             "macan_impresiones.jpg"
         ]
     }
 }
 
-# --- RUTAS DE LA APLICACIÓN ---
+# --- 4. RUTAS DE LA APLICACIÓN ---
 
 @app.route("/")
 def home():
-    # Ahora, además de los datos de contacto y packs, pasamos los casos de estudio.
     return render_template(
         'index.html', 
         contact=CONTACT_DATA, 
         packs=SERVICE_PACKS,
-        casos_de_estudio=CASOS_DE_ESTUDIO_DB # Pasamos el diccionario a la plantilla
+        casos_de_estudio=CASOS_DE_ESTUDIO_DB
     )
 
-# (NUEVO) Ruta dinámica para mostrar cada caso de estudio individualmente.
-# El <slug> se corresponderá con las claves del diccionario CASOS_DE_ESTUDIO_DB.
 @app.route("/casos-de-estudio/<slug>")
 def caso_de_estudio(slug):
     caso = CASOS_DE_ESTUDIO_DB.get(slug)
-    # Si alguien intenta acceder a una URL de un caso que no existe, mostramos un error.
     if not caso:
         return "Caso de estudio no encontrado", 404
-    # Renderizamos una nueva plantilla específica para los casos de estudio.
     return render_template('caso_de_estudio.html', caso=caso)
 
-
-# (MODIFICADO) La ruta del formulario ahora redirige a una página de "gracias".
-# He cambiado el nombre de la ruta a 'enviar_mensaje' por ser más descriptivo.
-# ¡Recuerda actualizar el 'action' de tu formulario en index.html!
 @app.route("/enviar-mensaje", methods=["POST"])
 def enviar_mensaje():
+    # Recogemos datos del formulario
     nombre = request.form.get("nombre")
-    email = request.form.get("email")
-    # ... recoge los demás campos que necesites ...
-    
-    # La lógica de simulación de envío sigue siendo útil para depurar.
-    print("="*30)
-    print("NUEVO CONTACTO RECIBIDO DESDE LA WEB")
-    print(f"Nombre: {nombre}")
-    print(f"Email: {email}")
-    print("="*30)
-    
-    # En lugar de un mensaje flash, redirigimos a la nueva página de agradecimiento.
+    apellidos = request.form.get("apellidos")
+    email_cliente = request.form.get("email")
+    pack_interes = request.form.get("pack_interes")
+    notas = request.form.get("notas")
+
+    # Inicializamos Resend con la API Key de las variables de entorno
+    resend.api_key = os.environ.get('RESEND_API_KEY')
+
+    # Construimos el contenido del email
+    contenido_html = f"""
+        <h3>Nuevo Contacto desde tu Portafolio Web</h3>
+        <p><strong>Nombre:</strong> {nombre} {apellidos}</p>
+        <p><strong>Email del Cliente:</strong> <a href="mailto:{email_cliente}">{email_cliente}</a></p>
+        <p><strong>Servicio de Interés:</strong> {pack_interes}</p>
+        <hr>
+        <p><strong>Mensaje:</strong></p>
+        <p>{notas}</p>
+    """
+
+    try:
+        params = {
+            "from": "Contacto Web <contacto@gemacalderonsayoux.com>",
+            "to": ["gemacalderonsayoux@gmail.com"],
+            "subject": f"Nuevo mensaje de {nombre} sobre {pack_interes}",
+            "html": contenido_html,
+            "reply_to": email_cliente
+        }
+        email_enviado = resend.Emails.send(params)
+        print("="*30)
+        print("INTENTO DE ENVÍO DE EMAIL CON RESEND - ÉXITO")
+        print(email_enviado)
+        print("="*30)
+    except Exception as e:
+        print("="*30)
+        print("ERROR AL ENVIAR EMAIL CON RESEND")
+        print(e)
+        print("="*30)
+
     return redirect(url_for('pagina_gracias'))
 
-# (NUEVO) Ruta para la página de agradecimiento.
 @app.route("/gracias")
 def pagina_gracias():
     return render_template('gracias.html')
 
 
-# --- RUTAS PARA SEO ---
+# --- 5. RUTAS PARA SEO ---
 
-# (NUEVO) Ruta para servir el archivo robots.txt desde la carpeta 'static'.
 @app.route('/robots.txt')
 def robots_txt():
+    # Asumiendo que tienes un robots.txt en tu carpeta 'static'
     return send_from_directory(app.static_folder, 'robots.txt')
 
-# (NUEVO) Ruta para generar el sitemap.xml dinámicamente.
 @app.route('/sitemap.xml')
 def sitemap():
-    # ¡IMPORTANTE! Cambia esta URL por tu dominio cuando lo tengas.
-    URL_BASE = "gemacalderonsayoux.com" 
+    # (CORREGIDO) La URL base debe ser la URL completa
+    URL_BASE = "https://gemacalderonsayoux.com" 
 
-    # Renderizamos una plantilla XML, pasándole los datos necesarios para crear las URLs.
     template = render_template('sitemap.xml', base_url=URL_BASE, casos_de_estudio=CASOS_DE_ESTUDIO_DB)
-    # Creamos una respuesta HTTP y le asignamos el tipo de contenido correcto.
     response = make_response(template)
     response.headers['Content-Type'] = 'application/xml'
     return response
 
+# --- 6. ARRANQUE DE LA APLICACIÓN ---
 
-# Esta línea no cambia.
 if __name__ == "__main__":
+    # Esto es para ejecutar la app en tu ordenador local con `python app.py`
     app.run(debug=True)

@@ -32,9 +32,9 @@ CASOS_DE_ESTUDIO_DB = {
     "aumento-visibilidad-katarsia": {
         "titulo": "1º puesto en Google para clínica en Barcelona: Tratamiento Sueroterapia",
         "cliente": "Centro Médico Katarsia",
-        "problema": "Mejorar la venta de este tratamiento el cual tenía bastante margen de beneficio.",
-        "solucion": "Se desarrolló contenido informativo sobre los diferentes tipos de compuestos de la Sueroterapia y se realizó un análisis del mercado en Estados Unidos para adaptarlo al mercado español.",
-        "resultado": "Logramos un aumento del 564% en tráfico orgánico en 3 meses y un incremento del 45% en ventas atribuidas directamente a la búsqueda orgánica en un mes.",
+        "problema": "El objetivo era claro: aumentar la venta de un tratamiento con un alto margen de beneficio, pero con escasa visibilidad digital en el mercado hispanohablante. El reto no solo era atraer tráfico, sino educar al consumidor y adaptar un concepto aún poco conocido en España, como la Sueroterapia, procedente de un contexto muy desarrollado como el estadounidense.",
+        "solucion": "Se implementó una estrategia SEO centrada en contenido educativo y adaptado culturalmente. Se desarrollaron textos optimizados que explicaban los beneficios, tipos de compuestos y aplicaciones clínicas de la Sueroterapia.Se analizó el comportamiento del consumidor en EE. UU. y se aplicaron insights clave al contexto español. Se utilizaron herramientas de análisis de palabras clave, intención de búsqueda y competencia para crear una arquitectura web efectiva y contenido que respondiera a preguntas reales de los usuarios.",
+        "resultado": "Logramos un aumento del 564% en tráfico orgánico en 3 meses y un incremento del 45% en ventas atribuidas directamente a la búsqueda orgánica en un mes. Mejora notable en la tasa de conversión gracias a una estrategia de contenido que combinó educación, confianza y SEO técnico.",
         "imagenes": [
             "impresiones_katarsia.jpg", 
             "incremento_ingresos_katarsia.jpg"
@@ -43,9 +43,9 @@ CASOS_DE_ESTUDIO_DB = {
     "seo-local-macan": {
         "titulo": "Mejora de Posicionamiento Orgánico para Despacho de Abogados",
         "cliente": "Macan Abogados",
-        "problema": "El despacho de abogados necesitaba mejorar su visibilidad en Google para captar nuevos clientes.",
-        "solucion": "Después de realizar una auditoría técnica, se mejoraron las etiquetas, se incluyeron palabras clave de la competencia y se optimizó la estructura de la web.",
-        "resultado": "Como resultado del trabajo realizado, se aumentó la visibilidad orgánica en un 466% y se mejoró la posición en los resultados de búsqueda (SERP), lo que incrementó el número de clics en un 249%.",
+        "problema": "Macan Abogados enfrentaba una baja visibilidad en los resultados de búsqueda locales, lo que limitaba significativamente su captación de nuevos clientes potenciales. A pesar de ofrecer servicios especializados y de alto valor, su página web no estaba posicionada de forma competitiva frente a otros despachos en su misma área geográfica.",
+        "solucion": "Optimización técnica y de estructura: Corrección de etiquetas HTML (títulos, meta descripciones, encabezados H1-H3); Mejora de la arquitectura web para favorecer el rastreo e indexación. También diseñé una estrategia de palabras claves orientada a la intención de búsqueda junto con la optimización del perfil de Google Business Profile",
+        "resultado": "Como resultado del trabajo realizado, se aumentó la visibilidad orgánica en un 466% y se mejoró la posición en los resultados de búsqueda (SERP), lo que incrementó el número de clics en un 249% junto con una mayor captación de leads cualificados procedentes de búsquedas locales.",
         "imagenes": [
             "macan_impresiones.jpg"
         ]

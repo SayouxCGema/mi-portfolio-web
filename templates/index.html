@@ -80,7 +80,7 @@
                         <img src="{{ url_for('static', filename='img/' + caso.imagenes[0]) }}" alt="{{ _('Gráfico de resultados para') }} {{ caso.cliente }}">
                         <h3>{{ caso.titulo }}</h3>
                         <p>{{ caso.problema|truncate(120) }}</p>
-                        <a href="{{ url_for('caso_de_estudio', slug=slug) }}" class="btn">{{ _('Ver Caso Completo') }}</a>
+                        <a href="{{ url_for('caso_de_estudio', lang_code=lang_code, slug=slug) }}" class="btn">{{ _('Ver Caso Completo') }}</a>
                     </div>
                     {% endfor %}
                 </div>

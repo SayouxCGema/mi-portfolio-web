@@ -87,15 +87,13 @@
             </div>
         </section>
         
-        <!-- SECCIÓN CONOCIMIENTOS / HERRAMIENTAS (CORREGIDA) -->
+ <!-- SECCIÓN CONOCIMIENTOS / HERRAMIENTAS (CORREGIDA) -->
 <section id="conocimientos" class="section">
     <div class="container">
         <div class="section-title">
             <h2>{{ _('Mis Herramientas') }}</h2>
         </div>
         <div class="tools-grid">
-            
-            <!-- Cada imagen ahora usa url_for para generar la ruta correcta -->
             <div class="tool-item">
                 <img src="{{ url_for('static', filename='img/Logo_Google_Analytics.svg') }}" alt="Google Analytics 4">
                 <span>Google Analytics 4</span>
@@ -116,7 +114,6 @@
                 <img src="{{ url_for('static', filename='img/Google_Ads_logo.svg') }}" alt="Google Ads">
                 <span>Google Ads</span>
             </div>
-            
         </div>
     </div>
 </section>
@@ -168,17 +165,18 @@
             </div>
         </section>
 
-        <!-- SECCIÓN DE CALENDARIO (CALENDLY) -->
-        <section id="agendar-cita" class="section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>{{ _('¿Hablamos?') }}</h2>
-                    <p class="section-subtitle">{{ _('Agenda una reunión de 15 minutos directamente en mi calendario.') }}</p>
-                </div>
-                <!-- El widget de Calendly se puede configurar para un idioma específico -->
-                <div class="calendly-inline-widget">data-url="https://calendly.com/gemacalderonsayoux/30min?background_color=ebe1e1&primary_color=006cff&locale=es" style="min-width:320px;height:700px;"></div>
-            </div>
-        </section>
+        <!-- SECCIÓN DE CALENDARIO (CALENDLY) (CORREGIDA) -->
+<section id="agendar-cita" class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>{{ _('¿Hablamos?') }}</h2>
+            <p class="section-subtitle">{{ _('Agenda una reunión de 15 minutos directamente en mi calendario.') }}</p>
+        </div>
+        <!-- El &locale=es se ha añadido al final de la URL -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/gemacalderonsayoux/30min?background_color=ebe1e1&primary_color=006cff&locale=es" style="min-width:320px;height:700px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    </div>
+</section>
 
         <!-- SECCIÓN CONTACTO -->
 <section id="contacto" class="fade-in">

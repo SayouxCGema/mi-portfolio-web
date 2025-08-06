@@ -1,50 +1,16 @@
-<!-- Contenido para: templates/caso_de_estudio.html (Adaptado para heredar de base.html) -->
+<!-- Contenido para: templates/caso_de_estudio.html (SIMPLIFICADO) -->
 
 {% extends "base.html" %}
 
-{# Este bloque sobreescribe el título por defecto de la plantilla base #}
-{% block title %}{{ caso.titulo }} - Caso de Estudio{% endblock %}
+{% block title %}{{ caso.titulo }} - {{ _('Caso de Estudio') }}{% endblock %}
 
-{# El contenido principal de esta página se inserta en el bloque 'content' de la plantilla base #}
 {% block content %}
-    <header>
-        <div class="container">
-             <div class="logo">
-                <a href="{{ url_for('home') }}">Gema Calderón Sayoux</a>
-            </div>
-            <nav>
-                <a href="{{ url_for('home') }}#servicios">Servicios</a>
-                <a href="{{ url_for('home') }}#contacto">Contacto</a>
-            </nav>
-        </div>
-    </header>
+    {# Ya no necesitas el <header> ni el <footer> aquí #}
 
     <main class="caso-detalle-container">
         <h1>{{ caso.titulo }}</h1>
-        <p><strong>Cliente:</strong> {{ caso.cliente }}</p>
-        
-        <div class="caso-imagenes-grid">
-            {% for imagen in caso.imagenes %}
-            <img src="{{ url_for('static', filename='img/' + imagen) }}" alt="Gráfico de resultados para {{ caso.cliente }}" class="caso-imagen">
-            {% endfor %}
-        </div>
-        
-        <h2>El Desafío</h2>
-        <p>{{ caso.problema }}</p>
-        
-        <h2>La Solución</h2>
-        <p>{{ caso.solucion }}</p>
-        
-        <h2>El Resultado</h2>
-        <p>{{ caso.resultado }}</p>
-        
-        <a href="{{ url_for('home') }}#agendar-cita" class="btn">¿Quieres resultados similares? ¡Hablemos!</a>
+        <!-- ... resto del contenido del main ... -->
+        <a href="{{ url_for('home', lang_code=lang_code) }}#agendar-cita" class="btn">{{ _('¿Quieres resultados similares? ¡Hablemos!') }}</a>
     </main>
     
-    {# Incluimos un footer simple para mantener la consistencia #}
-    <footer>
-        <div class="container">
-            <p>© 2025 Gema Calderón Sayoux | Todos los derechos reservados.</p>
-        </div>
-    </footer>
 {% endblock %}

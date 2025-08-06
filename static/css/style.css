@@ -66,6 +66,23 @@ nav a {
 }
 nav a:hover { color: var(--color-acento); }
 
+/* --- SELECTOR DE IDIOMA --- */
+.language-switcher {
+    margin-left: 20px;
+}
+.language-switcher a, .language-switcher span {
+    color: var(--color-texto-claro);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px;
+}
+.language-switcher a:hover {
+    color: var(--color-acento);
+}
+.language-switcher .lang-active {
+    color: var(--color-primario);
+    border-bottom: 2px solid var(--color-acento);
+}
 /* --- SECCIONES Y TÍTULOS --- */
 section {
     padding: 80px 0;

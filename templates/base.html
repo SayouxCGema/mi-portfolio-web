@@ -1,56 +1,85 @@
-<!-- Contenido para: templates/base.html (NUEVO ARCHIVO) -->
+<!-- Contenido para: templates/base.html (VERSIÓN FINAL CON HEADER Y FOOTER) -->
 
 <!DOCTYPE html>
-<html lang="es">
+<!-- El idioma de la página se establece dinámicamente -->
+<html lang="{{ lang_code }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- El título será diferente para cada página hija -->
-    <title>{% block title %}Gema Calderón Sayoux - Especialista en Marketing Digital{% endblock %}</title>
+    <title>{% block title %}{{ _('Gema Calderón Sayoux - Especialista en Marketing Digital') }}{% endblock %}</title>
     
     <!-- CSS y librerías externas -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
-    <!-- Favicon (ahora solo lo pones una vez aquí) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicons/favicon-96x96.png') }}">
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicons/favicon.svg') }}">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicons/favicon.ico') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicons/apple-touch-icon.png') }}">
+    <!-- ... resto de tus favicons ... -->
     <link rel="manifest" href="{{ url_for('static', filename='favicons/site.webmanifest') }}">
     
-    <!-- ========================================= -->
-    <!-- CÓDIGO DE GOOGLE ANALYTICS 4 (GA4)        -->
-    <!-- ========================================= -->
-    <!-- Pega aquí el código que te dio Google Analytics -->
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W6KW0W2WXK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W6KW0W2WXK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W6KW0W2WXK');
+    </script>
 
-  gtag('config', 'G-W6KW0W2WXK');
-</script>
-    <!-- ========================================= -->
-    <!-- FIN DEL CÓDIGO DE GA4                     -->
-    <!-- ========================================= -->
-
-    <!-- Este bloque permite a las páginas hijas añadir CSS extra si lo necesitan -->
     {% block head_extra %}{% endblock %}
 
 </head>
 <body>
 
-    <!-- Bloque para el contenido principal, que cada página hija rellenará -->
-    {% block content %}
-    <!-- El contenido de index.html, caso_de_estudio.html, etc., irá aquí -->
-    {% endblock %}
+    <!-- ========================================= -->
+    <!-- HEADER GLOBAL - AHORA VIVE EN BASE.HTML   -->
+    <!-- ========================================= -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <!-- Enlaza a la página de inicio en el idioma actual -->
+                <a href="{{ url_for('home', lang_code=lang_code) }}">Gema Calderón Sayoux</a>
+            </div>
+            <nav>
+                <a href="{{ url_for('home', lang_code=lang_code) }}#sobre-mi">{{ _('Sobre mí') }}</a>
+                <a href="{{ url_for('home', lang_code=lang_code) }}#servicios">{{ _('Servicios') }}</a>
+                <a href="{{ url_for('home', lang_code=lang_code) }}#casos-de-estudio">{{ _('Casos de Estudio') }}</a>
+                <a href="{{ url_for('home', lang_code=lang_code) }}#conocimientos">{{ _('Conocimientos') }}</a>
+                <a href="{{ url_for('home', lang_code=lang_code) }}#contacto">{{ _('Contacto') }}</a>
+            </nav>
+            
+            <!-- ========================================= -->
+            <!--   (NUEVO) SELECTOR DE IDIOMA AQUÍ         -->
+            <!-- ========================================= -->
+            <div class="language-switcher">
+                {% if lang_code == 'es' %}
+                    <span class="lang-active">ES</span> | <a href="{{ url_for(request.endpoint, lang_code='en', **request.view_args) }}">EN</a>
+                {% else %}
+                    <a href="{{ url_for(request.endpoint, lang_code='es', **request.view_args) }}">ES</a> | <span class="lang-active">EN</span>
+                {% endif %}
+            </div>
+        </div>
+    </header>
 
+    <!-- Bloque para el contenido principal -->
+    {% block content %}{% endblock %}
 
-    <!-- Scripts de JavaScript (ahora solo se ponen una vez aquí) -->
+    <!-- ========================================= -->
+    <!-- FOOTER GLOBAL - AHORA VIVE EN BASE.HTML   -->
+    <!-- ========================================= -->
+    <footer>
+        <div class="container">
+            <p>{{ _('© 2025 Gema Calderón Sayoux | Todos los derechos reservados.') }}</p>
+            <div class="social-links">
+                <a href="mailto:{{ contact.email }}" aria-label="{{ _('Enviar correo electrónico') }}"><i class="fas fa-envelope"></i></a>
+                <a href="{{ contact.linkedin }}" target="_blank" rel="noopener noreferrer" aria-label="{{ _('Visitar perfil de LinkedIn') }}"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 

@@ -1,0 +1,336 @@
+# English translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-08-06 17:09+0200\n"
+"PO-Revision-Date: 2025-08-06 17:11+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: templates/base.html:11
+msgid "Gema Calderón Sayoux - Especialista en Marketing Digital"
+msgstr "Gema Calderón Sayoux - Digital Marketing Specialist"
+
+#: templates/caso_de_estudio.html:4
+msgid "Caso de Estudio"
+msgstr "Case Study"
+
+#: templates/caso_de_estudio.html:13 templates/index.html:12
+#: templates/index.html:55
+msgid "Servicios"
+msgstr "Services"
+
+#: templates/caso_de_estudio.html:14 templates/index.html:15
+msgid "Contacto"
+msgstr "Contact"
+
+#: templates/caso_de_estudio.html:21
+msgid "Cliente:"
+msgstr "Client:"
+
+#: templates/caso_de_estudio.html:25 templates/index.html:95
+msgid "Gráfico de resultados para"
+msgstr "Results chart for"
+
+#: templates/caso_de_estudio.html:29
+msgid "El Desafío"
+msgstr "The Challenge"
+
+#: templates/caso_de_estudio.html:32
+msgid "La Solución"
+msgstr "The Solution"
+
+#: templates/caso_de_estudio.html:35
+msgid "El Resultado"
+msgstr "The Result"
+
+#: templates/caso_de_estudio.html:38
+msgid "¿Quieres resultados similares? ¡Hablemos!"
+msgstr "Want similar results? Let's talk!"
+
+#: templates/caso_de_estudio.html:43 templates/index.html:212
+msgid "© 2025 Gema Calderón Sayoux | Todos los derechos reservados."
+msgstr "© 2025 Gema Calderón Sayoux | All rights reserved."
+
+#: templates/gracias.html:6
+msgid "¡Gracias por tu mensaje!"
+msgstr "Thank you for your message!"
+
+#: templates/gracias.html:44
+msgid "¡Mensaje Enviado!"
+msgstr "Message Sent!"
+
+#: templates/gracias.html:45
+msgid ""
+"Gracias por ponerte en contacto. He recibido tu consulta y te responderé "
+"a la mayor brevedad posible."
+msgstr "Thank you for getting in touch. I have received your inquiry and will get back to you as soon as possible."
+
+#: templates/gracias.html:46
+msgid "Volver al Inicio"
+msgstr "Back to Home"
+
+#: templates/index.html:11
+msgid "Sobre mí"
+msgstr "About Me"
+
+#: templates/index.html:13 templates/index.html:89
+msgid "Casos de Estudio"
+msgstr "Case Studies"
+
+#: templates/index.html:14
+msgid "Conocimientos"
+msgstr "Skills"
+
+#: templates/index.html:25
+msgid "Impulsa tu negocio con SEO, Google Ads y Análisis de Datos."
+msgstr "Boost your business with SEO, Google Ads, and Data Analysis."
+
+#: templates/index.html:26
+msgid ""
+"Soy Gema, consultora digital especializada en ayudar a pequeñas y "
+"medianas empresas a crecer con soluciones digitales a medida, bien "
+"pensadas y que generan resultados reales."
+msgstr "I'm Gema, a digital consultant specializing in helping small and medium-sized businesses grow with custom, well-thought-out digital solutions that deliver real results."
+
+#: templates/index.html:27
+msgid "Hablemos de tu proyecto"
+msgstr "Let's talk about your project"
+
+#: templates/index.html:37
+msgid "Gema Calderón Sayoux marketing digital"
+msgstr "Gema Calderón Sayoux digital marketing"
+
+#: templates/index.html:41
+msgid "Conóceme"
+msgstr "Get to know me"
+
+#: templates/index.html:42
+msgid "Hola, soy Gema"
+msgstr "Hello, I'm Gema"
+
+#: templates/index.html:44
+msgid ""
+"Con una pasión por la creatividad y un enfoque analítico, mi misión es "
+"ayudar a marcas como la tuya a conectar con su audiencia de manera "
+"auténtica y efectiva. Creo en un marketing que no solo vende, sino que "
+"también aporta valor y construye relaciones duraderas."
+msgstr "With a passion for creativity and an analytical approach, my mission is to help brands like yours connect with their audience authentically and effectively. I believe in marketing that not only sells but also adds value and builds lasting relationships."
+
+#: templates/index.html:45
+msgid ""
+"Mi experiencia abarca desde la planificación estratégica y SEO hasta la "
+"gestión de campañas publicitarias,configuraciones técnicas y presentación"
+" de informes; siempre con el objetivo de transformar ideas en resultados "
+"medibles."
+msgstr "My experience ranges from strategic planning and SEO to managing advertising campaigns, technical setups, and reporting—always with the goal of turning ideas into measurable results."
+
+#: templates/index.html:56
+msgid "Soluciones a tu medida"
+msgstr "Custom-fit Solutions"
+
+#: templates/index.html:57
+msgid ""
+"Packs diseñados para adaptarse a tus necesidades, ya sea un proyecto "
+"completo o un soporte continuo."
+msgstr "Packages designed to fit your needs, whether it's a full project or ongoing support."
+
+#: templates/index.html:61
+msgid "Packs por Proyecto"
+msgstr "Project-Based Packs"
+
+#: templates/index.html:62
+msgid "Soluciones integrales con un precio cerrado para objetivos concretos."
+msgstr "Comprehensive solutions with a fixed price for specific goals."
+
+#: templates/index.html:64
+msgid "Web completa (WordPress o HTML + SEO básico)"
+msgstr "Complete Website (WordPress or HTML + Basic SEO)"
+
+#: templates/index.html:65
+msgid "Campañas Google Ads + Analytics"
+msgstr "Google Ads + Analytics Campaigns"
+
+#: templates/index.html:66
+msgid "Estrategia de contenidos SEO"
+msgstr "SEO Content Strategy"
+
+#: templates/index.html:68
+msgid "Solicitar presupuesto"
+msgstr "Request a Quote"
+
+#: templates/index.html:71
+msgid "Packs por Horas"
+msgstr "Hourly Packs"
+
+#: templates/index.html:72
+msgid "Flexibilidad total para consultoría, mantenimiento o tareas puntuales."
+msgstr "Total flexibility for consulting, maintenance, or specific tasks."
+
+#: templates/index.html:74
+msgid "1h:"
+msgstr "1h:"
+
+#: templates/index.html:74
+msgid "Desde 45 €"
+msgstr "From €45"
+
+#: templates/index.html:75
+msgid "5h:"
+msgstr "5h:"
+
+#: templates/index.html:75
+msgid "Desde 200 €"
+msgstr "From €200"
+
+#: templates/index.html:76
+msgid "10h:"
+msgstr "10h:"
+
+#: templates/index.html:76
+msgid "Desde 350 €"
+msgstr "From €350"
+
+#: templates/index.html:77
+msgid "Bono mensual:"
+msgstr "Monthly Retainer:"
+
+#: templates/index.html:77
+msgid "400 €"
+msgstr "€400"
+
+#: templates/index.html:79
+msgid "Contratar horas"
+msgstr "Purchase Hours"
+
+#: templates/index.html:90
+msgid "Resultados reales para clientes reales."
+msgstr "Real results for real clients."
+
+#: templates/index.html:98
+msgid "Ver Caso Completo"
+msgstr "View Full Case Study"
+
+#: templates/index.html:109
+msgid "Mis Herramientas"
+msgstr "My Toolkit"
+
+#: templates/index.html:120
+msgid "Recursos Gratuitos"
+msgstr "Free Resources"
+
+#: templates/index.html:121
+msgid "Herramientas y scripts para ayudarte en tu día a día."
+msgstr "Tools and scripts to help you with your daily tasks."
+
+#: templates/index.html:125
+msgid "Script de Auditoría Rápida"
+msgstr "Quick Audit Script"
+
+#: templates/index.html:126
+msgid ""
+"Un script en Python para revisar los básicos de una web (títulos, "
+"metadescripciones, H1)."
+msgstr "A Python script to check website basics (titles, meta descriptions, H1s)."
+
+#: templates/index.html:127 templates/index.html:132
+msgid "Descargar Script (.zip)"
+msgstr "Download Script (.zip)"
+
+#: templates/index.html:130
+msgid "Script para Redactar Artículos"
+msgstr "Article Writing Script"
+
+#: templates/index.html:131
+msgid ""
+"Conecta con una API de IA para generar borradores de artículos "
+"optimizados para SEO."
+msgstr "Connects to an AI API to generate SEO-optimized article drafts."
+
+#: templates/index.html:142
+msgid "Confianza"
+msgstr "Trust"
+
+#: templates/index.html:143
+msgid "Empresas que han confiado en mí"
+msgstr "Companies that have trusted me"
+
+#: templates/index.html:154
+msgid "Formación"
+msgstr "Training"
+
+#: templates/index.html:155
+msgid "Certificaciones Profesionales"
+msgstr "Professional Certifications"
+
+#: templates/index.html:156
+msgid ""
+"Compromiso constante con el aprendizaje y las mejores prácticas del "
+"sector."
+msgstr "A constant commitment to learning and industry best practices."
+
+#: templates/index.html:167
+msgid "¿Hablamos?"
+msgstr "Shall we talk?"
+
+#: templates/index.html:168
+msgid "Agenda una reunión de 15 minutos directamente en mi calendario."
+msgstr "Schedule a 15-minute meeting directly on my calendar."
+
+#: templates/index.html:182
+msgid "O si lo prefieres..."
+msgstr "Or if you prefer..."
+
+#: templates/index.html:183
+msgid "Envíame un mensaje"
+msgstr "Send me a message"
+
+#: templates/index.html:184
+msgid ""
+"Rellena el formulario y daré respuesta a tu consulta dentro de las "
+"próximas 24 horas."
+msgstr "Fill out the form, and I will respond to your inquiry within the next 24 hours."
+
+#: templates/index.html:187
+msgid "Nombre"
+msgstr "Name"
+
+#: templates/index.html:188
+msgid "Apellidos"
+msgstr "Last Name"
+
+#: templates/index.html:189
+msgid "Email"
+msgstr "Email"
+
+#: templates/index.html:192
+msgid "Servicio de interés..."
+msgstr "Service of interest..."
+
+#: templates/index.html:199
+msgid "Cuéntame más sobre tu proyecto..."
+msgstr "Tell me more about your project..."
+
+#: templates/index.html:202
+msgid "Enviar Mensaje"
+msgstr "Send Message"
+
+#: templates/index.html:214
+msgid "Enviar correo electrónico"
+msgstr "Send email"
+
+#: templates/index.html:215
+msgid "Visitar perfil de LinkedIn"
+msgstr "Visit LinkedIn profile"
+

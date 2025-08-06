@@ -1,13 +1,14 @@
-<!-- Contenido para: templates/gracias.html (Adaptado para heredar de base.html) -->
+<!-- Contenido para: templates/gracias.html (COMPLETO Y MARCADO) -->
 
 {% extends "base.html" %}
 
 {# Sobreescribe el título por defecto de la plantilla base #}
-{% block title %}¡Gracias por tu mensaje! - Gema Calderón Sayoux{% endblock %}
+{% block title %}{{ _('¡Gracias por tu mensaje!') }} - Gema Calderón Sayoux{% endblock %}
 
 {# Añade contenido extra al <head> de la plantilla base #}
 {% block head_extra %}
     <!-- Redirección automática a la página de inicio después de 7 segundos -->
+    <!-- NOTA: Más adelante, este enlace deberá ser dinámico para apuntar a /es/ o /en/ -->
     <meta http-equiv="refresh" content="7;url={{ url_for('home') }}">
 
     <!-- Estilos adicionales solo para esta página -->
@@ -40,8 +41,8 @@
 {# El contenido principal de esta página se inserta en el bloque 'content' #}
 {% block content %}
     <div class="thank-you-container">
-        <h1>¡Mensaje Enviado!</h1>
-        <p>Gracias por ponerte en contacto. He recibido tu consulta y te responderé a la mayor brevedad posible.</p>
-        <a href="{{ url_for('home') }}" class="cta-button">Volver al Inicio</a>
+        <h1>{{ _('¡Mensaje Enviado!') }}</h1>
+        <p>{{ _('Gracias por ponerte en contacto. He recibido tu consulta y te responderé a la mayor brevedad posible.') }}</p>
+        <a href="{{ url_for('home') }}" class="cta-button">{{ _('Volver al Inicio') }}</a>
     </div>
 {% endblock %}

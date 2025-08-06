@@ -1,0 +1,20 @@
+{
+  "casos_de_estudio": {
+    "aumento-visibilidad-katarsia": {
+      "titulo": "Top Google Ranking for IV Therapy Clinic in Barcelona",
+      "cliente": "Katarsia Medical Center",
+      "problema": "To improve sales for this high-profit-margin treatment.",
+      "solucion": "Informative content about the different IV Therapy compounds was developed, and a market analysis of the United States was conducted to adapt it to the Spanish market.",
+      "resultado": "We achieved a 564% increase in organic traffic in 3 months and a 45% rise in sales directly attributed to organic search within one month.",
+      "imagenes": ["impresiones_katarsia.jpg", "incremento_ingresos_katarsia.jpg"]
+    },
+    "seo-local-macan": {
+      "titulo": "Organic Positioning Improvement for Law Firm",
+      "cliente": "Macan Abogados",
+      "problema": "The law firm needed to improve its visibility on Google to attract new clients.",
+      "solucion": "After a technical audit, tags were improved, competitor keywords were included, and the website's structure was optimized.",
+      "resultado": "As a result of the work done, organic visibility increased by 466%, and SERP positioning improved, leading to a 249% increase in clicks.",
+      "imagenes": ["macan_impresiones.jpg"]
+    }
+  }
+}

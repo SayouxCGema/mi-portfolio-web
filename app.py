@@ -117,6 +117,11 @@ def pagina_gracias():
 def robots_txt():
     return send_from_directory(app.static_folder, 'robots.txt')
 
+# --- AÑADE ESTA NUEVA RUTA AQUÍ ABAJO ---
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static', 'favicons'), 
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 @app.route('/sitemap.xml')
 def sitemap():
     URL_BASE = "https://gemacalderonsayoux.com"

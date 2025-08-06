@@ -1,5 +1,5 @@
 # ==========================================================
-# app.py - Versión Final con Internacionalización (i18n)
+# app.py - Versión Final con Internacionalización (CORREGIDO)
 # ==========================================================
 
 # --- 1. IMPORTACIONES ---
@@ -7,18 +7,23 @@ import os
 import resend
 import json
 from flask import Flask, render_template, request, redirect, url_for, g, make_response, send_from_directory
-from flask_babel import Babel, get_locale
+from flask_babel import Babel
 
-# --- 2. INICIALIZACIÓN DE LA APLICACIÓN Y BABEL ---
+# --- 2. INICIALIZACIÓN DE LA APLICACIÓN ---
 app = Flask(__name__)
 app.secret_key = 'gema-calderon-sayoux-web-secreta'
 
-# Configuración de Babel
+# --- 3. MANEJO DEL IDIOMA (SINTAXIS MODERNA) ---
+
+# Primero, definimos la función que seleccionará el idioma
+def get_locale():
+    # getattr es una forma segura de obtener g.lang_code, por si no existiera
+    return getattr(g, 'lang_code', app.config['BABEL_DEFAULT_LOCALE'])
+
+# Ahora, configuramos Babel y le pasamos la función directamente
 app.config['LANGUAGES'] = {'es': 'Español', 'en': 'English'}
 app.config['BABEL_DEFAULT_LOCALE'] = 'es'
-babel = Babel(app)
-
-# --- 3. MANEJO DEL IDIOMA ---
+babel = Babel(app, locale_selector=get_locale)
 
 # Esta función carga los datos del archivo JSON correspondiente al idioma actual
 def load_lang_data(lang):
@@ -26,60 +31,43 @@ def load_lang_data(lang):
         with open(f'translations/{lang}/data.json', 'r', encoding='utf-8') as f:
             return json.load(f)
     except FileNotFoundError:
-        # Si el archivo de un idioma no existe, carga el de español por defecto
         with open('translations/es/data.json', 'r', encoding='utf-8') as f:
             return json.load(f)
 
 # Esta función se ejecuta antes de cada petición para determinar el idioma
 @app.url_value_preprocessor
 def pull_lang_code(endpoint, values):
-    g.lang_code = values.pop('lang_code', app.config['BABEL_DEFAULT_LOCALE'])
+    if values is not None:
+        g.lang_code = values.pop('lang_code', app.config['BABEL_DEFAULT_LOCALE'])
+    else:
+        g.lang_code = app.config['BABEL_DEFAULT_LOCALE']
 
 # Esta función hace que el idioma esté disponible para todas las plantillas
 @app.context_processor
 def inject_lang_code():
-    return dict(lang_code=g.lang_code)
-
-# Esta función le dice a Babel qué idioma usar para las traducciones
-@babel.localeselector
-def get_locale_from_request():
-    return g.lang_code
+    return dict(lang_code=getattr(g, 'lang_code', app.config['BABEL_DEFAULT_LOCALE']))
 
 # --- 4. DATOS GLOBALES (QUE NO SE TRADUCEN) ---
 CONTACT_DATA = {
     "email": "gemacalderonsayoux@gmail.com",
     "linkedin": "https://www.linkedin.com/in/gema-calderon-sayoux/"
 }
-
-# Los packs de servicios se marcan para traducción directamente en la plantilla
 SERVICE_PACKS = [
-    "Web completa (WordPress o HTML + SEO básico)",
-    "Campañas Google Ads + Analytics",
-    "Estrategia de contenidos SEO",
-    "Pack de horas (5h, 10h o 20h)",
-    "Consulta inicial (1h)",
-    "No estoy seguro/a, necesito asesoramiento"
+    "Web completa (WordPress o HTML + SEO básico)", "Campañas Google Ads + Analytics",
+    "Estrategia de contenidos SEO", "Pack de horas (5h, 10h o 20h)",
+    "Consulta inicial (1h)", "No estoy seguro/a, necesito asesoramiento"
 ]
 
 # --- 5. RUTAS DE LA APLICACIÓN ---
-
-# Ruta raíz que redirige a la versión en español por defecto
 @app.route('/')
 def home_redirect():
     return redirect(url_for('home', lang_code='es'))
 
-# Ruta principal con prefijo de idioma
 @app.route('/<lang_code>/')
 def home():
     page_data = load_lang_data(g.lang_code)
-    return render_template(
-        'index.html',
-        contact=CONTACT_DATA,
-        packs=SERVICE_PACKS,
-        casos_de_estudio=page_data.get('casos_de_estudio', {})
-    )
+    return render_template('index.html', contact=CONTACT_DATA, packs=SERVICE_PACKS, casos_de_estudio=page_data.get('casos_de_estudio', {}))
 
-# Ruta para casos de estudio con prefijo de idioma
 @app.route('/<lang_code>/casos-de-estudio/<slug>')
 def caso_de_estudio(slug):
     page_data = load_lang_data(g.lang_code)
@@ -88,17 +76,16 @@ def caso_de_estudio(slug):
         return "Caso de estudio no encontrado", 404
     return render_template('caso_de_estudio.html', caso=caso)
 
-# Ruta para el formulario de contacto (no necesita prefijo de idioma)
 @app.route("/enviar-mensaje", methods=["POST"])
 def enviar_mensaje():
-    # ... (tu código de envío de email con Resend se queda exactamente igual)
-    # Recogemos datos del formulario
+    lang = request.form.get('lang_code', 'es')
+    # ... tu código de envío de email con Resend ...
+    # (El resto de esta función no necesita cambios)
     nombre = request.form.get("nombre")
     apellidos = request.form.get("apellidos")
     email_cliente = request.form.get("email")
     pack_interes = request.form.get("pack_interes")
     notas = request.form.get("notas")
-
     resend.api_key = os.environ.get('RESEND_API_KEY')
     contenido_html = f"""
         <h3>Nuevo Contacto desde tu Portafolio Web</h3>
@@ -119,12 +106,8 @@ def enviar_mensaje():
         print("INTENTO DE ENVÍO DE EMAIL CON RESEND - ÉXITO")
     except Exception as e:
         print(f"ERROR AL ENVIAR EMAIL CON RESEND: {e}")
-
-    # Redirigimos a la página de gracias en el idioma correspondiente
-    lang = request.form.get('lang_code', 'es')
     return redirect(url_for('pagina_gracias', lang_code=lang))
 
-# Página de gracias con prefijo de idioma
 @app.route('/<lang_code>/gracias')
 def pagina_gracias():
     return render_template('gracias.html')
@@ -137,7 +120,6 @@ def robots_txt():
 @app.route('/sitemap.xml')
 def sitemap():
     URL_BASE = "https://gemacalderonsayoux.com"
-    # El sitemap necesita los datos, así que los cargamos aquí
     page_data_es = load_lang_data('es')
     casos_es = page_data_es.get('casos_de_estudio', {})
     template = render_template('sitemap.xml', base_url=URL_BASE, casos_de_estudio=casos_es)

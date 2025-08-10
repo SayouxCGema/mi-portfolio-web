@@ -30,6 +30,9 @@
 
     {% block head_extra %}{% endblock %}
 
+    <!-- En el <head> de base.html -->
+<script src="https://www.google.com/recaptcha/api.js?render=6Lch3aArAAAAAFEZ5OYN5EI0HzcO1GlrBmlDo9Zg"></script>
+
 </head>
 <body>
 
@@ -82,6 +85,7 @@
     <!-- Scripts de JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-
+<!-- (NUEVO) Bloque para que las páginas hijas puedan añadir sus propios scripts -->
+    {% block scripts %}{% endblock %}
 </body>
 </html>

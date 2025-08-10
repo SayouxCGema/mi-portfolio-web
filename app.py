@@ -6,6 +6,7 @@
 import os
 import resend
 import json
+import requests
 from flask import Flask, render_template, request, redirect, url_for, g, make_response, send_from_directory
 from flask_babel import Babel
 
@@ -76,24 +77,65 @@ def caso_de_estudio(slug):
         return "Caso de estudio no encontrado", 404
     return render_template('caso_de_estudio.html', caso=caso)
 
+# app.py (función enviar_mensaje final y correcta)
+
+# Asegúrate de tener 'import requests' al principio de tu app.py
+import requests
+
 @app.route("/enviar-mensaje", methods=["POST"])
 def enviar_mensaje():
-    lang = request.form.get('lang_code', 'es')
-    # ... tu código de envío de email con Resend ...
-    # (El resto de esta función no necesita cambios)
+    # --- 1. Verificación de reCAPTCHA ---
+    recaptcha_token = request.form.get('g-recaptcha-response')
+    secret_key = os.environ.get('RECAPTCHA_SECRET_KEY')
+    
+    # Si la clave secreta no está configurada, no podemos verificar. Fallamos silenciosamente.
+    if not secret_key:
+        print("ERROR: La clave secreta de reCAPTCHA no está configurada en las variables de entorno.")
+        return redirect(url_for('pagina_gracias'))
+
+    verify_url = 'https://www.google.com/recaptcha/api/siteverify'
+    payload = {
+        'secret': secret_key,
+        'response': recaptcha_token
+    }
+    
+    try:
+        response = requests.post(verify_url, data=payload)
+        result = response.json()
+        
+        # Si la verificación falla o la puntuación es muy baja (es un bot), redirigimos y no enviamos email.
+        if not result.get('success') or result.get('score', 0) < 0.5:
+            print(f"SPAM DETECTADO por reCAPTCHA: Puntuación de {result.get('score', 0)}")
+            return redirect(url_for('pagina_gracias'))
+    except Exception as e:
+        print(f"Error al verificar reCAPTCHA: {e}")
+        # En caso de error, no enviamos el email por seguridad.
+        return redirect(url_for('pagina_gracias'))
+        
+    # --- 2. Si pasa la verificación, recogemos datos y enviamos el email ---
+    
+    # Recogemos los datos del formulario (una sola vez)
     nombre = request.form.get("nombre")
     apellidos = request.form.get("apellidos")
     email_cliente = request.form.get("email")
     pack_interes = request.form.get("pack_interes")
     notas = request.form.get("notas")
+    
+    # Inicializamos Resend con la API Key
     resend.api_key = os.environ.get('RESEND_API_KEY')
+    
+    # Construimos el contenido del email
     contenido_html = f"""
         <h3>Nuevo Contacto desde tu Portafolio Web</h3>
         <p><strong>Nombre:</strong> {nombre} {apellidos}</p>
         <p><strong>Email del Cliente:</strong> <a href="mailto:{email_cliente}">{email_cliente}</a></p>
         <p><strong>Servicio de Interés:</strong> {pack_interes}</p>
-        <hr><p><strong>Mensaje:</strong></p><p>{notas}</p>
+        <hr>
+        <p><strong>Mensaje:</strong></p>
+        <p>{notas}</p>
     """
+    
+    # Intentamos enviar el email
     try:
         params = {
             "from": "Contacto Web <contacto@gemacalderonsayoux.com>",
@@ -106,11 +148,9 @@ def enviar_mensaje():
         print("INTENTO DE ENVÍO DE EMAIL CON RESEND - ÉXITO")
     except Exception as e:
         print(f"ERROR AL ENVIAR EMAIL CON RESEND: {e}")
-    return redirect(url_for('pagina_gracias', lang_code=lang))
-
-@app.route('/<lang_code>/gracias')
-def pagina_gracias():
-    return render_template('gracias.html')
+        
+    # --- 3. Finalmente, redirigimos a la página de gracias ---
+    return redirect(url_for('pagina_gracias'))
 
 # --- 6. RUTAS PARA SEO ---
 @app.route('/robots.txt')

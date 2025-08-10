@@ -69,15 +69,20 @@ def home():
     page_data = load_lang_data(g.lang_code)
     return render_template('index.html', contact=CONTACT_DATA, packs=SERVICE_PACKS, casos_de_estudio=page_data.get('casos_de_estudio', {}))
 
+# app.py (función caso_de_estudio_lang CORREGIDA)
+
 @app.route('/<lang_code>/casos-de-estudio/<slug>')
-def caso_de_estudio(slug):
-    page_data = load_lang_data(g.lang_code)
-    caso = page_data.get('casos_de_estudio', {}).get(slug)
+def caso_de_estudio_lang(lang_code, slug): # <-- (CORREGIDO) Acepta 'lang_code' y 'slug'
+    
+    # (CORREGIDO) Ya no necesitamos llamar a load_lang_data. Usamos directamente 'g.lang_data'.
+    caso = g.lang_data.get('casos_de_estudio', {}).get(slug)
+    
+    # Si el caso no se encuentra para el slug dado, muestra un error
     if not caso:
         return "Caso de estudio no encontrado", 404
+        
+    # Renderiza la plantilla pasándole el diccionario del caso específico
     return render_template('caso_de_estudio.html', caso=caso)
-
-# app.py (función enviar_mensaje final y correcta)
 
 # Asegúrate de tener 'import requests' al principio de tu app.py
 import requests

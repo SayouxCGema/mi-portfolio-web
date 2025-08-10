@@ -68,4 +68,8 @@ def load_blog_posts(lang):
 
 @app.url_value_preprocessor
 def pull_lang_code(endpoint, values):
-    """Obtiene el código de idioma de la URL antes 
+    """Obtiene el código de idioma de la URL antes de que se procese la ruta."""
+    if values is not None:
+        g.lang_code = values.pop('lang_code', app.config['BABEL_DEFAULT_LOCALE'])
+    else:
+        g.lang_code = app.config['BABEL_DEFAULT_LOCALE'] 

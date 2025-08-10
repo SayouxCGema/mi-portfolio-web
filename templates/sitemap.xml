@@ -1,18 +1,33 @@
-<!-- templates/sitemap.xml -->
+<!-- Contenido para: templates/sitemap.xml (CORREGIDO Y BILINGÜE) -->
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Página Principal (versiones en español e inglés) -->
   <url>
-    <loc>{{ base_url }}/</loc>
-    <lastmod>2025-08-03</lastmod> <!-- Pon la fecha de tu última actualización -->
+    <loc>{{ base_url }}/es/</loc>
+    <lastmod>2025-08-10</lastmod> <!-- Cambia esta a la fecha de tu última actualización -->
     <priority>1.0</priority>
   </url>
-  
-  <!-- URLs de casos de estudio -->
+  <url>
+    <loc>{{ base_url }}/en/</loc>
+    <lastmod>2025-08-10</lastmod> <!-- Cambia esta a la fecha de tu última actualización -->
+    <priority>1.0</priority>
+  </url>
+
+  <!-- URLs de casos de estudio (para cada idioma) -->
   {% for slug in casos_de_estudio.keys() %}
   <url>
-    <loc>{{ base_url }}/casos-de-estudio/{{ slug }}</loc>
-    <lastmod>2025-08-03</lastmod>
+    <loc>{{ base_url }}/es/casos-de-estudio/{{ slug }}</loc>
+    <lastmod>2025-08-10</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>{{ base_url }}/en/casos-de-estudio/{{ slug }}</loc>
+    <lastmod>2025-08-10</lastmod>
     <priority>0.8</priority>
   </url>
   {% endfor %}
+
+  <!-- Si tienes más páginas estáticas, añádelas aquí -->
+
 </urlset>

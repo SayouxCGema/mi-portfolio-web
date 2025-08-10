@@ -3,20 +3,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <header>
-        <div class="container">
-            <div class="logo">
-                <a href="#">Gema Calderón Sayoux</a>
-            </div>
-            <nav>
-                <a href="#sobre-mi">{{ _('Sobre mí') }}</a>
-                <a href="#servicios">{{ _('Servicios') }}</a>
-                <a href="#casos-de-estudio">{{ _('Casos de Estudio') }}</a>
-                <a href="#conocimientos">{{ _('Conocimientos') }}</a>
-                <a href="#contacto">{{ _('Contacto') }}</a>
-            </nav>
-        </div>
-    </header>
 
     <main>
         <!-- SECCIÓN DE BIENVENIDA (HERO) -->
@@ -237,16 +223,6 @@
             </div>
         </section>
     </main>
-
-    <footer>
-        <div class="container">
-            <p>{{ _('© 2025 Gema Calderón Sayoux | Todos los derechos reservados.') }}</p>
-            <div class="social-links">
-                <a href="mailto:{{ contact.email }}" aria-label="{{ _('Enviar correo electrónico') }}"><i class="fas fa-envelope"></i></a>
-                <a href="{{ contact.linkedin }}" target="_blank" rel="noopener noreferrer" aria-label="{{ _('Visitar perfil de LinkedIn') }}"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
-    </footer>
 {% endblock %}
 
 

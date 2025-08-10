@@ -1,5 +1,5 @@
 # ==========================================================
-# app.py - Versión Final, Completa y Funcional
+# app.py - Versión Final (Corrección NameError)
 # ==========================================================
 
 import os
@@ -20,13 +20,15 @@ app.secret_key = os.environ.get('SECRET_KEY', 'una-clave-secreta-larga-y-aleator
 app.config['LANGUAGES'] = {'es': 'Español', 'en': 'English'}
 app.config['BABEL_DEFAULT_LOCALE'] = 'es'
 
+# (CORREGIDO) Primero creamos el objeto Babel
+babel = Babel(app)
+
+# (CORREGIDO) Ahora usamos el objeto 'babel' para decorar la función
 @babel.localeselector
 def get_locale():
     """Determina qué idioma usar para la petición actual."""
     # El idioma se obtiene del prefijo de la URL (ej: /en/), que Flask guarda en g.lang_code
     return getattr(g, 'lang_code', app.config['BABEL_DEFAULT_LOCALE'])
-
-babel = Babel(app, locale_selector=get_locale)
 
 # --- 2. MANEJO DE DATOS Y CONTEXTO ---
 
@@ -37,7 +39,6 @@ def load_lang_data(lang):
         with open(path, 'r', encoding='utf-8') as f:
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
-        # Si el archivo del idioma no existe, usa español como fallback.
         path_es = os.path.join(app.root_path, 'translations', 'es', 'data.json')
         with open(path_es, 'r', encoding='utf-8') as f:
             return json.load(f)
@@ -47,7 +48,6 @@ def load_blog_posts(lang):
     posts = []
     dir_path = os.path.join(app.root_path, 'posts', lang)
     if not os.path.isdir(dir_path):
-        # Si el directorio del idioma no existe, intenta con el de español como fallback
         dir_path = os.path.join(app.root_path, 'posts', 'es')
         if not os.path.isdir(dir_path):
             return []
@@ -72,4 +72,102 @@ def pull_lang_code(endpoint, values):
     if values is not None:
         g.lang_code = values.pop('lang_code', app.config['BABEL_DEFAULT_LOCALE'])
     else:
-        g.lang_code = app.config['BABEL_DEFAULT_LOCALE'] 
+        g.lang_code = app.config['BABEL_DEFAULT_LOCALE']
+
+@app.before_request
+def before_request():
+    """Carga todos los datos necesarios para el idioma actual antes de cada petición."""
+    g.lang_data = load_lang_data(g.lang_code)
+    g.posts = load_blog_posts(g.lang_code)
+
+@app.context_processor
+def inject_global_vars():
+    """Hace que ciertas variables estén disponibles en todas las plantillas."""
+    return dict(
+        contact={'email': os.environ.get('CONTACT_EMAIL'), 'linkedin': os.environ.get('LINKEDIN_URL')},
+        recaptcha_site_key=os.environ.get('RECAPTCHA_SITE_KEY'),
+        lang_code=g.lang_code
+    )
+
+# --- 3. RUTAS PRINCIPALES DE LA APLICACIÓN --- (El resto del código es idéntico)
+
+@app.route('/')
+def home_redirect():
+    lang_code = request.accept_languages.best_match(app.config['LANGUAGES'].keys()) or 'es'
+    return redirect(url_for('home', lang_code=lang_code))
+
+@app.route('/<lang_code>/')
+def home(lang_code):
+    return render_template('index.html',
+                           packs=g.lang_data.get('service_packs', []),
+                           casos_de_estudio=g.lang_data.get('casos_de_estudio', {}))
+
+@app.route('/<lang_code>/casos-de-estudio/<slug>')
+def caso_de_estudio(lang_code, slug):
+    caso = g.lang_data.get('casos_de_estudio', {}).get(slug)
+    if not caso:
+        return _("Caso de estudio no encontrado"), 404
+    return render_template('caso_de_estudio.html', caso=caso)
+
+@app.route('/<lang_code>/blog/')
+def blog_index(lang_code):
+    return render_template('blog.html', posts=g.posts)
+
+@app.route('/<lang_code>/blog/<slug>')
+def blog_post(lang_code, slug):
+    post = next((p for p in g.posts if p.get('slug') == slug), None)
+    if not post:
+        return _("Post no encontrado"), 404
+    return render_template('post.html', post=post)
+
+@app.route('/<lang_code>/gracias')
+def pagina_gracias(lang_code):
+    return render_template('gracias.html')
+
+@app.route('/enviar-mensaje', methods=['POST'])
+def enviar_mensaje():
+    lang_code = request.form.get('lang_code', 'es')
+    recaptcha_token = request.form.get('g-recaptcha-response')
+    secret_key = os.environ.get('RECAPTCHA_SECRET_KEY')
+    if not recaptcha_token or not secret_key:
+        print("ERROR: Token o clave secreta de reCAPTCHA faltantes.")
+        return redirect(url_for('pagina_gracias', lang_code=lang_code))
+    try:
+        response = requests.post('https://www.google.com/recaptcha/api/siteverify', data={'secret': secret_key, 'response': recaptcha_token})
+        result = response.json()
+        if not result.get('success') or result.get('score', 0) < 0.5:
+            print(f"SPAM DETECTADO por reCAPTCHA: Puntuación de {result.get('score', 0)}")
+            return redirect(url_for('pagina_gracias', lang_code=lang_code))
+    except Exception as e:
+        print(f"Error al verificar reCAPTCHA: {e}")
+        return redirect(url_for('pagina_gracias', lang_code=lang_code))
+    nombre, apellidos, email_cliente, pack_interes, notas = request.form.get("nombre"), request.form.get("apellidos"), request.form.get("email"), request.form.get("pack_interes"), request.form.get("notas")
+    try:
+        resend.api_key = os.environ.get('RESEND_API_KEY')
+        contenido_html = f"""<h3>Nuevo Contacto desde tu Portafolio Web</h3><p><strong>Nombre:</strong> {nombre} {apellidos}</p><p><strong>Email del Cliente:</strong> {email_cliente}</p><p><strong>Servicio de Interés:</strong> {pack_interes}</p><hr><p><strong>Mensaje:</strong></p><p>{notas}</p>"""
+        params = {"from": "Contacto Web <contacto@gemacalderonsayoux.com>", "to": [os.environ.get('CONTACT_EMAIL')], "subject": f"Nuevo mensaje de {nombre}", "html": contenido_html, "reply_to": email_cliente}
+        resend.Emails.send(params)
+    except Exception as e:
+        print(f"ERROR AL ENVIAR EMAIL CON RESEND: {e}")
+    return redirect(url_for('pagina_gracias', lang_code=lang_code))
+
+# --- 4. RUTAS PARA SEO Y FAVICON ---
+@app.route('/robots.txt')
+def robots_txt():
+    return send_from_directory(app.static_folder, 'robots.txt')
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static', 'favicons'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+@app.route('/sitemap.xml')
+def sitemap():
+    URL_BASE = "https://gemacalderonsayoux.com"
+    casos_es = load_lang_data('es').get('casos_de_estudio', {})
+    posts_es = load_blog_posts('es')
+    template = render_template('sitemap.xml', base_url=URL_BASE, casos_de_estudio=casos_es, posts=posts_es)
+    response = make_response(template)
+    response.headers['Content-Type'] = 'application/xml'
+    return response
+
+# --- 5. ARRANQUE DE LA APLICACIÓN ---
+if __name__ == "__main__":
+    app.run(debug=True)

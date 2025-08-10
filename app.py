@@ -1,5 +1,5 @@
 # ==========================================================
-# app.py - Versión Final (Corrección NameError)
+# app.py - Versión Final (Sintaxis de Babel Corregida)
 # ==========================================================
 
 import os
@@ -20,15 +20,17 @@ app.secret_key = os.environ.get('SECRET_KEY', 'una-clave-secreta-larga-y-aleator
 app.config['LANGUAGES'] = {'es': 'Español', 'en': 'English'}
 app.config['BABEL_DEFAULT_LOCALE'] = 'es'
 
-# (CORREGIDO) Primero creamos el objeto Babel
-babel = Babel(app)
-
-# (CORREGIDO) Ahora usamos el objeto 'babel' para decorar la función
-@babel.localeselector
+# (CORRECCIÓN DEFINITIVA) 
+# 1. Primero se define la función que seleccionará el idioma.
 def get_locale():
     """Determina qué idioma usar para la petición actual."""
     # El idioma se obtiene del prefijo de la URL (ej: /en/), que Flask guarda en g.lang_code
     return getattr(g, 'lang_code', app.config['BABEL_DEFAULT_LOCALE'])
+
+# 2. Ahora se crea el objeto Babel, pasándole la función directamente.
+#    Esto reemplaza y elimina la necesidad del decorador @babel.localeselector.
+babel = Babel(app, locale_selector=get_locale)
+
 
 # --- 2. MANEJO DE DATOS Y CONTEXTO ---
 
@@ -89,7 +91,7 @@ def inject_global_vars():
         lang_code=g.lang_code
     )
 
-# --- 3. RUTAS PRINCIPALES DE LA APLICACIÓN --- (El resto del código es idéntico)
+# --- 3. RUTAS PRINCIPales (El resto del código es idéntico y correcto) ---
 
 @app.route('/')
 def home_redirect():

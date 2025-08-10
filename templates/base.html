@@ -1,13 +1,15 @@
-<!-- Contenido para: templates/base.html (VERSIÓN FINAL CON HEADER Y FOOTER) -->
-
+<!-- Contenido para: templates/base.html (VERSIÓN FINAL CORREGIDA) -->
 <!DOCTYPE html>
-<!-- El idioma de la página se establece dinámicamente -->
-<html lang="{{ lang_code }}">
+<!-- El idioma de la página se establece dinámicamente con g.lang_code -->
+<html lang="{{ g.lang_code }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{{ _('Gema Calderón Sayoux - Especialista en Marketing Digital') }}{% endblock %}</title>
     
+    <!-- (NUEVO) META DESCRIPCIÓN DINÁMICA -->
+    <meta name="description" content="{% block meta_description %}{{ _('Contacta con Gema Calderón Sayoux, freelance SEO experta en posicionamiento web para empresas y estrategias SEO personalizadas. Impulsa tu negocio en Google.') }}{% endblock %}">
+
     <!-- CSS y librerías externas -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -16,10 +18,9 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicons/favicon-96x96.png') }}">
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicons/favicon.svg') }}">
-    <!-- ... resto de tus favicons ... -->
     <link rel="manifest" href="{{ url_for('static', filename='favicons/site.webmanifest') }}">
     
-    <!-- Google Analytics 4 (GA4) -->
+    <!-- Google Analytics y reCAPTCHA -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W6KW0W2WXK"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -27,51 +28,44 @@
       gtag('js', new Date());
       gtag('config', 'G-W6KW0W2WXK');
     </script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lch3aArAAAAAFEZ5OYN5EI0HzcO1GlrBmlDo9Zg"></script>
 
     {% block head_extra %}{% endblock %}
-
-    <!-- En el <head> de base.html -->
-<script src="https://www.google.com/recaptcha/api.js?render=6Lch3aArAAAAAFEZ5OYN5EI0HzcO1GlrBmlDo9Zg"></script>
-
 </head>
 <body>
 
-    <!-- ========================================= -->
-    <!-- HEADER GLOBAL - AHORA VIVE EN BASE.HTML   -->
-    <!-- ========================================= -->
     <header>
         <div class="container">
             <div class="logo">
-                <!-- Enlaza a la página de inicio en el idioma actual -->
-                <a href="{{ url_for('home', lang_code=lang_code) }}">Gema Calderón Sayoux</a>
+                <!-- (CORREGIDO) Apunta a 'home_lang' y usa 'g.lang_code' -->
+                <a href="{{ url_for('home_lang', lang_code=g.lang_code) }}">Gema Calderón Sayoux</a>
             </div>
             <nav>
-                <a href="{{ url_for('home', lang_code=lang_code) }}#sobre-mi">{{ _('Sobre mí') }}</a>
-                <a href="{{ url_for('home', lang_code=lang_code) }}#servicios">{{ _('Servicios') }}</a>
-                <a href="{{ url_for('home', lang_code=lang_code) }}#casos-de-estudio">{{ _('Casos de Estudio') }}</a>
-                <a href="{{ url_for('home', lang_code=lang_code) }}#conocimientos">{{ _('Conocimientos') }}</a>
-                <a href="{{ url_for('home', lang_code=lang_code) }}#contacto">{{ _('Contacto') }}</a>
+                <!-- (CORREGIDO) Todos los enlaces apuntan a 'home_lang' y usan 'g.lang_code' -->
+                <a href="{{ url_for('home_lang', lang_code=g.lang_code) }}#sobre-mi">{{ _('Sobre mí') }}</a>
+                <a href="{{ url_for('home_lang', lang_code=g.lang_code) }}#servicios">{{ _('Servicios') }}</a>
+                <a href="{{ url_for('home_lang', lang_code=g.lang_code) }}#casos-de-estudio">{{ _('Casos de Estudio') }}</a>
+                <a href="{{ url_for('home_lang', lang_code=g.lang_code) }}#conocimientos">{{ _('Conocimientos') }}</a>
+                <a href="{{ url_for('blog_index', lang_code=g.lang_code) }}">{{ _('Blog') }}</a> <!-- <-- NUEVO ENLACE -->
+                <a href="{{ url_for('home_lang', lang_code=g.lang_code) }}#contacto">{{ _('Contacto') }}</a>
             </nav>
             
-            <!-- ========================================= -->
-            <!--   (NUEVO) SELECTOR DE IDIOMA AQUÍ         -->
-            <!-- ========================================= -->
             <div class="language-switcher">
-                {% if lang_code == 'es' %}
-                    <span class="lang-active">ES</span> | <a href="{{ url_for(request.endpoint, lang_code='en', **request.view_args) }}">EN</a>
-                {% else %}
-                    <a href="{{ url_for(request.endpoint, lang_code='es', **request.view_args) }}">ES</a> | <span class="lang-active">EN</span>
-                {% endif %}
+                <!-- (CORREGIDO) Selector de idioma robusto -->
+                {% for lang in app.config['LANGUAGES'] %}
+                    {% if lang == g.lang_code %}
+                        <span class="lang-active">{{ lang|upper }}</span>
+                    {% else %}
+                        <a href="{{ url_for(request.endpoint, lang_code=lang, **request.view_args) }}">{{ lang|upper }}</a>
+                    {% endif %}
+                    {% if not loop.last %} | {% endif %}
+                {% endfor %}
             </div>
         </div>
     </header>
 
-    <!-- Bloque para el contenido principal -->
     {% block content %}{% endblock %}
 
-    <!-- ========================================= -->
-    <!-- FOOTER GLOBAL - AHORA VIVE EN BASE.HTML   -->
-    <!-- ========================================= -->
     <footer>
         <div class="container">
             <p>{{ _('© 2025 Gema Calderón Sayoux | Todos los derechos reservados.') }}</p>
@@ -82,10 +76,8 @@
         </div>
     </footer>
 
-    <!-- Scripts de JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-<!-- (NUEVO) Bloque para que las páginas hijas puedan añadir sus propios scripts -->
     {% block scripts %}{% endblock %}
 </body>
 </html>

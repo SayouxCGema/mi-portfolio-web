@@ -1,0 +1,23 @@
+<!-- Contenido para: templates/post.html -->
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} - Gema Calderón Sayoux{% endblock %}
+{% block meta_description %}{{ post.summary }}{% endblock %}
+
+{% block content %}
+<main class="blog-container">
+    <div class="container">
+        <article class="post-full">
+            <h1>{{ post.title }}</h1>
+            <p class="post-meta">{{ _('Publicado el') }} {{ post.date }} {{ _('por') }} {{ post.author }}</p>
+            
+            <div class="post-content">
+                <!-- El filtro |safe es CRUCIAL para que el HTML se renderice y no se muestre como texto -->
+                {{ post.content|safe }}
+            </div>
+            
+            <a href="{{ url_for('blog_index', lang_code=g.lang_code) }}" class="cta-button-outline">{{ _('Volver al Blog') }}</a>
+        </article>
+    </div>
+</main>
+{% endblock %}

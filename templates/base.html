@@ -1,34 +1,29 @@
 <!-- Contenido para: templates/base.html (VERSIÓN FINAL CORREGIDA) -->
 <!DOCTYPE html>
-<!-- El idioma de la página se establece dinámicamente con g.lang_code -->
 <html lang="{{ g.lang_code }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{{ _('Gema Calderón Sayoux - Especialista en Marketing Digital') }}{% endblock %}</title>
-    
-    <!-- (NUEVO) META DESCRIPCIÓN DINÁMICA -->
     <meta name="description" content="{% block meta_description %}{{ _('Contacta con Gema Calderón Sayoux, freelance SEO experta en posicionamiento web para empresas y estrategias SEO personalizadas. Impulsa tu negocio en Google.') }}{% endblock %}">
 
-    <!-- CSS y librerías externas -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-
+    
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicons/favicon-96x96.png') }}">
-    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicons/favicon.svg') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicons/favicon.ico') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='favicons/apple-touch-icon.png') }}">
     <link rel="manifest" href="{{ url_for('static', filename='favicons/site.webmanifest') }}">
     
     <!-- Google Analytics y reCAPTCHA -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W6KW0W2WXK"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ os.environ.get('GA_MEASUREMENT_ID') }}"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-W6KW0W2WXK');
+      gtag('config', '{{ os.environ.get('GA_MEASUREMENT_ID') }}');
     </script>
-    <script src="https://www.google.com/recaptcha/api.js?render=6Lch3aArAAAAAFEZ5OYN5EI0HzcO1GlrBmlDo9Zg"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render={{ recaptcha_site_key }}"></script>
 
     {% block head_extra %}{% endblock %}
 </head>
@@ -37,26 +32,25 @@
     <header>
         <div class="container">
             <div class="logo">
-                <!-- (CORREGIDO) Apunta a 'home_lang' y usa 'g.lang_code' -->
-                <a href="{{ url_for('home_lang', lang_code=g.lang_code) }}">Gema Calderón Sayoux</a>
+                <a href="{{ url_for('home', lang_code=g.lang_code) }}">Gema Calderón Sayoux</a>
             </div>
             <nav>
-                <!-- (CORREGIDO) Todos los enlaces apuntan a 'home_lang' y usan 'g.lang_code' -->
-                <a href="{{ url_for('home_lang', lang_code=g.lang_code) }}#sobre-mi">{{ _('Sobre mí') }}</a>
-                <a href="{{ url_for('home_lang', lang_code=g.lang_code) }}#servicios">{{ _('Servicios') }}</a>
-                <a href="{{ url_for('home_lang', lang_code=g.lang_code) }}#casos-de-estudio">{{ _('Casos de Estudio') }}</a>
-                <a href="{{ url_for('home_lang', lang_code=g.lang_code) }}#conocimientos">{{ _('Conocimientos') }}</a>
-                <a href="{{ url_for('blog_index', lang_code=g.lang_code) }}">{{ _('Blog') }}</a> <!-- <-- NUEVO ENLACE -->
-                <a href="{{ url_for('home_lang', lang_code=g.lang_code) }}#contacto">{{ _('Contacto') }}</a>
+                <a href="{{ url_for('home', lang_code=g.lang_code) }}#sobre-mi">{{ _('Sobre mí') }}</a>
+                <a href="{{ url_for('home', lang_code=g.lang_code) }}#servicios">{{ _('Servicios') }}</a>
+                <a href="{{ url_for('home', lang_code=g.lang_code) }}#casos-de-estudio">{{ _('Casos de Estudio') }}</a>
+                <a href="{{ url_for('blog_index', lang_code=g.lang_code) }}">{{ _('Blog') }}</a>
+                <a href="{{ url_for('home', lang_code=g.lang_code) }}#contacto">{{ _('Contacto') }}</a>
             </nav>
-            
             <div class="language-switcher">
-                <!-- (CORREGIDO) Selector de idioma robusto -->
+                <!-- Selector de idioma mejorado -->
+                {% set current_endpoint = request.endpoint %}
+                {% set current_args = request.view_args.copy() %}
                 {% for lang in app.config['LANGUAGES'] %}
                     {% if lang == g.lang_code %}
                         <span class="lang-active">{{ lang|upper }}</span>
                     {% else %}
-                        <a href="{{ url_for(request.endpoint, lang_code=lang, **request.view_args) }}">{{ lang|upper }}</a>
+                        {% set _ = current_args.update({'lang_code': lang}) %}
+                        <a href="{{ url_for(current_endpoint, **current_args) }}">{{ lang|upper }}</a>
                     {% endif %}
                     {% if not loop.last %} | {% endif %}
                 {% endfor %}
@@ -70,14 +64,14 @@
         <div class="container">
             <p>{{ _('© 2025 Gema Calderón Sayoux | Todos los derechos reservados.') }}</p>
             <div class="social-links">
-                <a href="mailto:{{ contact.email }}" aria-label="{{ _('Enviar correo electrónico') }}"><i class="fas fa-envelope"></i></a>
-                <a href="{{ contact.linkedin }}" target="_blank" rel="noopener noreferrer" aria-label="{{ _('Visitar perfil de LinkedIn') }}"><i class="fab fa-linkedin"></i></a>
+                <!-- (CORREGIDO) Usamos g.contact que se inyecta desde el context_processor -->
+                <a href="mailto:{{ g.contact.email }}" aria-label="{{ _('Enviar correo electrónico') }}"><i class="fas fa-envelope"></i></a>
+                <a href="{{ g.contact.linkedin }}" target="_blank" rel="noopener noreferrer" aria-label="{{ _('Visitar perfil de LinkedIn') }}"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    {% block scripts %}{% endblock %}
+    {% block scripts %}{% endblock %} <!-- Bloque para JS específico de cada página -->
 </body>
 </html>

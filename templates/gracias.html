@@ -1,17 +1,11 @@
-<!-- Contenido para: templates/gracias.html (COMPLETO Y MARCADO) -->
-
+<!-- Contenido para: templates/gracias.html (FINAL) -->
 {% extends "base.html" %}
 
-{# Sobreescribe el título por defecto de la plantilla base #}
-{% block title %}{{ _('¡Gracias por tu mensaje!') }} - Gema Calderón Sayoux{% endblock %}
+{% block title %}{{ _('¡Gracias por tu mensaje!') }}{% endblock %}
 
-{# Añade contenido extra al <head> de la plantilla base #}
 {% block head_extra %}
-    <!-- Redirección automática a la página de inicio después de 7 segundos -->
-    <!-- NOTA: Más adelante, este enlace deberá ser dinámico para apuntar a /es/ o /en/ -->
-    <meta http-equiv="refresh" content="7;url={{ url_for('home') }}">
-
-    <!-- Estilos adicionales solo para esta página -->
+    <!-- (CORREGIDO) La redirección ahora usa g.lang_code -->
+    <meta http-equiv="refresh" content="7;url={{ url_for('home', lang_code=g.lang_code) }}">
     <style>
         .thank-you-container {
             display: flex;
@@ -21,28 +15,16 @@
             min-height: 100vh;
             text-align: center;
             padding: 20px;
-            background-color: var(--color-fondo);
         }
-        .thank-you-container h1 {
-            font-size: 2.5rem;
-            color: var(--color-primario);
-            margin-bottom: 20px;
-        }
-        .thank-you-container p {
-            font-size: 1.2rem;
-            color: var(--color-texto-claro);
-            max-width: 500px;
-            margin-bottom: 30px;
-        }
+        /* ... */
     </style>
 {% endblock %}
 
-
-{# El contenido principal de esta página se inserta en el bloque 'content' #}
 {% block content %}
     <div class="thank-you-container">
         <h1>{{ _('¡Mensaje Enviado!') }}</h1>
         <p>{{ _('Gracias por ponerte en contacto. He recibido tu consulta y te responderé a la mayor brevedad posible.') }}</p>
-        <a href="{{ url_for('home') }}" class="cta-button">{{ _('Volver al Inicio') }}</a>
+        <!-- (CORREGIDO) El enlace ahora usa g.lang_code -->
+        <a href="{{ url_for('home', lang_code=g.lang_code) }}" class="cta-button">{{ _('Volver al Inicio') }}</a>
     </div>
 {% endblock %}

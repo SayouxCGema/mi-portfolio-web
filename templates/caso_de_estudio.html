@@ -1,16 +1,30 @@
-<!-- Contenido para: templates/caso_de_estudio.html (SIMPLIFICADO) -->
-
+<!-- Contenido para: templates/caso_de_estudio.html (FINAL) -->
 {% extends "base.html" %}
 
 {% block title %}{{ caso.titulo }} - {{ _('Caso de Estudio') }}{% endblock %}
+{% block meta_description %}{{ caso.problema|truncate(150) }}{% endblock %}
 
 {% block content %}
-    {# Ya no necesitas el <header> ni el <footer> aquí #}
-
     <main class="caso-detalle-container">
         <h1>{{ caso.titulo }}</h1>
-        <!-- ... resto del contenido del main ... -->
-        <a href="{{ url_for('home', lang_code=lang_code) }}#agendar-cita" class="btn">{{ _('¿Quieres resultados similares? ¡Hablemos!') }}</a>
+        <p><strong>{{ _('Cliente:') }}</strong> {{ caso.cliente }}</p>
+        
+        <div class="caso-imagenes-grid">
+            {% for imagen in caso.imagenes %}
+            <img src="{{ url_for('static', filename='img/' + imagen) }}" alt="{{ _('Gráfico de resultados para') }} {{ caso.cliente }}" class="caso-imagen">
+            {% endfor %}
+        </div>
+        
+        <h2>{{ _('El Desafío') }}</h2>
+        <p>{{ caso.problema }}</p>
+        
+        <h2>{{ _('La Solución') }}</h2>
+        <p>{{ caso.solucion }}</p>
+        
+        <h2>{{ _('El Resultado') }}</h2>
+        <p>{{ caso.resultado }}</p>
+        
+        <!-- (CORREGIDO) El enlace ahora usa g.lang_code -->
+        <a href="{{ url_for('home', lang_code=g.lang_code) }}#agendar-cita" class="btn">{{ _('¿Quieres resultados similares? ¡Hablemos!') }}</a>
     </main>
-    
 {% endblock %}

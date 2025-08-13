@@ -9,6 +9,7 @@ import requests
 import yaml
 import markdown
 from operator import itemgetter
+from datetime import datetime # (NUEVO) Importamos el módulo datetime
 from flask import Flask, render_template, request, redirect, url_for, g, make_response, send_from_directory
 from flask_babel import Babel, _
 
@@ -64,6 +65,14 @@ def load_blog_posts(lang):
                 content_parts = f.read().split('---', 2)
                 if len(content_parts) >= 3:
                     metadata = yaml.safe_load(content_parts[1])
+                    # (CORRECCIÓN) Convertimos el string de la fecha a un objeto datetime
+                    # Esto asume que tus fechas en los archivos .md están en formato AÑO-MES-DÍA (ej: 2025-08-13)
+                    if 'date' in metadata and isinstance(metadata['date'], str):
+                        try:
+                            metadata['date'] = datetime.strptime(metadata['date'], '%Y-%m-%d')
+                        except ValueError:
+                            # Si el formato es incorrecto, usa la fecha actual como fallback
+                            metadata['date'] = datetime.now()
                     metadata['content'] = markdown.markdown(content_parts[2], extensions=['fenced_code', 'tables'])
                     posts.append(metadata)
     posts.sort(key=itemgetter('date'), reverse=True)

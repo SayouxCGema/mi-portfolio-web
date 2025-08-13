@@ -1,5 +1,5 @@
 # ==========================================================
-# app.py - Versión Final, Robusta y Corregida
+# app.py - Versión Final, Corregida y Verificada
 # ==========================================================
 
 import os
@@ -16,43 +16,30 @@ from flask_babel import Babel, _
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'una-clave-secreta-larga-y-aleatoria-por-defecto')
 
-# --- 2. CONFIGURACIÓN DE BABEL (INTERNACIONALIZACIÓN) - FORMA CORRECTA ---
+# --- 2. CONFIGURACIÓN DE BABEL (INTERNACIONALIZACIÓN) ---
 app.config['LANGUAGES'] = {'es': 'Español', 'en': 'English'}
 app.config['BABEL_DEFAULT_LOCALE'] = 'es'
 
-# (CORRECCIÓN #1 - SOLUCIONA EL NameError)
-# Primero se define la función que seleccionará el idioma.
 def get_locale():
     """Determina qué idioma usar para la petición actual, basándose en la variable 'g'."""
     return getattr(g, 'lang_code', app.config['BABEL_DEFAULT_LOCALE'])
 
-# Y LUEGO se crea el objeto Babel, pasándole la función.
-# Esto es más limpio y seguro que usar el decorador @babel.localeselector.
 babel = Babel(app, locale_selector=get_locale)
 
-# --- 3. MANEJO DE DATOS Y CONTEXTO (LÓGICA UNIFICADA Y SIMPLIFICADA) ---
+# --- 3. MANEJO DE DATOS Y CONTEXTO ---
 
 @app.before_request
 def before_request():
-    """
-    Se ejecuta ANTES de cada petición.
-    Define el idioma y carga todos los datos necesarios en la variable global 'g'.
-    """
-    # Se extrae el 'lang_code' de los argumentos de la URL (ej: /es/)
+    """Se ejecuta ANTES de cada petición para definir el idioma y cargar los datos."""
     lang_code_from_url = request.view_args.get('lang_code') if request.view_args else None
-    
     if lang_code_from_url and lang_code_from_url in app.config['LANGUAGES']:
         g.lang_code = lang_code_from_url
     else:
-        # Si no hay prefijo de idioma, se negocia con el navegador
         g.lang_code = request.accept_languages.best_match(app.config['LANGUAGES'].keys()) or 'es'
-    
-    # Carga los datos una sola vez por petición
     g.lang_data = load_lang_data(g.lang_code)
     g.posts = load_blog_posts(g.lang_code)
 
 def load_lang_data(lang):
-    """Carga datos de casos de estudio y servicios desde un archivo JSON."""
     path = os.path.join(app.root_path, 'translations', lang, 'data.json')
     try:
         with open(path, 'r', encoding='utf-8') as f: return json.load(f)
@@ -61,7 +48,6 @@ def load_lang_data(lang):
         with open(path_fallback, 'r', encoding='utf-8') as f: return json.load(f)
 
 def load_blog_posts(lang):
-    """Carga y procesa todos los posts del blog desde archivos Markdown."""
     posts, dir_path = [], os.path.join(app.root_path, 'posts', lang)
     if not os.path.isdir(dir_path):
         dir_path_fallback = os.path.join(app.root_path, 'posts', 'es')
@@ -87,16 +73,13 @@ def inject_global_vars():
         recaptcha_site_key=os.environ.get('RECAPTCHA_SITE_KEY')
     )
 
-# --- 4. RUTAS DE LA APLICACIÓN (CORREGIDAS) ---
+# --- 4. RUTAS DE LA APLICACIÓN ---
 
 @app.route('/')
 def home_redirect():
-    """Redirige la raíz (/) a la versión con el idioma detectado."""
     detected_lang = request.accept_languages.best_match(app.config['LANGUAGES'].keys()) or 'es'
     return redirect(url_for('home', lang_code=detected_lang))
 
-# (CORRECCIÓN #2 - SOLUCIONA EL TypeError)
-# La función ahora SÍ acepta 'lang_code' como argumento, coincidiendo con la ruta.
 @app.route('/<lang_code>/')
 def home(lang_code):
     return render_template('index.html',
@@ -106,4 +89,80 @@ def home(lang_code):
 @app.route('/<lang_code>/casos-de-estudio/<slug>')
 def caso_de_estudio(lang_code, slug):
     caso = g.lang_data.get('casos_de_estudio', {}).get(slug)
-    if not caso: return _("Caso
+    # (LÍNEA CORREGIDA) Esta es la línea que estaba cortada en tu archivo
+    if not caso: 
+        return _("Caso de estudio no encontrado"), 404
+    return render_template('caso_de_estudio.html', caso=caso)
+
+@app.route('/<lang_code>/blog/')
+def blog_index(lang_code):
+    return render_template('blog.html', posts=g.posts)
+
+@app.route('/<lang_code>/blog/<slug>')
+def blog_post(lang_code, slug):
+    post = next((p for p in g.posts if p.get('slug') == slug), None)
+    if not post: 
+        return _("Post no encontrado"), 404
+    return render_template('post.html', post=post)
+
+@app.route('/<lang_code>/gracias')
+def pagina_gracias(lang_code):
+    return render_template('gracias.html')
+
+@app.route('/enviar-mensaje', methods=['POST'])
+def enviar_mensaje():
+    lang_code = request.form.get('lang_code', 'es')
+    recaptcha_token = request.form.get('g-recaptcha-response')
+    secret_key = os.environ.get('RECAPTCHA_SECRET_KEY')
+
+    if not recaptcha_token or not secret_key:
+        print("ERROR: Token o clave secreta de reCAPTCHA faltantes.")
+        return redirect(url_for('pagina_gracias', lang_code=lang_code))
+
+    try:
+        response = requests.post('https://www.google.com/recaptcha/api/siteverify', data={'secret': secret_key, 'response': recaptcha_token})
+        result = response.json()
+        if not result.get('success') or result.get('score', 0) < 0.5:
+            print(f"SPAM DETECTADO por reCAPTCHA: Puntuación de {result.get('score', 0)}")
+            return redirect(url_for('pagina_gracias', lang_code=lang_code))
+    except Exception as e:
+        print(f"Error al verificar reCAPTCHA: {e}")
+        return redirect(url_for('pagina_gracias', lang_code=lang_code))
+        
+    nombre = request.form.get("nombre")
+    apellidos = request.form.get("apellidos")
+    email_cliente = request.form.get("email")
+    pack_interes = request.form.get("pack_interes")
+    notas = request.form.get("notas")
+    
+    try:
+        resend.api_key = os.environ.get('RESEND_API_KEY')
+        contenido_html = f"""<h3>Nuevo Contacto Web</h3><p><strong>Nombre:</strong> {nombre} {apellidos}</p><p><strong>Email:</strong> {email_cliente}</p><p><strong>Interés:</strong> {pack_interes}</p><hr><p><strong>Mensaje:</strong></p><p>{notas}</p>"""
+        params = {"from": f"Contacto Web <contacto@{os.environ.get('MAIL_DOMAIN')}>", "to": [os.environ.get('CONTACT_EMAIL')], "subject": f"Nuevo mensaje de {nombre}", "html": contenido_html, "reply_to": email_cliente}
+        resend.Emails.send(params)
+        print("ÉXITO: Email enviado con Resend.")
+    except Exception as e:
+        print(f"ERROR AL ENVIAR EMAIL CON RESEND: {e}")
+    
+    return redirect(url_for('pagina_gracias', lang_code=lang_code))
+
+# --- 5. RUTAS PARA SEO Y FAVICON ---
+@app.route('/robots.txt')
+def robots_txt(): return send_from_directory(app.static_folder, 'robots.txt')
+
+@app.route('/favicon.ico')
+def favicon(): return send_from_directory(os.path.join(app.root_path, 'static', 'favicons'), 'favicon.ico')
+
+@app.route('/sitemap.xml')
+def sitemap():
+    URL_BASE = "https://gemacalderonsayoux.com"
+    casos_es = load_lang_data('es').get('casos_de_estudio', {})
+    posts_es = load_blog_posts('es')
+    template = render_template('sitemap.xml', base_url=URL_BASE, casos_de_estudio=casos_es, posts=posts_es)
+    response = make_response(template)
+    response.headers['Content-Type'] = 'application/xml'
+    return response
+
+# --- 6. ARRANQUE DE LA APLICACIÓN ---
+if __name__ == "__main__":
+    app.run(debug=True)

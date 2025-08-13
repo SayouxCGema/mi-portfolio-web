@@ -1,5 +1,5 @@
 # ==========================================================
-# app.py - Versión Final, Corregida para Fechas del Blog
+# app.py - Versión Definitiva, Completa y Corregida
 # ==========================================================
 
 import os
@@ -31,11 +31,7 @@ babel = Babel(app, locale_selector=get_locale)
 @app.before_request
 def before_request():
     lang_code_from_url = request.view_args.get('lang_code') if request.view_args else None
-    if lang_code_from_url and lang_code_from_url in app.config['LANGUAGES']:
-        g.lang_code = lang_code_from_url
-    else:
-        g.lang_code = request.accept_languages.best_match(app.config['LANGUAGES'].keys()) or 'es'
-    
+    g.lang_code = lang_code_from_url if lang_code_from_url and lang_code_from_url in app.config['LANGUAGES'] else request.accept_languages.best_match(app.config['LANGUAGES'].keys()) or 'es'
     g.lang_data = load_lang_data(g.lang_code)
     g.posts = load_blog_posts(g.lang_code)
     g.contact = {'email': os.environ.get('CONTACT_EMAIL'), 'linkedin': os.environ.get('LINKEDIN_URL')}
@@ -49,7 +45,6 @@ def load_lang_data(lang):
         with open(path_fallback, 'r', encoding='utf-8') as f: return json.load(f)
 
 def load_blog_posts(lang):
-    """Carga y procesa todos los posts del blog, convirtiendo la fecha."""
     posts, dir_path = [], os.path.join(app.root_path, 'posts', lang)
     if not os.path.isdir(dir_path):
         dir_path_fallback = os.path.join(app.root_path, 'posts', 'es')
@@ -61,17 +56,13 @@ def load_blog_posts(lang):
                 content_parts = f.read().split('---', 2)
                 if len(content_parts) >= 3:
                     metadata = yaml.safe_load(content_parts[1])
-                    
-                    # (ESTA ES LA CORRECCIÓN CLAVE)
                     if 'date' in metadata and isinstance(metadata['date'], str):
                         try:
                             metadata['date'] = datetime.strptime(metadata['date'], '%Y-%m-%d')
                         except (ValueError, TypeError):
-                            metadata['date'] = datetime.now() # Fallback por si la fecha es nula o mal formateada
-                    
+                            metadata['date'] = datetime.now()
                     metadata['content'] = markdown.markdown(content_parts[2], extensions=['fenced_code', 'tables'])
                     posts.append(metadata)
-    
     posts.sort(key=itemgetter('date'), reverse=True)
     return posts
 
@@ -80,6 +71,7 @@ def inject_global_vars():
     return dict(g=g, app=app, recaptcha_site_key=os.environ.get('RECAPTCHA_SITE_KEY'), ga_measurement_id=os.environ.get('GA_MEASUREMENT_ID'))
 
 # --- 4. RUTAS DE LA APLICACIÓN ---
+
 @app.route('/')
 def home_redirect():
     detected_lang = request.accept_languages.best_match(app.config['LANGUAGES'].keys()) or 'es'
@@ -111,10 +103,60 @@ def blog_post(lang_code, slug):
 def pagina_gracias(lang_code):
     return render_template('gracias.html')
 
-# (Tu ruta enviar_mensaje aquí)
+# (FUNCIÓN RESTAURADA) Esta es la función que faltaba
+@app.route('/enviar-mensaje', methods=['POST'])
+def enviar_mensaje():
+    lang_code = request.form.get('lang_code', 'es')
+    recaptcha_token = request.form.get('g-recaptcha-response')
+    secret_key = os.environ.get('RECAPTCHA_SECRET_KEY')
+
+    if not recaptcha_token or not secret_key:
+        print("ERROR: Token o clave secreta de reCAPTCHA faltantes.")
+        return redirect(url_for('pagina_gracias', lang_code=lang_code))
+
+    try:
+        response = requests.post('https://www.google.com/recaptcha/api/siteverify', data={'secret': secret_key, 'response': recaptcha_token})
+        result = response.json()
+        if not result.get('success') or result.get('score', 0) < 0.5:
+            print(f"SPAM DETECTADO por reCAPTCHA: Puntuación de {result.get('score', 0)}")
+            return redirect(url_for('pagina_gracias', lang_code=lang_code))
+    except Exception as e:
+        print(f"Error al verificar reCAPTCHA: {e}")
+        return redirect(url_for('pagina_gracias', lang_code=lang_code))
+        
+    nombre = request.form.get("nombre")
+    apellidos = request.form.get("apellidos")
+    email_cliente = request.form.get("email")
+    pack_interes = request.form.get("pack_interes")
+    notas = request.form.get("notas")
+    
+    try:
+        resend.api_key = os.environ.get('RESEND_API_KEY')
+        contenido_html = f"""<h3>Nuevo Contacto Web</h3><p><strong>Nombre:</strong> {nombre} {apellidos}</p><p><strong>Email:</strong> {email_cliente}</p><p><strong>Interés:</strong> {pack_interes}</p><hr><p><strong>Mensaje:</strong></p><p>{notas}</p>"""
+        params = {"from": f"Contacto Web <contacto@{os.environ.get('MAIL_DOMAIN')}>", "to": [os.environ.get('CONTACT_EMAIL')], "subject": f"Nuevo mensaje de {nombre}", "html": contenido_html, "reply_to": email_cliente}
+        resend.Emails.send(params)
+        print("ÉXITO: Email enviado con Resend.")
+    except Exception as e:
+        print(f"ERROR AL ENVIAR EMAIL CON RESEND: {e}")
+    
+    return redirect(url_for('pagina_gracias', lang_code=lang_code))
 
 # --- 5. RUTAS PARA SEO Y FAVICON ---
-# (Tus rutas de SEO y favicon aquí)
+@app.route('/robots.txt')
+def robots_txt(): return send_from_directory(app.static_folder, 'robots.txt')
+
+@app.route('/favicon.ico')
+def favicon(): return send_from_directory(os.path.join(app.root_path, 'static', 'favicons'), 'favicon.ico')
+
+@app.route('/sitemap.xml')
+def sitemap():
+    URL_BASE = "https://gemacalderonsayoux.com"
+    casos_es = load_lang_data('es').get('casos_de_estudio', {})
+    posts_es = load_blog_posts('es')
+    template = render_template('sitemap.xml', base_url=URL_BASE, casos_de_estudio=casos_es, posts=posts_es)
+    response = make_response(template)
+    response.headers['Content-Type'] = 'application/xml'
+    return response
 
 # --- 6. ARRANQUE DE LA APLICACIÓN ---
 if __name__ == "__main__":

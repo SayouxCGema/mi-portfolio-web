@@ -72,7 +72,9 @@ def inject_global_vars():
         contact={'email': os.environ.get('CONTACT_EMAIL'), 'linkedin': os.environ.get('LINKEDIN_URL')},
         recaptcha_site_key=os.environ.get('RECAPTCHA_SITE_KEY'),
         # (NUEVA LÍNEA) Añadimos el ID de GA4 al contexto
-        ga_measurement_id=os.environ.get('GA_MEASUREMENT_ID') 
+        ga_measurement_id=os.environ.get('GA_MEASUREMENT_ID'),
+        # (NUEVA LÍNEA) Hacemos que el objeto 'app' esté disponible en las plantillas
+        app=app 
     )
 
 # --- 4. RUTAS DE LA APLICACIÓN ---

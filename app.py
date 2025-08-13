@@ -87,7 +87,7 @@ def home_redirect():
 @app.route('/<lang_code>/')
 def home(lang_code):
     return render_template('index.html',
-                           packs=g.lang_data.get('service_packs', []),
+                           packs=g.lang_data.get('service_packs', {}),
                            casos_de_estudio=g.lang_data.get('casos_de_estudio', {}))
 
 @app.route('/<lang_code>/casos-de-estudio/<slug>')

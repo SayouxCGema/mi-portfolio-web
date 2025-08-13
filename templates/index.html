@@ -33,38 +33,40 @@
             </div>
         </section>
 
-        <!-- SECCIÓN DE SERVICIOS -->
-        <section id="servicios" class="fade-in">
-            <div class="container">
-                <div class="section-title">
-                    <span>{{ _('Servicios') }}</span>
-                    <h2>{{ _('Soluciones a tu medida') }}</h2>
-                    <p>{{ _('Packs diseñados para adaptarse a tus necesidades, ya sea un proyecto completo o un soporte continuo.') }}</p>
-                </div>
-                <div class="packs-container">
-                    <div class="pack">
-                        <div class="pack-header"><i class="fas fa-rocket pack-icon"></i><h3>{{ _('Packs por Proyecto') }}</h3></div>
-                        <p class="pack-description">{{ _('Soluciones integrales con un precio cerrado para objetivos concretos.') }}</p>
-                        <ul>
-                            {% for pack_item in packs.proyectos %}
-                            <li>🌟 {{ _(pack_item) }}</li>
-                            {% endfor %}
-                        </ul>
-                        <a href="#contacto" class="cta-button-outline">{{ _('Solicitar presupuesto') }}</a>
-                    </div>
-                    <div class="pack">
-                         <div class="pack-header"><i class="fas fa-clock pack-icon"></i><h3>{{ _('Packs por Horas') }}</h3></div>
-                        <p class="pack-description">{{ _('Flexibilidad total para consultoría, mantenimiento o tareas puntuales.') }}</p>
-                        <ul>
-                            {% for pack_item in packs.horas %}
-                            <li>{{ pack_item.nombre }}: <strong>{{ pack_item.precio }}</strong></li>
-                            {% endfor %}
-                        </ul>
-                        <a href="#contacto" class="cta-button-outline">{{ _('Contratar horas') }}</a>
-                    </div>
-                </div>
+        <!-- SECCIÓN DE SERVICIOS (CORREGIDA) -->
+<section id="servicios" class="fade-in">
+    <div class="container">
+        <div class="section-title">
+            <span>{{ _('Servicios') }}</span>
+            <h2>{{ _('Soluciones a tu medida') }}</h2>
+            <p>{{ _('Packs diseñados para adaptarse a tus necesidades, ya sea un proyecto completo o un soporte continuo.') }}</p>
+        </div>
+        <div class="packs-container">
+            <div class="pack">
+                <div class="pack-header"><i class="fas fa-rocket pack-icon"></i><h3>{{ _('Packs por Proyecto') }}</h3></div>
+                <p class="pack-description">{{ _('Soluciones integrales con un precio cerrado para objetivos concretos.') }}</p>
+                <ul>
+                    <!-- (CORREGIDO) Itera sobre la lista 'proyectos' del diccionario 'packs' -->
+                    {% for pack_item in packs.proyectos %}
+                    <li>🌟 {{ _(pack_item) }}</li>
+                    {% endfor %}
+                </ul>
+                <a href="#contacto" class="cta-button-outline">{{ _('Solicitar presupuesto') }}</a>
             </div>
-        </section>
+            <div class="pack">
+                 <div class="pack-header"><i class="fas fa-clock pack-icon"></i><h3>{{ _('Packs por Horas') }}</h3></div>
+                <p class="pack-description">{{ _('Flexibilidad total para consultoría, mantenimiento o tareas puntuales.') }}</p>
+                <ul>
+                    <!-- (CORREGIDO) Itera sobre la lista 'horas' del diccionario 'packs' -->
+                    {% for pack_item in packs.horas %}
+                    <li><strong>{{ _(pack_item.nombre) }}</strong> {{ _(pack_item.precio) }}</li>
+                    {% endfor %}
+                </ul>
+                <a href="#contacto" class="cta-button-outline">{{ _('Contratar horas') }}</a>
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- SECCIÓN CASOS DE ESTUDIO -->
         <section id="casos-de-estudio" class="section">
@@ -121,8 +123,12 @@
                         <div class="form-group">
                             <select name="pack_interes" required>
                                 <option value="" disabled selected>{{ _('Servicio de interés...') }}</option>
-                                {% for pack_item in packs.proyectos + packs.horas %}
-                                    <option value="{{ pack_item.nombre if pack_item.nombre else pack_item }}">{{ _(pack_item.nombre if pack_item.nombre else pack_item) }}</option>
+                                <!-- (CORREGIDO) Itera sobre ambas listas para poblar el desplegable -->
+                                {% for pack_item in packs.proyectos %}
+                                    <option value="{{ pack_item }}">{{ _(pack_item) }}</option>
+                                {% endfor %}
+                                {% for pack_item in packs.horas %}
+                                    <option value="{{ pack_item.nombre }}">{{ _(pack_item.nombre) }}</option>
                                 {% endfor %}
                             </select>
                         </div>

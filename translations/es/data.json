@@ -1,19 +1,32 @@
 {
+  "service_packs": {
+    "proyectos": [
+      "Web completa (WordPress o HTML + SEO básico)",
+      "Campañas Google Ads + Analytics",
+      "Estrategia de contenidos SEO"
+    ],
+    "horas": [
+      { "nombre": "1h:", "precio": "Desde 45 €" },
+      { "nombre": "5h:", "precio": "Desde 200 €" },
+      { "nombre": "10h:", "precio": "Desde 350 €" },
+      { "nombre": "Bono mensual:", "precio": "400 €" }
+    ]
+  },
   "casos_de_estudio": {
     "aumento-visibilidad-katarsia": {
       "titulo": "1º puesto en Google para clínica en Barcelona: Tratamiento Sueroterapia",
       "cliente": "Centro Médico Katarsia",
-      "problema": "Mejorar la venta de este tratamiento el cual tenía bastante margen de beneficio.",
-      "solucion": "Se desarrolló contenido informativo sobre los diferentes tipos de compuestos de la Sueroterapia y se realizó un análisis del mercado en Estados Unidos para adaptarlo al mercado español.",
-      "resultado": "Logramos un aumento del 564% en tráfico orgánico en 3 meses y un incremento del 45% en ventas atribuidas directamente a la búsqueda orgánica en un mes.",
+      "problema": "Mejorar la venta de este tratamiento...",
+      "solucion": "Se desarrolló contenido informativo...",
+      "resultado": "Logramos un aumento del 564%...",
       "imagenes": ["impresiones_katarsia.jpg", "incremento_ingresos_katarsia.jpg"]
     },
     "seo-local-macan": {
       "titulo": "Mejora de Posicionamiento Orgánico para Despacho de Abogados",
       "cliente": "Macan Abogados",
-      "problema": "El despacho de abogados necesitaba mejorar su visibilidad en Google para captar nuevos clientes.",
-      "solucion": "Después de realizar una auditoría técnica, se mejoraron las etiquetas, se incluyeron palabras clave de la competencia y se optimizó la estructura de la web.",
-      "resultado": "Como resultado del trabajo realizado, se aumentó la visibilidad orgánica en un 466% y se mejoró la posición en los resultados de búsqueda (SERP), lo que incrementó el número de clics en un 249%.",
+      "problema": "El despacho de abogados necesitaba mejorar su visibilidad...",
+      "solucion": "Después de realizar una auditoría técnica...",
+      "resultado": "Como resultado del trabajo realizado...",
       "imagenes": ["macan_impresiones.jpg"]
     }
   }

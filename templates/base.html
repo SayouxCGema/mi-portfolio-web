@@ -15,14 +15,15 @@
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='favicons/apple-touch-icon.png') }}">
     <link rel="manifest" href="{{ url_for('static', filename='favicons/site.webmanifest') }}">
     
-    <!-- Google Analytics y reCAPTCHA -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ os.environ.get('GA_MEASUREMENT_ID') }}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '{{ os.environ.get('GA_MEASUREMENT_ID') }}');
-    </script>
+    
+    <!-- Google Analytics y reCAPTCHA (CORREGIDO) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ ga_measurement_id }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ ga_measurement_id }}');
+</script>
     <script src="https://www.google.com/recaptcha/api.js?render={{ recaptcha_site_key }}"></script>
 
     {% block head_extra %}{% endblock %}

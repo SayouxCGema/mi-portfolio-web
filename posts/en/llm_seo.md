@@ -2,8 +2,8 @@
 title: "How to Adapt Your Content Strategy to Optimize for LLM SEO"
 date: "2025-08-13"
 author: "Gema Calderón Sayoux"
-slug: "estrategia-contenido-llm-seo"
-summary: The world of SEO has evolved, and today we face a revolutionary phenomenon: LLM SEO. For businesses and individuals looking to expand their personal brand and stand out in the digital realm, understanding how to optimize their content strategy for this new paradigm is crucial.
+slug: "llm-seo-content-strategy"
+summary: "The world of SEO has evolved, and today we face a revolutionary phenomenon: LLM SEO. For businesses and individuals looking to expand their personal brand and stand out in the digital realm, understanding how to optimize their content strategy for this new paradigm is crucial."
 ---
 
 The world of SEO has evolved, and today we face a revolutionary phenomenon: *LLM SEO*. For businesses and individuals looking to expand their personal brand and stand out in the digital realm, understanding how to optimize their content strategy for this new paradigm is crucial. In this article, we will take you on a detailed journey to discover what LLM SEO is and how you can effectively adapt it to your strategy.

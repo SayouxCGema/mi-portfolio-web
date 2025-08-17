@@ -4,6 +4,14 @@ date: "2025-08-13"
 author: "Gema Calderón Sayoux"
 slug: "estrategia-contenido-llm-seo"
 summary:El mundo del SEO ha evolucionado, y hoy nos enfrentamos a un fenómeno revolucionario: el LLM SEO. Para aquellas empresas y personas que desean expandir su marca personal y destacar en el ámbito digital, entender cómo optimizar su estrategia de contenido para este nuevo paradigma es crucial.
+# (NUEVO) Meta descripción para SEO. Debe ser concisa (máx. 160 caracteres).
+meta_description: "Aprende qué es LLM SEO y cómo aplicarlo. Impulsa tu marca con un consultor SEO freelance y estratega LLM SEO especializado en optimización digital en Barcelona."
+
+# (NUEVO) Nombre del archivo de la imagen principal.
+image: "consultor_marketing_digital_freelancer.jpg"
+
+# (NUEVO) Texto alternativo para la imagen (crucial para SEO y accesibilidad).
+image_alt: "consultor seo freelance llm estrategia."
 
 ---
 

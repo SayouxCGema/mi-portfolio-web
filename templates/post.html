@@ -1,8 +1,11 @@
-<!-- Contenido para: templates/post.html (COMPLETO Y CORREGIDO) -->
+<!-- Contenido para: templates/post.html (COMPLETO Y MEJORADO) -->
 {% extends "base.html" %}
 
+{# Sobreescribe el título de la página #}
 {% block title %}{{ post.title }} - Blog{% endblock %}
-{% block meta_description %}{{ post.summary }}{% endblock %}
+
+{# (CORREGIDO) Sobreescribe la meta descripción con la específica del post #}
+{% block meta_description %}{{ post.meta_description }}{% endblock %}
 
 {% block content %}
 <main class="blog-container">
@@ -18,9 +21,10 @@
                 <p class="post-meta">{{ _('Publicado el') }} {{ post.date.strftime('%d de %B de %Y') }}</p>
             </header>
             
-            {% if post.image %}
+            <!-- (CORREGIDO) Muestra la imagen principal si existe -->
+            {% if post.image and post.image_alt %}
                 <figure class="post-image-container">
-                    <img src="{{ url_for('static', filename='img/blog/' + post.image) }}" alt="{{ post.title }}">
+                    <img src="{{ url_for('static', filename='img/blog/' + post.image) }}" alt="{{ post.image_alt }}">
                 </figure>
             {% endif %}
             

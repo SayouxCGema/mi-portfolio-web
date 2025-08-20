@@ -5,7 +5,7 @@ author: "Gema Calderón Sayoux"
 slug: "freelance-seo-barcelona-guia-completa"
 summary: "Descubre por qué contratar a un freelance SEO en Barcelona puede revolucionar tu negocio con una estrategia eficiente. ¡Escríbeme si quieres mejorar tu marca digital en línea!"
 meta_description: "Descubre mi experiencia como SEO freelance en Barcelona, por qué contratar a un profesional independiente puede ayudarte a ganar visibilidad, atraer clientes y hacer crecer tu negocio online de forma sostenible."
-image:"freelance_seo_Barcelona.png"
+image: "freelance_seo_Barcelona.png"
 image_alt: "freelance seo Barcelona."
 ---
 

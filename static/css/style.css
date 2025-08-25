@@ -387,6 +387,29 @@ footer .container {
 .post-content h2, .post-content h3 { color: var(--color-primario); margin-top: 40px; }
 .post-content p { margin-bottom: 20px; }
 
+/* ========================================= */
+/* ESTILOS PARA POSTS DEL BLOG (IMÁGENES)    */
+/* ========================================= */
+
+/* Contenedor principal del post para mejor legibilidad en escritorio */
+.post-container {
+    max-width: 800px;
+    margin: 0 auto; /* Centra el contenido del post */
+}
+
+/* Contenedor de la imagen principal del post */
+.post-image-container {
+    margin: 30px 0; /* Espacio vertical alrededor de la imagen principal */
+}
+
+/* Regla clave para TODAS las imágenes dentro de un post */
+.post-full img {
+    max-width: 100%;    /* ¡LA REGLA MÁGICA! NUNCA será más ancha que su contenedor */
+    height: auto;       /* Mantiene la proporción para no deformarse */
+    display: block;     /* Evita espacios extra debajo de la imagen */
+    border-radius: var(--border-radius); /* Bordes redondeados consistentes con tu diseño */
+    box-shadow: var(--shadow);           /* Sombra consistente con tu diseño */
+}
 /* ========================================================== */
 /* ESTILOS RESPONSIVOS PARA MÓVILES (BLOQUE ÚNICO Y CORREGIDO) */
 /* ========================================================== */

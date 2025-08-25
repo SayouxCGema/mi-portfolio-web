@@ -388,6 +388,93 @@ footer .container {
 .post-content p { margin-bottom: 20px; }
 
 /* ========================================= */
+/* ESTILOS PARA LISTADO DE BLOG (blog.html)  */
+/* ========================================= */
+
+.post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* Espacio entre cada resumen de post */
+}
+
+.post-summary {
+    display: flex; /* Pone la imagen y el texto uno al lado del otro */
+    gap: 30px;     /* Espacio entre la imagen y el texto */
+    background-color: var(--color-blanco);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden; /* Importante para que la imagen no se salga de los bordes */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-summary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.post-summary-image {
+    width: 300px;         /* Ancho fijo para la imagen en escritorio */
+    flex-shrink: 0;       /* Evita que la imagen se encoja si el texto es largo */
+    object-fit: cover;    /* Rellena el espacio sin deformar la imagen */
+}
+
+.post-summary-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}/* ========================================================== */
+/* ESTILOS RESPONSIVOS PARA MÓVILES (BLOQUE ÚNICO Y CORREGIDO) */
+/* ========================================================== */
+@media (max-width: 768px) {
+
+    /* --- TAMAÑOS DE FUENTE Y ESPACIADOS --- */
+    .hero-content h2 { font-size: 2.2rem; }
+    .section-title h2, .section-title-left h2 { font-size: 1.8rem; }
+    section { padding: 60px 15px; }
+
+    /* --- CABECERA Y NAVEGACIÓN --- */
+    header .container, footer .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* --- DISEÑO DE COLUMNAS A FILAS --- */
+    .about-content,
+    .packs-container,
+    .casos-grid,
+    .tools-grid,
+    .recursos-grid,
+    .reviews-container,
+    .client-logos,
+    .contact-form {
+        grid-template-columns: 1fr; /* Cambia todos los grids a una sola columna */
+    }
+
+    .about-image { margin: 0 auto 30px; }
+    .section-title-left { text-align: center; }
+
+    /* ==================================================== */
+    /* (NUEVO) ESTILOS PARA EL LISTADO DEL BLOG EN MÓVIL    */
+    /* ==================================================== */
+    .post-summary {
+        /* Pasa de tener las columnas una al lado de la otra (flex-direction: row en escritorio)
+           a tenerlas una encima de la otra (flex-direction: column en móvil) */
+        flex-direction: column; 
+    }
+
+    .post-summary-image {
+        /* La imagen ahora ocupará todo el ancho de su tarjeta */
+        width: 100%;
+        /* Le damos una altura fija para que todas las imágenes se vean uniformes */
+        height: 200px;
+    }
+    /* ==================================================== */
+    /* FIN DE ESTILOS PARA EL LISTADO DEL BLOG EN MÓVIL    */
+    /* ==================================================== */
+
+}
+
+/* ========================================= */
 /* ESTILOS PARA POSTS DEL BLOG (IMÁGENES)    */
 /* ========================================= */
 
@@ -440,4 +527,24 @@ footer .container {
 
     .about-image { margin: 0 auto 30px; }
     .section-title-left { text-align: center; }
+
+    /* ==================================================== */
+    /* (NUEVO) ESTILOS PARA EL LISTADO DEL BLOG EN MÓVIL    */
+    /* ==================================================== */
+    .post-summary {
+        /* Pasa de tener las columnas una al lado de la otra (flex-direction: row en escritorio)
+           a tenerlas una encima de la otra (flex-direction: column en móvil) */
+        flex-direction: column; 
+    }
+
+    .post-summary-image {
+        /* La imagen ahora ocupará todo el ancho de su tarjeta */
+        width: 100%;
+        /* Le damos una altura fija para que todas las imágenes se vean uniformes */
+        height: 200px;
+    }
+    /* ==================================================== */
+    /* FIN DE ESTILOS PARA EL LISTADO DEL BLOG EN MÓVIL    */
+    /* ==================================================== */
+
 }

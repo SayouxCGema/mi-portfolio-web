@@ -1,5 +1,5 @@
 ---
-title: "Investigación de **Palabras Clave SEO**: Encuentra las Mejores **Keywords**, Incluyendo **Long Tail**"
+title: "Investigación de Palabras Clave SEO: Encuentra las Mejores Keywords, Incluyendo Long Tail"
 date: "2025-08-29"
 author: "Gema Calderón Sayoux"
 slug: "investigacion-palabras-clave-seo"

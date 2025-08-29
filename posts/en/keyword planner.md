@@ -1,5 +1,5 @@
 ---
-title: "**SEO Keyword Research**: Find the Best **Keywords**, Including **Long-Tail**"
+title: "SEO Keyword Research: Find the Best Keywords, Including Long-Tail"
 date: "2025-08-29"
 author: "Gema Calderón Sayoux"
 slug: "seo-keyword-research-guide"

@@ -1,6 +1,6 @@
 ---
 title: "¿Estancado? 5 Señales Inequívocas de que tu Agencia Necesita un Consultor SEO Freelance"
-date: "2025-08-25"
+date: "2025-08-28"
 author: "Gema Calderón Sayoux"
 slug: "5-senales-agencia-necesita-consultor-seo-freelance"
 summary: Aprende a identificar cuándo tu agencia necesita un consultor SEO freelance. Te mostramos 5 síntomas inequívocos y cómo un experto puede ser la solución.
@@ -15,7 +15,7 @@ image_alt: "consultor seo freelance."
 
 ---
 
-#El dilema oculto de las agencias de marketing en crecimiento
+## El dilema oculto de las agencias de marketing en crecimiento
 
 Dirigir una agencia digital es un acto de malabarismo constante. Gestionas clientes, lideras equipos creativos, apagas fuegos inesperados y, al mismo tiempo, intentas mantenerte a la vanguardia de un panorama digital que cambia a la velocidad de la luz. Eres un experto, y tu equipo también. Ofrecéis resultados fantásticos en diseño web, gestión de redes sociales, branding o desarrollo. Pero hay un área que, si no se domina con precisión quirúrgica, puede convertirse en el talón de Aquiles de cualquier estrategia: el SEO.
 

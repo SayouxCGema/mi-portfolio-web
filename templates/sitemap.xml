@@ -4,24 +4,24 @@
   <!-- Página Principal (versiones en español e inglés) -->
   <url>
     <loc>{{ base_url }}/es/</loc>
-    <lastmod>2025-08-28</lastmod> <!-- Actualiza a la fecha de hoy o de tu último gran cambio -->
+    <lastmod>2025-09-02</lastmod> <!-- Actualiza a la fecha de hoy o de tu último gran cambio -->
     <priority>1.0</priority>
   </url>
   <url>
     <loc>{{ base_url }}/en/</loc>
-    <lastmod>2025-08-28</lastmod>
+    <lastmod>2025-09-02</lastmod>
     <priority>1.0</priority>
   </url>
 
   <!-- Páginas del Blog (índice) -->
   <url>
     <loc>{{ base_url }}/es/blog/</loc>
-    <lastmod>2025-08-28</lastmod>
+    <lastmod>2025-09-02</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>{{ base_url }}/en/blog/</loc>
-    <lastmod>2025-08-28</lastmod>
+    <lastmod>2025-09-02</lastmod>
     <priority>0.9</priority>
   </url>
 
@@ -29,12 +29,12 @@
   {% for slug in casos_de_estudio.keys() %}
   <url>
     <loc>{{ base_url }}/es/casos-de-estudio/{{ slug }}</loc>
-    <lastmod>2025-08-20</lastmod>
+    <lastmod>2025-09-02</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>{{ base_url }}/en/casos-de_estudio/{{ slug }}</loc>
-    <lastmod>2025-08-20</lastmod>
+    <lastmod>2025-09-02</lastmod>
     <priority>0.8</priority>
   </url>
   {% endfor %}

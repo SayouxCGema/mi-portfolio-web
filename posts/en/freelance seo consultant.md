@@ -15,7 +15,7 @@ image_alt: "freelance seo consultant"
 
 ---
 
-# The Hidden Dilemma of Growing Marketing Agencies
+## The Hidden Dilemma of Growing Marketing Agencies
 
 Running a digital agency is a constant juggling act. You manage clients, lead creative teams, put out unexpected fires, and, all the while, try to stay at the forefront of a digital landscape that changes at the speed of light. You're an expert, and so is your team. You deliver fantastic results in web design, social media management, branding, or development. But there's one area that, if not mastered with surgical precision, can become the Achilles' heel of any strategy: SEO.
 

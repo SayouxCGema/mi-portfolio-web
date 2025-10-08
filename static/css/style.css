@@ -76,9 +76,9 @@ html.dark .header { background-color: rgba(17, 24, 39, 0.8); }
 .footer-nav { display: flex; gap: 2rem; }
 .footer-nav a { color: var(--text-secondary); font-weight: 600; }
 .footer-nav a:hover { color: var(--text-primary); }
-/* ========================================= */
-/* ESTILOS PARA MENÚ DESPLEGABLE (LOVABLE)     */
-/* ========================================= */
+/* ========================================================= */
+/* (CORREGIDO) ESTILOS PARA MENÚ DESPLEGABLE (LOVABLE)     */
+/* ========================================================= */
 
 .nav-dropdown-parent {
     position: relative;
@@ -87,7 +87,7 @@ html.dark .header { background-color: rgba(17, 24, 39, 0.8); }
 .dropdown-arrow {
     font-size: 0.6em;
     margin-left: 2px;
-    display: inline-block;
+    display: inline-block; /* Permite aplicar transformaciones */
     transition: transform 0.2s ease;
 }
 
@@ -97,11 +97,14 @@ html.dark .header { background-color: rgba(17, 24, 39, 0.8); }
 
 .nav-dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: 100%; /* Posiciona el menú justo al borde inferior del header */
     left: 50%;
-    transform: translateX(-50%);
-    margin-top: 1rem;
+    
+    /* (CORRECCIÓN CLAVE) Eliminamos el margin-top que creaba el hueco */
+    /* margin-top: 1rem; <-- LÍNEA ELIMINADA */
+    
     padding: 0.5rem;
+    padding-top: 1.5rem; /* Añadimos padding superior para crear espacio VISUAL, no un hueco */
     background-color: var(--background);
     border: 1px solid var(--border-subtle);
     border-radius: 0.75rem;
@@ -109,12 +112,12 @@ html.dark .header { background-color: rgba(17, 24, 39, 0.8); }
     min-width: 240px;
     z-index: 60;
     
-    /* Oculto por defecto */
+    /* Animación de entrada */
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
     transform: translateX(-50%) translateY(-10px);
-    transition: all 0.2s ease-out;
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s;
 }
 
 .nav-dropdown-parent:hover .nav-dropdown-menu {
@@ -137,7 +140,7 @@ html.dark .header { background-color: rgba(17, 24, 39, 0.8); }
     color: var(--text-primary);
 }
 
-/* Selector de idioma */
+/* Selector de idioma (sin cambios, pero lo mantenemos aquí por organización) */
 .language-switcher { font-weight: 600; }
 .language-switcher a:hover { color: var(--accent-primary); }
 .lang-active { color: var(--text-primary); }

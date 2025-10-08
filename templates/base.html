@@ -47,7 +47,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <nav>
                 <a href="{{ url_for('home', lang_code=g.lang_code) }}#sobre-mi">{{ _('Sobre mí') }}</a>
-                <a href="{{ url_for('home', lang_code=g.lang_code) }}#servicios">{{ _('Servicios') }}</a>
+                <!-- (INICIO DE LA MODIFICACIÓN) -->
+    <li class="dropdown-parent">
+        <a href="#servicios">{{ _('Servicios') }} <span class="dropdown-arrow">▼</span></a>
+        <ul class="dropdown-menu">
+            <li><a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='auditoria-seo-agencias') }}">{{ _('Auditoría SEO') }}</a></li>
+            <li><a href="{{ url_for('home', lang_code=g.lang_code) }}#servicios">{{ _('Auditoría GEO') }}</a></li>
+            <li><a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='google-ads-marca-blanca') }}">{{ _('Anuncios Google Ads') }}</a></li>
+            <li><a href="{{ url_for('home', lang_code=g.lang_code) }}#servicios">{{ _('Configuraciones Técnicas') }}</a></li>
+            <li><a href="{{ url_for('home', lang_code=g.lang_code) }}#servicios">{{ _('Linkbuilding') }}</a></li>
+        </ul>
+    </li>
+    <!-- (FIN DE LA MODIFICACIÓN) -->
                 <a href="{{ url_for('home', lang_code=g.lang_code) }}#casos-de-estudio">{{ _('Casos de Estudio') }}</a>
                 <a href="{{ url_for('blog_index', lang_code=g.lang_code) }}">{{ _('Blog') }}</a>
                 <a href="{{ url_for('home', lang_code=g.lang_code) }}#contacto">{{ _('Contacto') }}</a>

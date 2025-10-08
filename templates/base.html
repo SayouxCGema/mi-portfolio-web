@@ -1,108 +1,78 @@
-<!-- Contenido para: templates/base.html (VERSIÓN FINAL CORREGIDA) -->
+<!-- Contenido para: templates/base.html (NUEVO DISEÑO LOVABLE) -->
 <!DOCTYPE html>
 <html lang="{{ g.lang_code }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{{ _('Gema Calderón Sayoux - Freelance SEO en Barcelona') }}{% endblock %}</title>
-    <meta name="description" content="{% block meta_description %}{{ _('Contacta con Gema Calderón Sayoux, freelance SEO en Barcelona, experta en posicionamiento web para empresas. Impulsa tu negocio en Google.') }}{% endblock %}">
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>{% block title %}{{ _('Gema Calderón Sayoux - Consultor SEO & Marketing Digital') }}{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}{{ _('Portfolio de Gema Calderón Sayoux. Servicios de SEO, Google Ads y consultoría web para hacer crecer tu negocio.') }}{% endblock %}">
     
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <!-- Favicon -->
     <link rel="icon" href="{{ url_for('static', filename='favicons/favicon.ico') }}">
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='favicons/apple-touch-icon.png') }}">
-    <link rel="manifest" href="{{ url_for('static', filename='favicons/site.webmanifest') }}">
     
-   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NLDJVRX2');</script>
-<!-- End Google Tag Manager -->
- 
-    <!-- Google Analytics y reCAPTCHA (CORREGIDO) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ ga_measurement_id }}"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '{{ ga_measurement_id }}');
-</script>
-    <script src="https://www.google.com/recaptcha/api.js?render={{ recaptcha_site_key }}"></script>
-
+    <!-- Google Analytics (no olvides tu ID en las variables de entorno) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ os.environ.get('GA_MEASUREMENT_ID') }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ os.environ.get('GA_MEASUREMENT_ID') }}');
+    </script>
     {% block head_extra %}{% endblock %}
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLDJVRX2"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <a href="{{ url_for('home', lang_code=g.lang_code) }}">Gema Calderón Sayoux</a>
-            </div>
-            <nav>
-                <a href="{{ url_for('home', lang_code=g.lang_code) }}#sobre-mi">{{ _('Sobre mí') }}</a>
-                <!-- (INICIO DE LA MODIFICACIÓN) -->
-    <li class="dropdown-parent">
-        <a href="#servicios">{{ _('Servicios') }} <span class="dropdown-arrow">▼</span></a>
-        <ul class="dropdown-menu">
-    <li><a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='auditoria-seo') }}">{{ _('Auditoría SEO') }}</a></li>
-    <li><a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='auditoria-seo-ia') }}">{{ _('Auditoría SEO IA') }}</a></li>
-    <li><a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='consultor-google-ads') }}">{{ _('Anuncios Google Ads') }}</a></li>
-    <li><a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='analitica-digital') }}">{{ _('Analítica y Configuración Digital') }}</a></li>
-    <li><a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='linkbuilding') }}">{{ _('Linkbuilding') }}</a></li>
-</ul>
-    </li>
-    <!-- (FIN DE LA MODIFICACIÓN) -->
-                <a href="{{ url_for('home', lang_code=g.lang_code) }}#casos-de-estudio">{{ _('Casos de Estudio') }}</a>
+    <header class="header">
+        <div class="container header-container">
+            <a href="{{ url_for('home', lang_code=g.lang_code) }}" class="header-logo">Gema Calderón Sayoux</a>
+            <nav class="header-nav">
+                <a href="{{ url_for('home', lang_code=g.lang_code) }}#servicios">{{ _('Servicios') }}</a>
+                <a href="{{ url_for('home', lang_code=g.lang_code) }}#casos-de-estudio">{{ _('Proyectos') }}</a>
                 <a href="{{ url_for('blog_index', lang_code=g.lang_code) }}">{{ _('Blog') }}</a>
-                <a href="{{ url_for('home', lang_code=g.lang_code) }}#contacto">{{ _('Contacto') }}</a>
+                <a href="{{ url_for('home', lang_code=g.lang_code) }}#sobre-mi">{{ _('Sobre mí') }}</a>
             </nav>
-            <div class="language-switcher">
-                <!-- Selector de idioma mejorado -->
-                {% set current_endpoint = request.endpoint %}
-                {% set current_args = request.view_args.copy() %}
-                {% for lang in app.config['LANGUAGES'] %}
-                    {% if lang == g.lang_code %}
-                        <span class="lang-active">{{ lang|upper }}</span>
-                    {% else %}
-                        {% set _ = current_args.update({'lang_code': lang}) %}
-                        <a href="{{ url_for(current_endpoint, **current_args) }}">{{ lang|upper }}</a>
-                    {% endif %}
-                    {% if not loop.last %} | {% endif %}
-                {% endfor %}
+            <div class="header-actions">
+                <a href="{{ url_for('home', lang_code=g.lang_code) }}#contacto" class="button">{{ _('Contacto') }}</a>
+                <button id="hamburger-button" class="hamburger" aria-label="Open menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+                </button>
             </div>
         </div>
     </header>
 
-    {% block content %}{% endblock %}
+    <!-- Menú Móvil -->
+    <div id="mobile-nav" class="mobile-nav">
+        <a href="{{ url_for('home', lang_code=g.lang_code) }}#servicios">{{ _('Servicios') }}</a>
+        <a href="{{ url_for('home', lang_code=g.lang_code) }}#casos-de-estudio">{{ _('Proyectos') }}</a>
+        <a href="{{ url_for('blog_index', lang_code=g.lang_code) }}">{{ _('Blog') }}</a>
+        <a href="{{ url_for('home', lang_code=g.lang_code) }}#sobre-mi">{{ _('Sobre mí') }}</a>
+    </div>
 
-    <footer>
-        <div class="container">
-            <p>{{ _('© 2025 Gema Calderón Sayoux | Todos los derechos reservados.') }}</p>
-            <div class="social-links">
-                <!-- (CORREGIDO) Usamos g.contact que se inyecta desde el context_processor -->
-                <a href="mailto:{{ g.contact.email }}" aria-label="{{ _('Enviar correo electrónico') }}"><i class="fas fa-envelope"></i></a>
-                <a href="{{ g.contact.linkedin }}" target="_blank" rel="noopener noreferrer" aria-label="{{ _('Visitar perfil de LinkedIn') }}"><i class="fab fa-linkedin"></i></a>
-            </div>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <span>© {{ "now"|datetime("YYYY") }} Gema Calderón Sayoux</span>
+            <nav class="footer-nav">
+                <a href="mailto:{{ g.contact.email }}">Email</a>
+                <a href="{{ g.contact.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </nav>
         </div>
     </footer>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    {% block scripts %}{% endblock %} <!-- Bloque para JS específico de cada página -->
+    <!-- Script para el menú móvil -->
     <script>
-    window.YGC_WIDGET_ID = "62e0786c-f68b-460a-a069-e569bfdc1c6a";
-    (function() {
-      var script = document.createElement('script');
-      script.src = "https://widget.yourgpt.ai/script.js";
-      script.id = 'yourgpt-chatbot';
-      document.body.appendChild(script);
-    })();
-</script>
+        const hamburgerButton = document.getElementById('hamburger-button');
+        const mobileNav = document.getElementById('mobile-nav');
+        hamburgerButton.addEventListener('click', () => {
+            mobileNav.classList.toggle('is-open');
+        });
+    </script>
+    
+    {% block scripts %}{% endblock %}
+    <!-- Tu script de chatbot de YourGPT va aquí -->
 </body>
 </html>

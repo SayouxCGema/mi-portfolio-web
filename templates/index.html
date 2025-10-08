@@ -1,165 +1,135 @@
-<!-- Contenido para: templates/index.html (COMPLETO Y CORREGIDO PARA i18n) -->
+<!-- Contenido para: templates/index.html (NUEVO DISEÑO LOVABLE) -->
 {% extends "base.html" %}
 
 {% block content %}
-    <main>
-        <!-- SECCIÓN DE BIENVENIDA (HERO) -->
-        <section id="inicio" class="fade-in">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>{{ _('Impulsa tu negocio con SEO, Google Ads y Análisis de Datos.') }}</h1>
-                    <p>{{ _('Soy Gema, freelance seo en Barcelona y consultora digital enfocada en ayudar a pequeñas y medianas empresas a crecer con soluciones digitales a medida, bien pensadas y que generan resultados reales.') }}</p>
-                    <a href="#contacto" class="cta-button">{{ _('Hablemos de tu proyecto') }}</a>
-                </div>
-            </div>
-        </section>
 
-        <!-- SECCIÓN "SOBRE MÍ" -->
-        <section id="sobre-mi" class="fade-in">
-            <div class="container">
-                <div class="about-content">
-                    <div class="about-image">
-                        <img src="{{ url_for('static', filename='img/consultor_marketing_digital_freelancer.jpg') }}" alt="{{ _('Gema Calderón Sayoux marketing digital') }}">
-                    </div>
-                    <div class="about-text">
-                        <div class="section-title-left">
-                            <span>{{ _('Conóceme') }}</span>
-                            <h2>{{ _('Hola, soy Gema') }}</h2>
-                        </div>
-                        <p>{{ _('Con una pasión por la creatividad y un enfoque analítico, mi misión es ayudar a marcas como la tuya a conectar con su audiencia de manera auténtica y efectiva. Creo en un marketing que no solo vende, sino que también aporta valor y construye relaciones duraderas.') }}</p>
-                        <p>{{ _('Mi experiencia abarca desde la planificación estratégica y SEO hasta la gestión de campañas publicitarias,configuraciones técnicas y presentación de informes; siempre con el objetivo de transformar ideas en resultados medibles.') }}</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECCIÓN DE SERVICIOS (CORREGIDA) -->
-<section id="servicios" class="fade-in">
-    <div class="container">
-        <div class="section-title">
-            <span>{{ _('Servicios') }}</span>
-            <h2>{{ _('Soluciones a tu medida') }}</h2>
-            <p>{{ _('Packs diseñados para adaptarse a tus necesidades, ya sea un proyecto completo o un soporte continuo.') }}</p>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>{{ _('Impulsa tu negocio con SEO, Google Ads y Análisis de Datos.') }}</h1>
+        <p>{{ _('Soy Gema, consultora digital especializada en ayudar a pequeñas y medianas empresas a crecer con soluciones digitales a medida, bien pensadas y que generan resultados reales.') }}</p>
+        <div class="hero-actions">
+            <a href="#casos-de-estudio" class="button">{{ _('Ver proyectos') }}</a>
+            <a href="#contacto" class="button button-secondary">{{ _('Hablemos de tu proyecto') }}</a>
         </div>
-        <div class="packs-container">
-            <div class="pack">
-                <div class="pack-header"><i class="fas fa-rocket pack-icon"></i><h3>{{ _('Packs por Proyecto') }}</h3></div>
-                <p class="pack-description">{{ _('Soluciones integrales con un precio cerrado para objetivos concretos.') }}</p>
-                <ul>
-                    <!-- (CORREGIDO) Itera sobre la lista 'proyectos' del diccionario 'packs' -->
-                    {% for pack_item in packs.proyectos %}
-                    <li>🌟 {{ _(pack_item) }}</li>
-                    {% endfor %}
-                </ul>
-                <a href="#contacto" class="cta-button-outline">{{ _('Solicitar presupuesto') }}</a>
-            </div>
-            <div class="pack">
-                 <div class="pack-header"><i class="fas fa-clock pack-icon"></i><h3>{{ _('Packs por Horas') }}</h3></div>
-                <p class="pack-description">{{ _('Flexibilidad total para consultoría, mantenimiento o tareas puntuales.') }}</p>
-                <ul>
-                    <!-- (CORREGIDO) Itera sobre la lista 'horas' del diccionario 'packs' -->
-                    {% for pack_item in packs.horas %}
-                    <li><strong>{{ _(pack_item.nombre) }}</strong> {{ _(pack_item.precio) }}</li>
-                    {% endfor %}
-                </ul>
-                <a href="#contacto" class="cta-button-outline">{{ _('Contratar horas') }}</a>
+    </section>
+
+    <!-- CLIENTES -->
+    <section class="section">
+        <div class="container">
+            <h3 style="text-align: center; color: var(--text-secondary); font-weight: 600;">{{ _('Empresas que han confiado en mí') }}</h3>
+            <div class="clients-grid">
+                <img src="{{ url_for('static', filename='img/logo_h.png') }}" alt="Logo Cliente 1">
+                <img src="{{ url_for('static', filename='img/Logo_katarsia-1.png') }}" alt="Logo Cliente 2">
+                <img src="{{ url_for('static', filename='img/milloret-logo.jpg') }}" alt="Logo Cliente 3">
+                <!-- Añade más logos aquí si es necesario -->
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-        <!-- SECCIÓN CASOS DE ESTUDIO -->
-        <section id="casos-de-estudio" class="section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>{{ _('Casos de Estudio') }}</h2>
-                    <p class="section-subtitle">{{ _('Resultados reales para clientes reales.') }}</p>
+    <!-- SERVICIOS -->
+    <section id="servicios" class="section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>{{ _('Cómo puedo ayudarte') }}</h2>
+                <p>{{ _('Ofrezco un enfoque integral para mejorar tu presencia online, desde la estrategia inicial hasta la ejecución y el análisis de resultados.') }}</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+                    <h3>{{ _('Auditoría y Estrategia SEO') }}</h3>
+                    <p>{{ _('Análisis profundos para identificar oportunidades y crear una hoja de ruta hacia el crecimiento orgánico.') }}</p>
                 </div>
-                <div class="casos-grid">
-                    {% for slug, caso in casos_de_estudio.items() %}
-                    <div class="caso-card">
-                        <img src="{{ url_for('static', filename='img/' + caso.imagenes[0]) }}" alt="{{ _('Gráfico de resultados para') }} {{ caso.cliente }}">
+                <div class="feature-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>
+                    <h3>{{ _('Gestión de Google Ads') }}</h3>
+                    <p>{{ _('Creación y optimización de campañas de pago para maximizar tu ROI y captar leads cualificados.') }}</p>
+                </div>
+                <div class="feature-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 0 2l-.15.08a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1 0-2l.15-.08a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <h3>{{ _('Configuraciones Técnicas') }}</h3>
+                    <p>{{ _('Implementación experta de GA4, GTM, Search Console y más para una medición de datos precisa.') }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASOS DE ESTUDIO -->
+    <section id="casos-de-estudio" class="section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>{{ _('Proyectos Recientes') }}</h2>
+            </div>
+            <div class="work-grid">
+                {% for slug, caso in casos_de_estudio.items() %}
+                <div class="work-card">
+                    <img src="{{ url_for('static', filename='img/' + caso.imagenes[0]) }}" alt="{{ caso.titulo }}">
+                    <div class="work-card-content">
                         <h3>{{ caso.titulo }}</h3>
                         <p>{{ caso.problema|truncate(120) }}</p>
-                        <!-- (CORREGIDO) Apunta a la función 'caso_de_estudio' correcta -->
-                        <a href="{{ url_for('caso_de_estudio', lang_code=g.lang_code, slug=slug) }}" class="btn">{{ _('Ver Caso Completo') }}</a>
+                        <a href="{{ url_for('caso_de_estudio', lang_code=g.lang_code, slug=slug) }}" style="font-weight: 600; margin-top: 1rem; display: inline-block;">{{ _('Ver caso completo') }} &rarr;</a>
                     </div>
-                    {% endfor %}
                 </div>
+                {% endfor %}
             </div>
-        </section>
-        
-        <!-- ... (Tus otras secciones como Conocimientos, Recursos, Portafolio, Certificados van aquí) ... -->
-
-        <!-- SECCIÓN DE CALENDARIO (CALENDLY) -->
-        <section id="agendar-cita" class="section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>{{ _('¿Hablamos?') }}</h2>
-                    <p class="section-subtitle">{{ _('Agenda una reunión de 15 minutos directamente en mi calendario.') }}</p>
-                </div>
-                <!-- (CORREGIDO) Pasamos el 'locale' a Calendly para que se traduzca si es posible -->
-                <div class="calendly-inline-widget" data-url="https://calendly.com/gemacalderonsayoux/30min?background_color=ebe1e1&primary_color=006cff&locale={{ g.lang_code }}" style="min-width:320px;height:700px;"></div>
-                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+    </section>
+    
+    <!-- SOBRE MÍ / TESTIMONIAL -->
+    <section id="sobre-mi" class="section">
+        <div class="container">
+            <div class="testimonial-card">
+                <p>"{{ _('Con una pasión por la creatividad y un enfoque analítico, mi misión es ayudar a marcas como la tuya a conectar con su audiencia de manera auténtica y efectiva.') }}"</p>
+                <footer>— Gema Calderón Sayoux</footer>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- SECCIÓN CONTACTO -->
-        <section id="contacto" class="fade-in">
-            <div class="container">
-                <!-- ... (Reseñas) ... -->
-                <div class="contact-wrapper">
-                    <div class="section-title">
-                        <span>{{ _('O si lo prefieres...') }}</span>
-                        <h2>{{ _('Envíame un mensaje') }}</h2>
-                        <p>{{ _('Rellena el formulario y daré respuesta a tu consulta dentro de las próximas 24 horas.') }}</p>
+    <!-- BLOG -->
+    <section id="blog" class="section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>{{ _('Desde el Blog') }}</h2>
+                <a href="{{ url_for('blog_index', lang_code=g.lang_code) }}" class="button button-secondary">{{ _('Ver todo') }}</a>
+            </div>
+            <div class="work-grid"> <!-- Reutilizamos el grid de "work" para consistencia -->
+                {% for post in g.posts|slice(2) %} <!-- Mostramos solo los 2 últimos posts -->
+                <div class="work-card">
+                    <img src="{{ url_for('static', filename='img/blog/' + post.image) }}" alt="{{ post.title }}">
+                    <div class="work-card-content">
+                        <h3>{{ post.title }}</h3>
+                        <p>{{ post.summary|truncate(120) }}</p>
+                        <a href="{{ url_for('blog_post', lang_code=g.lang_code, slug=post.slug) }}" style="font-weight: 600; margin-top: 1rem; display: inline-block;">{{ _('Leer más') }} &rarr;</a>
                     </div>
-                    
-                    <form id="contact-form" action="{{ url_for('enviar_mensaje') }}" method="POST" class="contact-form">
-                        <input type="hidden" name="lang_code" value="{{ g.lang_code }}">
-                        <div class="form-group"><input type="text" name="nombre" placeholder="{{ _('Nombre') }}" required></div>
-                        <div class="form-group"><input type="text" name="apellidos" placeholder="{{ _('Apellidos') }}" required></div>
-                        <div class="form-group"><input type="email" name="email" placeholder="{{ _('Email') }}" required></div>
-                        <div class="form-group">
-                            <select name="pack_interes" required>
-                                <option value="" disabled selected>{{ _('Servicio de interés...') }}</option>
-                                <!-- (CORREGIDO) Itera sobre ambas listas para poblar el desplegable -->
-                                {% for pack_item in packs.proyectos %}
-                                    <option value="{{ pack_item }}">{{ _(pack_item) }}</option>
-                                {% endfor %}
-                                {% for pack_item in packs.horas %}
-                                    <option value="{{ pack_item.nombre }}">{{ _(pack_item.nombre) }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="form-group full-width">
-                            <textarea name="notas" rows="5" placeholder="{{ _('Cuéntame más sobre tu proyecto...') }}"></textarea>
-                        </div>
-                        <input type="hidden" id="recaptcha-response" name="g-recaptcha-response">
-                        <div class="form-group full-width">
-                            <button type="submit" class="cta-button">{{ _('Enviar Mensaje') }}</button>
-                        </div>
-                    </form>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section">
+        <div class="container">
+            <div class="cta-section">
+                <h2>{{ _('¿Listo para empezar?') }}</h2>
+                <p>{{ _('Hablemos de tu proyecto. Cuéntame sobre tus objetivos y te responderé en 1-2 días hábiles con los siguientes pasos.') }}</p>
+                <div class="hero-actions">
+                    <a href="mailto:{{ g.contact.email }}" class="button">{{ _('Enviar un email') }}</a>
+                    <a href="#agendar-cita" class="button button-secondary">{{ _('Agendar una llamada') }}</a>
                 </div>
             </div>
-        </section>
-    </main>
-{% endblock %}
+        </div>
+    </section>
 
+    <!-- CALENDLY -->
+    <section id="agendar-cita" class="section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>{{ _('Agenda una Llamada') }}</h2>
+                <p>{{ _('Elige un hueco en mi calendario para una consulta inicial de 15 minutos.') }}</p>
+            </div>
+            <div class="calendly-inline-widget" data-url="https://calendly.com/gemacalderonsayoux/30min?background_color=ebe1e1&primary_color=006cff&locale={{ g.lang_code }}" style="min-width:320px;height:700px; border-radius: 0.75rem; overflow: hidden; margin-top: 3rem;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+    </section>
 
-{% block scripts %}
-    <!-- SCRIPT DE JAVASCRIPT PARA RECAPTCHA -->
-    <script>
-      document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        var form = this;
-        grecaptcha.ready(function() {
-          // La clave se inyecta desde el backend para mayor seguridad
-          grecaptcha.execute('{{ recaptcha_site_key }}', {action: 'submit'}).then(function(token) {
-            document.getElementById('recaptcha-response').value = token;
-            form.submit();
-          });
-        });
-      });
-    </script>
 {% endblock %}

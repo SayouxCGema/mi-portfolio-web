@@ -50,18 +50,19 @@
         <div class="header-actions">
             <!-- (RESTAURADO) Selector de Idioma -->
             <div class="language-switcher">
-                {% set current_endpoint = request.endpoint %}
-                {% set current_args = request.view_args.copy() %}
-                {% for lang in app.config['LANGUAGES'] %}
-                    {% if lang == g.lang_code %}
-                        <span class="lang-active">{{ lang|upper }}</span>
-                    {% else %}
-                        {% set _ = current_args.update({'lang_code': lang}) %}
-                        <a href="{{ url_for(current_endpoint, **current_args) }}">{{ lang|upper }}</a>
-                    {% endif %}
-                    {% if not loop.last %} | {% endif %}
-                {% endfor %}
-            </div>
+    {% set current_endpoint = request.endpoint %}
+    {% set current_args = request.view_args.copy() %}
+    <!-- (CORREGIDO) Usamos la variable 'languages' que inyectamos desde el context_processor -->
+    {% for lang in languages %}
+        {% if lang == g.lang_code %}
+            <span class="lang-active">{{ lang|upper }}</span>
+        {% else %}
+            {% set _ = current_args.update({'lang_code': lang}) %}
+            <a href="{{ url_for(current_endpoint, **current_args) }}">{{ lang|upper }}</a>
+        {% endif %}
+        {% if not loop.last %} | {% endif %}
+    {% endfor %}
+</div>
 
             <a href="{{ url_for('home', lang_code=g.lang_code) }}#contacto" class="button">{{ _('Contacto') }}</a>
             <button id="hamburger-button" class="hamburger" aria-label="Open menu">

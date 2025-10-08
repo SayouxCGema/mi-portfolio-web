@@ -76,3 +76,68 @@ html.dark .header { background-color: rgba(17, 24, 39, 0.8); }
 .footer-nav { display: flex; gap: 2rem; }
 .footer-nav a { color: var(--text-secondary); font-weight: 600; }
 .footer-nav a:hover { color: var(--text-primary); }
+/* ========================================= */
+/* ESTILOS PARA MENÚ DESPLEGABLE (LOVABLE)     */
+/* ========================================= */
+
+.nav-dropdown-parent {
+    position: relative;
+}
+
+.dropdown-arrow {
+    font-size: 0.6em;
+    margin-left: 2px;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.nav-dropdown-parent:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: var(--background);
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    min-width: 240px;
+    z-index: 60;
+    
+    /* Oculto por defecto */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(-10px);
+    transition: all 0.2s ease-out;
+}
+
+.nav-dropdown-parent:hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.nav-dropdown-menu a:hover {
+    background-color: var(--border-subtle);
+    color: var(--text-primary);
+}
+
+/* Selector de idioma */
+.language-switcher { font-weight: 600; }
+.language-switcher a:hover { color: var(--accent-primary); }
+.lang-active { color: var(--text-primary); }

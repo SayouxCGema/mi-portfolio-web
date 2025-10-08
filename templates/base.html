@@ -25,22 +25,51 @@
 </head>
 <body>
     <header class="header">
-        <div class="container header-container">
-            <a href="{{ url_for('home', lang_code=g.lang_code) }}" class="header-logo">Gema Calderón Sayoux</a>
-            <nav class="header-nav">
-                <a href="{{ url_for('home', lang_code=g.lang_code) }}#servicios">{{ _('Servicios') }}</a>
-                <a href="{{ url_for('home', lang_code=g.lang_code) }}#casos-de-estudio">{{ _('Proyectos') }}</a>
-                <a href="{{ url_for('blog_index', lang_code=g.lang_code) }}">{{ _('Blog') }}</a>
-                <a href="{{ url_for('home', lang_code=g.lang_code) }}#sobre-mi">{{ _('Sobre mí') }}</a>
-            </nav>
-            <div class="header-actions">
-                <a href="{{ url_for('home', lang_code=g.lang_code) }}#contacto" class="button">{{ _('Contacto') }}</a>
-                <button id="hamburger-button" class="hamburger" aria-label="Open menu">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
-                </button>
+    <div class="container header-container">
+        <a href="{{ url_for('home', lang_code=g.lang_code) }}" class="header-logo">Gema Calderón Sayoux</a>
+        
+        <nav class="header-nav">
+            <!-- (INICIO DE LA MODIFICACIÓN) -->
+            <div class="nav-dropdown-parent">
+                <a href="{{ url_for('home', lang_code=g.lang_code) }}#servicios">{{ _('Servicios') }} <span class="dropdown-arrow">▼</span></a>
+                <div class="nav-dropdown-menu">
+                    <a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='auditoria-seo') }}">{{ _('Auditoría SEO') }}</a>
+                    <a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='auditoria-seo-ia') }}">{{ _('Auditoría SEO IA') }}</a>
+                    <a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='consultor-google-ads') }}">{{ _('Anuncios Google Ads') }}</a>
+                    <a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='analitica-digital') }}">{{ _('Configuraciones Técnicas') }}</a>
+                    <a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='estrategias-linkbuilding') }}">{{ _('Linkbuilding') }}</a>
+                </div>
             </div>
+            <!-- (FIN DE LA MODIFICACIÓN) -->
+
+            <a href="{{ url_for('home', lang_code=g.lang_code) }}#casos-de-estudio">{{ _('Proyectos') }}</a>
+            <a href="{{ url_for('blog_index', lang_code=g.lang_code) }}">{{ _('Blog') }}</a>
+            <a href="{{ url_for('home', lang_code=g.lang_code) }}#sobre-mi">{{ _('Sobre mí') }}</a>
+        </nav>
+
+        <div class="header-actions">
+            <!-- (RESTAURADO) Selector de Idioma -->
+            <div class="language-switcher">
+                {% set current_endpoint = request.endpoint %}
+                {% set current_args = request.view_args.copy() %}
+                {% for lang in app.config['LANGUAGES'] %}
+                    {% if lang == g.lang_code %}
+                        <span class="lang-active">{{ lang|upper }}</span>
+                    {% else %}
+                        {% set _ = current_args.update({'lang_code': lang}) %}
+                        <a href="{{ url_for(current_endpoint, **current_args) }}">{{ lang|upper }}</a>
+                    {% endif %}
+                    {% if not loop.last %} | {% endif %}
+                {% endfor %}
+            </div>
+
+            <a href="{{ url_for('home', lang_code=g.lang_code) }}#contacto" class="button">{{ _('Contacto') }}</a>
+            <button id="hamburger-button" class="hamburger" aria-label="Open menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+            </button>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- Menú Móvil -->
     <div id="mobile-nav" class="mobile-nav">

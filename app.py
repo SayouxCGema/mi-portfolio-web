@@ -1,7 +1,8 @@
 # ==========================================================
 # app.py - Versión Definitiva, Completa y Corregida
 # ==========================================================
-
+# Al principio de app.py, con las otras importaciones
+from datetime import datetime
 import os
 import json
 import resend
@@ -25,6 +26,15 @@ def get_locale():
     return getattr(g, 'lang_code', app.config['BABEL_DEFAULT_LOCALE'])
 
 babel = Babel(app, locale_selector=get_locale)
+# En app.py, después de la inicialización de Babel
+
+@app.template_filter('strftime')
+def _jinja2_filter_datetime(date, fmt=None):
+    """Filtro personalizado para formatear fechas en Jinja2."""
+    if fmt:
+        return date.strftime(fmt)
+    else:
+        return date.strftime('%Y-%m-%d')
 
 # --- 3. MANEJO DE DATOS Y CONTEXTO ---
 
@@ -68,7 +78,7 @@ def load_blog_posts(lang):
 
 @app.context_processor
 def inject_global_vars():
-    return dict(g=g, app=app, recaptcha_site_key=os.environ.get('RECAPTCHA_SITE_KEY'), ga_measurement_id=os.environ.get('GA_MEASUREMENT_ID'))
+    return dict(g=g, app=app, recaptcha_site_key=os.environ.get('RECAPTCHA_SITE_KEY'),current_year=datetime.utcnow().year, ga_measurement_id=os.environ.get('GA_MEASUREMENT_ID'))
 
 # --- 4. RUTAS DE LA APLICACIÓN ---
 

@@ -543,21 +543,35 @@ footer .container {
     border-radius: var(--border-radius); /* Bordes redondeados consistentes con tu diseño */
     box-shadow: var(--shadow);           /* Sombra consistente con tu diseño */
 }
-/* ========================================= */
-/* ESTILOS PARA EL MENÚ DESPLEGABLE (DROPDOWN) */
-/* ========================================= */
+/* ========================================================= */
+/* ESTILOS CORREGIDOS PARA HEADER Y MENÚ DESPLEGABLE (DROPDOWN) */
+/* ========================================================= */
+
+/* (CORRECCIÓN) Alineación del menú principal */
+.nav-inner {
+    /* Mantenemos el grid, pero aseguramos que el menú tenga espacio para centrarse */
+    grid-template-columns: auto minmax(0, 1fr) auto;
+}
+.menu {
+    /* Aseguramos que los items estén centrados dentro de su espacio */
+    justify-content: center;
+}
 
 /* Contenedor padre del desplegable */
 .menu .dropdown-parent {
     position: relative; /* Clave para posicionar el submenú */
+    /* (CORRECCIÓN CLAVE) Añadimos padding inferior para "cerrar el hueco" */
+    padding-bottom: 15px;
+    margin-bottom: -15px; /* Compensamos el padding para no alterar la altura del header */
 }
 
 /* El submenú (oculto por defecto) */
 .dropdown-menu {
     position: absolute;
-    top: 150%; /* Lo posicionamos un poco más abajo para que haya espacio */
+    /* (CORRECCIÓN) Posicionamos el menú para que aparezca justo debajo, sin hueco */
+    top: 100%; 
     left: 50%;
-    transform: translateX(-50%) translateY(10px); /* Centrado y movido hacia abajo */
+    transform: translateX(-50%) translateY(10px); /* Lo movemos hacia abajo para la animación */
     
     background: var(--bg);
     border: 1px solid var(--border);
@@ -565,9 +579,8 @@ footer .container {
     box-shadow: 0 10px 30px rgba(0,0,0,.1);
     padding: 8px;
     list-style: none;
-    min-width: 260px; /* Ancho mínimo para que no se vea apretado */
+    min-width: 260px;
     
-    /* Ocultamos con opacidad y visibilidad para permitir animaciones */
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
@@ -583,33 +596,30 @@ footer .container {
     font-weight: 600;
     transition: background 0.2s ease, color 0.2s ease;
 }
-
-/* Efecto hover en los enlaces del desplegable */
 .dropdown-menu li a:hover {
     background: var(--soft);
     color: var(--text);
 }
-/* Anulamos el efecto de la línea inferior del menú principal */
 .dropdown-menu li a::after {
-    display: none;
+    display: none; /* Anulamos el efecto de línea inferior */
 }
 
 /* ¡LA MAGIA! Muestra el desplegable al pasar el cursor sobre el padre */
 .dropdown-parent:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) translateY(0); /* Vuelve a su posición original */
-    top: 100%;
+    transform: translateX(-50%) translateY(0); /* Vuelve a su posición vertical correcta */
 }
 
 /* Estilo de la flecha */
 .dropdown-arrow {
     font-size: 0.7em;
     margin-left: 4px;
+    display: inline-block; /* Permite aplicar transformaciones */
     transition: transform 0.2s ease;
 }
 .dropdown-parent:hover .dropdown-arrow {
-    transform: rotate(180deg); /* Gira la flecha al hacer hover */
+    transform: rotate(180deg);
 }
 /* ========================================================== */
 /* ESTILOS RESPONSIVOS PARA MÓVILES (BLOQUE ÚNICO Y CORREGIDO) */

@@ -12,6 +12,68 @@
       { "nombre": "Bono mensual:", "precio": "400 €" }
     ]
   },
+  "servicios_detalle": {
+    "servicio-auditoria-seo": {
+      "titulo_pagina": "Servicio de Auditoría SEO Profesional en Barcelona - Gema Calderón Sayoux",
+      "meta_description": "Análisis y auditoría SEO completa para identificar errores, oportunidades y trazar una hoja de ruta clara para mejorar tu posicionamiento orgánico.",
+      "titulo_principal": "Auditoría SEO En Profundidad",
+      "subtitulo": "La base de cualquier estrategia de crecimiento orgánico exitosa.",
+      "descripcion_html": "<p>Una auditoría SEO no es solo una lista de errores. Es un diagnóstico completo de la salud de tu sitio web y un plan de acción estratégico. Mi servicio de auditoría cubre todos los pilares del SEO:</p><ul><li><strong>SEO Técnico:</strong> Rastreo, indexación, velocidad de carga, datos estructurados, arquitectura web y más.</li><li><strong>SEO On-Page:</strong> Optimización de contenido, intenciones de búsqueda, canibalización de palabras clave y estructura de encabezados.</li><li><strong>SEO Off-Page:</strong> Análisis del perfil de enlaces, autoridad de dominio y estrategias de la competencia.</li></ul><p>El resultado es un documento claro y priorizado que te dice exactamente qué hacer, por qué y qué impacto esperar.</p>",
+      "beneficios_titulo": "¿Qué obtendrás?",
+      "beneficios": [
+        "Un informe detallado con hallazgos y recomendaciones.",
+        "Una hoja de ruta con acciones priorizadas por impacto y esfuerzo.",
+        "Identificación de oportunidades de bajo esfuerzo y alto impacto.",
+        "La base sólida para una estrategia de contenidos o linkbuilding."
+      ],
+      "cta_texto": "Solicita tu Auditoría SEO"
+    },
+    "servicio-auditoria-seo-ia": {
+      "titulo_pagina": "Auditoría y Estrategia SEO IA",
+      "meta_description": "Adapta tu estrategia de contenidos para la era de la IA y los Large Language Models (LLM)",
+      "titulo_principal": "Optimización para Búsquedas con IA (LLM SEO)",
+      "subtitulo": "Prepara tu web para el futuro de las búsquedas con Google SGE y los chatbots.",
+      "descripcion_html": "<p>El SEO está evolucionando. Mi servicio de auditoría LLM analiza cómo tus contenidos responden a las búsquedas conversacionales y cómo pueden destacar en las nuevas experiencias generativas de los buscadores.</p>",
+      "beneficios_titulo": "Anticípate al futuro",
+      "beneficios": [
+        "Análisis de 'topic authority' y 'entity SEO'.",
+        "Estrategia para optimizar contenidos para SGE.",
+        "Guía para crear contenido que los LLMs quieran citar.",
+        "Asegura la visibilidad de tu marca en la nueva era del SEO."
+      ],
+      "cta_texto": "Adapta tu Estrategia"
+    },
+    "consultor-google-ads": {
+      "titulo_pagina": "Gestión de Campañas de Google Ads",
+      "meta_description": "Servicio profesional de gestión de Google Ads para maximizar tu ROI. Creación, optimización y seguimiento de campañas de búsqueda, display y shopping.",
+      "titulo_principal": "Campañas de Google Ads que Convierten",
+      "subtitulo": "Invierte de forma inteligente y consigue leads cualificados desde el primer día.",
+      "descripcion_html": "<p>...</p>",
+      "beneficios_titulo": "Resultados Medibles",
+      "beneficios": [ "..." ],
+      "cta_texto": "Optimiza tus Campañas"
+    },
+    "servicio-analitica-digital": {
+      "titulo_pagina": "Configuraciones Técnicas de Marketing",
+      "meta_description": "Implementación y configuración experta de GTM, GA4, Search Console, BigQuery y Google Business Profile para una medición de datos precisa.",
+      "titulo_principal": "Setup Técnico para Marketing Digital",
+      "subtitulo": "Toma decisiones basadas en datos fiables y bien estructurados.",
+      "descripcion_html": "<p>...</p>",
+      "beneficios_titulo": "Datos en los que Puedes Confiar",
+      "beneficios": [ "..." ],
+      "cta_texto": "Organiza tu Medición"
+    },
+    "servicios-linkbuilding": {
+      "titulo_pagina": "Servicio de Linkbuilding y Autoridad",
+      "meta_description": "Estrategias de construcción de enlaces de calidad para aumentar la autoridad de tu dominio y mejorar tu posicionamiento en Google.",
+      "titulo_principal": "Estrategias de Linkbuilding de Calidad",
+      "subtitulo": "Construye la autoridad que tu dominio necesita para competir.",
+      "descripcion_html": "<p>...</p>",
+      "beneficios_titulo": "Aumenta tu Autoridad",
+      "beneficios": [ "..." ],
+      "cta_texto": "Consigue Enlaces de Calidad"
+    }
+  },
   "casos_de_estudio": {
     "aumento-visibilidad-katarsia": {
       "titulo": "1º puesto en Google para clínica en Barcelona: Tratamiento Sueroterapia",

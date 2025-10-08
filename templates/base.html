@@ -51,12 +51,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li class="dropdown-parent">
         <a href="#servicios">{{ _('Servicios') }} <span class="dropdown-arrow">▼</span></a>
         <ul class="dropdown-menu">
-            <li><a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='auditoria-seo-agencias') }}">{{ _('Auditoría SEO') }}</a></li>
-            <li><a href="{{ url_for('home', lang_code=g.lang_code) }}#servicios">{{ _('Auditoría GEO') }}</a></li>
-            <li><a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='google-ads-marca-blanca') }}">{{ _('Anuncios Google Ads') }}</a></li>
-            <li><a href="{{ url_for('home', lang_code=g.lang_code) }}#servicios">{{ _('Configuraciones Técnicas') }}</a></li>
-            <li><a href="{{ url_for('home', lang_code=g.lang_code) }}#servicios">{{ _('Linkbuilding') }}</a></li>
-        </ul>
+    <li><a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='auditoria-seo') }}">{{ _('Auditoría SEO') }}</a></li>
+    <li><a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='auditoria-llm') }}">{{ _('Auditoría LLM') }}</a></li>
+    <li><a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='gestion-google-ads') }}">{{ _('Anuncios Google Ads') }}</a></li>
+    <li><a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='configuraciones-tecnicas') }}">{{ _('Configuraciones Técnicas') }}</a></li>
+    <li><a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='estrategias-linkbuilding') }}">{{ _('Linkbuilding') }}</a></li>
+</ul>
     </li>
     <!-- (FIN DE LA MODIFICACIÓN) -->
                 <a href="{{ url_for('home', lang_code=g.lang_code) }}#casos-de-estudio">{{ _('Casos de Estudio') }}</a>

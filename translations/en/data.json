@@ -12,6 +12,67 @@
       { "nombre": "Monthly Retainer:", "precio": "400 €" }
     ]
   },
+  "servicios_detalle": {
+    "/service-audit-seo/": {
+      "titulo_pagina": "Professional SEO Audit Service in Barcelona - Gema Calderón Sayoux",
+      "meta_description": "Complete SEO analysis and audit to identify errors, opportunities, and draw a clear roadmap to improve your organic ranking.",
+      "titulo_principal": "In-Depth SEO Audit",
+      "subtitulo": "The foundation of any successful organic growth strategy.",
+      "descripcion_html": "<p>. . .</p>",
+      "beneficios_titulo": "What Will You Get?",
+      "beneficios": [
+        "A detailed report with findings and recommendations.",
+        "A roadmap with actions prioritized by impact and effort.",
+        "Identification of low-effort, high-impact opportunities.",
+        "The solid foundation for a content or linkbuilding strategy."
+      ],
+      "cta_texto": "Request Your SEO Audit"
+    },
+    "service-seo-ia-audit": {
+      "titulo_pagina": "IA SEO Audit and Strategy",
+      "meta_description": "Adapt your content strategy for the era of AI and Large Language Models (LLM)",
+      "titulo_principal": "Search Optimization with AI (LLM SEO)",
+      "subtitulo": "Prepare your website for the future of search with Google SGE and chatbots.",
+      "descripcion_html": "<p>SEO is evolving. My LLM audit service analyzes how your content responds to conversational search and how it can stand out in new generative search engine experiences.</p>",
+      "beneficios_titulo": "Anticipate the future.",
+      "beneficios": [
+        "Analysis of 'topic authority' and 'entity SEO'.",
+        "Strategy for optimizing content for SGE.",
+        "Guide to creating content LLMs want to cite.",
+        "Ensure your brand visibility in the new era of SEO."
+      ],
+      "cta_texto": "Adapt your Strategy"
+    },
+    "consultan-google-ads": {
+      "titulo_pagina": "Google Ads Campaign Management",
+      "meta_description": "Professional Google Ads management service to maximize your ROI. Creation, optimization and tracking of search, display and shopping campaigns.",
+      "titulo_principal": "Google Ads campaigns that convert",
+      "subtitulo": "Invest smartly and get qualified leads from day one",
+      "descripcion_html": "<p>...</p>",
+      "beneficios_titulo": "Measurable results",
+      "beneficios": [ "..." ],
+      "cta_texto": "Optimize your campaigns"
+    },
+    "digital-analytics-service": {
+      "titulo_pagina": "Technical Marketing Setup",
+      "meta_description": "Expert implementation and configuration of GTM, GA4, Search Console, BigQuery and Google Business Profile for accurate data measurement.",
+      "titulo_principal": "Technical Setup for Digital Marketing",
+      "subtitulo": "Make decisions based on reliable, well-structured data.",
+      "descripcion_html": "<p>...</p>",
+      "beneficios_titulo": "Data You Can Trust",
+      "beneficios": [ "..." ],
+      "cta_texto": "Organize Your Measurement."
+    },
+    "services-linkbuilding": {
+      "titulo_pagina": "Linkbuilding and Authority Service",
+      "meta_description": "Quality link building strategies to increase your domain authority and improve your Google ranking.",
+      "titulo_principal": "Quality Link building Strategies",
+      "subtitulo": "Build the authority your domain needs to compete.",
+      "descripcion_html": "<p>...</p>",
+      "beneficios_titulo": "Increase your Authority",
+      "beneficios": [ "..." ],
+      "cta_texto": "Get Quality Links"
+    },
   "casos_de_estudio": {
     "aumento-visibilidad-katarsia": {
       "titulo": "1st place on Google for a clinic in Barcelona: IV Therapy Treatment",

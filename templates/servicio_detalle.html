@@ -1,0 +1,37 @@
+<!-- Contenido para: templates/servicio_detalle.html (NUEVO ARCHIVO) -->
+{% extends "base.html" %}
+
+{% block title %}{{ servicio.titulo_pagina }}{% endblock %}
+{% block meta_description %}{{ servicio.meta_description }}{% endblock %}
+
+{% block content %}
+<main>
+    <section class="hero service-hero">
+        <div class="container">
+            <h1>{{ servicio.titulo_principal }}</h1>
+            <p class="subtitle">{{ servicio.subtitulo }}</p>
+        </div>
+    </section>
+
+    <section class="section service-content">
+        <div class="container">
+            <div class="service-description">
+                {{ servicio.descripcion_html|safe }}
+            </div>
+
+            <div class="service-benefits">
+                <h3>{{ servicio.beneficios_titulo }}</h3>
+                <ul>
+                    {% for beneficio in servicio.beneficios %}
+                        <li>✓ {{ beneficio }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            
+            <div class="service-cta">
+                <a href="{{ url_for('home', lang_code=g.lang_code) }}#contacto" class="btn">{{ servicio.cta_texto }}</a>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

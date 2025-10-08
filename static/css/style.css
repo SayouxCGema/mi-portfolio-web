@@ -422,6 +422,52 @@ footer .container {
     padding: 25px;
     display: flex;
     flex-direction: column;
+}
+
+/* Estilos para las páginas de detalle de servicios */
+.service-hero {
+    background: var(--soft);
+    text-align: center;
+    padding: 60px 20px;
+}
+.service-hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--text);
+}
+.service-hero .subtitle {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: var(--muted);
+    max-width: 700px;
+    margin: 15px auto 0;
+}
+.service-content .container {
+    max-width: 800px; /* Ancho de lectura cómodo */
+}
+.service-description ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+.service-benefits {
+    margin-top: 40px;
+    background: color-mix(in srgb, var(--accent) 5%, var(--bg));
+    padding: 30px;
+    border-radius: var(--border-radius);
+    border-left: 5px solid var(--accent);
+}
+.service-benefits h3 {
+    margin-top: 0;
+}
+.service-benefits ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.service-benefits li {
+    padding: 5px 0;
+}
+.service-cta {
+    text-align: center;
+    margin-top: 50px;
 }/* ========================================================== */
 /* ESTILOS RESPONSIVOS PARA MÓVILES (BLOQUE ÚNICO Y CORREGIDO) */
 /* ========================================================== */
@@ -496,6 +542,74 @@ footer .container {
     display: block;     /* Evita espacios extra debajo de la imagen */
     border-radius: var(--border-radius); /* Bordes redondeados consistentes con tu diseño */
     box-shadow: var(--shadow);           /* Sombra consistente con tu diseño */
+}
+/* ========================================= */
+/* ESTILOS PARA EL MENÚ DESPLEGABLE (DROPDOWN) */
+/* ========================================= */
+
+/* Contenedor padre del desplegable */
+.menu .dropdown-parent {
+    position: relative; /* Clave para posicionar el submenú */
+}
+
+/* El submenú (oculto por defecto) */
+.dropdown-menu {
+    position: absolute;
+    top: 150%; /* Lo posicionamos un poco más abajo para que haya espacio */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px); /* Centrado y movido hacia abajo */
+    
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);
+    padding: 8px;
+    list-style: none;
+    min-width: 260px; /* Ancho mínimo para que no se vea apretado */
+    
+    /* Ocultamos con opacidad y visibilidad para permitir animaciones */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    z-index: 100;
+}
+
+/* Enlaces dentro del desplegable */
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    color: var(--muted);
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Efecto hover en los enlaces del desplegable */
+.dropdown-menu li a:hover {
+    background: var(--soft);
+    color: var(--text);
+}
+/* Anulamos el efecto de la línea inferior del menú principal */
+.dropdown-menu li a::after {
+    display: none;
+}
+
+/* ¡LA MAGIA! Muestra el desplegable al pasar el cursor sobre el padre */
+.dropdown-parent:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0); /* Vuelve a su posición original */
+    top: 100%;
+}
+
+/* Estilo de la flecha */
+.dropdown-arrow {
+    font-size: 0.7em;
+    margin-left: 4px;
+    transition: transform 0.2s ease;
+}
+.dropdown-parent:hover .dropdown-arrow {
+    transform: rotate(180deg); /* Gira la flecha al hacer hover */
 }
 /* ========================================================== */
 /* ESTILOS RESPONSIVOS PARA MÓVILES (BLOQUE ÚNICO Y CORREGIDO) */

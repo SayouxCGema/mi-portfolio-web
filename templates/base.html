@@ -11,15 +11,16 @@
     <!-- Favicon -->
     <link rel="icon" href="{{ url_for('static', filename='favicons/favicon.ico') }}">
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='favicons/apple-touch-icon.png') }}">
-    
-    <!-- Google Analytics (no olvides tu ID en las variables de entorno) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ os.environ.get('GA_MEASUREMENT_ID') }}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '{{ os.environ.get('GA_MEASUREMENT_ID') }}');
-    </script>
+    <!-- Google Analytics y reCAPTCHA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ GA_MEASUREMENT_ID }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '{{ GA_MEASUREMENT_ID }}');
+</script>
+<script src="https://www.google.com/recaptcha/api.js?render={{ RECAPTCHA_SITE_KEY }}"></script>
     {% block head_extra %}{% endblock %}
 </head>
 <body>

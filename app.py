@@ -78,7 +78,15 @@ def load_blog_posts(lang):
 
 @app.context_processor
 def inject_global_vars():
-    return dict(g=g, app=app, recaptcha_site_key=os.environ.get('RECAPTCHA_SITE_KEY'),current_year=datetime.utcnow().year, ga_measurement_id=os.environ.get('GA_MEASUREMENT_ID'))
+    """Hace que ciertas variables estén disponibles en todas las plantillas."""
+    return dict(
+        g=g,
+        contact={'email': os.environ.get('CONTACT_EMAIL'), 'linkedin': os.environ.get('LINKEDIN_URL')},
+        current_year=datetime.utcnow().year,
+        # (NUEVO) Inyectamos las claves públicas de Google para usarlas en las plantillas
+        GA_MEASUREMENT_ID=os.environ.get('GA_MEASUREMENT_ID'),
+        RECAPTCHA_SITE_KEY=os.environ.get('RECAPTCHA_SITE_KEY')
+    )
 
 # --- 4. RUTAS DE LA APLICACIÓN ---
 

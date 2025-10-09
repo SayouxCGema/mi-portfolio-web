@@ -245,15 +245,15 @@ msgstr ""
 #: templates/index.html:92
 #, fuzzy
 msgid "Desde el Blog"
-msgstr "From €45"
+msgstr "From the Blog"
 
 #: templates/index.html:93
 msgid "Ver todo"
-msgstr ""
+msgstr "View all"
 
 #: templates/index.html:104
 msgid "Leer más"
-msgstr ""
+msgstr "Read more"
 
 #: templates/index.html:116
 msgid "¿Listo para empezar?"
@@ -264,6 +264,8 @@ msgid ""
 "Hablemos de tu proyecto. Cuéntame sobre tus objetivos y te responderé en "
 "1-2 días hábiles con los siguientes pasos."
 msgstr ""
+"Let's talk about your project. Tell me about your goals and I'll get back to you in "
+"1-2 business days with next steps."
 
 #: templates/index.html:123
 msgid "Nombre"

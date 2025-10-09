@@ -182,40 +182,48 @@ msgid ""
 "Ofrezco un enfoque integral para mejorar tu presencia online, desde la "
 "estrategia inicial hasta la ejecución y el análisis de resultados."
 msgstr ""
+"I offer a comprehensive approach to improving your online presence, from the "
+"initial strategy to execution and results analysis.""
 
 #: templates/index.html:40
 msgid "Auditoría y Estrategia SEO"
-msgstr ""
+msgstr "SEO Audit and Strategy"
 
 #: templates/index.html:41
 msgid ""
 "Análisis profundos para identificar oportunidades y crear una hoja de "
 "ruta hacia el crecimiento orgánico."
 msgstr ""
+"In-depth analysis to identify opportunities and create a "
+"roadmap to organic growth."
 
 #: templates/index.html:45
 msgid "Gestión de Google Ads"
-msgstr ""
+msgstr "Google Ads Management"
 
 #: templates/index.html:46
 msgid ""
 "Creación y optimización de campañas de pago para maximizar tu ROI y "
 "captar leads cualificados."
 msgstr ""
+"Creating and optimizing paid campaigns to maximize your ROI and "
+"capture qualified leads."
 
 #: templates/index.html:50
 msgid "Configuraciones Técnicas"
-msgstr ""
+msgstr "Technical Configurations"
 
 #: templates/index.html:51
 msgid ""
 "Implementación experta de GA4, GTM, Search Console y más para una "
 "medición de datos precisa."
 msgstr ""
+"Expert implementation of GA4, GTM, Search Console and more for "
+"accurate data measurement."
 
 #: templates/index.html:61
 msgid "Proyectos Recientes"
-msgstr ""
+msgstr "Recent Projects"
 
 #: templates/index.html:70
 #, fuzzy

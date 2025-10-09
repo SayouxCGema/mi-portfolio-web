@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-10-09 19:43+0200\n"
+"POT-Creation-Date: 2025-10-09 22:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Caso de estudio no encontrado"
 msgstr ""
 
-#: app.py:134
+#: app.py:149
 msgid "Post no encontrado"
 msgstr ""
 
@@ -174,98 +174,102 @@ msgid ""
 "estrategia inicial hasta la ejecución y el análisis de resultados."
 msgstr ""
 
-#: templates/index.html:40
+#: templates/index.html:42
 msgid "Auditoría y Estrategia SEO"
 msgstr ""
 
-#: templates/index.html:41
+#: templates/index.html:43
 msgid ""
 "Análisis profundos para identificar oportunidades y crear una hoja de "
 "ruta hacia el crecimiento orgánico."
 msgstr ""
 
-#: templates/index.html:45
+#: templates/index.html:45 templates/index.html:54 templates/index.html:63
+msgid "Saber más"
+msgstr ""
+
+#: templates/index.html:51
 msgid "Gestión de Google Ads"
 msgstr ""
 
-#: templates/index.html:46
+#: templates/index.html:52
 msgid ""
 "Creación y optimización de campañas de pago para maximizar tu ROI y "
 "captar leads cualificados."
 msgstr ""
 
-#: templates/index.html:50
+#: templates/index.html:60
 msgid "Configuraciones Técnicas"
 msgstr ""
 
-#: templates/index.html:51
+#: templates/index.html:61
 msgid ""
 "Implementación experta de GA4, GTM, Search Console y más para una "
 "medición de datos precisa."
 msgstr ""
 
-#: templates/index.html:61
+#: templates/index.html:74
 msgid "Proyectos Recientes"
 msgstr ""
 
-#: templates/index.html:70
+#: templates/index.html:83
 msgid "Ver caso completo"
 msgstr ""
 
-#: templates/index.html:82
+#: templates/index.html:95
 msgid ""
 "Con una pasión por la creatividad y un enfoque analítico, mi misión es "
 "ayudar a marcas como la tuya a conectar con su audiencia de manera "
 "auténtica y efectiva."
 msgstr ""
 
-#: templates/index.html:92
+#: templates/index.html:105
 msgid "Desde el Blog"
 msgstr ""
 
-#: templates/index.html:93
+#: templates/index.html:106
 msgid "Ver todo"
 msgstr ""
 
-#: templates/index.html:104
+#: templates/index.html:117
 msgid "Leer más"
 msgstr ""
 
-#: templates/index.html:116
+#: templates/index.html:129
 msgid "¿Listo para empezar?"
 msgstr ""
 
-#: templates/index.html:117
+#: templates/index.html:130
 msgid ""
 "Hablemos de tu proyecto. Cuéntame sobre tus objetivos y te responderé en "
 "1-2 días hábiles con los siguientes pasos."
 msgstr ""
 
-#: templates/index.html:123
+#: templates/index.html:136
 msgid "Nombre"
 msgstr ""
 
-#: templates/index.html:125
+#: templates/index.html:138
 msgid "Email"
 msgstr ""
 
-#: templates/index.html:128
+#: templates/index.html:141
 msgid "Servicio de interés..."
 msgstr ""
 
-#: templates/index.html:134
+#: templates/index.html:147
 msgid "Cuéntame más sobre tu proyecto..."
 msgstr ""
 
-#: templates/index.html:138
+#: templates/index.html:151
 msgid "Enviar Mensaje"
 msgstr ""
 
-#: templates/index.html:149
+#: templates/index.html:162
 msgid "Agenda una Llamada"
 msgstr ""
 
-#: templates/index.html:150
+#: templates/index.html:163
 msgid "Elige un hueco en mi calendario para una consulta inicial de 15 minutos."
 msgstr ""
 

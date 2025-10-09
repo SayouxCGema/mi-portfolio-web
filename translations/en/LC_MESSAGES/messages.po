@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-10-09 19:43+0200\n"
+"POT-Creation-Date: 2025-10-09 22:16+0200\n"
 "PO-Revision-Date: 2025-08-06 17:11+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Caso de estudio no encontrado"
 msgstr "Case Study"
 
-#: app.py:134
+#: app.py:149
 msgid "Post no encontrado"
 msgstr ""
 
@@ -182,55 +182,60 @@ msgid ""
 "Ofrezco un enfoque integral para mejorar tu presencia online, desde la "
 "estrategia inicial hasta la ejecución y el análisis de resultados."
 msgstr ""
-"I offer a comprehensive approach to improving your online presence, from the "
-"initial strategy to execution and results analysis.""
+"I offer a comprehensive approach to improving your online presence, from "
+"the initial strategy to execution and results analysis.\""
 
-#: templates/index.html:40
+#: templates/index.html:42
 msgid "Auditoría y Estrategia SEO"
 msgstr "SEO Audit and Strategy"
 
-#: templates/index.html:41
+#: templates/index.html:43
 msgid ""
 "Análisis profundos para identificar oportunidades y crear una hoja de "
 "ruta hacia el crecimiento orgánico."
 msgstr ""
-"In-depth analysis to identify opportunities and create a "
-"roadmap to organic growth."
+"In-depth analysis to identify opportunities and create a roadmap to "
+"organic growth."
 
-#: templates/index.html:45
+#: templates/index.html:45 templates/index.html:54 templates/index.html:63
+#, fuzzy
+msgid "Saber más"
+msgstr "Read more"
+
+#: templates/index.html:51
 msgid "Gestión de Google Ads"
 msgstr "Google Ads Management"
 
-#: templates/index.html:46
+#: templates/index.html:52
 msgid ""
 "Creación y optimización de campañas de pago para maximizar tu ROI y "
 "captar leads cualificados."
 msgstr ""
-"Creating and optimizing paid campaigns to maximize your ROI and "
-"capture qualified leads."
+"Creating and optimizing paid campaigns to maximize your ROI and capture "
+"qualified leads."
 
-#: templates/index.html:50
+#: templates/index.html:60
 msgid "Configuraciones Técnicas"
 msgstr "Technical Configurations"
 
-#: templates/index.html:51
+#: templates/index.html:61
 msgid ""
 "Implementación experta de GA4, GTM, Search Console y más para una "
 "medición de datos precisa."
 msgstr ""
-"Expert implementation of GA4, GTM, Search Console and more for "
-"accurate data measurement."
+"Expert implementation of GA4, GTM, Search Console and more for accurate "
+"data measurement."
 
-#: templates/index.html:61
+#: templates/index.html:74
 msgid "Proyectos Recientes"
 msgstr "Recent Projects"
 
-#: templates/index.html:70
+#: templates/index.html:83
 #, fuzzy
 msgid "Ver caso completo"
 msgstr "View Full Case Study"
 
-#: templates/index.html:82
+#: templates/index.html:95
 #, fuzzy
 msgid ""
 "Con una pasión por la creatividad y un enfoque analítico, mi misión es "
@@ -242,56 +247,56 @@ msgstr ""
 "effectively. I believe in marketing that not only sells but also adds "
 "value and builds lasting relationships."
 
-#: templates/index.html:92
+#: templates/index.html:105
 #, fuzzy
 msgid "Desde el Blog"
 msgstr "From the Blog"
 
-#: templates/index.html:93
+#: templates/index.html:106
 msgid "Ver todo"
 msgstr "View all"
 
-#: templates/index.html:104
+#: templates/index.html:117
 msgid "Leer más"
 msgstr "Read more"
 
-#: templates/index.html:116
+#: templates/index.html:129
 msgid "¿Listo para empezar?"
 msgstr "Ready to start?"
 
-#: templates/index.html:117
+#: templates/index.html:130
 msgid ""
 "Hablemos de tu proyecto. Cuéntame sobre tus objetivos y te responderé en "
 "1-2 días hábiles con los siguientes pasos."
 msgstr ""
-"Let's talk about your project. Tell me about your goals and I'll get back to you in "
-"1-2 business days with next steps."
+"Let's talk about your project. Tell me about your goals and I'll get back"
+" to you in 1-2 business days with next steps."
 
-#: templates/index.html:123
+#: templates/index.html:136
 msgid "Nombre"
 msgstr "Name"
 
-#: templates/index.html:125
+#: templates/index.html:138
 msgid "Email"
 msgstr "Email"
 
-#: templates/index.html:128
+#: templates/index.html:141
 msgid "Servicio de interés..."
 msgstr "Service of interest..."
 
-#: templates/index.html:134
+#: templates/index.html:147
 msgid "Cuéntame más sobre tu proyecto..."
 msgstr "Tell me more about your project..."
 
-#: templates/index.html:138
+#: templates/index.html:151
 msgid "Enviar Mensaje"
 msgstr "Send Message"
 
-#: templates/index.html:149
+#: templates/index.html:162
 msgid "Agenda una Llamada"
 msgstr "Schedule a Call"
 
-#: templates/index.html:150
+#: templates/index.html:163
 msgid "Elige un hueco en mi calendario para una consulta inicial de 15 minutos."
 msgstr "Book an appointment on my calendar for an initial 15 minute consultation."
 

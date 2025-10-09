@@ -31,15 +31,15 @@
         <nav class="header-nav">
             <!-- (INICIO DE LA MODIFICACIÓN) -->
             <div class="nav-dropdown-parent">
-                <a href="{{ url_for('home', lang_code=g.lang_code) }}#servicios">{{ _('Servicios') }} <span class="dropdown-arrow">▼</span></a>
-                <div class="nav-dropdown-menu">
-                    <a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='auditoria-seo') }}">{{ _('Auditoría SEO') }}</a>
-                    <a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='auditoria-seo-ia') }}">{{ _('Auditoría SEO IA') }}</a>
-                    <a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='consultor-google-ads') }}">{{ _('Anuncios Google Ads') }}</a>
-                    <a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='analitica-digital') }}">{{ _('Configuraciones Técnicas') }}</a>
-                    <a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='estrategias-linkbuilding') }}">{{ _('Linkbuilding') }}</a>
-                </div>
-            </div>
+    <a href="{{ url_for('home', lang_code=g.lang_code) }}#servicios">{{ _('Servicios') }} <span class="dropdown-arrow">▼</span></a>
+    <div class="nav-dropdown-menu">
+        <a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='auditoria-seo') }}">{{ _('Auditoría SEO') }}</a>
+        <a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='auditoria-seo-ia') }}">{{ _('Auditoría SEO IA') }}</a>
+        <a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='consultor-google-ads') }}">{{ _('Anuncios Google Ads') }}</a>
+        <a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='analitica-digital') }}">{{ _('Analítica y Configuración Digital') }}</a>
+        <a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='linkbuilding') }}">{{ _('Linkbuilding') }}</a>
+    </div>
+</div>
             <!-- (FIN DE LA MODIFICACIÓN) -->
 
             <a href="{{ url_for('home', lang_code=g.lang_code) }}#casos-de-estudio">{{ _('Proyectos') }}</a>

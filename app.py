@@ -108,17 +108,22 @@ def caso_de_estudio(lang_code, slug):
     if not caso: return _("Caso de estudio no encontrado"), 404
     return render_template('caso_de_estudio.html', caso=caso)
 
+# En app.py, dentro de la sección de RUTAS
+
 @app.route('/<lang_code>/servicios/<slug>')
 def servicio_detalle(lang_code, slug):
     """Muestra una página de detalle para un servicio específico."""
+    
+    # Busca el servicio específico dentro de los datos cargados para el idioma actual
     servicio = g.lang_data.get('servicios_detalle', {}).get(slug)
     
-    # Si el servicio no se encuentra, redirige a la sección de servicios de la home
+    # Si el servicio no se encuentra para ese slug, redirige a la sección de servicios de la home
     if not servicio:
         return redirect(url_for('home', lang_code=lang_code, _anchor='servicios'))
         
-    return render_template('servicio_detalle.html', servicio=servicio)    
-
+    # Si lo encuentra, renderiza la nueva plantilla pasándole los datos del servicio
+    return render_template('servicio_detalle.html', servicio=servicio)
+    
 @app.route('/<lang_code>/blog/')
 def blog_index(lang_code):
     return render_template('blog.html', posts=g.posts)

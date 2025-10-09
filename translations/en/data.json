@@ -13,7 +13,7 @@
     ]
   },
   "servicios_detalle": {
-    "/service-audit-seo/": {
+    "seo-audit": {
       "titulo_pagina": "Professional SEO Audit Service in Barcelona - Gema Calderón Sayoux",
       "meta_description": "Complete SEO analysis and audit to identify errors, opportunities, and draw a clear roadmap to improve your organic ranking.",
       "titulo_principal": "In-Depth SEO Audit",
@@ -28,7 +28,7 @@
       ],
       "cta_texto": "Request Your SEO Audit"
     },
-    "service-seo-ia-audit": {
+    "seo-ia-audit": {
       "titulo_pagina": "IA SEO Audit and Strategy",
       "meta_description": "Adapt your content strategy for the era of AI and Large Language Models (LLM)",
       "titulo_principal": "Search Optimization with AI (LLM SEO)",
@@ -53,7 +53,7 @@
       "beneficios": [ "..." ],
       "cta_texto": "Optimize your campaigns"
     },
-    "digital-analytics-service": {
+    "digital-analytics": {
       "titulo_pagina": "Technical Marketing Setup",
       "meta_description": "Expert implementation and configuration of GTM, GA4, Search Console, BigQuery and Google Business Profile for accurate data measurement.",
       "titulo_principal": "Technical Setup for Digital Marketing",
@@ -63,7 +63,7 @@
       "beneficios": [ "..." ],
       "cta_texto": "Organize Your Measurement."
     },
-    "services-linkbuilding": {
+    "linkbuilding": {
       "titulo_pagina": "Linkbuilding and Authority Service",
       "meta_description": "Quality link building strategies to increase your domain authority and improve your Google ranking.",
       "titulo_principal": "Quality Link building Strategies",

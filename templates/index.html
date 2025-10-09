@@ -27,32 +27,45 @@
         </div>
     </section>
 
-    <!-- SERVICIOS -->
-    <section id="servicios" class="section">
-        <div class="container">
-            <div class="section-heading">
-                <h2>{{ _('Cómo puedo ayudarte') }}</h2>
-                <p>{{ _('Ofrezco un enfoque integral para mejorar tu presencia online, desde la estrategia inicial hasta la ejecución y el análisis de resultados.') }}</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
-                    <h3>{{ _('Auditoría y Estrategia SEO') }}</h3>
-                    <p>{{ _('Análisis profundos para identificar oportunidades y crear una hoja de ruta hacia el crecimiento orgánico.') }}</p>
-                </div>
-                <div class="feature-card">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>
-                    <h3>{{ _('Gestión de Google Ads') }}</h3>
-                    <p>{{ _('Creación y optimización de campañas de pago para maximizar tu ROI y captar leads cualificados.') }}</p>
-                </div>
-                <div class="feature-card">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 0 2l-.15.08a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1 0-2l.15-.08a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
-                    <h3>{{ _('Configuraciones Técnicas') }}</h3>
-                    <p>{{ _('Implementación experta de GA4, GTM, Search Console y más para una medición de datos precisa.') }}</p>
-                </div>
-            </div>
+    <!-- SERVICIOS (CON BOTONES A PÁGINAS DE DETALLE) -->
+<section id="servicios" class="section">
+    <div class="container">
+        <div class="section-heading">
+            <h2>{{ _('Cómo puedo ayudarte') }}</h2>
+            <p>{{ _('Ofrezco un enfoque integral para mejorar tu presencia online, desde la estrategia inicial hasta la ejecución y el análisis de resultados.') }}</p>
         </div>
-    </section>
+        <div class="features-grid">
+            
+            <!-- TARJETA 1: AUDITORÍA SEO -->
+            <div class="feature-card">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+                <h3>{{ _('Auditoría y Estrategia SEO') }}</h3>
+                <p>{{ _('Análisis profundos para identificar oportunidades y crear una hoja de ruta hacia el crecimiento orgánico.') }}</p>
+                <!-- (NUEVO) BOTÓN/ENLACE AÑADIDO -->
+                <a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='auditoria-seo') }}" style="font-weight: 600; margin-top: 1rem; display: inline-block; color: var(--accent-primary);">{{ _('Saber más') }} &rarr;</a>
+            </div>
+
+            <!-- TARJETA 2: GESTIÓN DE GOOGLE ADS -->
+            <div class="feature-card">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>
+                <h3>{{ _('Gestión de Google Ads') }}</h3>
+                <p>{{ _('Creación y optimización de campañas de pago para maximizar tu ROI y captar leads cualificados.') }}</p>
+                <!-- (NUEVO) BOTÓN/ENLACE AÑADIDO -->
+                <a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='gestion-google-ads') }}" style="font-weight: 600; margin-top: 1rem; display: inline-block; color: var(--accent-primary);">{{ _('Saber más') }} &rarr;</a>
+            </div>
+
+            <!-- TARJETA 3: CONFIGURACIONES TÉCNICAS -->
+            <div class="feature-card">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 0 2l-.15.08a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1 0-2l.15-.08a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                <h3>{{ _('Configuraciones Técnicas') }}</h3>
+                <p>{{ _('Implementación experta de GA4, GTM, Search Console y más para una medición de datos precisa.') }}</p>
+                <!-- (NUEVO) BOTÓN/ENLACE AÑADIDO -->
+                <a href="{{ url_for('servicio_detalle', lang_code=g.lang_code, slug='configuraciones-tecnicas') }}" style="font-weight: 600; margin-top: 1rem; display: inline-block; color: var(--accent-primary);">{{ _('Saber más') }} &rarr;</a>
+            </div>
+
+        </div>
+    </div>
+</section>
 
     <!-- CASOS DE ESTUDIO -->
     <section id="casos-de-estudio" class="section">

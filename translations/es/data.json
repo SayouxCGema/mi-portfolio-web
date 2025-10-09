@@ -14,6 +14,8 @@
   },
   "servicios_detalle": {
     "auditoria-seo": {
+      "slug": "auditoria-seo",   // <-- Slug en español
+      "translation_key": "auditoria-seo", // <-- AÑADE ESTA LÍNEA
       "titulo_pagina": "Servicio de Auditoría SEO Profesional en Barcelona - Gema Calderón Sayoux",
       "meta_description": "Análisis y auditoría SEO completa para identificar errores, oportunidades y trazar una hoja de ruta clara para mejorar tu posicionamiento orgánico.",
       "titulo_principal": "Auditoría SEO En Profundidad",
@@ -29,6 +31,8 @@
       "cta_texto": "Solicita tu Auditoría SEO"
     },
     "auditoria-seo-ia": {
+      "slug": "auditoria-seo-ia",   // <-- Slug en español
+      "translation_key": "auditoria-seo-ia", // <-- AÑADE ESTA LÍNEA
       "titulo_pagina": "Auditoría y Estrategia SEO IA",
       "meta_description": "Adapta tu estrategia de contenidos para la era de la IA y los Large Language Models (LLM)",
       "titulo_principal": "Optimización para Búsquedas con IA (LLM SEO)",
@@ -44,6 +48,8 @@
       "cta_texto": "Adapta tu Estrategia"
     },
     "consultor-google-ads": {
+      "slug": "consultor-google-ads",   // <-- Slug en español
+      "translation_key": "consultor-google-ads", // <-- AÑADE ESTA LÍNEA
       "titulo_pagina": "Gestión de Campañas de Google Ads",
       "meta_description": "Servicio profesional de gestión de Google Ads para maximizar tu ROI. Creación, optimización y seguimiento de campañas de búsqueda, display y shopping.",
       "titulo_principal": "Campañas de Google Ads que Convierten",
@@ -54,6 +60,8 @@
       "cta_texto": "Optimiza tus Campañas"
     },
     "analitica-digital": {
+      "slug": "analitica-digital",   // <-- Slug en español
+      "translation_key": "analitica-digital", // <-- AÑADE ESTA LÍNEA
       "titulo_pagina": "Configuraciones Técnicas de Marketing",
       "meta_description": "Implementación y configuración experta de GTM, GA4, Search Console, BigQuery y Google Business Profile para una medición de datos precisa.",
       "titulo_principal": "Setup Técnico para Marketing Digital",
@@ -64,6 +72,8 @@
       "cta_texto": "Organiza tu Medición"
     },
     "linkbuilding": {
+      "slug": "linkbuilding",   // <-- Slug en español
+      "translation_key": "linkbuilding", // <-- AÑADE ESTA LÍNEA
       "titulo_pagina": "Servicio de Linkbuilding y Autoridad",
       "meta_description": "Estrategias de construcción de enlaces de calidad para aumentar la autoridad de tu dominio y mejorar tu posicionamiento en Google.",
       "titulo_principal": "Estrategias de Linkbuilding de Calidad",

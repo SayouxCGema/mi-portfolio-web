@@ -110,20 +110,35 @@ def caso_de_estudio(lang_code, slug):
 
 # En app.py, dentro de la sección de RUTAS
 
+# En app.py
+
+# En app.py
+
 @app.route('/<lang_code>/servicios/<slug>')
 def servicio_detalle(lang_code, slug):
-    """Muestra una página de detalle para un servicio específico."""
-    
-    # Busca el servicio específico dentro de los datos cargados para el idioma actual
     servicio = g.lang_data.get('servicios_detalle', {}).get(slug)
     
-    # Si el servicio no se encuentra para ese slug, redirige a la sección de servicios de la home
+    if not servicio:
+        # Intenta encontrar por clave de traducción como fallback (útil para enlaces antiguos)
+        for s in g.lang_data.get('servicios_detalle', {}).values():
+            if s.get('translation_key') == slug:
+                servicio = s
+                break
     if not servicio:
         return redirect(url_for('home', lang_code=lang_code, _anchor='servicios'))
         
-    # Si lo encuentra, renderiza la nueva plantilla pasándole los datos del servicio
-    return render_template('servicio_detalle.html', servicio=servicio)
-    
+    alternate_url = None
+    translation_key = servicio.get('translation_key')
+    if translation_key:
+        alternate_lang = 'en' if lang_code == 'es' else 'es'
+        alternate_lang_data = load_lang_data(alternate_lang)
+        for alt_slug, alt_servicio in alternate_lang_data.get('servicios_detalle', {}).items():
+            if alt_servicio.get('translation_key') == translation_key:
+                alternate_url = url_for('servicio_detalle', lang_code=alternate_lang, slug=alt_slug)
+                break
+                
+    return render_template('servicio_detalle.html', servicio=servicio, alternate_url=alternate_url)
+
 @app.route('/<lang_code>/blog/')
 def blog_index(lang_code):
     return render_template('blog.html', posts=g.posts)

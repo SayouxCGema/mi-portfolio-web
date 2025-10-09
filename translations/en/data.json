@@ -13,9 +13,9 @@
     ]
   },
   "servicios_detalle": {
-    "seo-audit": {
-      "slug": "seo-audit",   // <-- Slug en español
-      "translation_key": "auditoria-seo", // <-- AÑADE ESTA LÍNEA
+    "auditoria-seo": {
+      "slug": "seo-audit",
+      "translation_key": "auditoria-seo",
       "titulo_pagina": "Professional SEO Audit Service in Barcelona - Gema Calderón Sayoux",
       "meta_description": "Complete SEO analysis and audit to identify errors, opportunities, and draw a clear roadmap to improve your organic ranking.",
       "titulo_principal": "In-Depth SEO Audit",
@@ -30,9 +30,9 @@
       ],
       "cta_texto": "Request Your SEO Audit"
     },
-    "seo-ia-audit": {
-      "slug": "seo-ia-audit",   // <-- Slug en español
-      "translation_key": "auditoria-seo-ia", // <-- AÑADE ESTA LÍNEA
+    "auditoria-seo-ia": {
+      "slug": "seo-ia-audit",
+      "translation_key": "auditoria-seo-ia",
       "titulo_pagina": "IA SEO Audit and Strategy",
       "meta_description": "Adapt your content strategy for the era of AI and Large Language Models (LLM)",
       "titulo_principal": "Search Optimization with AI (LLM SEO)",
@@ -47,9 +47,9 @@
       ],
       "cta_texto": "Adapt your Strategy"
     },
-    "consultan-google-ads": {
-      "slug": "consultan-google-ads",   // <-- Slug en español
-      "translation_key": "consultor-google-ads", // <-- AÑADE ESTA LÍNEA
+    "consultor-google-ads": {
+      "slug": "consultan-google-ads",
+      "translation_key": "consultor-google-ads",
       "titulo_pagina": "Google Ads Campaign Management",
       "meta_description": "Professional Google Ads management service to maximize your ROI. Creation, optimization and tracking of search, display and shopping campaigns.",
       "titulo_principal": "Google Ads campaigns that convert",
@@ -59,9 +59,9 @@
       "beneficios": [ "..." ],
       "cta_texto": "Optimize your campaigns"
     },
-    "digital-analytics": {
-      "slug": "digital-analytics",   // <-- Slug en español
-      "translation_key": "analitica-digital", // <-- AÑADE ESTA LÍNEA
+    "analitica-digital": {
+      "slug": "digital-analytics",
+      "translation_key": "analitica-digital",
       "titulo_pagina": "Technical Marketing Setup",
       "meta_description": "Expert implementation and configuration of GTM, GA4, Search Console, BigQuery and Google Business Profile for accurate data measurement.",
       "titulo_principal": "Technical Setup for Digital Marketing",
@@ -72,8 +72,8 @@
       "cta_texto": "Organize Your Measurement."
     },
     "linkbuilding": {
-      "slug": "linkbuilding",   // <-- Slug en español
-      "translation_key": "linkbuilding", // <-- AÑADE ESTA LÍNEA
+      "slug": "linkbuilding",
+      "translation_key": "linkbuilding",
       "titulo_pagina": "Linkbuilding and Authority Service",
       "meta_description": "Quality link building strategies to increase your domain authority and improve your Google ranking.",
       "titulo_principal": "Quality Link building Strategies",
@@ -82,7 +82,8 @@
       "beneficios_titulo": "Increase your Authority",
       "beneficios": [ "..." ],
       "cta_texto": "Get Quality Links"
-    },
+    }
+  },
   "casos_de_estudio": {
     "aumento-visibilidad-katarsia": {
       "titulo": "1st place on Google for a clinic in Barcelona: IV Therapy Treatment",

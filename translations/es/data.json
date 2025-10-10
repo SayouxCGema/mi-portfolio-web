@@ -14,22 +14,95 @@
   },
   "servicios_detalle": {
     "auditoria-seo": {
-      "slug": "auditoria-seo",
-      "translation_key": "auditoria-seo",
-      "titulo_pagina": "Servicio de Auditoría SEO Profesional en Barcelona - Gema Calderón Sayoux",
-      "meta_description": "Análisis y auditoría SEO completa para identificar errores, oportunidades y trazar una hoja de ruta clara para mejorar tu posicionamiento orgánico.",
-      "titulo_principal": "Auditoría SEO En Profundidad",
-      "subtitulo": "La base de cualquier estrategia de crecimiento orgánico exitosa.",
-      "descripcion_html": "<p>Una auditoría SEO no es solo una lista de errores. Es un diagnóstico completo de la salud de tu sitio web y un plan de acción estratégico. Mi servicio de auditoría cubre todos los pilares del SEO:</p><ul><li><strong>SEO Técnico:</strong> Rastreo, indexación, velocidad de carga, datos estructurados, arquitectura web y más.</li><li><strong>SEO On-Page:</strong> Optimización de contenido, intenciones de búsqueda, canibalización de palabras clave y estructura de encabezados.</li><li><strong>SEO Off-Page:</strong> Análisis del perfil de enlaces, autoridad de dominio y estrategias de la competencia.</li></ul><p>El resultado es un documento claro y priorizado que te dice exactamente qué hacer, por qué y qué impacto esperar.</p>",
-      "beneficios_titulo": "¿Qué obtendrás?",
-      "beneficios": [
-        "Un informe detallado con hallazgos y recomendaciones.",
-        "Una hoja de ruta con acciones priorizadas por impacto y esfuerzo.",
-        "Identificación de oportunidades de bajo esfuerzo y alto impacto.",
-        "La base sólida para una estrategia de contenidos o linkbuilding."
-      ],
-      "cta_texto": "Solicita tu Auditoría SEO"
-    },
+  "titulo_pagina": "Servicio de Auditoría SEO Profesional - Gema Calderón Sayoux",
+  "meta_description": "Análisis y auditoría SEO completa para identificar errores, oportunidades y trazar una hoja de ruta clara para mejorar tu posicionamiento orgánico.",
+  "titulo_principal": "Descubre el Potencial Oculto de tu Web con una Auditoría SEO",
+  "subtitulo": "La base de cualquier estrategia de crecimiento orgánico exitosa. Identifica los errores que frenan tu visibilidad y las oportunidades que te harán despegar.",
+  
+  "seccion_que_es": {
+    "titulo": "¿Qué es y para qué sirve una Auditoría SEO?",
+    "texto_html": "<p>Una auditoría SEO es un diagnóstico completo y profundo del estado de salud de tu sitio web de cara a los motores de búsqueda. No es solo una lista de errores, sino un análisis estratégico que nos permite entender por qué tu web no está alcanzando su máximo potencial y qué acciones concretas debemos tomar para solucionarlo.</p><p>Es el primer paso indispensable antes de invertir en cualquier otra acción de marketing, asegurando que tus esfuerzos se construyan sobre una base sólida y optimizada.</p>"
+  },
+  
+  "seccion_que_analizamos": {
+    "titulo": "¿Qué se analiza en una auditoría SEO?",
+    "pilares": [
+      {
+        "titulo": "SEO Técnico",
+        "descripcion": "Aseguramos que Google pueda rastrear e indexar tu web sin problemas.",
+        "puntos": [
+          "Estado de indexación y rastreo (Crawl Budget)",
+          "Análisis de archivos robots.txt y sitemap.xml",
+          "Velocidad de carga (Core Web Vitals)",
+          "Adaptabilidad móvil (Mobile-First)",
+          "Datos estructurados (Schema.org)",
+          "Arquitectura web y profundidad de clics",
+          "Gestión de errores (404, 5xx) y redirecciones (301, 302)"
+        ]
+      },
+      {
+        "titulo": "SEO On-Page (Contenido)",
+        "descripcion": "Optimizamos tu contenido para que responda a la intención de búsqueda del usuario.",
+        "puntos": [
+          "Análisis de palabras clave y canibalización (Keyword Research)",
+          "Optimización de Títulos y Meta Descripciones",
+          "Estructura de encabezados (H1, H2, H3...)",
+          "Optimización de imágenes (ALT text, tamaño)",
+          "Calidad y originalidad del contenido (Thin Content, Duplicidad)",
+          "Enlazado interno y distribución de autoridad"
+        ]
+      },
+      {
+        "titulo": "SEO Off-Page (Autoridad)",
+        "descripcion": "Evaluamos la autoridad de tu dominio y tu perfil de enlaces.",
+        "puntos": [
+          "Análisis completo del perfil de backlinks",
+          "Detección de enlaces tóxicos o de baja calidad",
+          "Análisis de la estrategia de linkbuilding de la competencia",
+          "Menciones de marca y autoridad local (Google Business Profile)"
+        ]
+      }
+    ]
+  },
+  
+  "seccion_que_recibiras": {
+    "titulo": "¿Qué recibirás al finalizar?",
+    "entregables": [
+      {
+        "titulo": "Informe de Auditoría Detallado",
+        "descripcion": "Un documento en PDF sin tecnicismos innecesarios, explicando cada hallazgo, su importancia y cómo afecta a tu negocio."
+      },
+      {
+        "titulo": "Plan de Acción Priorizado",
+        "descripcion": "Una hoja de cálculo (Google Sheets) con todas las tareas a realizar, ordenadas por prioridad (impacto vs. esfuerzo), para que sepas por dónde empezar."
+      },
+      {
+        "titulo": "Reunión de Presentación",
+        "descripcion": "Una videollamada de 60 minutos para presentarte los resultados, resolver todas tus dudas y definir los próximos pasos."
+      }
+    ]
+  },
+  
+  "seccion_faq": {
+    "titulo": "Preguntas Frecuentes",
+    "preguntas": [
+      {
+        "pregunta": "¿Cuánto tiempo se tarda en hacer una auditoría SEO?",
+        "respuesta": "Depende del tamaño y la complejidad de la web, pero generalmente el proceso completo, desde el análisis hasta la entrega del informe, suele tardar entre 1 y 2 semanas."
+      },
+      {
+        "pregunta": "¿Veré resultados inmediatamente?",
+        "respuesta": "El SEO es una estrategia a medio-largo plazo. La auditoría sienta las bases. Una vez implementadas las correcciones, los resultados suelen empezar a ser visibles en un plazo de 3 a 6 meses, dependiendo de la competencia y el estado inicial de la web."
+      },
+      {
+        "pregunta": "¿Implementas tú las correcciones?",
+        "respuesta": "El servicio de auditoría incluye el diagnóstico y el plan de acción. La implementación de los cambios se puede presupuestar por separado como un proyecto o a través de un bono de horas, según tus necesidades."
+      }
+    ]
+  },
+
+  "cta_texto": "Solicita tu Auditoría SEO"
+},
     "auditoria-seo-ia": {
       "slug": "auditoria-seo-ia",
       "translation_key": "auditoria-seo-ia",

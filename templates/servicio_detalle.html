@@ -1,4 +1,4 @@
-<!-- Contenido para: templates/servicio_detalle.html (NUEVO ARCHIVO) -->
+<!-- Contenido para: templates/servicio_detalle.html (VERSIÓN MEJORADA) -->
 {% extends "base.html" %}
 
 {% block title %}{{ servicio.titulo_pagina }}{% endblock %}
@@ -20,30 +20,94 @@
 
 {% block content %}
 <main>
+    <!-- HERO SECTION DEL SERVICIO -->
     <section class="hero service-hero">
         <div class="container">
             <h1>{{ servicio.titulo_principal }}</h1>
-            <p class="subtitle">{{ servicio.subtitulo }}</p>
+            <p class="subtitle" style="font-size: 1.25rem; color: var(--text-secondary);">{{ servicio.subtitulo }}</p>
+            <div class="hero-actions" style="margin-top: 2rem;">
+                <a href="#contacto" class="button">{{ servicio.cta_texto }}</a>
+            </div>
         </div>
     </section>
 
-    <section class="section service-content">
-        <div class="container">
+    <!-- SECCIÓN: ¿QUÉ ES? -->
+    <section class="section">
+        <div class="container service-content">
+            <div class="section-heading">
+                <h2>{{ servicio.seccion_que_es.titulo }}</h2>
+            </div>
             <div class="service-description">
-                {{ servicio.descripcion_html|safe }}
+                {{ servicio.seccion_que_es.texto_html|safe }}
             </div>
+        </div>
+    </section>
 
-            <div class="service-benefits">
-                <h3>{{ servicio.beneficios_titulo }}</h3>
-                <ul>
-                    {% for beneficio in servicio.beneficios %}
-                        <li>✓ {{ beneficio }}</li>
-                    {% endfor %}
-                </ul>
+    <!-- SECCIÓN: ¿QUÉ ANALIZAMOS? -->
+    <section class="section" style="background-color: var(--border-subtle);">
+        <div class="container">
+            <div class="section-heading">
+                <h2>{{ servicio.seccion_que_analizamos.titulo }}</h2>
             </div>
-            
-            <div class="service-cta">
-                <a href="{{ url_for('home', lang_code=g.lang_code) }}#contacto" class="btn">{{ servicio.cta_texto }}</a>
+            <div class="features-grid">
+                {% for pilar in servicio.seccion_que_analizamos.pilares %}
+                <div class="feature-card">
+                    <h3>{{ pilar.titulo }}</h3>
+                    <p>{{ pilar.descripcion }}</p>
+                    <ul class="analysis-points">
+                        {% for punto in pilar.puntos %}
+                        <li>✓ {{ punto }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: ¿QUÉ RECIBIRÁS? -->
+    <section class="section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>{{ servicio.seccion_que_recibiras.titulo }}</h2>
+            </div>
+            <div class="features-grid">
+                 {% for entregable in servicio.seccion_que_recibiras.entregables %}
+                 <div class="feature-card">
+                    <h3>{{ entregable.titulo }}</h3>
+                    <p>{{ entregable.descripcion }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: FAQ -->
+    <section class="section" style="background-color: var(--border-subtle);">
+        <div class="container">
+            <div class="section-heading">
+                <h2>{{ servicio.seccion_faq.titulo }}</h2>
+            </div>
+            <div class="faq-container">
+                {% for item in servicio.seccion_faq.preguntas %}
+                <details class="faq-item">
+                    <summary>{{ item.pregunta }}</summary>
+                    <p>{{ item.respuesta }}</p>
+                </details>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section id="contacto" class="section">
+        <div class="container">
+            <div class="cta-section">
+                <h2>{{ _('¿Listo para empezar?') }}</h2>
+                <p>{{ _('Hablemos de tu proyecto. Cuéntame sobre tus objetivos y te responderé en 1-2 días hábiles con los siguientes pasos.') }}</p>
+                <div class="hero-actions">
+                    <a href="mailto:{{ g.contact.email }}" class="button">{{ servicio.cta_texto }}</a>
+                </div>
             </div>
         </div>
     </section>

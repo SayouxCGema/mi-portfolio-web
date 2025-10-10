@@ -1,40 +1,47 @@
-<!-- Contenido para: templates/blog.html (COMPLETO Y CORREGIDO) -->
+<!-- Contenido para: templates/blog.html (CORREGIDO CON EL NUEVO DISEÑO) -->
 {% extends "base.html" %}
 
 {% block title %}{{ _('Blog') }} - Gema Calderón Sayoux{% endblock %}
+{% block meta_description %}{{ _('Artículos y notas sobre SEO, Google Ads, analítica web y estrategias de marketing digital para hacer crecer tu negocio.') }}{% endblock %}
 
 {% block content %}
-<main class="blog-container">
-    <div class="container">
-        <div class="section-title">
-            <h1>{{ _('Mi Blog') }}</h1>
-            <p class="section-subtitle">{{ _('Artículos sobre SEO, Análisis de datos y Marketing digital.') }}</p>
-        </div>
-        
-        <div class="post-list">
-            {% for post in g.posts %}
-                <article class="post-summary">
-                    {% if post.image %}
+<main>
+    <section class="section">
+        <div class="container">
+            <!-- Encabezado de la sección del blog -->
+            <div class="section-heading" style="margin-bottom: 3rem;">
+                <h2>{{ _('Desde el Blog') }}</h2>
+                <p>{{ _('Aquí comparto mis conocimientos y reflexiones sobre el mundo del SEO y el marketing digital.') }}</p>
+            </div>
+
+            <!-- (CORREGIDO) Rejilla para los posts, usando las clases del nuevo diseño -->
+            <div class="work-grid">
+                
+                <!-- Bucle que recorre TODOS los posts disponibles para el idioma actual -->
+                {% for post in g.posts %}
+                <div class="work-card">
                     <a href="{{ url_for('blog_post', lang_code=g.lang_code, slug=post.slug) }}">
-                        <img src="{{ url_for('static', filename='img/blog/' + post.image) }}" alt="{{ post.title }}" class="post-summary-image">
+                        {% if post.image %}
+                            <img src="{{ url_for('static', filename='img/blog/' ~ post.image) }}" alt="{{ post.title }}">
+                        {% else %}
+                            <!-- Imagen de fallback si un post no tiene imagen definida -->
+                            <img src="{{ url_for('static', filename='img/blog/default-post-image.jpg') }}" alt="{{ post.title }}">
+                        {% endif %}
                     </a>
-                    {% endif %}
-                    <div class="post-summary-content">
-                        <div class="post-tags">
-                            {% for tag in post.tags %}
-                                <span class="tag">{{ tag }}</span>
-                            {% endfor %}
-                        </div>
-                        <h2><a href="{{ url_for('blog_post', lang_code=g.lang_code, slug=post.slug) }}">{{ post.title }}</a></h2>
-                        <p class="post-meta">{{ _('Publicado el') }} {{ post.date.strftime('%d de %B de %Y') }}</p>
-                        <p>{{ post.summary }}</p>
-                        <a href="{{ url_for('blog_post', lang_code=g.lang_code, slug=post.slug) }}" class="btn-read-more">{{ _('Leer Más') }} &rarr;</a>
+                    <div class="work-card-content">
+                        <h3><a href="{{ url_for('blog_post', lang_code=g.lang_code, slug=post.slug) }}">{{ post.title }}</a></h3>
+                        <p>{{ post.summary|truncate(120) }}</p>
+                        <a href="{{ url_for('blog_post', lang_code=g.lang_code, slug=post.slug) }}" style="font-weight: 600; margin-top: 1rem; display: inline-block;">{{ _('Leer más') }} &rarr;</a>
                     </div>
-                </article>
-            {% else %}
-                <p class="text-center">{{ _('Aún no hay posts en el blog. ¡Vuelve pronto!') }}</p>
-            {% endfor %}
+                </div>
+                {% else %}
+                <!-- Mensaje que se muestra si no hay posts en el blog -->
+                <div style="grid-column: 1 / -1; text-align: center;">
+                    <p>{{ _('Aún no hay posts en el blog. ¡Vuelve pronto!') }}</p>
+                </div>
+                {% endfor %}
+            </div>
         </div>
-    </div>
+    </section>
 </main>
 {% endblock %}

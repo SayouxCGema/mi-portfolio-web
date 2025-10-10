@@ -107,72 +107,52 @@
       "slug": "auditoria-seo-ia",
       "translation_key": "auditoria-seo-ia",
       "titulo_pagina": "Auditoría y Estrategia SEO IA",
-      "meta_description": "Adapta tu estrategia de contenidos para la era de la IA y los Large Language Models (LLM)",
+      "meta_description": "Adapta tu estrategia de contenidos para la era de la IA y los Large Language Models (LLM). Optimiza para la visibilidad en SGE.",
       "titulo_principal": "Optimización para Búsquedas con IA (LLM SEO)",
       "subtitulo": "Prepara tu web para el futuro de las búsquedas con Google SGE y los chatbots.",
-      "descripcion_html": "<p>El SEO está evolucionando. Mi servicio de auditoría LLM analiza cómo tus contenidos responden a las búsquedas conversacionales y cómo pueden destacar en las nuevas experiencias generativas de los buscadores.</p>",
-      "beneficios_titulo": "Anticípate al futuro",
-      "beneficios": [
-        "Análisis de 'topic authority' y 'entity SEO'.",
-        "Estrategia para optimizar contenidos para SGE.",
-        "Guía para crear contenido que los LLMs quieran citar.",
-        "Asegura la visibilidad de tu marca en la nueva era del SEO."
-      ],
+      "seccion_que_es": { "titulo": "¿Qué es la auditoría SEO para IA?", "texto_html": "<p>El SEO está evolucionando. Mi servicio de auditoría LLM analiza cómo tus contenidos responden a las búsquedas conversacionales y cómo pueden destacar en las nuevas experiencias generativas de los buscadores (SGE). No se trata solo de keywords, sino de autoridad temática y entidades.</p>" },
+      "seccion_que_analizamos": { "titulo": "¿Qué analizamos en la Auditoría LLM?", "pilares": [ { "titulo": "Autoridad Temática", "descripcion": "Evaluamos si tu web es reconocida como una autoridad en tu nicho.", "puntos": [ "Análisis de 'topic clusters'", "Identificación de 'content gaps' semánticos", "Estructura de enlazado interno por temas" ] }, { "titulo": "Optimización para SGE", "descripcion": "Analizamos cómo tu contenido puede aparecer en las respuestas generativas de Google.", "puntos": [ "Uso de datos estructurados para entidades", "Optimización para 'People Also Ask' y 'Featured Snippets'", "Creación de contenido citable por IAs" ] } ] },
+      "seccion_que_recibiras": { "titulo": "El Entregable", "entregables": [ { "titulo": "Informe Estratégico", "descripcion": "Un documento que define tu estrategia de 'Entity SEO' y autoridad temática." }, { "titulo": "Plan de Contenidos", "descripcion": "Una guía con temas y formatos de contenido optimizados para la búsqueda conversacional." } ] },
+      "seccion_faq": { "titulo": "Preguntas Frecuentes", "preguntas": [ { "pregunta": "¿Esto reemplaza al SEO tradicional?", "respuesta": "No, lo complementa. Es una capa estratégica que se construye sobre una base técnica y on-page sólida." } ] },
       "cta_texto": "Adapta tu Estrategia"
     },
     "consultor-google-ads": {
       "slug": "consultor-google-ads",
       "translation_key": "consultor-google-ads",
       "titulo_pagina": "Gestión de Campañas de Google Ads",
-      "meta_description": "Servicio profesional de gestión de Google Ads para maximizar tu ROI. Creación, optimización y seguimiento de campañas de búsqueda, display y shopping.",
+      "meta_description": "Servicio profesional de gestión de Google Ads para maximizar tu ROI. Creación, optimización y seguimiento de campañas.",
       "titulo_principal": "Campañas de Google Ads que Convierten",
       "subtitulo": "Invierte de forma inteligente y consigue leads cualificados desde el primer día.",
-      "descripcion_html": "<p>...</p>",
-      "beneficios_titulo": "Resultados Medibles",
-      "beneficios": [ "..." ],
+      "seccion_que_es": { "titulo": "¿Por qué delegar la gestión de Google Ads?", "texto_html": "<p>Gestionar campañas de Google Ads va más allá de elegir palabras clave. Requiere una optimización constante de pujas, audiencias, creatividades y páginas de destino para no malgastar el presupuesto. Delego esta tarea compleja para que tú puedas centrarte en tu negocio.</p>" },
+      "seccion_que_analizamos": { "titulo": "¿Qué incluye el servicio?", "pilares": [ { "titulo": "Estrategia y Setup", "descripcion": "Definimos los objetivos y configuramos todo para un seguimiento preciso.", "puntos": [ "Investigación de palabras clave y audiencias", "Configuración de seguimiento de conversiones", "Estructuración de campañas y grupos de anuncios" ] }, { "titulo": "Optimización Continua", "descripcion": "Monitorizamos y ajustamos las campañas para mejorar el rendimiento.", "puntos": [ "Gestión de pujas y presupuestos", "Tests A/B de anuncios y landing pages", "Análisis de términos de búsqueda y negativización" ] } ] },
+      "seccion_que_recibiras": { "titulo": "Colaboración Transparente", "entregables": [ { "titulo": "Informes Mensuales", "descripcion": "Un informe claro con las métricas clave (CTR, CPC, CPA, ROAS) y los insights del mes." }, { "titulo": "Acceso al Dashboard", "descripcion": "Tendrás acceso completo a la cuenta de Google Ads para una total transparencia." } ] },
+      "seccion_faq": { "titulo": "Preguntas Frecuentes", "preguntas": [ { "pregunta": "¿Cuál es la inversión mínima recomendada?", "respuesta": "Depende mucho del sector, pero recomiendo empezar con un presupuesto diario que permita obtener suficientes datos para optimizar, normalmente a partir de 15-20€/día." } ] },
       "cta_texto": "Optimiza tus Campañas"
     },
     "analitica-digital": {
       "slug": "analitica-digital",
       "translation_key": "analitica-digital",
       "titulo_pagina": "Configuraciones Técnicas de Marketing",
-      "meta_description": "Implementación y configuración experta de GTM, GA4, Search Console, BigQuery y Google Business Profile para una medición de datos precisa.",
+      "meta_description": "Implementación experta de GTM, GA4, Search Console, BigQuery y Google Business Profile.",
       "titulo_principal": "Setup Técnico para Marketing Digital",
       "subtitulo": "Toma decisiones basadas en datos fiables y bien estructurados.",
-      "descripcion_html": "<p>...</p>",
-      "beneficios_titulo": "Datos en los que Puedes Confiar",
-      "beneficios": [ "..." ],
+      "seccion_que_es": { "titulo": "¿Por qué es crucial una buena configuración?", "texto_html": "<p>Sin una recogida de datos precisa, cualquier esfuerzo de marketing es como navegar a ciegas. Una configuración técnica robusta te asegura que estás midiendo lo que realmente importa y que puedes confiar en tus métricas para tomar decisiones estratégicas.</p>" },
+      "seccion_que_analizamos": { "titulo": "Servicios de Configuración", "pilares": [ { "titulo": "Google Tag Manager (GTM)", "descripcion": "Centralizo la gestión de todas tus etiquetas de seguimiento.", "puntos": [ "Instalación y configuración de GTM", "Migración de etiquetas existentes", "Implementación de datalayers" ] }, { "titulo": "Google Analytics 4 (GA4)", "descripcion": "Configuro tu propiedad para medir el ciclo de vida del cliente.", "puntos": [ "Configuración de flujos de datos y eventos", "Creación de audiencias para remarketing", "Seguimiento de conversiones clave" ] }, { "titulo": "Otras Herramientas", "descripcion": "Integro y optimizo todo tu ecosistema de datos.", "puntos": [ "Verificación y configuración de Search Console", "Optimización de perfil de Google Business", "Conexión de GA4 con BigQuery" ] } ] },
+      "seccion_que_recibiras": { "titulo": "Un Ecosistema de Datos Sólido", "entregables": [ { "titulo": "Documento de Implementación", "descripcion": "Un archivo que detalla todas las configuraciones realizadas y cómo funcionan." }, { "titulo": "Dashboard Inicial", "descripcion": "Un panel básico en Looker Studio con las métricas más importantes para empezar a monitorizar." } ] },
+      "seccion_faq": { "titulo": "Preguntas Frecuentes", "preguntas": [ { "pregunta": "¿Puedes arreglar una configuración de GA4 ya existente?", "respuesta": "Sí, gran parte de mi trabajo consiste en auditar y corregir implementaciones de GA4 y GTM para asegurar la fiabilidad de los datos." } ] },
       "cta_texto": "Organiza tu Medición"
     },
     "linkbuilding": {
       "slug": "linkbuilding",
       "translation_key": "linkbuilding",
       "titulo_pagina": "Servicio de Linkbuilding y Autoridad",
-      "meta_description": "Estrategias de construcción de enlaces de calidad para aumentar la autoridad de tu dominio y mejorar tu posicionamiento en Google.",
+      "meta_description": "Estrategias de construcción de enlaces de calidad para aumentar la autoridad de tu dominio.",
       "titulo_principal": "Estrategias de Linkbuilding de Calidad",
       "subtitulo": "Construye la autoridad que tu dominio necesita para competir.",
-      "descripcion_html": "<p>...</p>",
-      "beneficios_titulo": "Aumenta tu Autoridad",
-      "beneficios": [ "..." ],
+      "seccion_que_es": { "titulo": "¿Qué es el linkbuilding ético?", "texto_html": "<p>El linkbuilding no se trata de conseguir cientos de enlaces de baja calidad, sino de ganar menciones editoriales en sitios web relevantes y con autoridad. Mi enfoque es 100% 'white-hat', centrado en crear relaciones y aportar valor para conseguir enlaces que impulsen tu SEO de forma sostenible.</p>" },
+      "seccion_que_analizamos": { "titulo": "Mi Proceso de Linkbuilding", "pilares": [ { "titulo": "Análisis y Estrategia", "descripcion": "Estudiamos tu perfil de enlaces actual y el de tus competidores.", "puntos": [ "Auditoría de perfil de backlinks", "Análisis de la brecha de enlaces (Link Gap)", "Definición de 'linkable assets'" ] }, { "titulo": "Prospección y Outreach", "descripcion": "Identificamos y contactamos con sitios web relevantes.", "puntos": [ "Búsqueda de blogs, medios y directorios de calidad", "Creación de propuestas de valor para el contacto", "Gestión de la comunicación y negociación" ] } ] },
+      "seccion_que_recibiras": { "titulo": "Resultados Tangibles", "entregables": [ { "titulo": "Informe de Enlaces Conseguidos", "descripcion": "Un reporte mensual con los enlaces obtenidos, sus métricas (DR, tráfico) y el anclaje utilizado." }, { "titulo": "Seguimiento de Posiciones", "descripcion": "Monitorización de cómo la estrategia de linkbuilding impacta en tus rankings para las palabras clave objetivo." } ] },
+      "seccion_faq": { "titulo": "Preguntas Frecuentes", "preguntas": [ { "pregunta": "¿Garantizas la obtención de X enlaces al mes?", "respuesta": "No. El linkbuilding de calidad no funciona con garantías numéricas. Mi objetivo es la calidad y la relevancia, no la cantidad. Te mantendré informado del progreso y los contactos realizados en todo momento." } ] },
       "cta_texto": "Consigue Enlaces de Calidad"
     }
-  },
-  "casos_de_estudio": {
-    "aumento-visibilidad-katarsia": {
-      "titulo": "1º puesto en Google para clínica en Barcelona: Tratamiento Sueroterapia",
-      "cliente": "Centro Médico Katarsia",
-      "problema": "Mejorar la venta de este tratamiento...",
-      "solucion": "Se desarrolló contenido informativo...",
-      "resultado": "Logramos un aumento del 564%...",
-      "imagenes": ["impresiones_katarsia.jpg", "incremento_ingresos_katarsia.jpg"]
-    },
-    "seo-local-macan": {
-      "titulo": "Mejora de Posicionamiento Orgánico para Despacho de Abogados",
-      "cliente": "Macan Abogados",
-      "problema": "El despacho de abogados necesitaba mejorar su visibilidad...",
-      "solucion": "Después de realizar una auditoría técnica...",
-      "resultado": "Como resultado del trabajo realizado...",
-      "imagenes": ["macan_impresiones.jpg"]
-    }
-  }
 }

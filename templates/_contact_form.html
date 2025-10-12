@@ -1,0 +1,31 @@
+<!-- Contenido para: templates/_contact_form.html (NUEVO ARCHIVO) -->
+<div class="contact-wrapper" style="max-width: 600px; margin: 2rem auto 0; text-align: left;">
+    <div class="section-heading" style="text-align: center;">
+        <h2>{{ _('Envíame un mensaje') }}</h2>
+        <p>{{ _('Rellena el formulario y daré respuesta a tu consulta dentro de las próximas 24 horas.') }}</p>
+    </div>
+    
+    <form id="contact-form" action="{{ url_for('enviar_mensaje') }}" method="POST" class="contact-form">
+        <input type="hidden" name="lang_code" value="{{ g.lang_code }}">
+        
+        <input type="text" name="nombre" placeholder="{{ _('Nombre') }}" required class="input">
+        
+        <input type="email" name="email" placeholder="{{ _('Email') }}" required class="input">
+        
+        <select name="pack_interes" required class="input">
+            <option value="" disabled selected>{{ _('Servicio de interés...') }}</option>
+            {% for pack_item in packs.proyectos %}
+                <option value="{{ pack_item }}">{{ _(pack_item) }}</option>
+            {% endfor %}
+            {% for pack_item in packs.horas %}
+                <option value="{{ pack_item.nombre }}">{{ _(pack_item.nombre) }}</option>
+            {% endfor %}
+        </select>
+
+        <textarea name="notas" rows="5" placeholder="{{ _('Cuéntame más sobre tu proyecto...') }}" class="input"></textarea>
+
+        <input type="hidden" id="recaptcha-response" name="g-recaptcha-response">
+        
+        <button type="submit" class="button" style="width: 100%;">{{ _('Enviar Mensaje') }}</button>
+    </form>
+</div>

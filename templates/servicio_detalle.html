@@ -1,4 +1,4 @@
-<!-- Contenido para: templates/servicio_detalle.html (VERSIÓN MEJORADA) -->
+<!-- Contenido para: templates/servicio_detalle.html (VERSIÓN FINAL Y CORREGIDA) -->
 {% extends "base.html" %}
 
 {% block title %}{{ servicio.titulo_pagina }}{% endblock %}
@@ -12,6 +12,7 @@
             <h1>{{ servicio.titulo_principal }}</h1>
             <p class="subtitle" style="font-size: 1.25rem; color: var(--text-secondary);">{{ servicio.subtitulo }}</p>
             <div class="hero-actions" style="margin-top: 2rem;">
+                <!-- Este botón ahora hace scroll suave hacia el formulario de abajo -->
                 <a href="#contacto" class="button">{{ servicio.cta_texto }}</a>
             </div>
         </div>
@@ -85,17 +86,32 @@
         </div>
     </section>
 
-    <!-- CTA FINAL -->
+    <!-- (CORREGIDO) SECCIÓN FINAL DE CONTACTO CON FORMULARIO -->
     <section id="contacto" class="section">
         <div class="container">
             <div class="cta-section">
-                <h2>{{ _('¿Listo para empezar?') }}</h2>
-                <p>{{ _('Hablemos de tu proyecto. Cuéntame sobre tus objetivos y te responderé en 1-2 días hábiles con los siguientes pasos.') }}</p>
-                <div class="hero-actions">
-                    <a href="mailto:{{ g.contact.email }}" class="button">{{ servicio.cta_texto }}</a>
-                </div>
+                <!-- Incluimos el formulario parcial que ya creamos -->
+                {% include '_contact_form.html' %}
             </div>
         </div>
     </section>
 </main>
+{% endblock %}
+
+
+{# (CORREGIDO) El bloque 'scripts' debe estar FUERA y DESPUÉS del bloque 'content' #}
+{% block scripts %}
+    <script>
+      // Script de reCAPTCHA para el formulario de esta página
+      document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var form = this;
+        grecaptcha.ready(function() {
+          grecaptcha.execute('{{ recaptcha_site_key }}', {action: 'submit'}).then(function(token) {
+            document.getElementById('recaptcha-response').value = token;
+            form.submit();
+          });
+        });
+      });
+    </script>
 {% endblock %}

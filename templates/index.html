@@ -129,27 +129,27 @@
             <h2>{{ _('¿Listo para empezar?') }}</h2>
             <p>{{ _('Hablemos de tu proyecto. Cuéntame sobre tus objetivos y te responderé en 1-2 días hábiles con los siguientes pasos.') }}</p>
             
-            <!-- (RESTAURADO) El Formulario de Contacto -->
-            <form id="contact-form" action="{{ url_for('enviar_mensaje') }}" method="POST" style="max-width: 600px; margin: 2rem auto 0; text-align: left; display: grid; gap: 1rem;">
-                <input type="hidden" name="lang_code" value="{{ g.lang_code }}">
-                
-                <input type="text" name="nombre" placeholder="{{ _('Nombre') }}" required style="padding: 0.75rem 1rem; border-radius: 0.5rem; border: 1px solid var(--border-subtle); background: var(--background); color: var(--text-primary);">
-                
-                <input type="email" name="email" placeholder="{{ _('Email') }}" required style="padding: 0.75rem 1rem; border-radius: 0.5rem; border: 1px solid var(--border-subtle); background: var(--background); color: var(--text-primary);">
-                
-                <select name="pack_interes" required style="padding: 0.75rem 1rem; border-radius: 0.5rem; border: 1px solid var(--border-subtle); background: var(--background); color: var(--text-primary);">
-                    <option value="" disabled selected>{{ _('Servicio de interés...') }}</option>
-                    {% for pack in packs.proyectos %}
-                        <option value="{{ pack }}">{{ _(pack) }}</option>
-                    {% endfor %}
-                </select>
+            <!-- Contenido para: templates/_contact_form.html (CORREGIDO) -->
+<form id="contact-form" action="{{ url_for('enviar_mensaje') }}" method="POST" style="max-width: 600px; margin: 2rem auto 0; text-align: left; display: grid; gap: 1rem;">
+    <input type="hidden" name="lang_code" value="{{ g.lang_code }}">
+    
+    <input type="text" name="nombre" placeholder="{{ _('Nombre') }}" required style="padding: 0.75rem 1rem; border-radius: 0.5rem; border: 1px solid var(--border-subtle); background: var(--background); color: var(--text-primary);">
+    
+    <input type="email" name="email" placeholder="{{ _('Email') }}" required style="padding: 0.75rem 1rem; border-radius: 0.5rem; border: 1px solid var(--border-subtle); background: var(--background); color: var(--text-primary);">
+    
+    <select name="pack_interes" required style="padding: 0.75rem 1rem; border-radius: 0.5rem; border: 1px solid var(--border-subtle); background: var(--background); color: var(--text-primary);">
+        <option value="" disabled selected>{{ _('Servicio de interés...') }}</option>
+        {% for pack in packs.proyectos %}
+            <option value="{{ pack }}">{{ _(pack) }}</option>
+        {% endfor %}
+    </select>
 
-                <textarea name="notas" rows="5" placeholder="{{ _('Cuéntame más sobre tu proyecto...') }}" style="padding: 0.75rem 1rem; border-radius: 0.5rem; border: 1px solid var(--border-subtle); background: var(--background); color: var(--text-primary);"></textarea>
+    <textarea name="notas" rows="5" placeholder="{{ _('Cuéntame más sobre tu proyecto...') }}" style="padding: 0.75rem 1rem; border-radius: 0.5rem; border: 1px solid var(--border-subtle); background: var(--background); color: var(--text-primary);"></textarea>
 
-                <input type="hidden" id="recaptcha-response" name="g-recaptcha-response">
-                
-                <button type="submit" class="button" style="width: 100%;">{{ _('Enviar Mensaje') }}</button>
-            </form>
+    <input type="hidden" id="recaptcha-response" name="g-recaptcha-response">
+    
+    <button type="submit" class="button" style="width: 100%;">{{ _('Enviar Mensaje') }}</button>
+</form>
 
         </div>
     </div>

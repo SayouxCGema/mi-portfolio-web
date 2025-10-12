@@ -76,6 +76,7 @@ def load_blog_posts(lang):
     posts.sort(key=itemgetter('date'), reverse=True)
     return posts
 
+
 @app.context_processor
 def inject_global_vars():
     """Hace que ciertas variables estén disponibles en todas las plantillas."""
@@ -85,7 +86,9 @@ def inject_global_vars():
         recaptcha_site_key=os.environ.get('RECAPTCHA_SITE_KEY'),
         current_year=datetime.utcnow().year,
         GA_MEASUREMENT_ID=os.environ.get('GA_MEASUREMENT_ID'),
-        # (NUEVO) Inyectamos el diccionario de idiomas para usarlo en el selector
+        # (CORREGIDO) Hacemos que los packs estén disponibles globalmente
+        packs=g.lang_data.get('service_packs', {}),
+        # (CORREGIDO) Y también la lista de idiomas para el selector
         languages=app.config['LANGUAGES']
     )
 
@@ -96,10 +99,13 @@ def home_redirect():
     detected_lang = request.accept_languages.best_match(app.config['LANGUAGES'].keys()) or 'es'
     return redirect(url_for('home', lang_code=detected_lang))
 
+# En app.py
+
 @app.route('/<lang_code>/')
 def home(lang_code):
+    """Página principal."""
+    # 'packs' ya no es necesario aquí, el context_processor se encarga.
     return render_template('index.html',
-                           packs=g.lang_data.get('service_packs', {}),
                            casos_de_estudio=g.lang_data.get('casos_de_estudio', {}))
 
 @app.route('/<lang_code>/casos-de-estudio/<slug>')

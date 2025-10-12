@@ -86,15 +86,18 @@
         </div>
     </section>
 
-    <!-- (CORREGIDO) SECCIÓN FINAL DE CONTACTO CON FORMULARIO -->
-    <section id="contacto" class="section">
-        <div class="container">
-            <div class="cta-section">
-                <!-- Incluimos el formulario parcial que ya creamos -->
-                {% include '_contact_form.html' %}
-            </div>
+    <!-- En templates/servicio_detalle.html -->
+
+<!-- (CORREGIDO) SECCIÓN FINAL DE CONTACTO CON FORMULARIO -->
+<section id="contacto" class="section">
+    <div class="container">
+        <!-- Usamos un contenedor simple en lugar de 'cta-section' -->
+        <div>
+            <!-- Incluimos el formulario parcial que ahora tiene sus propios estilos -->
+            {% include '_contact_form.html' %}
         </div>
-    </section>
+    </div>
+</section>
 </main>
 {% endblock %}
 

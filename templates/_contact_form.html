@@ -1,13 +1,15 @@
-<!-- Contenido para: templates/_contact_form.html (NUEVO ARCHIVO) -->
-<div class="contact-wrapper" style="max-width: 600px; margin: 2rem auto 0; text-align: left;">
-    <div class="section-heading" style="text-align: center;">
+<!-- Contenido para: templates/_contact_form.html (CON ESTILOS MEJORADOS) -->
+<div class="contact-wrapper" style="max-width: 600px; margin: 0 auto; text-align: left;">
+    <div class="section-heading" style="text-align: center; margin-bottom: 2rem;">
         <h2>{{ _('Envíame un mensaje') }}</h2>
         <p>{{ _('Rellena el formulario y daré respuesta a tu consulta dentro de las próximas 24 horas.') }}</p>
     </div>
     
-    <form id="contact-form" action="{{ url_for('enviar_mensaje') }}" method="POST" class="contact-form">
+    <!-- La clase 'form' del nuevo diseño aplica el 'display: grid' y el 'gap' -->
+    <form id="contact-form" action="{{ url_for('enviar_mensaje') }}" method="POST" class="form">
         <input type="hidden" name="lang_code" value="{{ g.lang_code }}">
         
+        <!-- (CORREGIDO) Añadida la clase 'input' a cada campo -->
         <input type="text" name="nombre" placeholder="{{ _('Nombre') }}" required class="input">
         
         <input type="email" name="email" placeholder="{{ _('Email') }}" required class="input">

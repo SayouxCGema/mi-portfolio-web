@@ -69,6 +69,22 @@
         </div>
     </section>
 
+    <!-- (NUEVO) SECCIÓN DE DESCARGA DE CHECKLIST -->
+    <section class="section" style="background-color: var(--border-subtle);">
+        <div class="container">
+            <div class="cta-section">
+                <h2>{{ servicio.seccion_checklist.titulo }}</h2>
+                <p>{{ servicio.seccion_checklist.subtitulo }}</p>
+                <div class="hero-actions" style="margin-top: 2rem;">
+                    <!-- El atributo 'download' fuerza la descarga del archivo -->
+                    <a href="{{ url_for('static', filename='recursos/' ~ servicio.seccion_checklist.nombre_archivo) }}" class="button" download>
+                        {{ servicio.seccion_checklist.texto_boton }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- SECCIÓN: FAQ -->
     <section class="section" style="background-color: var(--border-subtle);">
         <div class="container">

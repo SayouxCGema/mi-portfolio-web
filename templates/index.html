@@ -122,12 +122,51 @@
         </div>
     </section>
 
-<!-- En templates/index.html sección contacto-->
+<!-- En templates/index.html -->
 
+<!-- CONTACTO (VERSIÓN CORREGIDA Y CON ESTILO) -->
 <section id="contacto" class="section">
     <div class="container">
-        <!-- Esta única línea se encarga de insertar todo el formulario -->
-        {% include '_contact_form.html' %}
+        <!-- Reutilizamos el estilo '.cta-section' para el contenedor -->
+        <div class="cta-section">
+            <div class="section-heading" style="text-align: center; margin-bottom: 2rem;">
+                <h2>{{ _('¿Listo para empezar?') }}</h2>
+                <p>{{ _('Hablemos de tu proyecto. Cuéntame sobre tus objetivos y te responderé en 1-2 días hábiles con los siguientes pasos.') }}</p>
+            </div>
+            
+            <!-- Contenedor del formulario -->
+            <div style="max-width: 600px; margin: 0 auto;">
+                <!-- La clase 'form' aplica el display: grid y el espaciado correcto -->
+                <form id="contact-form" action="{{ url_for('enviar_mensaje') }}" method="POST" class="form">
+                    <input type="hidden" name="lang_code" value="{{ g.lang_code }}">
+                    
+                    <!-- Cada campo ahora usa la clase 'input' para recibir el estilo -->
+                    <input type="text" name="nombre" placeholder="{{ _('Nombre') }}" required class="input">
+                    
+                    <input type="email" name="email" placeholder="{{ _('Email') }}" required class="input">
+                    
+                    <select name="pack_interes" required class="input">
+                        <option value="" disabled selected>{{ _('Servicio de interés...') }}</option>
+                        {% if packs and packs.proyectos %}
+                            {% for pack_item in packs.proyectos %}
+                                <option value="{{ pack_item }}">{{ _(pack_item) }}</option>
+                            {% endfor %}
+                        {% endif %}
+                        {% if packs and packs.horas %}
+                             {% for pack_item in packs.horas %}
+                                <option value="{{ pack_item.nombre }}">{{ _(pack_item.nombre) }}</option>
+                            {% endfor %}
+                        {% endif %}
+                    </select>
+    
+                    <textarea name="notas" rows="4" placeholder="{{ _('Cuéntame más sobre tu proyecto...') }}" class="input"></textarea>
+    
+                    <input type="hidden" id="recaptcha-response" name="g-recaptcha-response">
+                    
+                    <button type="submit" class="button" style="width: 100%;">{{ _('Enviar Mensaje') }}</button>
+                </form>
+            </div>
+        </div>
     </div>
 </section>
 

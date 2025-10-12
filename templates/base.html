@@ -105,5 +105,14 @@
     
     {% block scripts %}{% endblock %}
     <!-- Tu script de chatbot de YourGPT va aquí -->
+    <script>
+    window.YGC_WIDGET_ID = "62e0786c-f68b-460a-a069-e569bfdc1c6a";
+    (function() {
+      var script = document.createElement('script');
+      script.src = "https://widget.yourgpt.ai/script.js";
+      script.id = 'yourgpt-chatbot';
+      document.body.appendChild(script);
+    })();
+</script>
 </body>
 </html>

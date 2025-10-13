@@ -114,6 +114,31 @@ html.dark .header { background-color: rgba(17, 24, 39, 0.8); }
 .input { width: 100%; padding: 0.75rem 1rem; border-radius: 0.5rem; border: 1px solid var(--border-subtle); background: var(--background); color: var(--text-primary); font-family: inherit; font-size: 1rem; }
 html.dark .input { border-color: #374151; } /* Mejora para tema oscuro */
 
+/* (NUEVO) ESTILOS PARA LA LISTA DE RESULTADOS */
+.results-list {
+    list-style: none;
+    padding: 0;
+    max-width: 720px;
+    margin: 3rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.results-list li {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+}
+.results-list li::before {
+    content: '✔';
+    color: var(--accent-primary);
+    font-weight: bold;
+    font-size: 1.25rem;
+    line-height: 1.5; /* Para alinear verticalmente */
+}
 /* --- 6. PÁGINAS INTERNAS (SERVICIOS, BLOG POST) --- */
 
 /* PÁGINA DE DETALLE DE SERVICIO */

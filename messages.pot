@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-10-13 19:47+0200\n"
+"POT-Creation-Date: 2025-10-13 20:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,79 +27,83 @@ msgstr ""
 
 #: templates/_contact_form.html:4
 msgid "Envíame un mensaje"
-msgstr ""
+msgstr "Send me a message"
 
 #: templates/_contact_form.html:5
 msgid ""
 "Rellena el formulario y daré respuesta a tu consulta dentro de las "
 "próximas 24 horas."
 msgstr ""
+"Fill out the form and I will respond to your inquiry within "
+"the next 24 hours."
 
-#: templates/_contact_form.html:13 templates/index.html:152
-#: templates/servicio_detalle.html:120
+#: templates/_contact_form.html:13 templates/index.html:210
+#: templates/servicio_detalle.html:128
 msgid "Nombre"
-msgstr ""
+msgstr "Name"
 
-#: templates/_contact_form.html:15 templates/index.html:154
-#: templates/servicio_detalle.html:121
+#: templates/_contact_form.html:15 templates/index.html:212
+#: templates/servicio_detalle.html:129
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
-#: templates/_contact_form.html:18 templates/index.html:157
-#: templates/servicio_detalle.html:124
+#: templates/_contact_form.html:18 templates/index.html:215
+#: templates/servicio_detalle.html:132
 msgid "Servicio de interés..."
-msgstr ""
+msgstr "Service of interest..."
 
-#: templates/_contact_form.html:27 templates/index.html:170
+#: templates/_contact_form.html:27 templates/index.html:228
 msgid "Cuéntame más sobre tu proyecto..."
-msgstr ""
+msgstr "Tell me more about your project..."
 
-#: templates/_contact_form.html:31 templates/index.html:174
-#: templates/servicio_detalle.html:141
+#: templates/_contact_form.html:31 templates/index.html:232
+#: templates/servicio_detalle.html:149
 msgid "Enviar Mensaje"
-msgstr ""
+msgstr "Send a Message"
 
 #: templates/base.html:7
 msgid "Gema Calderón Sayoux - Consultor SEO & Marketing Digital"
-msgstr ""
+msgstr "Gema Calderón Sayoux - SEO & Digital Marketing Consultant"
 
 #: templates/base.html:8
 msgid ""
 "Portfolio de Gema Calderón Sayoux. Servicios de SEO, Google Ads y "
 "consultoría web para hacer crecer tu negocio."
 msgstr ""
+"Portfolio of Gema Calderón Sayoux. SEO services, Google Ads and "
+"web consulting to make your business grow.""
 
 #: templates/base.html:34 templates/base.html:77
 msgid "Servicios"
-msgstr ""
+msgstr "Services"
 
 #: templates/base.html:36
 msgid "Auditoría SEO"
-msgstr ""
+msgstr "Seo Audit"
 
 #: templates/base.html:37
 msgid "Auditoría SEO IA"
-msgstr ""
+msgstr "IA SEO Audit"
 
 #: templates/base.html:38
 msgid "Anuncios Google Ads"
-msgstr ""
+msgstr "Google Ads"
 
 #: templates/base.html:39
 msgid "Analítica y Configuración Digital"
-msgstr ""
+msgstr "Digital Analytics and Configuration"
 
 #: templates/base.html:40
 msgid "Linkbuilding"
-msgstr ""
+msgstr "Luinkbuilding"
 
 #: templates/base.html:45 templates/base.html:78
 msgid "Proyectos"
-msgstr ""
+msgstr "Projects"
 
 #: templates/base.html:46 templates/base.html:79 templates/blog.html:4
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: templates/base.html:47 templates/base.html:80
 msgid "Sobre mí"
@@ -107,27 +111,31 @@ msgstr ""
 
 #: templates/base.html:67
 msgid "Contacto"
-msgstr ""
+msgstr "Contact"
 
 #: templates/blog.html:5
 msgid ""
 "Artículos y notas sobre SEO, Google Ads, analítica web y estrategias de "
 "marketing digital para hacer crecer tu negocio."
 msgstr ""
+"Articles and notes on SEO, Google Ads, web analytics and "
+"digital marketing strategies to grow your business.""
 
-#: templates/blog.html:13 templates/index.html:113
+#: templates/blog.html:13 templates/index.html:171
 msgid "Desde el Blog"
-msgstr ""
+msgstr "From Blog"
 
 #: templates/blog.html:14
 msgid ""
 "Aquí comparto mis conocimientos y reflexiones sobre el mundo del SEO y el"
 " marketing digital."
 msgstr ""
+"Here I share my knowledge and reflections on the world of SEO and"
+" digital marketing."
 
-#: templates/blog.html:34 templates/index.html:125
+#: templates/blog.html:34 templates/index.html:183
 msgid "Leer más"
-msgstr ""
+msgstr "Read more"
 
 #: templates/blog.html:40
 msgid "Aún no hay posts en el blog. ¡Vuelve pronto!"
@@ -135,192 +143,355 @@ msgstr ""
 
 #: templates/caso_de_estudio.html:4
 msgid "Caso de Estudio"
-msgstr ""
+msgstr "Case Study"
 
 #: templates/caso_de_estudio.html:10
 msgid "Cliente:"
-msgstr ""
+msgstr "Customer:"
 
 #: templates/caso_de_estudio.html:14
 msgid "Gráfico de resultados para"
-msgstr ""
+msgstr "Results chart for"
 
 #: templates/caso_de_estudio.html:18
 msgid "El Desafío"
-msgstr ""
+msgstr "The Challenge"
 
 #: templates/caso_de_estudio.html:21
 msgid "La Solución"
-msgstr ""
+msgstr "Solution"
 
 #: templates/caso_de_estudio.html:24
 msgid "El Resultado"
-msgstr ""
+msgstr "The Result"
 
 #: templates/caso_de_estudio.html:28
 msgid "¿Quieres resultados similares? ¡Hablemos!"
-msgstr ""
+msgstr "Do you want similar results? Let's talk!"
 
 #: templates/gracias.html:4
 msgid "¡Gracias por tu mensaje!"
-msgstr ""
+msgstr "Thank you for your message!"
 
 #: templates/gracias.html:25
 msgid "¡Mensaje Enviado!"
-msgstr ""
+msgstr "Message Sent!"
 
 #: templates/gracias.html:26
 msgid ""
 "Gracias por ponerte en contacto. He recibido tu consulta y te responderé "
 "a la mayor brevedad posible."
 msgstr ""
+"Thank you for getting in touch. I have received your inquiry and will get back to you "
+"as soon as possible."
 
 #: templates/gracias.html:28
 msgid "Volver al Inicio"
-msgstr ""
+msgstr "Back to Home"
 
 #: templates/index.html:9
 msgid "Impulsa tu negocio con SEO, Google Ads y Análisis de Datos."
-msgstr ""
+msgstr "Boost your business with SEO, Google Ads and Data Analytics."
 
 #: templates/index.html:10
 msgid ""
-"Hola, soy Gema 👋\n"
-"\n"
-"Soy consultora SEO freelance en Barcelona, especializada en ayudar a "
-"pequeñas y medianas empresas a ganar visibilidad online y atraer más "
-"clientes mediante estrategias digitales personalizadas.\n"
-"\n"
-"Mi enfoque combina SEO técnico, posicionamiento local, optimización de "
-"contenidos y analítica digital para que cada acción tenga un impacto real"
-" en tu negocio. No se trata solo de aparecer en Google, sino de conectar "
-"con las personas adecuadas, en el momento justo y con el mensaje "
-"correcto.\n"
-"\n"
-"Trabajo de forma cercana y transparente, adaptando cada estrategia a las "
-"necesidades de tu proyecto. Ya sea que necesites mejorar tu "
-"posicionamiento local en Barcelona, optimizar tu web para Google, o "
+"Hola, soy Gema, consultora SEO freelance en Barcelona, especializada en "
+"ayudar a pequeñas y medianas empresas a ganar visibilidad online y atraer"
+" más clientes mediante estrategias digitales personalizadas.</p>\n"
+"            <p>Mi enfoque combina SEO técnico, posicionamiento local, "
+"optimización de contenidos y analítica digital para que cada acción tenga"
+" un impacto real en tu negocio. No se trata solo de aparecer en Google, "
+"sino de conectar con las personas adecuadas, en el momento justo y con el"
+" mensaje correcto.</p>\n"
+"            <p>Trabajo de forma cercana y transparente, adaptando cada "
+"estrategia a las necesidades de tu proyecto. Ya sea que necesites mejorar"
+" tu posicionamiento local en Barcelona, optimizar tu web para Google, o "
 "analizar los resultados de tus campañas, puedo ayudarte a conseguir "
-"resultados medibles y sostenibles.\n"
-"\n"
-"🚀 Si buscas una freelance SEO en Barcelona con experiencia en Google Ads,"
-" Tag Manager, Analytics y estrategias de datos, estaré encantada de "
-"ayudarte a impulsar tu presencia digital y hacer crecer tu negocio paso a"
-" paso."
+"resultados medibles y sostenibles.</p>\n"
+"            <p>Si buscas una freelance SEO en Barcelona con experiencia "
+"en Google Ads, Tag Manager, Analytics y estrategias de datos, estaré "
+"encantada de ayudarte a impulsar tu presencia digital y hacer crecer tu "
+"negocio paso a paso."
 msgstr ""
+"Hi, I'm Gema, a freelance SEO consultant in Barcelona, specialized in "
+"helping small and medium businesses to gain online visibility and attract"
+" more customers through customized digital strategies.</p> <p>My approach combines technical SEO, local positioning, "
+" content optimization and digital analytics so that every action has"
+" a real impact on your business. It's not just about appearing on Google, "
+"but about connecting with the right people, at the right time and with the"
+" right message.</p> <p>I work closely and transparently, adapting each "
+"strategy to the needs of your project. Whether you need to improve"
+"your local positioning in Barcelona, optimize your website for Google, or "
+"analyze the results of your campaigns, I can help you achieve "
+"measurable and sustainable results.</p> <p>If you are looking for a freelance SEO in Barcelona with experience "
+"in Google Ads, Tag Manager, Analytics and data strategies, I will be "
+"happy to help you boost your digital presence and grow your "
+"business step by step."
 
-#: templates/index.html:20
+#: templates/index.html:15
 msgid "Ver proyectos"
-msgstr ""
+msgstr "View projects"
 
-#: templates/index.html:21
+#: templates/index.html:16
 msgid "Hablemos de tu proyecto"
-msgstr ""
+msgstr "Let's talk about your project"
 
-#: templates/index.html:29
+#: templates/index.html:24
 msgid "Empresas que han confiado en mí"
+msgstr "Companies that have trusted me"
+
+#: templates/index.html:36
+msgid "¿Por qué contratar a una freelance SEO en Barcelona como yo?"
+msgstr "Why hire a freelance SEO in Barcelona like me?"
+
+#: templates/index.html:37
+msgid ""
+"No solo ejecuto estrategias, sino que creo soluciones pensadas para las "
+"necesidades reales de cada negocio. Mi objetivo es que las pymes puedan "
+"acceder a un SEO de calidad sin depender de herramientas caras ni "
+"procesos complicados."
 msgstr ""
+"I not only execute strategies, but I create solutions designed for the "
+"real needs of each business. My goal is that SMEs can "
+"access a quality SEO without relying on expensive tools or "
+"complicated processes."
+
+#: templates/index.html:41
+msgid "Automatización con Python"
+msgstr "Python Automation"
 
 #: templates/index.html:42
-msgid "Cómo puedo ayudarte"
+msgid ""
+"Desarrollo scripts personalizados para auditar sitios web, generar "
+"informes SEO y analizar datos sin necesidad de herramientas de pago. Esto"
+" se traduce en ahorro, eficiencia y resultados más rápidos."
 msgstr ""
+"I develop custom scripts to audit websites, generate "
+"SEO reports and analyze data without the need for paid tools. This"
+" translates into savings, efficiency and faster results."
 
-#: templates/index.html:43
+#: templates/index.html:45
+msgid "Transparencia y acompañamiento"
+msgstr "Transparency and support"
+
+#: templates/index.html:46
+msgid ""
+"Trabajo contigo paso a paso, explicando las acciones, los resultados y "
+"las oportunidades de mejora. La comunicación es directa y sin tecnicismos"
+" innecesarios."
+msgstr ""
+"I work with you step by step, explaining actions, results and "
+"opportunities for improvement. Communication is direct and without "
+"unnecessary technicalities."
+
+#: templates/index.html:49
+#, python-format
+msgid "Enfoque 100% orientado a resultados"
+msgstr "100% results-oriented approach"
+
+#: templates/index.html:50
+msgid ""
+"Cada recomendación y cada cambio tienen un propósito: mejorar tu "
+"posicionamiento, atraer clientes cualificados y generar crecimiento "
+"sostenible."
+msgstr ""
+"Every recommendation and every change has a purpose: to improve your "
+"positioning, attract qualified customers and generate "
+"sustainable growth."
+
+#: templates/index.html:60
+msgid "¿Para quién trabajo?"
+msgstr "For whom do I work?"
+
+#: templates/index.html:61
+msgid ""
+"Cada negocio es diferente, pero todos comparten un mismo objetivo: "
+"crecer. Estas son las personas a las que puedo ayudar:"
+msgstr ""
+"Every business is different, but they all share the same goal: "
+"to grow. These are the people I can help:"
+
+#: templates/index.html:65
+msgid "Pequeñas empresas locales"
+msgstr "Small local businesses"
+
+#: templates/index.html:66
+msgid ""
+"Te ayudo a posicionarte en tu zona y atraer clientes cercanos mediante "
+"estrategias de SEO local efectivas y asequibles."
+msgstr ""
+"I help you position yourself in your area and attract nearby customers through "
+"effective and affordable local SEO strategies."
+
+#: templates/index.html:69
+msgid "Profesionales independientes"
+msgstr "Independent professionals"
+
+#: templates/index.html:70
+msgid ""
+"Si ofreces servicios profesionales (abogado, agente inmobiliario, centro "
+"médico...), te ayudo a mejorar tu visibilidad y a construir autoridad "
+"digital."
+msgstr ""
+"If you offer professional services (lawyer, real estate agent, center "
+"medical...), I help you to improve your visibility and build digital "
+"authority."
+
+#: templates/index.html:73
+msgid "Agencias de marketing"
+msgstr "Marketing agencies"
+
+#: templates/index.html:74
+msgid "Gestionando vuestros proyectos con marca blanca."
+msgstr "Managing your projects with white label."
+
+#: templates/index.html:84
+msgid "Cómo puedo ayudarte"
+msgstr "How can I help you?"
+
+#: templates/index.html:85
 msgid ""
 "Ofrezco un enfoque integral para mejorar tu presencia online, desde la "
 "estrategia inicial hasta la ejecución y el análisis de resultados."
 msgstr ""
+"I offer a comprehensive approach to improving your online presence, from the "
+"initial strategy to execution and results analysis.""
 
-#: templates/index.html:50
+#: templates/index.html:92
 msgid "Auditoría y Estrategia SEO"
-msgstr ""
+msgstr "SEO Audit & Strategy"
 
-#: templates/index.html:51
+#: templates/index.html:93
 msgid ""
 "Análisis profundos para identificar oportunidades y crear una hoja de "
 "ruta hacia el crecimiento orgánico."
 msgstr ""
+"In-depth analysis to identify opportunities and create a "
+"roadmap to organic growth."
 
-#: templates/index.html:53 templates/index.html:62 templates/index.html:71
+#: templates/index.html:95 templates/index.html:104 templates/index.html:113
 msgid "Saber más"
-msgstr ""
+msgstr "Read more"
 
-#: templates/index.html:59
+#: templates/index.html:101
 msgid "Gestión de Google Ads"
-msgstr ""
+msgstr "Google Ads Management"
 
-#: templates/index.html:60
+#: templates/index.html:102
 msgid ""
 "Creación y optimización de campañas de pago para maximizar tu ROI y "
 "captar leads cualificados."
 msgstr ""
+"Creating and optimizing paid campaigns to maximize your ROI and "
+"capture qualified leads."
 
-#: templates/index.html:68
+#: templates/index.html:110
 msgid "Configuraciones Técnicas"
-msgstr ""
+msgstr "Technical Configurations"
 
-#: templates/index.html:69
+#: templates/index.html:111
 msgid ""
 "Implementación experta de GA4, GTM, Search Console y más para una "
 "medición de datos precisa."
 msgstr ""
+"Expert implementation of GA4, GTM, Search Console and more for "
+"accurate data measurement."
 
-#: templates/index.html:82
+#: templates/index.html:124
 msgid "Proyectos Recientes"
-msgstr ""
+msgstr "Recent Projects"
 
-#: templates/index.html:91
+#: templates/index.html:133
 msgid "Ver caso completo"
-msgstr ""
+msgstr "View full case"
 
-#: templates/index.html:103
+#: templates/index.html:144
+msgid "¿Qué resultados puedes esperar?"
+msgstr "What results can you expect?"
+
+#: templates/index.html:145
+msgid ""
+"Mi objetivo no es solo mejorar tu posicionamiento en los resultados de "
+"Google, sino generar un impacto real en tu negocio."
+msgstr ""
+"My goal is not only to improve your positioning in the results of "
+"Google, but to generate a real impact on your business."
+
+#: templates/index.html:148
+msgid "Aumento de tráfico cualificado y leads relevantes"
+msgstr "Increase qualified traffic and relevant leads"
+
+#: templates/index.html:149
+msgid "Mayor visibilidad local en Barcelona y otras localidades"
+msgstr "Increased local visibility in Barcelona and other locations"
+
+#: templates/index.html:150
+msgid "Informes claros con métricas reales de crecimiento"
+msgstr "Clear reporting with real growth metrics"
+
+#: templates/index.html:151
+msgid "Procesos automatizados que reducen costes y tiempos"
+msgstr "Automated processes to reduce costs and time"
+
+#: templates/index.html:152
+msgid "Estrategias personalizadas con seguimiento continuo"
+msgstr "Personalized strategies with continuous monitoring"
+
+#: templates/index.html:161
 msgid ""
 "Con una pasión por la creatividad y un enfoque analítico, mi misión es "
 "ayudar a marcas como la tuya a conectar con su audiencia de manera "
 "auténtica y efectiva."
 msgstr ""
+"With a passion for creativity and an analytical approach, my mission is "
+"to help brands like yours connect with their audiences in an "
+"authentic and effective way."
 
-#: templates/index.html:114
+#: templates/index.html:172
 msgid "Ver todo"
-msgstr ""
+msgstr "View all"
 
-#: templates/index.html:141
+#: templates/index.html:199
 msgid "¿Listo para empezar?"
-msgstr ""
+msgstr "Ready to start?"
 
-#: templates/index.html:142
+#: templates/index.html:200
 msgid ""
 "Hablemos de tu proyecto. Cuéntame sobre tus objetivos y te responderé en "
 "1-2 días hábiles con los siguientes pasos."
 msgstr ""
+"Let's talk about your project. Tell me about your goals and I'll get back to you in "
+"1-2 business days with next steps."
 
-#: templates/index.html:185
+#: templates/index.html:243
 msgid "Agenda una Llamada"
-msgstr ""
+msgstr "Schedule a Call"
 
-#: templates/index.html:186
+#: templates/index.html:244
 msgid "Elige un hueco en mi calendario para una consulta inicial de 15 minutos."
-msgstr ""
+msgstr "Choose a time slot in my calendar for an initial 15-minute consultation."
 
-#: templates/post.html:21
+#: templates/post.html:23
 msgid "Publicado el"
-msgstr ""
+msgstr "Posted on"
 
-#: templates/post.html:37
+#: templates/post.html:48
 msgid "Volver al Blog"
-msgstr ""
+msgstr "Return to Blog"
 
-#: templates/servicio_detalle.html:112
+#: templates/servicio_detalle.html:120
 msgid "¿Interesado en este servicio?"
-msgstr ""
+msgstr "Interested in this service?"
 
-#: templates/servicio_detalle.html:113
+#: templates/servicio_detalle.html:121
 msgid ""
 "Rellena el formulario y me pondré en contacto contigo para explorar cómo "
 "podemos colaborar."
 msgstr ""
+"Fill out the form and I will contact you to explore how "
+"we can collaborate."
 
-#: templates/servicio_detalle.html:137
+#: templates/servicio_detalle.html:145
 msgid "Cuéntame más sobre este servicio..."
-msgstr ""
+msgstr "Tell me more about this service..."
 

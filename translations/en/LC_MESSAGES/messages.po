@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-10-09 22:16+0200\n"
+"POT-Creation-Date: 2025-10-13 19:47+0200\n"
 "PO-Revision-Date: 2025-08-06 17:11+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,14 +18,49 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: app.py:108
+#: app.py:114
 #, fuzzy
 msgid "Caso de estudio no encontrado"
 msgstr "Case Study"
 
-#: app.py:149
+#: app.py:155
 msgid "Post no encontrado"
 msgstr ""
+
+#: templates/_contact_form.html:4
+#, fuzzy
+msgid "Envíame un mensaje"
+msgstr "Send Message"
+
+#: templates/_contact_form.html:5
+msgid ""
+"Rellena el formulario y daré respuesta a tu consulta dentro de las "
+"próximas 24 horas."
+msgstr ""
+
+#: templates/_contact_form.html:13 templates/index.html:152
+#: templates/servicio_detalle.html:120
+msgid "Nombre"
+msgstr "Name"
+
+#: templates/_contact_form.html:15 templates/index.html:154
+#: templates/servicio_detalle.html:121
+msgid "Email"
+msgstr "Email"
+
+#: templates/_contact_form.html:18 templates/index.html:157
+#: templates/servicio_detalle.html:124
+msgid "Servicio de interés..."
+msgstr "Service of interest..."
+
+#: templates/_contact_form.html:27 templates/index.html:170
+msgid "Cuéntame más sobre tu proyecto..."
+msgstr "Tell me more about your project..."
+
+#: templates/_contact_form.html:31 templates/index.html:174
+#: templates/servicio_detalle.html:141
+msgid "Enviar Mensaje"
+msgstr "Send Message"
 
 #: templates/base.html:7
 #, fuzzy
@@ -37,6 +72,8 @@ msgid ""
 "Portfolio de Gema Calderón Sayoux. Servicios de SEO, Google Ads y "
 "consultoría web para hacer crecer tu negocio."
 msgstr ""
+"Portfolio of Gema Calderón Sayoux. SEO services, Google Ads and "
+"web consulting to make your business grow.""
 
 #: templates/base.html:34 templates/base.html:77
 msgid "Servicios"
@@ -78,23 +115,32 @@ msgstr "About Me"
 msgid "Contacto"
 msgstr "Contact"
 
-#: templates/blog.html:10
-msgid "Mi Blog"
+#: templates/blog.html:5
+msgid ""
+"Artículos y notas sobre SEO, Google Ads, analítica web y estrategias de "
+"marketing digital para hacer crecer tu negocio."
 msgstr ""
+"Articles and notes on SEO, Google Ads, web analytics and "
+"digital marketing strategies to grow your business.""
 
-#: templates/blog.html:11
-msgid "Artículos sobre SEO, Análisis de datos y Marketing digital."
+#: templates/blog.html:13 templates/index.html:113
+#, fuzzy
+msgid "Desde el Blog"
+msgstr "From the Blog"
+
+#: templates/blog.html:14
+msgid ""
+"Aquí comparto mis conocimientos y reflexiones sobre el mundo del SEO y el"
+" marketing digital."
 msgstr ""
+"Here I share my knowledge and reflections on the world of SEO and"
+" digital marketing."
 
-#: templates/blog.html:29 templates/post.html:21
-msgid "Publicado el"
-msgstr ""
+#: templates/blog.html:34 templates/index.html:125
+msgid "Leer más"
+msgstr "Read more"
 
-#: templates/blog.html:31
-msgid "Leer Más"
-msgstr ""
-
-#: templates/blog.html:35
+#: templates/blog.html:40
 msgid "Aún no hay posts en el blog. ¡Vuelve pronto!"
 msgstr ""
 
@@ -152,32 +198,57 @@ msgstr "Boost your business with SEO, Google Ads, and Data Analysis."
 
 #: templates/index.html:10
 msgid ""
-"Soy Gema, consultora digital especializada en ayudar a pequeñas y "
-"medianas empresas a crecer con soluciones digitales a medida, bien "
-"pensadas y que generan resultados reales."
+"Hola, soy Gema"
+"\n"
+"Soy consultora SEO freelance en Barcelona, especializada en ayudar a "
+"pequeñas y medianas empresas a ganar visibilidad online y atraer más "
+"clientes mediante estrategias digitales personalizadas.\n"
+"\n"
+"Mi enfoque combina SEO técnico, posicionamiento local, optimización de "
+"contenidos y analítica digital para que cada acción tenga un impacto real"
+" en tu negocio. No se trata solo de aparecer en Google, sino de conectar "
+"con las personas adecuadas, en el momento justo y con el mensaje "
+"correcto.\n"
+"\n"
+"Trabajo de forma cercana y transparente, adaptando cada estrategia a las "
+"necesidades de tu proyecto. Ya sea que necesites mejorar tu "
+"posicionamiento local en Barcelona, optimizar tu web para Google, o "
+"analizar los resultados de tus campañas, puedo ayudarte a conseguir "
+"resultados medibles y sostenibles.\n"
+"\n"
+"Si buscas una freelance SEO en Barcelona con experiencia en Google Ads,"
+" Tag Manager, Analytics y estrategias de datos, estaré encantada de "
+"ayudarte a impulsar tu presencia digital y hacer crecer tu negocio paso a"
+" paso."
 msgstr ""
-"I'm Gema, a digital consultant specializing in helping small and medium-"
-"sized businesses grow with custom, well-thought-out digital solutions "
-"that deliver real results."
+Hi, I’m Gema
 
-#: templates/index.html:12
+I’m a freelance SEO consultant based in Barcelona, helping small and medium-sized businesses grow online through smart, data-driven digital strategies.
+
+My approach combines technical SEO, local SEO, content optimization, and digital analytics to create real results — not just higher rankings, but meaningful connections with your audience at the right time and place.
+
+I work closely with each client to understand their goals and create customized strategies that deliver measurable impact. Whether you need to boost your local visibility in Barcelona, optimize your website for Google, or analyze your marketing performance, I can help you make confident, data-backed decisions.
+
+If you’re looking for a freelance SEO expert in Barcelona, let’s work together to build a strong digital presence and grow your business sustainably.
+
+#: templates/index.html:20
 #, fuzzy
 msgid "Ver proyectos"
 msgstr "Project-Based Packs"
 
-#: templates/index.html:13
+#: templates/index.html:21
 msgid "Hablemos de tu proyecto"
 msgstr "Let's talk about your project"
 
-#: templates/index.html:21
+#: templates/index.html:29
 msgid "Empresas que han confiado en mí"
 msgstr "Companies that have trusted me"
 
-#: templates/index.html:34
+#: templates/index.html:42
 msgid "Cómo puedo ayudarte"
 msgstr "How I can help you"
 
-#: templates/index.html:35
+#: templates/index.html:43
 msgid ""
 "Ofrezco un enfoque integral para mejorar tu presencia online, desde la "
 "estrategia inicial hasta la ejecución y el análisis de resultados."
@@ -185,11 +256,11 @@ msgstr ""
 "I offer a comprehensive approach to improving your online presence, from "
 "the initial strategy to execution and results analysis.\""
 
-#: templates/index.html:42
+#: templates/index.html:50
 msgid "Auditoría y Estrategia SEO"
 msgstr "SEO Audit and Strategy"
 
-#: templates/index.html:43
+#: templates/index.html:51
 msgid ""
 "Análisis profundos para identificar oportunidades y crear una hoja de "
 "ruta hacia el crecimiento orgánico."
@@ -197,16 +268,16 @@ msgstr ""
 "In-depth analysis to identify opportunities and create a roadmap to "
 "organic growth."
 
-#: templates/index.html:45 templates/index.html:54 templates/index.html:63
+#: templates/index.html:53 templates/index.html:62 templates/index.html:71
 #, fuzzy
 msgid "Saber más"
 msgstr "Read more"
 
-#: templates/index.html:51
+#: templates/index.html:59
 msgid "Gestión de Google Ads"
 msgstr "Google Ads Management"
 
-#: templates/index.html:52
+#: templates/index.html:60
 msgid ""
 "Creación y optimización de campañas de pago para maximizar tu ROI y "
 "captar leads cualificados."
@@ -214,11 +285,11 @@ msgstr ""
 "Creating and optimizing paid campaigns to maximize your ROI and capture "
 "qualified leads."
 
-#: templates/index.html:60
+#: templates/index.html:68
 msgid "Configuraciones Técnicas"
 msgstr "Technical Configurations"
 
-#: templates/index.html:61
+#: templates/index.html:69
 msgid ""
 "Implementación experta de GA4, GTM, Search Console y más para una "
 "medición de datos precisa."
@@ -226,16 +297,16 @@ msgstr ""
 "Expert implementation of GA4, GTM, Search Console and more for accurate "
 "data measurement."
 
-#: templates/index.html:74
+#: templates/index.html:82
 msgid "Proyectos Recientes"
 msgstr "Recent Projects"
 
-#: templates/index.html:83
+#: templates/index.html:91
 #, fuzzy
 msgid "Ver caso completo"
 msgstr "View Full Case Study"
 
-#: templates/index.html:95
+#: templates/index.html:103
 #, fuzzy
 msgid ""
 "Con una pasión por la creatividad y un enfoque analítico, mi misión es "
@@ -247,24 +318,15 @@ msgstr ""
 "effectively. I believe in marketing that not only sells but also adds "
 "value and builds lasting relationships."
 
-#: templates/index.html:105
-#, fuzzy
-msgid "Desde el Blog"
-msgstr "From the Blog"
-
-#: templates/index.html:106
+#: templates/index.html:114
 msgid "Ver todo"
 msgstr "View all"
 
-#: templates/index.html:117
-msgid "Leer más"
-msgstr "Read more"
-
-#: templates/index.html:129
+#: templates/index.html:141
 msgid "¿Listo para empezar?"
 msgstr "Ready to start?"
 
-#: templates/index.html:130
+#: templates/index.html:142
 msgid ""
 "Hablemos de tu proyecto. Cuéntame sobre tus objetivos y te responderé en "
 "1-2 días hábiles con los siguientes pasos."
@@ -272,38 +334,39 @@ msgstr ""
 "Let's talk about your project. Tell me about your goals and I'll get back"
 " to you in 1-2 business days with next steps."
 
-#: templates/index.html:136
-msgid "Nombre"
-msgstr "Name"
-
-#: templates/index.html:138
-msgid "Email"
-msgstr "Email"
-
-#: templates/index.html:141
-msgid "Servicio de interés..."
-msgstr "Service of interest..."
-
-#: templates/index.html:147
-msgid "Cuéntame más sobre tu proyecto..."
-msgstr "Tell me more about your project..."
-
-#: templates/index.html:151
-msgid "Enviar Mensaje"
-msgstr "Send Message"
-
-#: templates/index.html:162
+#: templates/index.html:185
 msgid "Agenda una Llamada"
 msgstr "Schedule a Call"
 
-#: templates/index.html:163
+#: templates/index.html:186
 msgid "Elige un hueco en mi calendario para una consulta inicial de 15 minutos."
 msgstr "Book an appointment on my calendar for an initial 15 minute consultation."
+
+#: templates/post.html:21
+msgid "Publicado el"
+msgstr "Published on"
 
 #: templates/post.html:37
 #, fuzzy
 msgid "Volver al Blog"
 msgstr "Back to Home"
+
+#: templates/servicio_detalle.html:112
+msgid "¿Interesado en este servicio?"
+msgstr "Interested in this service?"
+
+#: templates/servicio_detalle.html:113
+msgid ""
+"Rellena el formulario y me pondré en contacto contigo para explorar cómo "
+"podemos colaborar."
+msgstr ""
+"Fill out the form and I will contact you to explore how "
+"we can collaborate."
+
+#: templates/servicio_detalle.html:137
+#, fuzzy
+msgid "Cuéntame más sobre este servicio..."
+msgstr "Tell me more about your project..."
 
 #~ msgid "Gema Calderón Sayoux - Especialista en Marketing Digital"
 #~ msgstr "Gema Calderón Sayoux - Digital Marketing Specialist"
@@ -473,4 +536,26 @@ msgstr "Back to Home"
 
 #~ msgid "Visitar perfil de LinkedIn"
 #~ msgstr "Visit LinkedIn profile"
+
+#~ msgid "Mi Blog"
+#~ msgstr "My Blog"
+
+#~ msgid "Artículos sobre SEO, Análisis de datos y Marketing digital."
+#~ msgstr "Articles on SEO, Data Analysis and Digital Marketing."
+
+#~ msgid "Leer Más"
+#~ msgstr "Read More"
+
+#~ msgid ""
+#~ "Soy Gema, consultora digital especializada "
+#~ "en ayudar a pequeñas y medianas "
+#~ "empresas a crecer con soluciones "
+#~ "digitales a medida, bien pensadas y "
+#~ "que generan resultados reales."
+#~ msgstr ""
+#~ "I'm Gema, a digital consultant "
+#~ "specializing in helping small and "
+#~ "medium-sized businesses grow with custom,"
+#~ " well-thought-out digital solutions "
+#~ "that deliver real results."
 

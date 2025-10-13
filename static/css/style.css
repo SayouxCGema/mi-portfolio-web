@@ -1,4 +1,8 @@
-/* Contenido para: static/css/style.css (NUEVO DISEÑO LOVABLE) */
+/* ========================================================= */
+/* Contenido para: static/css/style.css (DISEÑO LOVABLE FINAL) */
+/* ========================================================= */
+
+/* --- 1. VARIABLES GLOBALES Y TEMAS --- */
 :root {
     --background: #FFFFFF;
     --text-primary: #111827;
@@ -15,50 +19,82 @@ html.dark {
     --accent-primary-state: #A5B4FC;
     --border-subtle: #1F2937;
 }
+
+/* --- 2. RESET Y ESTILOS BASE --- */
 *, ::before, ::after { box-sizing: border-box; }
 body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.5; color: var(--text-primary); background-color: var(--background); }
 a { color: inherit; text-decoration: inherit; }
 img, svg, video, canvas, audio, iframe, embed, object { display: block; max-width: 100%; }
 h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; line-height: 1.2; margin: 0; }
 p { margin: 0; }
+
+/* --- 3. LAYOUT Y COMPONENTES GLOBALES --- */
 .section { padding-top: 4rem; padding-bottom: 4rem; }
 .container { max-width: 80rem; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
 @media (min-width: 640px) { .container { padding-left: 1.5rem; padding-right: 1.5rem; } }
+
+.button { display: inline-flex; align-items: center; justify-content: center; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 600; background-color: var(--accent-primary); color: white; transition: background-color 0.2s ease; }
+.button:hover { background-color: var(--accent-primary-state); }
+.button-secondary { background-color: transparent; border: 1px solid var(--border-subtle); color: var(--text-primary); }
+.button-secondary:hover { background-color: var(--border-subtle); }
+
+.section-heading { text-align: center; }
+.section-heading h2 { font-size: 2rem; font-weight: 800; }
+.section-heading p { max-width: 42rem; margin: 1rem auto 0; color: var(--text-secondary); }
+
+/* --- 4. HEADER Y NAVEGACIÓN --- */
 .header { position: sticky; top: 0; z-index: 50; width: 100%; background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-subtle); }
 html.dark .header { background-color: rgba(17, 24, 39, 0.8); }
 .header-container { display: flex; align-items: center; justify-content: space-between; height: 4rem; }
 .header-logo { font-weight: 700; font-size: 1.125rem; }
 .header-nav { display: none; }
-@media (min-width: 768px) { .header-nav { display: flex; gap: 2rem; } }
+@media (min-width: 768px) { .header-nav { display: flex; gap: 2rem; align-items: center; } }
 .header-nav a { font-weight: 600; color: var(--text-secondary); transition: color 0.2s ease; }
 .header-nav a:hover { color: var(--text-primary); }
 .header-actions { display: flex; align-items: center; gap: 1rem; }
-.button { display: inline-flex; align-items: center; justify-content: center; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 600; background-color: var(--accent-primary); color: white; transition: background-color 0.2s ease; }
-.button:hover { background-color: var(--accent-primary-state); }
-.button-secondary { background-color: transparent; border: 1px solid var(--border-subtle); color: var(--text-primary); }
-.button-secondary:hover { background-color: var(--border-subtle); }
-.hamburger { display: block; padding: 0.5rem; border: none; background-color: transparent; }
+.hamburger { display: block; padding: 0.5rem; border: none; background-color: transparent; cursor: pointer; }
 @media (min-width: 768px) { .hamburger { display: none; } }
 .mobile-nav { position: fixed; top: 4rem; left: 0; right: 0; bottom: 0; z-index: 40; background-color: var(--background); display: none; flex-direction: column; padding: 2rem 1rem; }
 .mobile-nav.is-open { display: flex; }
 .mobile-nav a { font-size: 1.25rem; font-weight: 600; color: var(--text-secondary); padding: 1rem 0; }
+
+/* MENÚ DESPLEGABLE */
+.nav-dropdown-parent { position: relative; }
+.dropdown-arrow { font-size: 0.6em; margin-left: 2px; display: inline-block; transition: transform 0.2s ease; }
+.nav-dropdown-parent:hover .dropdown-arrow { transform: rotate(180deg); }
+.nav-dropdown-menu { position: absolute; top: 100%; left: 50%; padding: 0.5rem; padding-top: 1.5rem; background-color: var(--background); border: 1px solid var(--border-subtle); border-radius: 0.75rem; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); min-width: 240px; z-index: 60; opacity: 0; visibility: hidden; pointer-events: none; transform: translateX(-50%) translateY(-10px); transition: all 0.2s ease-out; }
+.nav-dropdown-parent:hover .nav-dropdown-menu { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+.nav-dropdown-menu a { display: block; padding: 0.5rem 1rem; border-radius: 0.5rem; }
+.nav-dropdown-menu a:hover { background-color: var(--border-subtle); }
+
+/* SELECTOR DE IDIOMA */
+.language-switcher { font-weight: 600; }
+.language-switcher a:hover { color: var(--accent-primary); }
+.lang-active { color: var(--text-primary); }
+
+/* --- 5. SECCIONES DE LA PÁGINA PRINCIPAL --- */
+
+/* HERO */
 .hero { text-align: center; padding: 5rem 1rem; }
 .hero h1 { font-size: 2.5rem; font-weight: 800; line-height: 1.1; letter-spacing: -0.025em; max-width: 42rem; margin: auto; }
 @media (min-width: 768px) { .hero h1 { font-size: 3.75rem; } }
 .hero p { max-width: 42rem; margin: 1.5rem auto 0; color: var(--text-secondary); font-size: 1.125rem; }
 .hero-actions { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; }
+
+/* CLIENTES */
 .clients-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; align-items: center; margin-top: 3rem; }
 @media (min-width: 768px) { .clients-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
 .clients-grid img { max-height: 2.5rem; width: auto; margin: auto; filter: grayscale(1) opacity(0.6); }
-.section-heading { text-align: center; }
-.section-heading h2 { font-size: 2rem; font-weight: 800; }
-.section-heading p { max-width: 42rem; margin: 1rem auto 0; color: var(--text-secondary); }
+
+/* SERVICIOS (TARJETAS) */
 .features-grid { display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 2rem; margin-top: 3rem; }
 @media (min-width: 768px) { .features-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .feature-card { padding: 2rem; border-radius: 0.75rem; background-color: var(--border-subtle); }
 .feature-card svg { width: 2.5rem; height: 2.5rem; color: var(--accent-primary); }
 .feature-card h3 { font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem; }
 .feature-card p { margin-top: 1rem; color: var(--text-secondary); }
+
+/* PROYECTOS/BLOG (TARJETAS CON IMAGEN) */
 .work-grid { display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 2rem; margin-top: 3rem; }
 @media (min-width: 1024px) { .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .work-card { border-radius: 0.75rem; overflow: hidden; border: 1px solid var(--border-subtle); }
@@ -66,115 +102,46 @@ html.dark .header { background-color: rgba(17, 24, 39, 0.8); }
 .work-card-content { padding: 1.5rem; }
 .work-card h3 { font-size: 1.25rem; font-weight: 700; }
 .work-card p { margin-top: 0.5rem; color: var(--text-secondary); }
+
+/* TESTIMONIAL */
 .testimonial-card { max-width: 42rem; margin: 3rem auto 0; text-align: center; }
 .testimonial-card p { font-size: 1.25rem; font-weight: 600; line-height: 1.4; }
 .testimonial-card footer { margin-top: 1.5rem; color: var(--text-secondary); }
+
+/* CONTACTO (FORMULARIO Y CTA) */
 .cta-section { background-color: var(--border-subtle); border-radius: 0.75rem; padding: 3rem 1.5rem; text-align: center; }
+.form { display: grid; gap: 1rem; }
+.input { width: 100%; padding: 0.75rem 1rem; border-radius: 0.5rem; border: 1px solid var(--border-subtle); background: var(--background); color: var(--text-primary); font-family: inherit; font-size: 1rem; }
+html.dark .input { border-color: #374151; } /* Mejora para tema oscuro */
+
+/* --- 6. PÁGINAS INTERNAS (SERVICIOS, BLOG POST) --- */
+
+/* PÁGINA DE DETALLE DE SERVICIO */
+.service-content .container { max-width: 800px; }
+.analysis-points { list-style: none; padding: 0; margin-top: 1rem; font-size: 0.9rem; }
+.analysis-points li { padding: 0.25rem 0; color: var(--text-secondary); }
+.faq-container { max-width: 800px; margin: 2rem auto 0; display: flex; flex-direction: column; gap: 1rem; }
+.faq-item { border: 1px solid var(--border-subtle); border-radius: 0.75rem; padding: 1rem 1.5rem; background-color: var(--background); }
+.faq-item summary { font-weight: 600; cursor: pointer; list-style-position: inside; }
+.faq-item p { margin-top: 1rem; padding-left: 1rem; }
+
+/* (NUEVO) PÁGINA DE POST INDIVIDUAL */
+.post-content { max-width: 720px; margin-left: auto; margin-right: auto; font-size: 1.125rem; line-height: 1.7; color: var(--text-secondary); }
+.post-content h2 { font-size: 1.875rem; font-weight: 800; color: var(--text-primary); margin-top: 2.5em; margin-bottom: 1em; line-height: 1.2; }
+.post-content h3 { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-top: 2em; margin-bottom: 0.8em; }
+.post-content a { color: var(--accent-primary); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.post-content a:hover { color: var(--accent-primary-state); }
+.post-content ul, .post-content ol { padding-left: 1.5em; margin-bottom: 1.5em; }
+.post-content li { margin-bottom: 0.5em; }
+.post-content strong { color: var(--text-primary); font-weight: 600; }
+.post-content blockquote { margin-left: 0; padding-left: 1em; border-left: 3px solid var(--accent-primary); font-style: italic; color: var(--text-primary); }
+.post-content pre { background-color: var(--border-subtle); border-radius: 0.5rem; padding: 1rem; overflow-x: auto; font-size: 0.9rem; }
+.post-content code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+
+/* --- 7. FOOTER --- */
 .footer { border-top: 1px solid var(--border-subtle); padding-top: 3rem; padding-bottom: 3rem; }
 .footer-container { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
 @media (min-width: 768px) { .footer-container { flex-direction: row; justify-content: space-between; } }
 .footer-nav { display: flex; gap: 2rem; }
 .footer-nav a { color: var(--text-secondary); font-weight: 600; }
 .footer-nav a:hover { color: var(--text-primary); }
-/* ========================================================= */
-/* (CORREGIDO) ESTILOS PARA MENÚ DESPLEGABLE (LOVABLE)     */
-/* ========================================================= */
-
-.nav-dropdown-parent {
-    position: relative;
-}
-
-.dropdown-arrow {
-    font-size: 0.6em;
-    margin-left: 2px;
-    display: inline-block; /* Permite aplicar transformaciones */
-    transition: transform 0.2s ease;
-}
-
-.nav-dropdown-parent:hover .dropdown-arrow {
-    transform: rotate(180deg);
-}
-
-.nav-dropdown-menu {
-    position: absolute;
-    top: 100%; /* Posiciona el menú justo al borde inferior del header */
-    left: 50%;
-    
-    /* (CORRECCIÓN CLAVE) Eliminamos el margin-top que creaba el hueco */
-    /* margin-top: 1rem; <-- LÍNEA ELIMINADA */
-    
-    padding: 0.5rem;
-    padding-top: 1.5rem; /* Añadimos padding superior para crear espacio VISUAL, no un hueco */
-    background-color: var(--background);
-    border: 1px solid var(--border-subtle);
-    border-radius: 0.75rem;
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    min-width: 240px;
-    z-index: 60;
-    
-    /* Animación de entrada */
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: translateX(-50%) translateY(-10px);
-    transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s;
-}
-
-.nav-dropdown-parent:hover .nav-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateX(-50%) translateY(0);
-}
-
-.nav-dropdown-menu a {
-    display: block;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-}
-
-.nav-dropdown-menu a:hover {
-    background-color: var(--border-subtle);
-    color: var(--text-primary);
-}
-/* Estilos adicionales para páginas de servicio */
-.service-content .container { max-width: 800px; }
-.analysis-points {
-    list-style: none;
-    padding: 0;
-    margin-top: 1rem;
-    font-size: 0.9rem;
-}
-.analysis-points li {
-    padding: 0.25rem 0;
-    color: var(--text-secondary);
-}
-.faq-container {
-    max-width: 800px;
-    margin: 2rem auto 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-.faq-item {
-    border: 1px solid var(--border-subtle);
-    border-radius: 0.75rem;
-    padding: 1rem 1.5rem;
-    background-color: var(--background);
-}
-.faq-item summary {
-    font-weight: 600;
-    cursor: pointer;
-    list-style-position: inside;
-}
-.faq-item p {
-    margin-top: 1rem;
-    padding-left: 1rem; /* Alinea la respuesta con la pregunta */
-}
-
-/* Selector de idioma (sin cambios, pero lo mantenemos aquí por organización) */
-.language-switcher { font-weight: 600; }
-.language-switcher a:hover { color: var(--accent-primary); }
-.lang-active { color: var(--text-primary); }

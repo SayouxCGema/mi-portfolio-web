@@ -68,23 +68,31 @@
             </div>
         </div>
     </section>
-
-    <!-- (NUEVO) SECCIÓN DE DESCARGA DE CHECKLIST -->
-    <section class="section" style="background-color: var(--border-subtle);">
-        <div class="container">
-            <div class="cta-section">
-                <h2>{{ servicio.seccion_checklist.titulo }}</h2>
-                <p>{{ servicio.seccion_checklist.subtitulo }}</p>
-                <div class="hero-actions" style="margin-top: 2rem;">
-                    <!-- El atributo 'download' fuerza la descarga del archivo -->
+<!-- (CORREGIDO) SECCIÓN DE DESCARGA DE CHECKLIST (SOLO SI EXISTE) -->
+{% if servicio.seccion_checklist %}
+<section class="section" style="background-color: var(--border-subtle);">
+    <div class="container">
+        <div class="cta-section">
+            <h2>{{ servicio.seccion_checklist.titulo }}</h2>
+            <p>{{ servicio.seccion_checklist.subtitulo }}</p>
+            <div class="hero-actions" style="margin-top: 2rem;">
+                
+                {# Comprobamos si es un enlace a archivo o un formulario de HubSpot #}
+                {% if servicio.seccion_checklist.nombre_archivo %}
                     <a href="{{ url_for('static', filename='recursos/' ~ servicio.seccion_checklist.nombre_archivo) }}" class="button" download>
                         {{ servicio.seccion_checklist.texto_boton }}
                     </a>
-                </div>
+                {% elif servicio.seccion_checklist.hubspot_form_html %}
+                    <div class="hubspot-form-wrapper" style="max-width: 450px; margin: 2rem auto 0;">
+                        {{ servicio.seccion_checklist.hubspot_form_html|safe }}
+                    </div>
+                {% endif %}
+
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
+{% endif %}
     <!-- SECCIÓN: FAQ -->
     <section class="section" style="background-color: var(--border-subtle);">
         <div class="container">

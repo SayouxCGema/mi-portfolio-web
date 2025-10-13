@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-10-09 22:16+0200\n"
+"POT-Creation-Date: 2025-10-13 19:47+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,46 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: app.py:108
+#: app.py:114
 msgid "Caso de estudio no encontrado"
 msgstr ""
 
-#: app.py:149
+#: app.py:155
 msgid "Post no encontrado"
+msgstr ""
+
+#: templates/_contact_form.html:4
+msgid "Envíame un mensaje"
+msgstr ""
+
+#: templates/_contact_form.html:5
+msgid ""
+"Rellena el formulario y daré respuesta a tu consulta dentro de las "
+"próximas 24 horas."
+msgstr ""
+
+#: templates/_contact_form.html:13 templates/index.html:152
+#: templates/servicio_detalle.html:120
+msgid "Nombre"
+msgstr ""
+
+#: templates/_contact_form.html:15 templates/index.html:154
+#: templates/servicio_detalle.html:121
+msgid "Email"
+msgstr ""
+
+#: templates/_contact_form.html:18 templates/index.html:157
+#: templates/servicio_detalle.html:124
+msgid "Servicio de interés..."
+msgstr ""
+
+#: templates/_contact_form.html:27 templates/index.html:170
+msgid "Cuéntame más sobre tu proyecto..."
+msgstr ""
+
+#: templates/_contact_form.html:31 templates/index.html:174
+#: templates/servicio_detalle.html:141
+msgid "Enviar Mensaje"
 msgstr ""
 
 #: templates/base.html:7
@@ -75,23 +109,27 @@ msgstr ""
 msgid "Contacto"
 msgstr ""
 
-#: templates/blog.html:10
-msgid "Mi Blog"
+#: templates/blog.html:5
+msgid ""
+"Artículos y notas sobre SEO, Google Ads, analítica web y estrategias de "
+"marketing digital para hacer crecer tu negocio."
 msgstr ""
 
-#: templates/blog.html:11
-msgid "Artículos sobre SEO, Análisis de datos y Marketing digital."
+#: templates/blog.html:13 templates/index.html:113
+msgid "Desde el Blog"
 msgstr ""
 
-#: templates/blog.html:29 templates/post.html:21
-msgid "Publicado el"
+#: templates/blog.html:14
+msgid ""
+"Aquí comparto mis conocimientos y reflexiones sobre el mundo del SEO y el"
+" marketing digital."
 msgstr ""
 
-#: templates/blog.html:31
-msgid "Leer Más"
+#: templates/blog.html:34 templates/index.html:125
+msgid "Leer más"
 msgstr ""
 
-#: templates/blog.html:35
+#: templates/blog.html:40
 msgid "Aún no hay posts en el blog. ¡Vuelve pronto!"
 msgstr ""
 
@@ -147,133 +185,142 @@ msgstr ""
 
 #: templates/index.html:10
 msgid ""
-"Soy Gema, consultora digital especializada en ayudar a pequeñas y "
-"medianas empresas a crecer con soluciones digitales a medida, bien "
-"pensadas y que generan resultados reales."
+"Hola, soy Gema 👋\n"
+"\n"
+"Soy consultora SEO freelance en Barcelona, especializada en ayudar a "
+"pequeñas y medianas empresas a ganar visibilidad online y atraer más "
+"clientes mediante estrategias digitales personalizadas.\n"
+"\n"
+"Mi enfoque combina SEO técnico, posicionamiento local, optimización de "
+"contenidos y analítica digital para que cada acción tenga un impacto real"
+" en tu negocio. No se trata solo de aparecer en Google, sino de conectar "
+"con las personas adecuadas, en el momento justo y con el mensaje "
+"correcto.\n"
+"\n"
+"Trabajo de forma cercana y transparente, adaptando cada estrategia a las "
+"necesidades de tu proyecto. Ya sea que necesites mejorar tu "
+"posicionamiento local en Barcelona, optimizar tu web para Google, o "
+"analizar los resultados de tus campañas, puedo ayudarte a conseguir "
+"resultados medibles y sostenibles.\n"
+"\n"
+"🚀 Si buscas una freelance SEO en Barcelona con experiencia en Google Ads,"
+" Tag Manager, Analytics y estrategias de datos, estaré encantada de "
+"ayudarte a impulsar tu presencia digital y hacer crecer tu negocio paso a"
+" paso."
 msgstr ""
 
-#: templates/index.html:12
+#: templates/index.html:20
 msgid "Ver proyectos"
 msgstr ""
 
-#: templates/index.html:13
+#: templates/index.html:21
 msgid "Hablemos de tu proyecto"
 msgstr ""
 
-#: templates/index.html:21
+#: templates/index.html:29
 msgid "Empresas que han confiado en mí"
 msgstr ""
 
-#: templates/index.html:34
+#: templates/index.html:42
 msgid "Cómo puedo ayudarte"
 msgstr ""
 
-#: templates/index.html:35
+#: templates/index.html:43
 msgid ""
 "Ofrezco un enfoque integral para mejorar tu presencia online, desde la "
 "estrategia inicial hasta la ejecución y el análisis de resultados."
 msgstr ""
 
-#: templates/index.html:42
+#: templates/index.html:50
 msgid "Auditoría y Estrategia SEO"
 msgstr ""
 
-#: templates/index.html:43
+#: templates/index.html:51
 msgid ""
 "Análisis profundos para identificar oportunidades y crear una hoja de "
 "ruta hacia el crecimiento orgánico."
 msgstr ""
 
-#: templates/index.html:45 templates/index.html:54 templates/index.html:63
+#: templates/index.html:53 templates/index.html:62 templates/index.html:71
 msgid "Saber más"
 msgstr ""
 
-#: templates/index.html:51
+#: templates/index.html:59
 msgid "Gestión de Google Ads"
 msgstr ""
 
-#: templates/index.html:52
+#: templates/index.html:60
 msgid ""
 "Creación y optimización de campañas de pago para maximizar tu ROI y "
 "captar leads cualificados."
 msgstr ""
 
-#: templates/index.html:60
+#: templates/index.html:68
 msgid "Configuraciones Técnicas"
 msgstr ""
 
-#: templates/index.html:61
+#: templates/index.html:69
 msgid ""
 "Implementación experta de GA4, GTM, Search Console y más para una "
 "medición de datos precisa."
 msgstr ""
 
-#: templates/index.html:74
+#: templates/index.html:82
 msgid "Proyectos Recientes"
 msgstr ""
 
-#: templates/index.html:83
+#: templates/index.html:91
 msgid "Ver caso completo"
 msgstr ""
 
-#: templates/index.html:95
+#: templates/index.html:103
 msgid ""
 "Con una pasión por la creatividad y un enfoque analítico, mi misión es "
 "ayudar a marcas como la tuya a conectar con su audiencia de manera "
 "auténtica y efectiva."
 msgstr ""
 
-#: templates/index.html:105
-msgid "Desde el Blog"
-msgstr ""
-
-#: templates/index.html:106
+#: templates/index.html:114
 msgid "Ver todo"
 msgstr ""
 
-#: templates/index.html:117
-msgid "Leer más"
-msgstr ""
-
-#: templates/index.html:129
+#: templates/index.html:141
 msgid "¿Listo para empezar?"
 msgstr ""
 
-#: templates/index.html:130
+#: templates/index.html:142
 msgid ""
 "Hablemos de tu proyecto. Cuéntame sobre tus objetivos y te responderé en "
 "1-2 días hábiles con los siguientes pasos."
 msgstr ""
 
-#: templates/index.html:136
-msgid "Nombre"
-msgstr ""
-
-#: templates/index.html:138
-msgid "Email"
-msgstr ""
-
-#: templates/index.html:141
-msgid "Servicio de interés..."
-msgstr ""
-
-#: templates/index.html:147
-msgid "Cuéntame más sobre tu proyecto..."
-msgstr ""
-
-#: templates/index.html:151
-msgid "Enviar Mensaje"
-msgstr ""
-
-#: templates/index.html:162
+#: templates/index.html:185
 msgid "Agenda una Llamada"
 msgstr ""
 
-#: templates/index.html:163
+#: templates/index.html:186
 msgid "Elige un hueco en mi calendario para una consulta inicial de 15 minutos."
+msgstr ""
+
+#: templates/post.html:21
+msgid "Publicado el"
 msgstr ""
 
 #: templates/post.html:37
 msgid "Volver al Blog"
+msgstr ""
+
+#: templates/servicio_detalle.html:112
+msgid "¿Interesado en este servicio?"
+msgstr ""
+
+#: templates/servicio_detalle.html:113
+msgid ""
+"Rellena el formulario y me pondré en contacto contigo para explorar cómo "
+"podemos colaborar."
+msgstr ""
+
+#: templates/servicio_detalle.html:137
+msgid "Cuéntame más sobre este servicio..."
 msgstr ""
 

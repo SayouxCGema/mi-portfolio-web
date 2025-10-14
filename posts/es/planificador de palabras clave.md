@@ -6,6 +6,8 @@ slug: "investigacion-palabras-clave-seo"
 summary:Este artículo es una guía completa sobre la investigación de palabras clave SEO. Cubrimos todo el proceso: desde la definición de conceptos y el uso de herramientas, hasta el análisis de métricas, el aprovechamiento de keywords long tail y el espionaje de la competencia. Aprende a construir una estrategia de contenido que atraiga tráfico cualificado y te posicione como un referente en tu sector.
 # (NUEVO) Meta descripción para SEO. Debe ser concisa (máx. 160 caracteres).
 meta_description: "Domina el SEO con nuestra guía de investigación de palabras clave. Aprende a encontrar las mejores keywords, analizar la intención de búsqueda y usar long tails para atraer tráfico cualificado."
+image: "consultor_seo_barcelona.jpg"
+image_alt: "consultor seo Barcelona."
 
 ---
 

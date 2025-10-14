@@ -76,7 +76,6 @@ def load_blog_posts(lang):
     posts.sort(key=itemgetter('date'), reverse=True)
     return posts
 
-
 @app.context_processor
 def inject_global_vars():
     """Hace que ciertas variables estén disponibles en todas las plantillas."""
@@ -116,10 +115,6 @@ def caso_de_estudio(lang_code, slug):
 
 # En app.py, dentro de la sección de RUTAS
 
-# En app.py
-
-# En app.py
-
 @app.route('/<lang_code>/servicios/<slug>')
 def servicio_detalle(lang_code, slug):
     servicio = g.lang_data.get('servicios_detalle', {}).get(slug)
@@ -153,7 +148,26 @@ def blog_index(lang_code):
 def blog_post(lang_code, slug):
     post = next((p for p in g.posts if p.get('slug') == slug), None)
     if not post: return _("Post no encontrado"), 404
-    return render_template('post.html', post=post)
+    # --- (NUEVO) LÓGICA PARA ENCONTRAR LA URL ALTERNATIVA ---
+    alternate_url = None
+    translation_key = post.get('translation_key')
+    
+    if translation_key:
+        # Determina cuál es el idioma alternativo
+        alternate_lang = 'en' if lang_code == 'es' else 'es'
+        
+        # Carga los posts del otro idioma
+        alternate_posts = load_blog_posts(alternate_lang)
+        
+        # Busca en esa lista el post que comparte la misma clave de traducción
+        alternate_post = next((p for p in alternate_posts if p.get('translation_key') == translation_key), None)
+        
+        if alternate_post:
+            # Si lo encuentra, construye la URL correcta con el slug traducido
+            alternate_url = url_for('blog_post', lang_code=alternate_lang, slug=alternate_post.get('slug'))
+            
+    # Pasamos el post actual Y la URL alternativa a la plantilla
+    return render_template('post.html', post=post, alternate_url=alternate_url)
 
 @app.route('/<lang_code>/gracias')
 def pagina_gracias(lang_code):

@@ -3,6 +3,22 @@
 
 {% block title %}{{ servicio.titulo_pagina }}{% endblock %}
 {% block meta_description %}{{ servicio.meta_description }}{% endblock %}
+{# (NUEVO) SOBREESCRIBIMOS EL SELECTOR DE IDIOMA #}
+{% block language_switcher %}
+<div class="language-switcher">
+    {% if alternate_url %}
+        {# Si tenemos una URL alternativa, la usamos #}
+        {% if g.lang_code == 'es' %}
+            <span class="lang-active">ES</span> | <a href="{{ alternate_url }}">EN</a>
+        {% else %}
+            <a href="{{ alternate_url }}">ES</a> | <span class="lang-active">EN</span>
+        {% endif %}
+    {% else %}
+        {# Fallback si no hay traducción definida #}
+        <span class="lang-active">{{ g.lang_code|upper }}</span>
+    {% endif %}
+</div>
+{% endblock %}
 
 {% block content %}
 <main>

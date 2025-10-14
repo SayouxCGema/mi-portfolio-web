@@ -3,6 +3,7 @@ title: "¿Estancado? 5 Señales Inequívocas de que tu Agencia Necesita un Consu
 date: "2025-08-28"
 author: "Gema Calderón Sayoux"
 slug: "5-senales-agencia-necesita-consultor-seo-freelance"
+translation_key: "post-agencia-freelance"
 summary: Aprende a identificar cuándo tu agencia necesita un consultor SEO freelance. Te mostramos 5 síntomas inequívocos y cómo un experto puede ser la solución.
 # (NUEVO) Meta descripción para SEO. Debe ser concisa (máx. 160 caracteres).
 meta_description: "¿Resultados SEO estancados en tu agencia? Descubre 5 señales claras de que necesitas un consultor SEO freelance para romper el techo y escalar tus proyectos."

@@ -3,6 +3,7 @@ title: "How to adapt your content strategy to optimize for LLM SEO"
 date: "2025-08-13"
 author: "Gema Calderón Sayoux"
 slug: "llm-seo-content-strategy"
+translation_key: "post-llm"
 summary: "The world of SEO has evolved, and today we face a revolutionary phenomenon: LLM SEO. For businesses and individuals looking to expand their personal brand and stand out in the digital realm, understanding how to optimize their content strategy for this new paradigm is crucial."
 # (NUEVO) Meta descripción para SEO. Debe ser concisa (máx. 160 caracteres).
 meta_description: "Discover how LLM SEO is reshaping digital strategies. Work with a freelance SEO consultant & LLM SEO strategist to boost your brand visibility."

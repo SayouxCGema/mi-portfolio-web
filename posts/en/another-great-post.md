@@ -3,6 +3,7 @@ title: "My Experience as a Freelance SEO in Barcelona: How SEO Can Transform You
 date: "2025-08-200"
 author: "Gema Calderón Sayoux"
 slug: "freelance-seo-barcelona-complete-guide"
+translation_key: "post-seo-bcn"
 summary: "Discover why hiring a freelance SEO in Barcelona can revolutionize your business with an efficient strategy. Contact me if you want to improve your digital brand online!"
 meta_description: "Learn from my experience as a freelance SEO in Barcelona and discover why hiring an independent professional can help you gain visibility, attract clients, and grow your business online sustainably."
 image: "freelance_seo_Barcelona.png"

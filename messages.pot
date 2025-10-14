@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-10-13 21:34+0200\n"
+"POT-Creation-Date: 2025-10-14 21:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: app.py:114
+#: app.py:103
 msgid "Caso de estudio no encontrado"
 msgstr ""
 
-#: app.py:155
+#: app.py:130 app.py:175
 msgid "Post no encontrado"
 msgstr ""
 
@@ -36,17 +36,17 @@ msgid ""
 msgstr ""
 
 #: templates/_contact_form.html:13 templates/index.html:210
-#: templates/servicio_detalle.html:128
+#: templates/servicio_detalle.html:144
 msgid "Nombre"
 msgstr ""
 
 #: templates/_contact_form.html:15 templates/index.html:212
-#: templates/servicio_detalle.html:129
+#: templates/servicio_detalle.html:145
 msgid "Email"
 msgstr ""
 
 #: templates/_contact_form.html:18 templates/index.html:215
-#: templates/servicio_detalle.html:132
+#: templates/servicio_detalle.html:148
 msgid "Servicio de interés..."
 msgstr ""
 
@@ -55,7 +55,7 @@ msgid "Cuéntame más sobre tu proyecto..."
 msgstr ""
 
 #: templates/_contact_form.html:31 templates/index.html:232
-#: templates/servicio_detalle.html:149
+#: templates/servicio_detalle.html:165
 msgid "Enviar Mensaje"
 msgstr ""
 
@@ -252,7 +252,7 @@ msgstr ""
 
 #: templates/index.html:49
 #, python-format
-msgid "Enfoque 100% orientado a resultados"
+msgid "Enfoque 100%% orientado a resultados"
 msgstr ""
 
 #: templates/index.html:50
@@ -412,25 +412,25 @@ msgstr ""
 msgid "Elige un hueco en mi calendario para una consulta inicial de 15 minutos."
 msgstr ""
 
-#: templates/post.html:23
+#: templates/post.html:40
 msgid "Publicado el"
 msgstr ""
 
-#: templates/post.html:48
+#: templates/post.html:65
 msgid "Volver al Blog"
 msgstr ""
 
-#: templates/servicio_detalle.html:120
+#: templates/servicio_detalle.html:136
 msgid "¿Interesado en este servicio?"
 msgstr ""
 
-#: templates/servicio_detalle.html:121
+#: templates/servicio_detalle.html:137
 msgid ""
 "Rellena el formulario y me pondré en contacto contigo para explorar cómo "
 "podemos colaborar."
 msgstr ""
 
-#: templates/servicio_detalle.html:145
+#: templates/servicio_detalle.html:161
 msgid "Cuéntame más sobre este servicio..."
 msgstr ""
 

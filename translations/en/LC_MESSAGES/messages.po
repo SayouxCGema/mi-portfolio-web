@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-10-13 21:34+0200\n"
+"POT-Creation-Date: 2025-10-14 21:45+0200\n"
 "PO-Revision-Date: 2025-08-06 17:11+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: app.py:114
+#: app.py:103
 #, fuzzy
 msgid "Caso de estudio no encontrado"
 msgstr "Case Study"
 
-#: app.py:155
+#: app.py:130 app.py:175
 msgid "Post no encontrado"
 msgstr ""
 
@@ -37,21 +37,21 @@ msgid ""
 "Rellena el formulario y daré respuesta a tu consulta dentro de las "
 "próximas 24 horas."
 msgstr ""
-"Fill out the form and I will respond to your inquiry within "
-"the next 24 hours."
+"Fill out the form and I will respond to your inquiry within the next 24 "
+"hours."
 
 #: templates/_contact_form.html:13 templates/index.html:210
-#: templates/servicio_detalle.html:128
+#: templates/servicio_detalle.html:144
 msgid "Nombre"
 msgstr "Name"
 
 #: templates/_contact_form.html:15 templates/index.html:212
-#: templates/servicio_detalle.html:129
+#: templates/servicio_detalle.html:145
 msgid "Email"
 msgstr "Email"
 
 #: templates/_contact_form.html:18 templates/index.html:215
-#: templates/servicio_detalle.html:132
+#: templates/servicio_detalle.html:148
 msgid "Servicio de interés..."
 msgstr "Service of interest..."
 
@@ -60,7 +60,7 @@ msgid "Cuéntame más sobre tu proyecto..."
 msgstr "Tell me more about your project..."
 
 #: templates/_contact_form.html:31 templates/index.html:232
-#: templates/servicio_detalle.html:149
+#: templates/servicio_detalle.html:165
 msgid "Enviar Mensaje"
 msgstr "Send Message"
 
@@ -218,6 +218,21 @@ msgid ""
 "encantada de ayudarte a impulsar tu presencia digital y hacer crecer tu "
 "negocio paso a paso."
 msgstr ""
+"Hi, I'm Gema, a freelance SEO consultant in Barcelona, specialized in "
+"helping small and medium businesses to gain online visibility and "
+"attractmore customers through customized digital strategies.</p> <p>My "
+"approach combines technical SEO, local positioning, content optimization "
+"and digital analytics so that every action hasa real impact on your "
+"business. It's not just about appearing on Google, but about connecting "
+"with the right people, at the right time and with theright message.</p> "
+"<p>I work closely and transparently, adapting each strategy to the needs "
+"of your project. Whether you need to improveyour local positioning in "
+"Barcelona, optimize your website for Google, or analyze the results of "
+"your campaigns, I can help you achieve measurable and sustainable "
+"results.</p> <p>If you are looking for a freelance SEO in Barcelona with "
+"experience in Google Ads, Tag Manager, Analytics and data strategies, I "
+"will be happy to help you boost your digital presence and grow your "
+"business step by step."
 
 #: templates/index.html:15
 #, fuzzy
@@ -244,9 +259,8 @@ msgid ""
 "procesos complicados."
 msgstr ""
 "I not only execute strategies, but I create solutions designed for the "
-"real needs of each business. My goal is that SMEs can "
-"access a quality SEO without relying on expensive tools or "
-"complicated processes."
+"real needs of each business. My goal is that SMEs can access a quality "
+"SEO without relying on expensive tools or complicated processes."
 
 #: templates/index.html:41
 msgid "Automatización con Python"
@@ -258,9 +272,9 @@ msgid ""
 "informes SEO y analizar datos sin necesidad de herramientas de pago. Esto"
 " se traduce en ahorro, eficiencia y resultados más rápidos."
 msgstr ""
-"I develop custom scripts to audit websites, generate "
-"SEO reports and analyze data without the need for paid tools. This"
-" translates into savings, efficiency and faster results."
+"I develop custom scripts to audit websites, generate SEO reports and "
+"analyze data without the need for paid tools. This translates into "
+"savings, efficiency and faster results."
 
 #: templates/index.html:45
 msgid "Transparencia y acompañamiento"
@@ -288,8 +302,7 @@ msgid ""
 "sostenible."
 msgstr ""
 "Every recommendation and every change has a purpose: to improve your "
-"positioning, attract qualified customers and generate "
-"sustainable growth."
+"positioning, attract qualified customers and generate sustainable growth."
 
 #: templates/index.html:60
 msgid "¿Para quién trabajo?"
@@ -300,8 +313,8 @@ msgid ""
 "Cada negocio es diferente, pero todos comparten un mismo objetivo: "
 "crecer. Estas son las personas a las que puedo ayudar:"
 msgstr ""
-"Every business is different, but they all share the same goal: "
-"to grow. These are the people I can help:"
+"Every business is different, but they all share the same goal: to grow. "
+"These are the people I can help:"
 
 #: templates/index.html:65
 msgid "Pequeñas empresas locales"
@@ -312,8 +325,8 @@ msgid ""
 "Te ayudo a posicionarte en tu zona y atraer clientes cercanos mediante "
 "estrategias de SEO local efectivas y asequibles."
 msgstr ""
-"I help you position yourself in your area and attract nearby customers through "
-"effective and affordable local SEO strategies."
+"I help you position yourself in your area and attract nearby customers "
+"through effective and affordable local SEO strategies."
 
 #: templates/index.html:69
 msgid "Profesionales independientes"
@@ -408,8 +421,8 @@ msgid ""
 "Mi objetivo no es solo mejorar tu posicionamiento en los resultados de "
 "Google, sino generar un impacto real en tu negocio."
 msgstr ""
-"My goal is not only to improve your positioning in the results of "
-"Google, but to generate a real impact on your business."
+"My goal is not only to improve your positioning in the results of Google,"
+" but to generate a real impact on your business."
 
 #: templates/index.html:148
 msgid "Aumento de tráfico cualificado y leads relevantes"
@@ -467,20 +480,20 @@ msgstr "Schedule a Call"
 msgid "Elige un hueco en mi calendario para una consulta inicial de 15 minutos."
 msgstr "Book an appointment on my calendar for an initial 15 minute consultation."
 
-#: templates/post.html:23
+#: templates/post.html:40
 msgid "Publicado el"
 msgstr "Published on"
 
-#: templates/post.html:48
+#: templates/post.html:65
 #, fuzzy
 msgid "Volver al Blog"
 msgstr "Back to Home"
 
-#: templates/servicio_detalle.html:120
+#: templates/servicio_detalle.html:136
 msgid "¿Interesado en este servicio?"
 msgstr "Interested in this service?"
 
-#: templates/servicio_detalle.html:121
+#: templates/servicio_detalle.html:137
 msgid ""
 "Rellena el formulario y me pondré en contacto contigo para explorar cómo "
 "podemos colaborar."
@@ -488,7 +501,7 @@ msgstr ""
 "Fill out the form and I will contact you to explore how we can "
 "collaborate."
 
-#: templates/servicio_detalle.html:145
+#: templates/servicio_detalle.html:161
 #, fuzzy
 msgid "Cuéntame más sobre este servicio..."
 msgstr "Tell me more about your project..."
@@ -720,40 +733,5 @@ msgstr "Tell me more about your project..."
 #~ " a impulsar tu presencia digital y"
 #~ " hacer crecer tu negocio paso a "
 #~ "paso."
-#~ msgstr ""
-“Hi, I'm Gema.”
-#~ “I'm a freelance SEO consultant in ”
-#~ “Barcelona, specialized in helping ”
-#~ “small and medium-sized companies to gain ”
-#~ “online visibility and attract more customers ”
-#~ “through customized digital strategies.”
-#~ “\n”
-#~ “\n”
-#~ My approach combines technical SEO, "
-#~ local SEO, content optimization and digital analytics."
-#~ “content optimization and digital analytics so that”
-#~ “every action has a real impact”
-#~ " on your business. It's not just about "
-#~ “ ”not just about appearing on Google, it's about "
-#~ “ to connect with the right people,”
-#~ “at the right time and with the”
-#~ “the right message.”
-#~ “\n”
-#~ “I work closely and transparently,”
-#~ “ adapting each strategy to the ”
-#~ " needs of your project. Whether "
-#~ “ Whether you need to improve your positioning ”
-#~ “local in Barcelona, optimize your website ”
-#~ “ for Google, or analyzing the results ”
-#~ “of your campaigns, I can help you to”
-#~ “ ” achieve measurable and "
-#~ sustainable."
-#~ “\n”
-#~ If you are looking for a freelance SEO in "
-#~ “ Barcelona with experience in Google Ads, ”
-#~ “ Tag Manager, Analytics and data strategies ”
-#~ “I'll be happy to help you”
-#~ “ to boost your digital presence and”
-#~ “ grow your business step by ”
-#~ “step by step.”
+#~ msgstr " on your business. It's not just about  needs of your project. Whether "
 

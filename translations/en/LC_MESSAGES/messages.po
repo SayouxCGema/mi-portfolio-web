@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-10-14 21:45+0200\n"
+"POT-Creation-Date: 2025-10-15 20:22+0200\n"
 "PO-Revision-Date: 2025-08-06 17:11+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: app.py:103
+#: app.py:105
 #, fuzzy
 msgid "Caso de estudio no encontrado"
 msgstr "Case Study"
 
-#: app.py:130 app.py:175
+#: app.py:172
 msgid "Post no encontrado"
 msgstr ""
 

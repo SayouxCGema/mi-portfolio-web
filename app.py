@@ -85,7 +85,8 @@ def inject_global_vars():
         current_year=datetime.utcnow().year,
         GA_MEASUREMENT_ID=os.environ.get('GA_MEASUREMENT_ID'),
         packs=g.lang_data.get('service_packs', {}),
-        languages=app.config['LANGUAGES']
+        languages=app.config['LANGUAGES'],
+        servicios_detalle=g.lang_data.get('servicios_detalle', {})
     )
 
 # --- 4. RUTAS PRINCIPALES DE LA APLICACIÓN ---

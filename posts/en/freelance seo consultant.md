@@ -3,6 +3,7 @@ title: "Stagnant? 5 Unmistakable Signs Your Agency Needs a Freelance SEO Consult
 date: "2025-08-25"
 author: "Gema Calderón Sayoux"
 slug: "5-senales-agency-needs-consultant-seo-freelance"
+translation_key: "post-agencia-freelance"
 summary: Learn how to identify when your agency needs a freelance SEO consultant. We present 5 unmistakable symptoms and explain how an expert can be the solution.
 # (NUEVO) Meta descripción para SEO. Debe ser concisa (máx. 160 caracteres).
 meta_description: "Stagnant SEO results in your agency? Discover 5 clear signs that you need a freelance SEO consultant to break through the ceiling and scale your projects."

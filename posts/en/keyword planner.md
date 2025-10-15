@@ -3,6 +3,7 @@ title: "SEO Keyword Research: Find the Best Keywords, Including Long-Tail"
 date: "2025-08-29"
 author: "Gema Calderón Sayoux"
 slug: "seo-keyword-research-guide"
+translation_key: "planificador-palabras"
 summary:This article is a comprehensive guide to SEO keyword research. We cover the entire process: from defining concepts and using essential tools, to analyzing key metrics, leveraging long-tail keywords, and analyzing your competition. Learn how to build a content strategy that attracts qualified traffic and positions you as an authority in your industry.
 # (NUEVO) Meta descripción para SEO. Debe ser concisa (máx. 160 caracteres).
 meta_description: "Master SEO with our complete keyword research guide. Learn how to find the best keywords, analyze search intent, and use long-tail strategies to attract qualified traffic."

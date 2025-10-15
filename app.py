@@ -124,31 +124,6 @@ def servicio_detalle(lang_code, slug):
 def blog_index(lang_code):
     return render_template('blog.html', posts=g.posts)
 
-# (CORREGIDO Y SIMPLIFICADO) RUTA PRINCIPAL DEL BLOG
-@app.route('/<lang_code>/blog/<slug>')
-def blog_post(lang_code, slug):
-    # La variable g.posts ya contiene los posts del idioma correcto gracias a before_request
-    post = next((p for p in g.posts if p.get('slug') == slug), None)
-    
-    # Si NO se encuentra el post, y estamos en /en/, activamos la lógica de redirección
-    if not post and lang_code == 'en':
-        return redirect_if_spanish_slug(slug)
-
-    if not post:
-        return _("Post no encontrado"), 404
-
-    # Lógica para encontrar la URL alternativa
-    alternate_url = None
-    translation_key = post.get('translation_key')
-    if translation_key:
-        alternate_lang = 'es' if lang_code == 'en' else 'en'
-        alternate_posts = load_blog_posts(alternate_lang)
-        alternate_post = next((p for p in alternate_posts if p.get('translation_key') == translation_key), None)
-        if alternate_post:
-            alternate_url = url_for('blog_post', lang_code=alternate_lang, slug=alternate_post.get('slug'))
-            
-    return render_template('post.html', post=post, alternate_url=alternate_url)
-
 # (VERSIÓN FINAL CORREGIDA) RUTA DEL BLOG POST CON LÓGICA DE REDIRECCIÓN INTEGRADA
 @app.route('/<lang_code>/blog/<slug>')
 def blog_post(lang_code, slug):

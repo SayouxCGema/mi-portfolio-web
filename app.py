@@ -215,12 +215,32 @@ def robots_txt(): return send_from_directory(app.static_folder, 'robots.txt')
 @app.route('/favicon.ico')
 def favicon(): return send_from_directory(os.path.join(app.root_path, 'static', 'favicons'), 'favicon.ico')
 
+# En app.py, reemplaza tu función sitemap actual
+
 @app.route('/sitemap.xml')
 def sitemap():
     URL_BASE = "https://gemacalderonsayoux.com"
+    
+    # Carga los datos específicos para cada idioma
     casos_es = load_lang_data('es').get('casos_de_estudio', {})
+    casos_en = load_lang_data('en').get('casos_de_estudio', {})
+    
+    servicios_es = load_lang_data('es').get('servicios_detalle', {})
+    servicios_en = load_lang_data('en').get('servicios_detalle', {})
+
     posts_es = load_blog_posts('es')
-    template = render_template('sitemap.xml', base_url=URL_BASE, casos_de_estudio=casos_es, posts=posts_es)
+    posts_en = load_blog_posts('en')
+    
+    # Pasa todos los datos a la plantilla
+    template = render_template('sitemap.xml', 
+                               base_url=URL_BASE, 
+                               casos_es=casos_es, 
+                               casos_en=casos_en,
+                               servicios_es=servicios_es,
+                               servicios_en=servicios_en,
+                               posts_es=posts_es,
+                               posts_en=posts_en)
+    
     response = make_response(template)
     response.headers['Content-Type'] = 'application/xml'
     return response

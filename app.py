@@ -1,5 +1,5 @@
 # ==========================================================
-# app.py - Versión Final, Robusta y Simplificada
+# app.py - Versión Final, Unificada y Robusta
 # ==========================================================
 
 import os
@@ -27,7 +27,7 @@ def get_locale():
 
 babel = Babel(app, locale_selector=get_locale)
 
-# --- 2. MANEJO DE DATOS Y CONTEXTO ---
+# --- 2. FUNCIONES AUXILIARES DE CARGA DE DATOS ---
 
 def load_lang_data(lang):
     """Carga datos de casos de estudio y servicios desde un archivo JSON."""
@@ -50,16 +50,18 @@ def load_blog_posts(lang):
             with open(os.path.join(dir_path, filename), 'r', encoding='utf-8') as f:
                 content_parts = f.read().split('---', 2)
                 if len(content_parts) >= 3:
-                    metadata = yaml.safe_load(content_parts[1])
-                    if 'date' in metadata and isinstance(metadata['date'], str):
-                        try:
+                    try:
+                        metadata = yaml.safe_load(content_parts[1])
+                        if 'date' in metadata and isinstance(metadata['date'], str):
                             metadata['date'] = datetime.strptime(metadata['date'], '%Y-%m-%d')
-                        except (ValueError, TypeError):
-                            metadata['date'] = datetime.now()
-                    metadata['content'] = markdown.markdown(content_parts[2], extensions=['fenced_code', 'tables'])
-                    posts.append(metadata)
+                        metadata['content'] = markdown.markdown(content_parts[2], extensions=['fenced_code', 'tables'])
+                        posts.append(metadata)
+                    except yaml.YAMLError as e:
+                        print(f"ERROR AL LEER YAML en el archivo {filename}: {e}")
     posts.sort(key=itemgetter('date'), reverse=True)
     return posts
+
+# --- 3. HOOKS DE PETICIÓN Y PROCESADORES DE CONTEXTO ---
 
 @app.before_request
 def before_request():
@@ -70,6 +72,7 @@ def before_request():
     else:
         g.lang_code = request.accept_languages.best_match(app.config['LANGUAGES'].keys()) or 'es'
     g.lang_data = load_lang_data(g.lang_code)
+    # NOTA: Cargamos los posts del idioma actual aquí. La ruta del blog los usará.
     g.posts = load_blog_posts(g.lang_code)
 
 @app.context_processor
@@ -85,11 +88,10 @@ def inject_global_vars():
         languages=app.config['LANGUAGES']
     )
 
-# --- 3. RUTAS PRINCIPALES DE LA APLICACIÓN ---
+# --- 4. RUTAS PRINCIPALES DE LA APLICACIÓN ---
 
 @app.route('/')
 def home_redirect():
-    """Redirige la raíz (/) a la versión con el idioma detectado."""
     detected_lang = request.accept_languages.best_match(app.config['LANGUAGES'].keys()) or 'es'
     return redirect(url_for('home', lang_code=detected_lang))
 
@@ -124,15 +126,14 @@ def servicio_detalle(lang_code, slug):
 def blog_index(lang_code):
     return render_template('blog.html', posts=g.posts)
 
-# (VERSIÓN FINAL CORREGIDA) RUTA DEL BLOG POST CON LÓGICA DE REDIRECCIÓN INTEGRADA
+# (VERSIÓN ÚNICA Y DEFINITIVA) RUTA DEL BLOG POST CON LÓGICA DE REDIRECCIÓN INTEGRADA
 @app.route('/<lang_code>/blog/<slug>')
 def blog_post(lang_code, slug):
-    # Primero, carga los posts del idioma solicitado
-    posts_actuales = load_blog_posts(lang_code)
-    post = next((p for p in posts_actuales if p.get('slug') == slug), None)
+    # g.posts ya contiene los posts del idioma correcto (ej: 'en') gracias a before_request
+    post = next((p for p in g.posts if p.get('slug') == slug), None)
 
     if post:
-        # ¡ÉXITO! Se encontró el post. Ahora busca su traducción.
+        # ¡ÉXITO! Se encontró el post. Ahora busca su traducción para el selector de idioma.
         alternate_url = None
         translation_key = post.get('translation_key')
         if translation_key:
@@ -143,30 +144,27 @@ def blog_post(lang_code, slug):
                 alternate_url = url_for('blog_post', lang_code=alternate_lang, slug=alternate_post.get('slug'))
         
         return render_template('post.html', post=post, alternate_url=alternate_url)
-
-    else:
-        # FALLO: No se encontró el post. ¿Quizás es un slug en el idioma incorrecto?
-        # Esto solo lo haremos para las URLs en inglés que fallen.
-        if lang_code == 'en':
-            # Buscamos si existe un post en ESPAÑOL con este slug
-            posts_es = load_blog_posts('es')
-            post_es = next((p for p in posts_es if p.get('slug') == slug), None)
-            
-            if post_es and 'translation_key' in post_es:
-                translation_key = post_es['translation_key']
-                
-                # Buscamos la traducción en INGLÉS
-                posts_en = load_blog_posts('en')
-                post_en_correspondiente = next((p for p in posts_en if p.get('translation_key') == translation_key), None)
-                
-                if post_en_correspondiente and 'slug' in post_en_correspondiente:
-                    # ¡ENCONTRADO! Redirigimos a la URL correcta.
-                    correct_url = url_for('blog_post', lang_code='en', slug=post_en_correspondiente['slug'])
-                    return redirect(correct_url, code=301)
+    
+    # FALLO: No se encontró el post en el idioma actual.
+    # Ahora comprobamos si es un slug en el idioma incorrecto para hacer una redirección 301.
+    if lang_code == 'en':
+        # El usuario está en /en/, pero el slug no se encontró. ¿Quizás es un slug en español?
+        posts_es = load_blog_posts('es')
+        post_es = next((p for p in posts_es if p.get('slug') == slug), None)
         
-        # Si todo lo demás falla, es un 404.
-        return _("Post no encontrado"), 404
-
+        if post_es and 'translation_key' in post_es:
+            # Encontramos un post en ESPAÑOL con este slug. Buscamos su traducción en INGLÉS.
+            translation_key = post_es['translation_key']
+            posts_en = load_blog_posts('en')
+            post_en_correspondiente = next((p for p in posts_en if p.get('translation_key') == translation_key), None)
+            
+            if post_en_correspondiente and 'slug' in post_en_correspondiente:
+                # ¡Lo encontramos! Redirigimos permanentemente a la URL inglesa correcta.
+                correct_url = url_for('blog_post', lang_code='en', slug=post_en_correspondiente['slug'])
+                return redirect(correct_url, code=301)
+    
+    # Si nada de lo anterior funciona, es un 404 definitivo.
+    return _("Post no encontrado"), 404
 
 @app.route('/<lang_code>/gracias')
 def pagina_gracias(lang_code):
@@ -175,33 +173,37 @@ def pagina_gracias(lang_code):
 @app.route('/enviar-mensaje', methods=['POST'])
 def enviar_mensaje():
     lang_code = request.form.get('lang_code', 'es')
-    # Tu lógica de reCAPTCHA y Resend aquí...
+    
+    # Lógica de reCAPTCHA
+    recaptcha_token = request.form.get('g-recaptcha-response')
+    secret_key = os.environ.get('RECAPTCHA_SECRET_KEY')
+    if not recaptcha_token or not secret_key:
+        print("ERROR: Token o clave secreta de reCAPTCHA faltantes.")
+        return redirect(url_for('pagina_gracias', lang_code=lang_code))
+    try:
+        response = requests.post('https://www.google.com/recaptcha/api/siteverify', data={'secret': secret_key, 'response': recaptcha_token})
+        result = response.json()
+        if not result.get('success') or result.get('score', 0) < 0.5:
+            print(f"SPAM DETECTADO por reCAPTCHA: Puntuación de {result.get('score', 0)}")
+            return redirect(url_for('pagina_gracias', lang_code=lang_code))
+    except Exception as e:
+        print(f"Error al verificar reCAPTCHA: {e}")
+        return redirect(url_for('pagina_gracias', lang_code=lang_code))
+
+    # Lógica de envío de email con Resend
+    nombre, apellidos, email_cliente, pack_interes, notas = request.form.get("nombre"), request.form.get("apellidos"), request.form.get("email"), request.form.get("pack_interes"), request.form.get("notas")
+    try:
+        resend.api_key = os.environ.get('RESEND_API_KEY')
+        contenido_html = f"""<h3>Nuevo Contacto Web</h3><p><strong>Nombre:</strong> {nombre} {apellidos}</p><p><strong>Email:</strong> {email_cliente}</p><p><strong>Interés:</strong> {pack_interes}</p><hr><p><strong>Mensaje:</strong></p><p>{notas}</p>"""
+        params = {"from": f"Contacto Web <contacto@{os.environ.get('MAIL_DOMAIN')}>", "to": [os.environ.get('CONTACT_EMAIL')], "subject": f"Nuevo mensaje de {nombre}", "html": contenido_html, "reply_to": email_cliente}
+        resend.Emails.send(params)
+        print("ÉXITO: Email enviado con Resend.")
+    except Exception as e:
+        print(f"ERROR AL ENVIAR EMAIL CON RESEND: {e}")
+    
     return redirect(url_for('pagina_gracias', lang_code=lang_code))
 
-# --- 4. RUTAS ESPECIALES (SEO, FAVICON Y REDIRECCIONES) ---
-
-# (NUEVO Y MUY IMPORTANTE) RUTA DE REDIRECCIÓN 301 PARA SLUGS DE BLOG ROTOS
-@app.route('/en/blog/<string:slug_espanol>')
-def redirect_old_blog_links(slug_espanol):
-    # 1. Busca el post en español que coincide con el slug de la URL
-    posts_es = load_blog_posts('es')
-    post_es = next((p for p in posts_es if p.get('slug') == slug_espanol), None)
-    
-    if post_es and 'translation_key' in post_es:
-        translation_key = post_es['translation_key']
-        
-        # 2. Busca el post en inglés con la misma clave de traducción
-        posts_en = load_blog_posts('en')
-        post_en_correspondiente = next((p for p in posts_en if p.get('translation_key') == translation_key), None)
-        
-        if post_en_correspondiente and 'slug' in post_en_correspondiente:
-            # 3. Si lo encuentra, crea la URL correcta y redirige permanentemente
-            correct_url = url_for('blog_post', lang_code='en', slug=post_en_correspondiente['slug'])
-            return redirect(correct_url, code=301)
-            
-    # 4. Si no encuentra ninguna coincidencia, es un 404 real.
-    return _("Post no encontrado"), 404
-
+# --- 5. RUTAS PARA SEO Y FAVICON ---
 @app.route('/robots.txt')
 def robots_txt(): return send_from_directory(app.static_folder, 'robots.txt')
 
@@ -218,6 +220,6 @@ def sitemap():
     response.headers['Content-Type'] = 'application/xml'
     return response
 
-# --- 5. ARRANQUE DE LA APLICACIÓN ---
+# --- 6. ARRANQUE DE LA APLICACIÓN ---
 if __name__ == "__main__":
     app.run(debug=True)

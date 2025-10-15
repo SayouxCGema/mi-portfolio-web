@@ -26,7 +26,7 @@
       "seccion_checklist": { "titulo": "🎯 FREE CHECKLIST", "subtitulo": "Download my step-by-step guide to performing your first SEO audit and start identifying opportunities today.", "nombre_archivo": "auditoria_rapida_script.zip", "texto_boton": "Download Checklist Now" },
       "cta_texto": "Request Your SEO Audit"
     },
-    "seo-ia-audit": {
+    "ai-seo-audit": {
       "translation_key": "auditoria-seo-ia",
       "titulo_pagina": "IA SEO Audit and Strategy",
       "meta_description": "Adapt your content strategy for the era of AI and Large Language Models (LLM)",

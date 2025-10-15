@@ -124,21 +124,74 @@ def servicio_detalle(lang_code, slug):
 def blog_index(lang_code):
     return render_template('blog.html', posts=g.posts)
 
+# (CORREGIDO Y SIMPLIFICADO) RUTA PRINCIPAL DEL BLOG
 @app.route('/<lang_code>/blog/<slug>')
 def blog_post(lang_code, slug):
+    # La variable g.posts ya contiene los posts del idioma correcto gracias a before_request
     post = next((p for p in g.posts if p.get('slug') == slug), None)
-    if not post: return _("Post no encontrado"), 404
+    
+    # Si NO se encuentra el post, y estamos en /en/, activamos la lógica de redirección
+    if not post and lang_code == 'en':
+        return redirect_if_spanish_slug(slug)
 
+    if not post:
+        return _("Post no encontrado"), 404
+
+    # Lógica para encontrar la URL alternativa
     alternate_url = None
     translation_key = post.get('translation_key')
     if translation_key:
-        alternate_lang = 'en' if lang_code == 'es' else 'es'
+        alternate_lang = 'es' if lang_code == 'en' else 'en'
         alternate_posts = load_blog_posts(alternate_lang)
         alternate_post = next((p for p in alternate_posts if p.get('translation_key') == translation_key), None)
         if alternate_post:
             alternate_url = url_for('blog_post', lang_code=alternate_lang, slug=alternate_post.get('slug'))
             
     return render_template('post.html', post=post, alternate_url=alternate_url)
+
+# (VERSIÓN FINAL CORREGIDA) RUTA DEL BLOG POST CON LÓGICA DE REDIRECCIÓN INTEGRADA
+@app.route('/<lang_code>/blog/<slug>')
+def blog_post(lang_code, slug):
+    # Primero, carga los posts del idioma solicitado
+    posts_actuales = load_blog_posts(lang_code)
+    post = next((p for p in posts_actuales if p.get('slug') == slug), None)
+
+    if post:
+        # ¡ÉXITO! Se encontró el post. Ahora busca su traducción.
+        alternate_url = None
+        translation_key = post.get('translation_key')
+        if translation_key:
+            alternate_lang = 'en' if lang_code == 'es' else 'es'
+            alternate_posts = load_blog_posts(alternate_lang)
+            alternate_post = next((p for p in alternate_posts if p.get('translation_key') == translation_key), None)
+            if alternate_post:
+                alternate_url = url_for('blog_post', lang_code=alternate_lang, slug=alternate_post.get('slug'))
+        
+        return render_template('post.html', post=post, alternate_url=alternate_url)
+
+    else:
+        # FALLO: No se encontró el post. ¿Quizás es un slug en el idioma incorrecto?
+        # Esto solo lo haremos para las URLs en inglés que fallen.
+        if lang_code == 'en':
+            # Buscamos si existe un post en ESPAÑOL con este slug
+            posts_es = load_blog_posts('es')
+            post_es = next((p for p in posts_es if p.get('slug') == slug), None)
+            
+            if post_es and 'translation_key' in post_es:
+                translation_key = post_es['translation_key']
+                
+                # Buscamos la traducción en INGLÉS
+                posts_en = load_blog_posts('en')
+                post_en_correspondiente = next((p for p in posts_en if p.get('translation_key') == translation_key), None)
+                
+                if post_en_correspondiente and 'slug' in post_en_correspondiente:
+                    # ¡ENCONTRADO! Redirigimos a la URL correcta.
+                    correct_url = url_for('blog_post', lang_code='en', slug=post_en_correspondiente['slug'])
+                    return redirect(correct_url, code=301)
+        
+        # Si todo lo demás falla, es un 404.
+        return _("Post no encontrado"), 404
+
 
 @app.route('/<lang_code>/gracias')
 def pagina_gracias(lang_code):

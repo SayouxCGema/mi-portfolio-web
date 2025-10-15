@@ -1,6 +1,6 @@
 ---
 title: "Mi experiencia como SEO freelance en Barcelona: cómo el posicionamiento puede transformar tu negocio online"
-date: "2025-08-200"
+date: "2025-08-20"
 author: "Gema Calderón Sayoux"
 slug: "freelance-seo-barcelona-guia-completa"
 translation_key: "post-seo-bcn"

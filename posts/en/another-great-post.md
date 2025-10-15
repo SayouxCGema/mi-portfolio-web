@@ -1,6 +1,6 @@
 ---
 title: "My Experience as a Freelance SEO in Barcelona: How SEO Can Transform Your Online Business"
-date: "2025-08-200"
+date: "2025-08-20"
 author: "Gema Calderón Sayoux"
 slug: "freelance-seo-barcelona-complete-guide"
 translation_key: "post-seo-bcn"

@@ -1,3 +1,4 @@
+---
 title: "Position Your Restaurant with AI and Local SEO"
 date: "2025-10-17"
 author: "Gema Calderón Sayoux"

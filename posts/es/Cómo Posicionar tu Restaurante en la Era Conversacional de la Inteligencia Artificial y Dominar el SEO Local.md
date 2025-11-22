@@ -6,6 +6,8 @@ slug: "posicionar-restaurante-ia-seo-local"
 translation_key: "how-to-position-restaurant-ai-local-seo"
 summary: "Descubre cómo optimizar tu restaurante para la inteligencia artificial y dominar el SEO local. Mejora tu Google My Business, gestiona reseñas y usa datos estructurados para atraer más clientes."
 meta_description: "Domina el SEO para restaurantes en la era IA. Guía para posicionar tu negocio localmente, optimizar GMB, gestionar reseñas y usar datos estructurados para triunfar digitalmente."
+image: "seo_local_restaurantes.png"
+image_alt: "SEO local restaurantes."
 ---
 
 ##¿Cómo Posicionar tu Restaurante en la Era Conversacional de la Inteligencia Artificial y Dominar el SEO Local?

@@ -76,35 +76,40 @@
         </div>
     </section>
 
-    <!-- (NUEVO) PARA QUIÉN TRABAJO -->
-    <section id="para-quien" class="section" style="background-color: var(--border-subtle);">
+    <!-- (NUEVO) PARA QUIÉN TRABAJO - CON FOTO DE FONDO -->
+    <section id="para-quien" class="section" style="
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('{{ url_for('static', filename='img/asesor_seo_barcelona.png') }}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed; /* Efecto Parallax: la foto se queda fija al hacer scroll */
+        padding: 80px 20px;">
+        
         <div class="container">
             <div class="section-heading">
-                <h2>{{ _('¿Para quién trabajo?') }}</h2>
-                <p>{{ _('Cada negocio es diferente, pero todos comparten un mismo objetivo: crecer. Estas son las personas a las que puedo ayudar:') }}</p>
+                <!-- Forzamos color blanco solo para esta cabecera porque el fondo es oscuro -->
+                <h2 style="color: white;">{{ _('¿Para quién trabajo?') }}</h2>
+                <p style="color: white;">{{ _('Cada negocio es diferente, pero todos comparten un mismo objetivo: crecer. Estas son las personas a las que puedo ayudar:') }}</p>
             </div>
+            
             <div class="features-grid">
+                <!-- Las tarjetas mantienen su fondo original (var(--background)), 
+                     por lo que se verán como cajas claras sobre la foto oscura. -->
                 <div class="feature-card" style="background-color: var(--background);">
                     <h3>{{ _('Pequeñas empresas locales') }}</h3>
                     <p>{{ _('Te ayudo a posicionarte en tu zona y atraer clientes cercanos mediante estrategias de SEO local efectivas y asequibles.') }}</p>
                 </div>
+                
                 <div class="feature-card" style="background-color: var(--background);">
                     <h3>{{ _('Profesionales independientes') }}</h3>
                     <p>{{ _('Si ofreces servicios profesionales (abogado, agente inmobiliario, centro médico...), te ayudo a mejorar tu visibilidad y a construir autoridad digital.') }}</p>
                 </div>
+                
                 <div class="feature-card" style="background-color: var(--background);">
                     <h3>{{ _('Agencias de marketing') }}</h3>
                     <p>{{ _('Gestionando vuestros proyectos con marca blanca.') }}</p>
                 </div>
-                <!-- ========================================== -->
-            <!-- AQUI VA TU NUEVA IMAGEN EN LA PARTE INFERIOR -->
-            <!-- ========================================== -->
-            <div style="text-align: center; margin-top: 50px;">
-                <img src="{{ url_for('static', filename='img/asesor_seo_barcelona.png') }}" 
-     alt="Asesor SEO Freelancer Barcelona" 
-     style="display: block; margin: 20px auto; max-width: 600px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-            </div>
-         </div>
+            </div> 
         </div>
     </section>
 

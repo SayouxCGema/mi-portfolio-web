@@ -193,13 +193,42 @@
     <!-- SOBRE MÍ / TESTIMONIAL -->
     <section id="sobre-mi" class="section">
         <div class="container">
-            <div class="testimonial-card">
-                <p>"{{ _('Con una pasión por la creatividad y un enfoque analítico, mi misión es ayudar a marcas como la tuya a conectar con su audiencia de manera auténtica y efectiva.') }}"</p>
-                <footer>— Gema Calderón Sayoux</footer>
+            
+            <!-- Usamos Flexbox para alinear Texto + Foto -->
+            <!-- flex-wrap: wrap asegura que en móvil la foto baje y no se rompa el diseño -->
+            <div class="testimonial-card" style="
+                display: flex; 
+                align-items: center; 
+                justify-content: center; 
+                gap: 40px; 
+                flex-wrap: wrap; 
+                text-align: left; 
+                padding: 40px;">
+                
+                <!-- COLUMNA IZQUIERDA: TEXTO -->
+                <div style="flex: 1; min-width: 300px;">
+                    <p style="font-size: 1.2rem; margin-bottom: 20px;">
+                        "{{ _('Con una pasión por la creatividad y un enfoque analítico, mi misión es ayudar a marcas como la tuya a conectar con su audiencia de manera auténtica y efectiva.') }}"
+                    </p>
+                    <footer style="font-weight: bold; color: var(--primary);">— Gema Calderón Sayoux</footer>
+                </div>
+
+                <!-- COLUMNA DERECHA: FOTO REDONDA -->
+                <div style="flex-shrink: 0;"> <!-- flex-shrink evita que la foto se encoja -->
+                    <!-- CAMBIA 'gema-perfil.jpg' POR EL NOMBRE DE TU FOTO REAL -->
+                    <img src="{{ url_for('static', filename='img/fotogema.jpg') }}" 
+                         alt="Gema Calderón Sayoux" 
+                         style="
+                            width: 180px; 
+                            height: 180px; 
+                            object-fit: cover; /* IMPORTANTE: Recorta la foto para que llene el círculo sin deformarse */
+                            border-radius: 50%; /* Esto crea el círculo */
+                            border: 5px solid white; /* Marco blanco */
+                            box-shadow: 0 4px 15px rgba(0,0,0,0.15);"> <!-- Sombra suave -->
+                </div>
             </div>
         </div>
     </section>
-
     <!-- BLOG -->
     <section id="blog" class="section">
         <div class="container">

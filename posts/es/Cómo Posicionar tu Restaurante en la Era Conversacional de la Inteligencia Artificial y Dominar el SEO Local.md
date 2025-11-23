@@ -10,6 +10,7 @@ image: "seo_local_restaurantes.png"
 image_alt: "SEO local restaurantes."
 ---
 
+
 ##¿Cómo Posicionar tu Restaurante en la Era Conversacional de la Inteligencia Artificial y Dominar el SEO Local?
 
 La gastronomía se encuentra hoy en el centro de una revolución digital nunca vista. En ciudades con una escena competitiva como Barcelona, la supervivencia y el éxito de un restaurante ya no se miden únicamente por su buena comida o la calidez de su servicio, sino también por su habilidad para impactar en el mundo digital.

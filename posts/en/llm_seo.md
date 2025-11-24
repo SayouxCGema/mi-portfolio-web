@@ -39,7 +39,7 @@ Optimizing content for LLM SEO requires a targeted and precise adaptation. Here�
 - Enriched content: Create content that offers added value and informative experiences.
 - Pro Tip: Collaborate with an AI specialist to efficiently fine-tune the semantic reading of your content.
 
-If you only care about Google, you’re losing half the battle. Today, AIs like ChatGPT and Perplexity need to 'read' your site differently, and most websites are invisible to them. To ensure you don’t get left behind, I’ve created a free repository on my GitHub with the ultimate templates ready to copy and paste. Here you’ll find the perfect configuration for the classic robots.txt for your CMS and, most importantly, the new standard [llms.txt](https://gemacalderonsayoux.com/en/blog/llm-seo-content-strategy) that your website urgently needs to exist in the AI era.
+If you only care about Google, you’re losing half the battle. Today, AIs like ChatGPT and Perplexity need to 'read' your site differently, and most websites are invisible to them. To ensure you don’t get left behind, I’ve created a free repository on my GitHub with the ultimate templates ready to copy and paste. Here you’ll find the perfect configuration for the classic robots.txt for your CMS and, most importantly, the new standard [llms.txt](https://github.com/SayouxCGema/seo-robots-llm-templates-cms/blob/6ef275a93857fed8271506b85e892ab97c92df96/README.md) that your website urgently needs to exist in the AI era.
 
 #### Measurement and Adjustments
 Optimization is not a one-time process. You must continuously measure and adjust.

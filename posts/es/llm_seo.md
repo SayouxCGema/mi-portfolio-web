@@ -40,6 +40,7 @@ La optimización de contenidos para LLM SEO requiere de una adaptación dirigida
 - Contenidos enriquecidos: Crea contenido que ofrezca valor añadido y experiencias informativas.
 - Consejo Pro: Colabora con un especialista en IA para ajustar de manera eficiente la lectura semántica de tu contenido.
 
+ Si únicamente te preocupas por Google, estás perdiendo la mitad de la batalla. Hoy, las IAs como ChatGPT y Perplexity necesitan 'leer' tu sitio de una forma diferente y la mayoría de webs son invisibles para ellas. Para que no te quedes atrás, he creado un repositorio gratuito en mi GitHub con las plantillas definitivas listas para copiar y pegar. Aquí encontrarás la configuración perfecta del clásico robots.txt para tu CMS y, lo más importante, el nuevo estándar [llms.txt](https://gemacalderonsayoux.com/es/servicios/auditoria-seo-ia) que tu web necesita urgentemente para existir en la era de la IA.
 
 #### Medición y ajustes
 La optimización no es un proceso de una vez. Debes medir y ajustar continuamente.
@@ -57,4 +58,4 @@ La optimización no es un proceso de una vez. Debes medir y ajustar continuament
 
 ## Tu siguiente paso hacia el éxito en LLM SEO
 
-Ahora que tienes un conocimiento profundo sobre el LLM SEO, es momento de implementar estos pasos y observar cómo tu marca personal comienza a brillar en el mundo digital. Recuerda, la optimización es un camino continuo, y tu consistencia será la llave para dominar el espacio digital. No dudes en contactarme para obtener más asesoría o para programar una consulta personalizada.
+Ahora que tienes un conocimiento profundo sobre el LLM SEO, es momento de implementar estos pasos y observar cómo tu marca personal comienza a brillar en el mundo digital. Recuerda, la optimización es un camino continuo, y tu consistencia será la llave para dominar el espacio digital. [No dudes en contactarme](https://gemacalderonsayoux.com/es/#contacto) para obtener más asesoría o para programar una consulta personalizada.
